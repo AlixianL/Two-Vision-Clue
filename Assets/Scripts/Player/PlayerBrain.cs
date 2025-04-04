@@ -26,3 +26,4 @@ public class PlayerBrain : MonoBehaviour
         player = ReInput.players.GetPlayer(playerID);
     }
 }
+    
