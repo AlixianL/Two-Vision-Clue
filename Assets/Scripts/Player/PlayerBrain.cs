@@ -11,6 +11,10 @@ public class PlayerBrain : MonoBehaviour
     public GameObject playerGameObject;
     public GameObject cameraGameObject;
     
+    [Header("Player Scripts"), Space(5)]
+    public CameraRotation cameraRotation;
+    public PlayerHandheldCamera playerHandheldCamera;
+    
     [Header("Variables"), Space(5)]
     public bool isAlive;
     

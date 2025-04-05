@@ -8,8 +8,9 @@ public class GumGumManager : MonoBehaviour
     public static GumGumManager Instance;
 
     [Header("References"), Space(5)]
-    [SerializeField] private TMP_Text _npcName;
-    [SerializeField] private TMP_Text _npcDialogues;
+    [SerializeField] private TMP_Text _gumgumName;
+    [SerializeField] private TMP_Text _gumgumDialogues;
+    public GameObject _GumGumPanel;
     
     private Queue<string> _sentences;
     
@@ -27,13 +28,11 @@ public class GumGumManager : MonoBehaviour
         _sentences = new Queue<string>();
     }
 
-    public void StartDialogue(GumGum npc)
+    public void StartDialogue(GumGum gumgum)
     {
-        _npcName.text = npc.NPCName;
-        
         _sentences.Clear();
 
-        foreach (string sentence in npc.NPCDilogue)
+        foreach (string sentence in gumgum.gumgumDilogue)
         {
             _sentences.Enqueue(sentence);
         }
@@ -41,7 +40,7 @@ public class GumGumManager : MonoBehaviour
         DisplayNextSentence();
     }
 
-    void DisplayNextSentence()
+    public void DisplayNextSentence()
     {
         if (_sentences.Count == 0)
         {
@@ -50,11 +49,16 @@ public class GumGumManager : MonoBehaviour
         }
 
         string sentence = _sentences.Dequeue();
-        _npcDialogues.text = sentence;
+        _gumgumDialogues.text = sentence;
     }
 
     void EndDialogue()
     {
-        Debug.Log("Dialogue End");
+        _GumGumPanel.SetActive(false);
+        
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        PlayerBrain.Instance.cameraRotation.useVerticalCameraRotation = true;
+        PlayerBrain.Instance.cameraRotation.useHorizontalCameraRotation = true;
     }
 }
