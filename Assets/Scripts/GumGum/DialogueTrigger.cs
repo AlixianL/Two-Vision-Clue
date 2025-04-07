@@ -5,19 +5,12 @@ using UnityEngine;
 
 public class DialogueTrigger : MonoBehaviour
 {
-    [Header("References"), Space(5)]
-    public GumGum gumGum;
-    
-    [Header("Variables"), Space(5)]
-    [SerializeField] private bool _isInRange;
-    
-    
-    void Update()
+    private void Update()
     {
-        if (_isInRange && PlayerBrain.Instance.player.GetButtonDown("Interact"))
+        if (GumGumManager.Instance._isInRange && PlayerBrain.Instance.player.GetButtonDown("Interact"))
         {
             TriggerDialoque();
-            GumGumManager.Instance._GumGumPanel.SetActive(true);
+            GumGumManager.Instance.gumGumPanel.SetActive(true);
             
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
@@ -28,7 +21,15 @@ public class DialogueTrigger : MonoBehaviour
 
     void TriggerDialoque()
     {
-        GumGumManager.Instance.StartDialogue(gumGum);
+        if (PlayerBrain.Instance.asAlreadyTalkWhisGumGum)
+        {
+            GumGumManager.Instance.GumGumAsksThePlayerWhichHesBlockingOn();
+        }
+        else
+        {
+            GumGumManager.Instance.GumGumPresentHimself();
+            PlayerBrain.Instance.asAlreadyTalkWhisGumGum = true;
+        }
     }
 
 
@@ -36,7 +37,7 @@ public class DialogueTrigger : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            _isInRange = true;
+            GumGumManager.Instance._isInRange = true;
         }
     }
 
@@ -44,8 +45,8 @@ public class DialogueTrigger : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            _isInRange = false;
-            GumGumManager.Instance._GumGumPanel.SetActive(false);
+            GumGumManager.Instance._isInRange = false;
+            GumGumManager.Instance.gumGumPanel.SetActive(false);
         
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;

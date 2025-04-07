@@ -17,6 +17,8 @@ public class PlayerBrain : MonoBehaviour
     
     [Header("Variables"), Space(5)]
     public bool isAlive;
+
+    public bool asAlreadyTalkWhisGumGum = false;
     
     [Header("Rewired"), Space(5)]
     public int playerID;
