@@ -13,31 +13,43 @@ public class GumGumManager : MonoBehaviour
     public static GumGumManager Instance;
 
     [Header("UI References"), Space(5)]
-    [SerializeField] private TMP_Text _gumgumName;                // Nom de GumGum affiché dans l'UI (non utilisé ici)
-    [SerializeField] private TMP_Text _gumgumDialogues;           // Zone de texte pour afficher les dialogues
-    public GameObject gumGumPanel;              // Panneau UI contenant le dialogue
-    public GameObject enigmaContainer;          // Conteneur UI avec les boutons d’énigmes
+    [SerializeField] private TMP_Text _gumgumName;//-------------> Nom de GumGum affiché dans l'UI (non utilisé ici)
+    [SerializeField] private TMP_Text _gumgumDialogues;//--------> Zone de texte pour afficher les dialogues
+    public GameObject gumGumPanel;//-----------------------------> Panneau UI contenant le dialogue
+    public GameObject enigmaContainer;//-------------------------> Conteneur UI avec les boutons d’énigmes
 
     [Header("GumGum Logic"), Space(5)]
-    [SerializeField] private GumGum _gumGum;                      // Référence au script contenant les données de dialogues
+    [SerializeField] private GumGum _gumGum;//-------------------> Référence au script contenant les données de dialogues
 
     [Header("Clue Prefab System"), Space(5)]
-    [SerializeField] private GameObject cluePrefab;               // Prefab contenant un script "Clue" lié à un ScriptableObject
-    [SerializeField] private Transform clueSpawnPoint;            // Point où instancier l’indice
+    [SerializeField] private GameObject cluePrefab;//------------> Prefab contenant un script "Clue" lié à un ScriptableObject
+    
+    private Dictionary<int, Transform> enigmaSpawnPoint;//------> Dictionnaire liant une énigme a un point de spawn 
+    [SerializeField] private EnigmaSpawn[] spawnPointsArray;//---> Array regroupant les Dictionnaire enigmaSpawnPoint
 
-    private Queue<string> _sentences;                             // File d'attente contenant les phrases à afficher
+
+    private Queue<string> _sentences;//--------------------------> File d'attente contenant les phrases à afficher
 
     [Header("State Variables"), Space(5)]
-    [HideInInspector] public bool _isInRange;                     // Indique si le joueur est proche de GumGum
+    [HideInInspector] public bool _isInRange;//------------------> Indique si le joueur est proche de GumGum
 
     void Awake()
-    {
+    {         
         if (Instance == null)
         {
             Instance = this;
         }
 
         _sentences = new Queue<string>();
+        
+        // Remplir le dictionnaire de spawn points
+        enigmaSpawnPoint = new Dictionary<int, Transform>();
+        
+        foreach (var entry in spawnPointsArray)
+        {
+            if (!enigmaSpawnPoint.ContainsKey(entry.enigmaNumber))
+                enigmaSpawnPoint.Add(entry.enigmaNumber, entry.spawnPoint);
+        }
     }
 
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -125,9 +137,19 @@ public class GumGumManager : MonoBehaviour
         // Instanciation de chaque prefab et chargement de ses données via le ScriptableObject
         foreach (var clueData in clues)
         {
-            GameObject instance = Instantiate(cluePrefab, clueSpawnPoint);
-            Clue clueComponent = instance.GetComponent<Clue>();
+            Transform targetSpawn;
+            if (!enigmaSpawnPoint.TryGetValue(enigmaNumber, out targetSpawn))
+            {
+                Debug.LogWarning($"No spawn point found for enigma {enigmaNumber}");
+                return;
+            }
 
+            float factorX = Random.Range(-0.6f, 0.6f);
+            float factorZ = Random.Range(-0.6f, 0.6f);
+            
+            GameObject instance = Instantiate(cluePrefab, new Vector3(targetSpawn.position.x +factorX, targetSpawn.position.y, targetSpawn.position.z + factorZ), targetSpawn.rotation);
+            Clue clueComponent = instance.GetComponent<Clue>();
+            
             if (clueComponent != null)
             {
                 clueComponent.Initialize(clueData);
@@ -183,3 +205,11 @@ public class GumGumManager : MonoBehaviour
         PlayerBrain.Instance.cameraRotation.useHorizontalCameraRotation = true;
     }
 }
+
+[System.Serializable]
+public class EnigmaSpawn
+{
+    public int enigmaNumber;
+    public Transform spawnPoint;
+}
+
