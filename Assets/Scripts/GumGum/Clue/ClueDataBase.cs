@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
 
-[CreateAssetMenu(fileName = "ClueDatabase", menuName = "Clue System/Clue Database")]
+[CreateAssetMenu(fileName = "D_ClueDatabase", menuName = "Clue System/Clue Database")]
 public class ClueDatabase : ScriptableObject
 {
     [SerializeField] private List<ClueData> allClues;
