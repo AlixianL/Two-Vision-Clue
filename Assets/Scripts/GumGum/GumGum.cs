@@ -28,13 +28,5 @@ public class GumGum : MonoBehaviour
 
         return clueDatabase.GetCluesForEnigma(enigmaName);
     }
-
-    /// <summary>
-    /// Optionnel : liste toutes les énigmes disponibles dans la base de données.
-    /// </summary>
-    public string[] GetAvailableEnigmas()
-    {
-        if (clueDatabase == null) return new string[0];
-        return clueDatabase.GetAllEnigmas();
-    }
+    
 }

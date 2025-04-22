@@ -23,10 +23,17 @@ public class GumGumManager : MonoBehaviour
 
     [Header("Clue Prefab System"), Space(5)]
     [SerializeField] private GameObject cluePrefab;//------------> Prefab contenant un script "Clue" lié à un ScriptableObject
+    private GameObject clueinstance;//---------------------------> Variable de stockage de l'instance
+    private Transform targetSpawn;//-----------------------------> transform du point de spawn
+    private int _clueIndexEnigma1 = 0;//-------------------------> Index pour instancier les indices au fur et a mesure
+    private int _clueIndexEnigma2 = 0;//-------------------------> Index pour instancier les indices au fur et a mesure
+    private int _clueIndexEnigma3 = 0;//-------------------------> Index pour instancier les indices au fur et a mesure
+    private int _clueIndexEnigma4 = 0;//-------------------------> Index pour instancier les indices au fur et a mesure
+    private int _clueIndexEnigma5 = 0;//-------------------------> Index pour instancier les indices au fur et a mesure
+    private int _clueIndexEnigma6 = 0;//-------------------------> Index pour instancier les indices au fur et a mesure
     
     private Dictionary<int, Transform> enigmaSpawnPoint;//------> Dictionnaire liant une énigme a un point de spawn 
     [SerializeField] private EnigmaSpawn[] spawnPointsArray;//---> Array regroupant les Dictionnaire enigmaSpawnPoint
-
 
     private Queue<string> _sentences;//--------------------------> File d'attente contenant les phrases à afficher
 
@@ -121,44 +128,90 @@ public class GumGumManager : MonoBehaviour
     /// <param name="enigmaNumber">Numéro de l'énigme (1 à N)</param>
     private void GiveClueForEnigma(int enigmaNumber)
     {
-        // Récupération du nom de l'énigme sous forme "Enigma_01", "Enigma_02", etc.
+        // Format attendu : "Enigma_01", "Enigma_02", etc.
         string enigmaKey = $"Enigma_{enigmaNumber:D2}";
 
-        // Récupération des données d’indices associées via le script GumGum
+        // Récupère les données d’indices depuis le ScriptableObject
         ClueData[] clues = _gumGum.GetCluesForEnigma(enigmaKey);
 
-        // Vérification s’il y a des indices disponibles
         if (clues == null || clues.Length == 0)
         {
-            Debug.LogWarning($"No clue data found for enigma {enigmaNumber}");
+            Debug.LogWarning($"Aucun indice trouvé pour {enigmaKey}");
             return;
         }
 
-        // Instanciation de chaque prefab et chargement de ses données via le ScriptableObject
-        foreach (var clueData in clues)
-        {
-            Transform targetSpawn;
-            if (!enigmaSpawnPoint.TryGetValue(enigmaNumber, out targetSpawn))
-            {
-                Debug.LogWarning($"No spawn point found for enigma {enigmaNumber}");
-                return;
-            }
+        // Récupère l’index courant pour cette énigme
+        int clueIndex = GetCurrentClueIndex(enigmaKey);
 
-            float factorX = Random.Range(-0.6f, 0.6f);
-            float factorZ = Random.Range(-0.6f, 0.6f);
-            
-            GameObject instance = Instantiate(cluePrefab, new Vector3(targetSpawn.position.x +factorX, targetSpawn.position.y, targetSpawn.position.z + factorZ), targetSpawn.rotation);
-            Clue clueComponent = instance.GetComponent<Clue>();
-            
-            if (clueComponent != null)
-            {
-                clueComponent.Initialize(clueData);
-            }
+        // Si on a déjà montré tous les indices, ne rien faire
+        if (clueIndex >= clues.Length)
+        {
+            Debug.Log($"Tous les indices de {enigmaKey} ont déjà été montrés.");
+            return;
         }
 
-        // On désactive les boutons d’énigmes après affichage
+        // Récupère le bon spawn point
+        if (!enigmaSpawnPoint.TryGetValue(enigmaNumber, out targetSpawn))
+        {
+            Debug.LogWarning($"Pas de point de spawn défini pour l’énigme {enigmaNumber}");
+            return;
+        }
+
+        // Instancie l’indice correspondant à l’index courant
+        clueinstance = Instantiate(cluePrefab, 
+            targetSpawn.position + new Vector3(Random.Range(-0.15f, 0.15f), 0, Random.Range(-0.15f, 0.15f)),
+            targetSpawn.rotation);
+
+        Clue clueComponent = clueinstance.GetComponent<Clue>();
+        if (clueComponent != null)
+        {
+            clueComponent.Initialize(clues[clueIndex]);
+        }
+
+        // Incrémente l’index pour cette énigme
+        IncrementClueIndex(enigmaKey);
+
+        // Cache les boutons et termine le dialogue
         enigmaContainer.SetActive(false);
+        EndDialogue();
     }
+
+
+    private void IntanciateClue()
+    {
+        float factorX = Random.Range(-0.15f, 0.15f);
+        float factorZ = Random.Range(-0.15f, 0.15f);
+
+        clueinstance = Instantiate(cluePrefab, new Vector3(targetSpawn.position.x +factorX, targetSpawn.position.y, targetSpawn.position.z + factorZ), targetSpawn.rotation);
+    }
+
+    private void IncrementClueIndex(string clueName)
+    {
+        switch (clueName)
+        {
+            case "Enigma_01": _clueIndexEnigma1++; break;
+            case "Enigma_02": _clueIndexEnigma2++; break;
+            case "Enigma_03": _clueIndexEnigma3++; break;
+            case "Enigma_04": _clueIndexEnigma4++; break;
+            case "Enigma_05": _clueIndexEnigma5++; break;
+            case "Enigma_06": _clueIndexEnigma6++; break;
+        }
+    }
+
+    private int GetCurrentClueIndex(string clueName)
+    {
+        return clueName switch
+        {
+            "Enigma_01" => _clueIndexEnigma1,
+            "Enigma_02" => _clueIndexEnigma2,
+            "Enigma_03" => _clueIndexEnigma3,
+            "Enigma_04" => _clueIndexEnigma4,
+            "Enigma_05" => _clueIndexEnigma5,
+            "Enigma_06" => _clueIndexEnigma6,
+            _ => 0
+        };
+    }
+
 
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     // -- AFFICHAGE DIALOGUE CLASSIQUE ------------------------------
