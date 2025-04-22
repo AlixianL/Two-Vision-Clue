@@ -22,8 +22,8 @@ public class GumGumManager : MonoBehaviour
     [SerializeField] private GumGum _gumGum;//-------------------> Référence au script contenant les données de dialogues
 
     [Header("Clue Prefab System"), Space(5)]
-    [SerializeField] private GameObject cluePrefab;//------------> Prefab contenant un script "Clue" lié à un ScriptableObject
-    private GameObject clueinstance;//---------------------------> Variable de stockage de l'instance
+    [HideInInspector] public GameObject clueinstance;//----------> Variable de stockage de l'instance
+    private GameObject cluePrefab;//-----------------------------> Prefab contenant un script "Clue" lié à un ScriptableObject
     private Transform targetSpawn;//-----------------------------> transform du point de spawn
     private int _clueIndexEnigma1 = 0;//-------------------------> Index pour instancier les indices au fur et a mesure
     private int _clueIndexEnigma2 = 0;//-------------------------> Index pour instancier les indices au fur et a mesure

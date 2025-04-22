@@ -10,6 +10,7 @@ public class PlayerBrain : MonoBehaviour
     public Animator playerAnimator;
     public GameObject playerGameObject;
     public GameObject cameraGameObject;
+    public GameObject CluesInteractPosition;
     
     [Header("Player Scripts"), Space(5)]
     public CameraRotation cameraRotation;

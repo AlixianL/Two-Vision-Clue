@@ -1,10 +1,12 @@
 using System;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class ClueInteraction : MonoBehaviour
 {
-    [Header("uiflbk"), Space(5)]
-    [SerializeField] private GameObject clue;
+    [Header("Player References"), Space(5)]
+    [SerializeField] private GameObject _showPoint; 
+    [SerializeField] private GameObject currentClue => GumGumManager.Instance.clueinstance;
 
     /// <summary>
     ///
@@ -15,16 +17,21 @@ public class ClueInteraction : MonoBehaviour
     ///     - l'environnement devient flou
     /// 
     /// </summary>
-    
+
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     // -- PARTIE GUMGUM --------------------------------------------
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    private void Start()
+    void ShowClue()
     {
-        Debug.Log(clue.name);
+        ;
     }
     
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     // -- PARTIE JOUEUR -+------------------------------------------
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    void InteractWhisClues()
+    {
+        
+    }
 }
