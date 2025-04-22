@@ -6,7 +6,7 @@ public class CluesRayCast : MonoBehaviour
     [Header("References"), Space(5)]
     [SerializeField] private Transform _rayOrigine;
     [SerializeField] private Transform _rayDirection;
-    [SerializeField] private LayerMask _layerMask = LayerMask.GetMask("Player", "Environement");
+    [SerializeField] private LayerMask _layerMask => LayerMask.GetMask("Player", "Environement");
     public void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")

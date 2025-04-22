@@ -23,7 +23,7 @@ public class GumGumManager : MonoBehaviour
 
     [Header("Clue Prefab System"), Space(5)]
     [HideInInspector] public GameObject clueinstance;//----------> Variable de stockage de l'instance
-    private GameObject cluePrefab;//-----------------------------> Prefab contenant un script "Clue" lié à un ScriptableObject
+    [SerializeField] private GameObject cluePrefab;//------------> Prefab contenant un script "Clue" lié à un ScriptableObject
     private Transform targetSpawn;//-----------------------------> transform du point de spawn
     private int _clueIndexEnigma1 = 0;//-------------------------> Index pour instancier les indices au fur et a mesure
     private int _clueIndexEnigma2 = 0;//-------------------------> Index pour instancier les indices au fur et a mesure
@@ -158,9 +158,7 @@ public class GumGumManager : MonoBehaviour
         }
 
         // Instancie l’indice correspondant à l’index courant
-        clueinstance = Instantiate(cluePrefab, 
-            targetSpawn.position + new Vector3(Random.Range(-0.15f, 0.15f), 0, Random.Range(-0.15f, 0.15f)),
-            targetSpawn.rotation);
+        clueinstance = Instantiate(cluePrefab,targetSpawn.position + new Vector3(Random.Range(-0.15f, 0.15f), 0, Random.Range(-0.15f, 0.15f)), targetSpawn.rotation);
 
         Clue clueComponent = clueinstance.GetComponent<Clue>();
         if (clueComponent != null)
