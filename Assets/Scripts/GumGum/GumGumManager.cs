@@ -2,6 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 
 /// <summary>
 /// Gère les dialogues et les indices donnés par le personnage GumGum.
@@ -25,6 +26,7 @@ public class GumGumManager : MonoBehaviour
     [Header("Clue Prefab System"), Space(5)]
     [HideInInspector] public GameObject clueinstance;//----------> Variable de stockage de l'instance
     [SerializeField] private GameObject cluePrefab;//------------> Prefab contenant un script "Clue" lié à un ScriptableObject
+    [SerializeField] private CluePosition _cluePosition;//-------> Reference au script pour le positionnement des indices
     private Transform targetSpawn;//-----------------------------> transform du point de spawn
     private int _clueIndexEnigma1 = 0;//-------------------------> Index pour instancier les indices au fur et a mesure
     private int _clueIndexEnigma2 = 0;//-------------------------> Index pour instancier les indices au fur et a mesure
@@ -83,16 +85,23 @@ public class GumGumManager : MonoBehaviour
     /// </summary>
     public void RedirectTowardEnigmaClue(string name)
     {
-        if (name.StartsWith("Enigma_"))
+        if (PlayerBrain.Instance.chewingGumCount > 0)
         {
-            if (int.TryParse(name.Replace("Enigma_", ""), out int enigmaNumber))
+            if (name.StartsWith("Enigma_"))
             {
-                GiveClueForEnigma(enigmaNumber);
-                return;
+                if (int.TryParse(name.Replace("Enigma_", ""), out int enigmaNumber))
+                {
+                    GiveClueForEnigma(enigmaNumber);
+                    PlayerBrain.Instance.chewingGumCount--;
+                }
             }
         }
-
-        Debug.LogWarning("Enigma Clue Not Found");
+        else
+        {
+            EndDialogue();
+        }
+        
+        
     }
 
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -195,6 +204,10 @@ public class GumGumManager : MonoBehaviour
     {
         clueinstance = Instantiate(cluePrefab,targetSpawn.position + new Vector3(Random.Range(-0.15f, 0.15f), 0, Random.Range(-0.15f, 0.15f)), targetSpawn.rotation);
         clueinstance.transform.SetParent(targetSpawn);
+        _cluePosition = targetSpawn.GetComponent<CluePosition>();
+        
+        _cluePosition.clues.Add(clueinstance);
+        _cluePosition.UpdatePosition();
     }
 
     /// <summary>

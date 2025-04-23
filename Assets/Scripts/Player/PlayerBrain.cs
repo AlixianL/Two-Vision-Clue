@@ -17,8 +17,9 @@ public class PlayerBrain : MonoBehaviour
     public PlayerHandheldCamera playerHandheldCamera;
     
     [Header("Variables"), Space(5)]
+    public int chewingGumCount;
+    [Space(5)]
     public bool isAlive;
-
     public bool asAlreadyTalkWhisGumGum = false;
     
     [Header("Rewired"), Space(5)]
