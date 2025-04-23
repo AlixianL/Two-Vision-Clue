@@ -10,17 +10,18 @@ public class DialogueTrigger : MonoBehaviour
         if (GumGumManager.Instance._isInRange && PlayerBrain.Instance.player.GetButtonDown("Interact"))
         {
             TriggerDialoque();
-            GumGumManager.Instance.gumGumPanel.SetActive(true);
-            
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.None;
-            PlayerBrain.Instance.cameraRotation.useVerticalCameraRotation = false;
-            PlayerBrain.Instance.cameraRotation.useHorizontalCameraRotation = false;
         }
     }
 
-    void TriggerDialoque()
+    public void TriggerDialoque()
     {
+        GumGumManager.Instance.gumGumPanel.SetActive(true);
+            
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+        PlayerBrain.Instance.cameraRotation.useVerticalCameraRotation = false;
+        PlayerBrain.Instance.cameraRotation.useHorizontalCameraRotation = false;
+        
         if (PlayerBrain.Instance.asAlreadyTalkWhisGumGum)
         {
             GumGumManager.Instance.GumGumAsksThePlayerWhichHesBlockingOn();
