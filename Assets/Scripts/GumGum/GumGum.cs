@@ -1,0 +1,32 @@
+using UnityEngine;
+
+public class GumGum : MonoBehaviour
+{
+    public string gumgumName;
+    
+    [Header("Presentation"), Space(5)]
+    [TextArea(3,10)] public string[] gumgumPresentation;
+    
+    [Header("Interogation"), Space(5)]
+    [TextArea(3,10)] public string[] gumgumInterogation;
+    
+    [Header("Clues"), Space(5)]
+    [Tooltip("Base de données contenant tous les indices, classés par énigme.")]
+    public ClueDatabase clueDatabase;
+    
+    /// <summary>
+    /// Retourne tous les indices disponibles pour une énigme donnée,
+    /// via la base de données d’indices (ScriptableObject).
+    /// </summary>
+    public ClueData[] GetCluesForEnigma(string enigmaName)
+    {
+        if (clueDatabase == null)
+        {
+            Debug.LogWarning("ClueDatabase n’est pas assignée dans le composant GumGum.");
+            return new ClueData[0];
+        }
+
+        return clueDatabase.GetCluesForEnigma(enigmaName);
+    }
+    
+}
