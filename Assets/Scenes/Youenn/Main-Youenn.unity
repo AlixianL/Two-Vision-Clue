@@ -776,7 +776,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 364924097}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Enigma 1  - Clue  Spawn Point
   m_TagString: Untagged
   m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
@@ -940,7 +940,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 483862026}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Clue Spawn Points
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1202,8 +1202,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 3.0044832, y: 3.0106552, z: 2.3018968}
-  m_Center: {x: 0, y: 1.4840513, z: 0}
+  m_Size: {x: 1.4526955, y: 3.0106552, z: 1.8559809}
+  m_Center: {x: -0, y: 1.4840513, z: -0.22295785}
 --- !u!114 &519714483
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2244,6 +2244,7 @@ MonoBehaviour:
   gumGumPanel: {fileID: 502846020}
   enigmaContainer: {fileID: 51885665}
   _gumGum: {fileID: 519714483}
+  _dialogueTrigger: {fileID: 466153083}
   clueinstance: {fileID: 0}
   cluePrefab: {fileID: 2218582822724200629, guid: eccdb062083264a4fa9f8d348f10a12d, type: 3}
   spawnPointsArray:
@@ -2309,7 +2310,8 @@ MonoBehaviour:
   _rayDirection: {fileID: 3499400521399877242}
   _layerMask:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 192
+  _clueInteraction: {fileID: 1288778983}
   _playerIsInRange: 0
 --- !u!65 &1039691633
 BoxCollider:
@@ -2332,6 +2334,24 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 5.1953015, y: 3.3220718, z: 4.49152}
   m_Center: {x: 0, y: 1.1610359, z: 1.74576}
+--- !u!1 &1288778972 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9013753269867907282, guid: 6f5806dad73d2814f8fa68d946da0e90, type: 3}
+  m_PrefabInstance: {fileID: 3499400521399877241}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1288778983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1288778972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3cfdb0f4ab9bb24688c95e2413d665f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _showPoint: {fileID: 0}
 --- !u!1 &1302265407
 GameObject:
   m_ObjectHideFlags: 0
@@ -2750,7 +2770,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1546382999}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Enigma 6  - Clue  Spawn Point
   m_TagString: Untagged
   m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
@@ -3125,7 +3145,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1916979381}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Enigma 4  - Clue  Spawn Point
   m_TagString: Untagged
   m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
@@ -3156,7 +3176,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1917919265}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Enigma 5  - Clue  Spawn Point
   m_TagString: Untagged
   m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
@@ -3453,7 +3473,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2081287248}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Enigma 3  - Clue  Spawn Point
   m_TagString: Untagged
   m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
@@ -3559,7 +3579,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2144461319}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Enigma 2  - Clue  Spawn Point
   m_TagString: Untagged
   m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
@@ -3609,7 +3629,7 @@ GameObject:
   m_Component:
   - component: {fileID: 543450653546223515}
   - component: {fileID: 466153083}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Gumgum
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4135,11 +4155,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3014329638994699518, guid: 6f5806dad73d2814f8fa68d946da0e90, type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3632824836965453766, guid: 6f5806dad73d2814f8fa68d946da0e90, type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4444488233674352570, guid: 6f5806dad73d2814f8fa68d946da0e90, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4183,15 +4203,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7443558798046849591, guid: 6f5806dad73d2814f8fa68d946da0e90, type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7772678601428569155, guid: 6f5806dad73d2814f8fa68d946da0e90, type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8189915260446659124, guid: 6f5806dad73d2814f8fa68d946da0e90, type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 9013753269867907282, guid: 6f5806dad73d2814f8fa68d946da0e90, type: 3}
       propertyPath: m_Name
@@ -4199,12 +4219,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9013753269867907282, guid: 6f5806dad73d2814f8fa68d946da0e90, type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 9013753269867907282, guid: 6f5806dad73d2814f8fa68d946da0e90, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1288778983}
   m_SourcePrefab: {fileID: 100100000, guid: 6f5806dad73d2814f8fa68d946da0e90, type: 3}
 --- !u!4 &3499400521399877242 stripped
 Transform:
@@ -4224,7 +4247,7 @@ GameObject:
   - component: {fileID: 8272860981574772453}
   - component: {fileID: 519714478}
   - component: {fileID: 519714483}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
