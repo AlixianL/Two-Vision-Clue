@@ -144,6 +144,9 @@ public class GumGumManager : MonoBehaviour
     {
         // Format attendu : "Enigma_01", "Enigma_02", etc.
         string enigmaKey = $"Enigma_{enigmaNumber:D2}";
+        
+        // Récupère l’index courant pour cette énigme
+        int clueIndex = GetCurrentClueIndex(enigmaKey);
 
         // Récupère les données d’indices depuis le ScriptableObject
         ClueData[] clues = _gumGum.GetCluesForEnigma(enigmaKey);
@@ -153,10 +156,7 @@ public class GumGumManager : MonoBehaviour
             Debug.LogWarning($"Aucun indice trouvé pour {enigmaKey}");
             return;
         }
-
-        // Récupère l’index courant pour cette énigme
-        int clueIndex = GetCurrentClueIndex(enigmaKey);
-
+        
         // Si on a déjà montré tous les indices, ne rien faire
         if (clueIndex >= clues.Length)
         {
@@ -172,7 +172,7 @@ public class GumGumManager : MonoBehaviour
         }
 
         // Instancie l’indice correspondant à l’index courant
-        clueinstance = Instantiate(cluePrefab,targetSpawn.position + new Vector3(Random.Range(-0.15f, 0.15f), 0, Random.Range(-0.15f, 0.15f)), targetSpawn.rotation);
+        IntanciateClue();
 
         Clue clueComponent = clueinstance.GetComponent<Clue>();
         if (clueComponent != null)
@@ -188,38 +188,44 @@ public class GumGumManager : MonoBehaviour
         EndDialogue();
     }
 
-
+    /// <summary>
+    /// Instancie un indice à une position aléatoire.
+    /// </summary>
     private void IntanciateClue()
     {
-        float factorX = Random.Range(-0.15f, 0.15f);
-        float factorZ = Random.Range(-0.15f, 0.15f);
-
-        clueinstance = Instantiate(cluePrefab, new Vector3(targetSpawn.position.x +factorX, targetSpawn.position.y, targetSpawn.position.z + factorZ), targetSpawn.rotation);
+        clueinstance = Instantiate(cluePrefab,targetSpawn.position + new Vector3(Random.Range(-0.15f, 0.15f), 0, Random.Range(-0.15f, 0.15f)), targetSpawn.rotation);
+        clueinstance.transform.SetParent(targetSpawn);
     }
 
+    /// <summary>
+    /// Incrémente l’index de l’indice à afficher pour une énigme donnée.
+    /// </summary>
     private void IncrementClueIndex(string clueName)
     {
         switch (clueName)
         {
-            case "Enigma_01": _clueIndexEnigma1++; break;
-            case "Enigma_02": _clueIndexEnigma2++; break;
-            case "Enigma_03": _clueIndexEnigma3++; break;
-            case "Enigma_04": _clueIndexEnigma4++; break;
-            case "Enigma_05": _clueIndexEnigma5++; break;
-            case "Enigma_06": _clueIndexEnigma6++; break;
+            case "Enigma_01": _clueIndexEnigma1++; break; // Si clueName == "Enigma_01" alors l'index de l'énigme 1 augmente de 1
+            case "Enigma_02": _clueIndexEnigma2++; break; // Si clueName == "Enigma_02" alors l'index de l'énigme 2 augmente de 1
+            case "Enigma_03": _clueIndexEnigma3++; break; // Si clueName == "Enigma_03" alors l'index de l'énigme 3 augmente de 1
+            case "Enigma_04": _clueIndexEnigma4++; break; // Si clueName == "Enigma_04" alors l'index de l'énigme 4 augmente de 1
+            case "Enigma_05": _clueIndexEnigma5++; break; // Si clueName == "Enigma_05" alors l'index de l'énigme 5 augmente de 1
+            case "Enigma_06": _clueIndexEnigma6++; break; // Si clueName == "Enigma_06" alors l'index de l'énigme 6 augmente de 1
         }
     }
 
+    /// <summary>
+    /// Récupère l’index actuel pour savoir quel indice afficher.
+    /// </summary>
     private int GetCurrentClueIndex(string clueName)
     {
         return clueName switch
         {
-            "Enigma_01" => _clueIndexEnigma1,
-            "Enigma_02" => _clueIndexEnigma2,
-            "Enigma_03" => _clueIndexEnigma3,
-            "Enigma_04" => _clueIndexEnigma4,
-            "Enigma_05" => _clueIndexEnigma5,
-            "Enigma_06" => _clueIndexEnigma6,
+            "Enigma_01" => _clueIndexEnigma1, // Si clueName == "Enigma_01" alors on prend l'index pour l'énigme 1
+            "Enigma_02" => _clueIndexEnigma2, // Si clueName == "Enigma_02" alors on prend l'index pour l'énigme 2
+            "Enigma_03" => _clueIndexEnigma3, // Si clueName == "Enigma_03" alors on prend l'index pour l'énigme 3
+            "Enigma_04" => _clueIndexEnigma4, // Si clueName == "Enigma_04" alors on prend l'index pour l'énigme 4
+            "Enigma_05" => _clueIndexEnigma5, // Si clueName == "Enigma_05" alors on prend l'index pour l'énigme 5
+            "Enigma_06" => _clueIndexEnigma6, // Si clueName == "Enigma_06" alors on prend l'index pour l'énigme 6
             _ => 0
         };
     }
