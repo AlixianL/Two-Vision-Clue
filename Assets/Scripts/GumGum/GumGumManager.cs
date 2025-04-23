@@ -1,7 +1,7 @@
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 /// <summary>
 /// Gère les dialogues et les indices donnés par le personnage GumGum.
@@ -20,6 +20,7 @@ public class GumGumManager : MonoBehaviour
 
     [Header("GumGum Logic"), Space(5)]
     [SerializeField] private GumGum _gumGum;//-------------------> Référence au script contenant les données de dialogues
+    [SerializeField] private DialogueTrigger _dialogueTrigger;//-> Référence du script pour les conditions de dialogue
 
     [Header("Clue Prefab System"), Space(5)]
     [HideInInspector] public GameObject clueinstance;//----------> Variable de stockage de l'instance
@@ -57,6 +58,19 @@ public class GumGumManager : MonoBehaviour
             if (!enigmaSpawnPoint.ContainsKey(entry.enigmaNumber))
                 enigmaSpawnPoint.Add(entry.enigmaNumber, entry.spawnPoint);
         }
+    }
+
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    // -- LANCEMENT DE GUMGUM --------------------------------------
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    /// <summary>
+    /// Redirige vers l’indice correspondant en fonction du nom reçu.
+    /// Exemple : "Enigma_03" → appel de GiveClueForEnigma(3)
+    /// </summary>
+    public void ActivateGumGum()
+    {
+        _dialogueTrigger.TriggerDialoque();
     }
 
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -263,4 +277,3 @@ public class EnigmaSpawn
     public int enigmaNumber;
     public Transform spawnPoint;
 }
-
