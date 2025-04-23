@@ -32,6 +32,6 @@ public class ClueInteraction : MonoBehaviour
 
     public void InteractWhisClues()
     {
-        Debug.Log("Clue Interaction");
+        
     }
 }

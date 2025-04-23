@@ -4,54 +4,50 @@ using Rewired;
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Variables PlayerMovement"), Space(5)]
-    public int playerHealth;
-    [Space(5)]
-    public float lateralMovement;
-    public float forwardMovement;
     public float playerSpeed;
-    public float playerJumpForce;
     [Space(5)]
-    public bool isGrounded;
+    private bool _forwardMovement;
+    private bool _backwardMovement;
+    private bool _leftMovement;
+    private bool _rightMovement;
     public bool isMoving;
-    public bool isCrouching;
+    
     void Start()
     {
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
     }
     
+    
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    // -- MOVEMENT -------------------------------------------------------------------------------------------------
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     void Update()
     {
-        // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-        // -- MOVEMENT -------------------------------------------------------------------------------------------------
-        // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        // Mises à jour des directions basées sur les boutons
+        _forwardMovement = PlayerBrain.Instance.player.GetButton("ForwardMovement");
+        _backwardMovement = PlayerBrain.Instance.player.GetButton("BackwardMovement");
+        _leftMovement = PlayerBrain.Instance.player.GetButton("LeftMovement");
+        _rightMovement = PlayerBrain.Instance.player.GetButton("RightMovement");
 
-        forwardMovement = PlayerBrain.Instance.player.GetAxis("ForwardMovement");
-        lateralMovement = PlayerBrain.Instance.player.GetAxis("LateralMovement");
-
-        if (forwardMovement != 0 || lateralMovement != 0)
-        {
-            isMoving = true;
-        }
-        else isMoving = false;
+        // Déterminer si le joueur bouge
+        isMoving = _forwardMovement || _backwardMovement || _leftMovement || _rightMovement;
     }
-
+    
     void FixedUpdate()
     {
-        if (isMoving)
-        {
-            // Calculer la direction de déplacement en fonction de l'orientation locale
-            Vector3 moveDirection = (transform.right * lateralMovement + transform.forward * forwardMovement).normalized * playerSpeed;
+        Vector3 direction = Vector3.zero;
 
-            // Conserver la vélocité verticale pour éviter de perturber le saut ou la gravité
-            moveDirection.y = PlayerBrain.Instance.playerRigidbody.linearVelocity.y;
+        if (_forwardMovement) direction += transform.forward;
+        if (_backwardMovement) direction -= transform.forward;
+        if (_rightMovement) direction += transform.right;
+        if (_leftMovement) direction -= transform.right;
 
-            // Appliquer la vélocité basée sur la direction locale et la vitesse de déplacement
-            PlayerBrain.Instance.playerRigidbody.linearVelocity = moveDirection;
-        }
-        else if (!isMoving)
-        {
-            PlayerBrain.Instance.playerRigidbody.linearVelocity = new Vector3(0, PlayerBrain.Instance.playerRigidbody.linearVelocity.y, 0);
-        }
+        direction.Normalize();
+
+        Vector3 velocity = direction * playerSpeed;
+        velocity.y = PlayerBrain.Instance.playerRigidbody.linearVelocity.y;
+
+        PlayerBrain.Instance.playerRigidbody.linearVelocity = velocity;
     }
 }
