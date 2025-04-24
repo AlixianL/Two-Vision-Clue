@@ -12,6 +12,8 @@ public class HandheldCameraManager : MonoBehaviour
     [Header("Variables"), Space(5)]
     public bool cameraIsInstall;
     public bool playerCanTakeCamera;
+    [Space(5)]
+    public float rangeToInstallCamera;
     
 
     void Awake()
@@ -22,11 +24,10 @@ public class HandheldCameraManager : MonoBehaviour
 
     public void InstallCamera()
     {
-        if (!cameraIsInstall)
+        if (PlayerRayCast.Instance.hit.distance > rangeToInstallCamera && !cameraIsInstall)
         {
             handheldCamera = Instantiate(handheldCameraPrefab);
             handheldCamera.transform.position = spawnPoint.transform.position;
-            
             cameraIsInstall = true;
         }
     }

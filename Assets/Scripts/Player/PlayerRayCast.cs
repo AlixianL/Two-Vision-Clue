@@ -1,7 +1,10 @@
+using System;
 using UnityEngine;
 
 public class PlayerRayCast : MonoBehaviour
 {
+    public static PlayerRayCast Instance;
+    
     [Header("References"), Space(5)]
     [SerializeField] private Transform _rayOrigine;
     [SerializeField] private LayerMask _layerMask;
@@ -15,33 +18,41 @@ public class PlayerRayCast : MonoBehaviour
     [SerializeField] private int _indexLayerChewingGum;
 
     [Header("System"), Space(5)]
-    private RaycastHit _hit;
-    
+    public RaycastHit hit;
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+    }
+
     void Update()
     {
         // Does the ray intersect any objects excluding the player layer
-        if (Physics.Raycast(_rayOrigine.position, _rayOrigine.TransformDirection(Vector3.forward), out _hit, _rayRange, _layerMask))
+        if (Physics.Raycast(_rayOrigine.position, _rayOrigine.TransformDirection(Vector3.forward), out hit, _rayRange, _layerMask))
         {
-            Debug.DrawRay(_rayOrigine.position, _rayOrigine.TransformDirection(Vector3.forward) * _hit.distance, Color.magenta);
+            Debug.DrawRay(_rayOrigine.position, _rayOrigine.TransformDirection(Vector3.forward) * hit.distance, Color.magenta);
             
             // Si le raycast detecte l'environement
-            if (_hit.collider.gameObject.layer == _indexLayerEnvironement && PlayerBrain.Instance.player.GetButtonDown("Interact"))
+            if (hit.collider.gameObject.layer == _indexLayerEnvironement && PlayerBrain.Instance.player.GetButtonDown("Interact"))
             {
-                Debug.DrawRay(_rayOrigine.position, _rayOrigine.TransformDirection(Vector3.forward) * _hit.distance, Color.yellow);
+                Debug.DrawRay(_rayOrigine.position, _rayOrigine.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
             }
             
             // Si le raycast detecte GumGum
-            else if (_hit.collider.gameObject.layer == _indexLayerGumGum && PlayerBrain.Instance.player.GetButtonDown("Interact"))
+            else if (hit.collider.gameObject.layer == _indexLayerGumGum && PlayerBrain.Instance.player.GetButtonDown("Interact"))
             {
-                Debug.DrawRay(_rayOrigine.position, _rayOrigine.TransformDirection(Vector3.forward) * _hit.distance, Color.red);
+                Debug.DrawRay(_rayOrigine.position, _rayOrigine.TransformDirection(Vector3.forward) * hit.distance, Color.red);
                 GumGumManager.Instance.ActivateGumGum();
             }
 
             // Si le raycast detecte un chewing gum
-            else if (_hit.collider.gameObject.layer == _indexLayerChewingGum && PlayerBrain.Instance.player.GetButtonDown("Interact"))
+            else if (hit.collider.gameObject.layer == _indexLayerChewingGum && PlayerBrain.Instance.player.GetButtonDown("Interact"))
             {
-                Debug.DrawRay(_rayOrigine.position, _rayOrigine.TransformDirection(Vector3.forward) * _hit.distance, Color.blue);
-                ChewingGum currentChewingGum = _hit.collider.gameObject.GetComponent<ChewingGum>();
+                Debug.DrawRay(_rayOrigine.position, _rayOrigine.TransformDirection(Vector3.forward) * hit.distance, Color.blue);
+                ChewingGum currentChewingGum = hit.collider.gameObject.GetComponent<ChewingGum>();
                 currentChewingGum.TakeChewingGum();
             }
         }
