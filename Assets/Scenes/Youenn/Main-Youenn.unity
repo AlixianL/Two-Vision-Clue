@@ -606,12 +606,12 @@ GameObject:
   - component: {fileID: 152886198}
   - component: {fileID: 152886197}
   - component: {fileID: 152886196}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Terrain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!154 &152886196
 TerrainCollider:
@@ -686,7 +686,40 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 692249431}
+  m_Father: {fileID: 1345550798}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &226312271
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 226312272}
+  m_Layer: 0
+  m_Name: Position 2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &226312272
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 226312271}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2144461319}
+  - {fileID: 1296534780}
+  m_Father: {fileID: 483862026}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &264965210
 GameObject:
@@ -810,7 +843,7 @@ GameObject:
   - component: {fileID: 405258313}
   - component: {fileID: 405258312}
   - component: {fileID: 405258311}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Stele
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -830,7 +863,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 483862026}
+  m_Father: {fileID: 680165535}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &405258311
 BoxCollider:
@@ -1048,7 +1081,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 483862026}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Clue Spawn Points
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1068,18 +1101,12 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 737235726}
-  - {fileID: 2040215931}
-  - {fileID: 2144461319}
-  - {fileID: 1296534780}
-  - {fileID: 2081287248}
-  - {fileID: 1799638079}
-  - {fileID: 1916979381}
-  - {fileID: 1313149889}
-  - {fileID: 1917919265}
-  - {fileID: 1762376830}
-  - {fileID: 1546382999}
-  - {fileID: 405258310}
+  - {fileID: 1523653097}
+  - {fileID: 226312272}
+  - {fileID: 1896853633}
+  - {fileID: 759794355}
+  - {fileID: 1688628156}
+  - {fileID: 680165535}
   m_Father: {fileID: 543450653546223515}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &502846020
@@ -1737,6 +1764,39 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 662394048}
   m_CullTransparentMesh: 1
+--- !u!1 &680165534
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 680165535}
+  m_Layer: 0
+  m_Name: Position 6
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &680165535
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 680165534}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1546382999}
+  - {fileID: 405258310}
+  m_Father: {fileID: 483862026}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &692249430
 GameObject:
   m_ObjectHideFlags: 0
@@ -1768,7 +1828,6 @@ Transform:
   m_Children:
   - {fileID: 410087041}
   - {fileID: 832575519}
-  - {fileID: 152886198}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &737235725
@@ -1781,7 +1840,7 @@ GameObject:
   m_Component:
   - component: {fileID: 737235726}
   - component: {fileID: 737235727}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Enigma 1  - Clue  Spawn Point
   m_TagString: Untagged
   m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
@@ -1801,7 +1860,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 483862026}
+  m_Father: {fileID: 1523653097}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &737235727
 MonoBehaviour:
@@ -1951,6 +2010,39 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &759794354
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 759794355}
+  m_Layer: 0
+  m_Name: Position 4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &759794355
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 759794354}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1916979381}
+  - {fileID: 1313149889}
+  m_Father: {fileID: 483862026}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &832575517
 GameObject:
@@ -2518,28 +2610,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1288778972 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9013753269867907282, guid: 6f5806dad73d2814f8fa68d946da0e90, type: 3}
-  m_PrefabInstance: {fileID: 3499400521399877241}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1288778984
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1288778972}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42dc422ee6f3b514ebbd7794830a68c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _rayOrigine: {fileID: 3499400521399877242}
-  _layerMask:
-    serializedVersion: 2
-    m_Bits: 192
-  _rayRange: 20
 --- !u!1 &1296534779
 GameObject:
   m_ObjectHideFlags: 0
@@ -2552,7 +2622,7 @@ GameObject:
   - component: {fileID: 1296534783}
   - component: {fileID: 1296534782}
   - component: {fileID: 1296534781}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Stele
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2572,7 +2642,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 483862026}
+  m_Father: {fileID: 226312272}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1296534781
 BoxCollider:
@@ -2936,7 +3006,7 @@ GameObject:
   - component: {fileID: 1313149892}
   - component: {fileID: 1313149891}
   - component: {fileID: 1313149890}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Stele
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2956,7 +3026,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 483862026}
+  m_Father: {fileID: 759794355}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1313149890
 BoxCollider:
@@ -3032,6 +3102,38 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1313149888}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1345550797
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1345550798}
+  m_Layer: 6
+  m_Name: ENVIRONEMENT
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1345550798
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1345550797}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -500, y: 0, z: -500}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 152886198}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1409013905
 GameObject:
   m_ObjectHideFlags: 0
@@ -3222,6 +3324,39 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9e46fea1ff005447a76e7f39a3e509f, type: 3}
+--- !u!1 &1523653096
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1523653097}
+  m_Layer: 0
+  m_Name: Position 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1523653097
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1523653096}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 737235726}
+  - {fileID: 2040215931}
+  m_Father: {fileID: 483862026}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1546382998
 GameObject:
   m_ObjectHideFlags: 0
@@ -3232,7 +3367,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1546382999}
   - component: {fileID: 1546383000}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Enigma 6  - Clue  Spawn Point
   m_TagString: Untagged
   m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
@@ -3252,7 +3387,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 483862026}
+  m_Father: {fileID: 680165535}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1546383000
 MonoBehaviour:
@@ -3343,6 +3478,39 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1590272791}
   m_CullTransparentMesh: 1
+--- !u!1 &1688628155
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1688628156}
+  m_Layer: 0
+  m_Name: Position 5
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1688628156
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1688628155}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1917919265}
+  - {fileID: 1762376830}
+  m_Father: {fileID: 483862026}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1762376829
 GameObject:
   m_ObjectHideFlags: 0
@@ -3355,7 +3523,7 @@ GameObject:
   - component: {fileID: 1762376833}
   - component: {fileID: 1762376832}
   - component: {fileID: 1762376831}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Stele
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3375,7 +3543,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 483862026}
+  m_Father: {fileID: 1688628156}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1762376831
 BoxCollider:
@@ -3599,7 +3767,7 @@ GameObject:
   - component: {fileID: 1799638082}
   - component: {fileID: 1799638081}
   - component: {fileID: 1799638080}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Stele
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3619,7 +3787,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 483862026}
+  m_Father: {fileID: 1896853633}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1799638080
 BoxCollider:
@@ -3828,6 +3996,39 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1821846792}
   m_CullTransparentMesh: 0
+--- !u!1 &1896853632
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1896853633}
+  m_Layer: 0
+  m_Name: Position 3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1896853633
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1896853632}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2081287248}
+  - {fileID: 1799638079}
+  m_Father: {fileID: 483862026}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1916979380
 GameObject:
   m_ObjectHideFlags: 0
@@ -3838,7 +4039,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1916979381}
   - component: {fileID: 1916979382}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Enigma 4  - Clue  Spawn Point
   m_TagString: Untagged
   m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
@@ -3858,7 +4059,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 483862026}
+  m_Father: {fileID: 759794355}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1916979382
 MonoBehaviour:
@@ -3884,7 +4085,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1917919265}
   - component: {fileID: 1917919266}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Enigma 5  - Clue  Spawn Point
   m_TagString: Untagged
   m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
@@ -3904,7 +4105,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 483862026}
+  m_Father: {fileID: 1688628156}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1917919266
 MonoBehaviour:
@@ -3989,7 +4190,7 @@ GameObject:
   - component: {fileID: 2040215934}
   - component: {fileID: 2040215933}
   - component: {fileID: 2040215932}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Stele
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4009,7 +4210,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 483862026}
+  m_Father: {fileID: 1523653097}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &2040215932
 BoxCollider:
@@ -4392,7 +4593,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2081287248}
   - component: {fileID: 2081287249}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Enigma 3  - Clue  Spawn Point
   m_TagString: Untagged
   m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
@@ -4412,7 +4613,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 483862026}
+  m_Father: {fileID: 1896853633}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2081287249
 MonoBehaviour:
@@ -4513,7 +4714,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2144461319}
   - component: {fileID: 2144461320}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Enigma 2  - Clue  Spawn Point
   m_TagString: Untagged
   m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
@@ -4533,7 +4734,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 483862026}
+  m_Father: {fileID: 226312272}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2144461320
 MonoBehaviour:
@@ -4576,7 +4777,7 @@ GameObject:
   m_Component:
   - component: {fileID: 543450653546223515}
   - component: {fileID: 466153083}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Gumgum
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5153,28 +5354,27 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5568179522162661937, guid: 6f5806dad73d2814f8fa68d946da0e90, type: 3}
-      propertyPath: chewingGumCount
-      value: 3
+    - target: {fileID: 6290087791037361797, guid: 6f5806dad73d2814f8fa68d946da0e90, type: 3}
+      propertyPath: _indexLayerGumGum
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6290087791037361797, guid: 6f5806dad73d2814f8fa68d946da0e90, type: 3}
+      propertyPath: _indexLayerChewingGum
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6290087791037361797, guid: 6f5806dad73d2814f8fa68d946da0e90, type: 3}
+      propertyPath: _indexLayerEnvironement
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 9013753269867907282, guid: 6f5806dad73d2814f8fa68d946da0e90, type: 3}
       propertyPath: m_Name
       value: PF_Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 8189915260446659124, guid: 6f5806dad73d2814f8fa68d946da0e90, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 9013753269867907282, guid: 6f5806dad73d2814f8fa68d946da0e90, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1288778984}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f5806dad73d2814f8fa68d946da0e90, type: 3}
---- !u!4 &3499400521399877242 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3863180615115504688, guid: 6f5806dad73d2814f8fa68d946da0e90, type: 3}
-  m_PrefabInstance: {fileID: 3499400521399877241}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &4613974090041186689
 GameObject:
   m_ObjectHideFlags: 0
@@ -5340,6 +5540,7 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 692249431}
+  - {fileID: 1345550798}
   - {fileID: 8999987877965301533}
   - {fileID: 986705123}
   - {fileID: 642071686}
