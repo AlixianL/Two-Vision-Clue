@@ -28,12 +28,12 @@ public class GumGumManager : MonoBehaviour
     [SerializeField] private GameObject cluePrefab;//------------> Prefab contenant un script "Clue" lié à un ScriptableObject
     [SerializeField] private CluePosition _cluePosition;//-------> Reference au script pour le positionnement des indices
     private Transform targetSpawn;//-----------------------------> transform du point de spawn
-    private int _clueIndexEnigma1 = 0;//-------------------------> Index pour instancier les indices au fur et a mesure
-    private int _clueIndexEnigma2 = 0;//-------------------------> Index pour instancier les indices au fur et a mesure
-    private int _clueIndexEnigma3 = 0;//-------------------------> Index pour instancier les indices au fur et a mesure
-    private int _clueIndexEnigma4 = 0;//-------------------------> Index pour instancier les indices au fur et a mesure
-    private int _clueIndexEnigma5 = 0;//-------------------------> Index pour instancier les indices au fur et a mesure
-    private int _clueIndexEnigma6 = 0;//-------------------------> Index pour instancier les indices au fur et a mesure
+    private int _clueIndexEnigma1;//-------------------------> Index pour instancier les indices au fur et a mesure
+    private int _clueIndexEnigma2;//-------------------------> Index pour instancier les indices au fur et a mesure
+    private int _clueIndexEnigma3;//-------------------------> Index pour instancier les indices au fur et a mesure
+    private int _clueIndexEnigma4;//-------------------------> Index pour instancier les indices au fur et a mesure
+    private int _clueIndexEnigma5;//-------------------------> Index pour instancier les indices au fur et a mesure
+    private int _clueIndexEnigma6;//-------------------------> Index pour instancier les indices au fur et a mesure
     
     private Dictionary<int, Transform> enigmaSpawnPoint;//------> Dictionnaire liant une énigme a un point de spawn 
     [SerializeField] private EnigmaSpawn[] spawnPointsArray;//---> Array regroupant les Dictionnaire enigmaSpawnPoint
