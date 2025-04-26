@@ -7,7 +7,7 @@ public class CluePosition : MonoBehaviour
     public List<GameObject> clues = new List<GameObject>();
 
     [Header("Settings"), Space(5)]
-    public float distanceFromCenter = 5f;
+    public float distanceFromCenter;
 
     /// <summary>
     /// Appelle cette méthode pour répartir les indices autour du centre

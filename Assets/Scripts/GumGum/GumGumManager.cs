@@ -24,7 +24,7 @@ public class GumGumManager : MonoBehaviour
     [SerializeField] private DialogueTrigger _dialogueTrigger;//-> Référence du script pour les conditions de dialogue
 
     [Header("Clue Prefab System"), Space(5)]
-    [HideInInspector] public GameObject clueinstance;//----------> Variable de stockage de l'instance
+    [HideInInspector] public GameObject clueInstance;//----------> Variable de stockage de l'instance
     [SerializeField] private GameObject cluePrefab;//------------> Prefab contenant un script "Clue" lié à un ScriptableObject
     [SerializeField] private CluePosition _cluePosition;//-------> Reference au script pour le positionnement des indices
     private Transform targetSpawn;//-----------------------------> transform du point de spawn
@@ -72,7 +72,7 @@ public class GumGumManager : MonoBehaviour
     /// </summary>
     public void ActivateGumGum()
     {
-        _dialogueTrigger.TriggerDialoque();
+        _dialogueTrigger.TriggerDialogue();
     }
 
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -158,7 +158,7 @@ public class GumGumManager : MonoBehaviour
         int clueIndex = GetCurrentClueIndex(enigmaKey);
 
         // Récupère les données d’indices depuis le ScriptableObject
-        ClueData[] clues = _gumGum.GetCluesForEnigma(enigmaKey);
+        ClueData[] clues = _gumGum.GetClues(enigmaKey);
 
         if (clues == null || clues.Length == 0)
         {
@@ -183,7 +183,7 @@ public class GumGumManager : MonoBehaviour
         // Instancie l’indice correspondant à l’index courant
         IntanciateClue();
 
-        Clue clueComponent = clueinstance.GetComponent<Clue>();
+        Clue clueComponent = clueInstance.GetComponent<Clue>();
         if (clueComponent != null)
         {
             clueComponent.Initialize(clues[clueIndex]);
@@ -202,11 +202,11 @@ public class GumGumManager : MonoBehaviour
     /// </summary>
     private void IntanciateClue()
     {
-        clueinstance = Instantiate(cluePrefab,targetSpawn.position + new Vector3(Random.Range(-0.15f, 0.15f), 0, Random.Range(-0.15f, 0.15f)), targetSpawn.rotation);
-        clueinstance.transform.SetParent(targetSpawn);
+        clueInstance = Instantiate(cluePrefab,targetSpawn.position + new Vector3(Random.Range(-0.15f, 0.15f), 0, Random.Range(-0.15f, 0.15f)), targetSpawn.rotation);
+        clueInstance.transform.SetParent(targetSpawn);
         _cluePosition = targetSpawn.GetComponent<CluePosition>();
         
-        _cluePosition.clues.Add(clueinstance);
+        _cluePosition.clues.Add(clueInstance);
         _cluePosition.UpdatePosition();
     }
 

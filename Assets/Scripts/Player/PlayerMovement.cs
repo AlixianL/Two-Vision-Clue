@@ -6,18 +6,17 @@ public class PlayerMovement : MonoBehaviour
     [Header("Variables PlayerMovement"), Space(5)]
     public float playerSpeed;
     [Space(5)]
+    public bool isMoving;
     private bool _forwardMovement;
     private bool _backwardMovement;
     private bool _leftMovement;
     private bool _rightMovement;
-    public bool isMoving;
     
     void Start()
     {
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
     }
-    
     
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     // -- MOVEMENT -------------------------------------------------------------------------------------------------

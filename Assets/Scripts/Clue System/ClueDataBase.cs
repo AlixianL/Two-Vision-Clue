@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 [CreateAssetMenu(fileName = "D_ClueDatabase", menuName = "Clue System/Clue Database")]
-public class ClueDatabase : ScriptableObject
+public class ClueDataBase : ScriptableObject
 {
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     // -- LISTES D'INDICES PAR ÉNIGME ------------------------------
@@ -48,28 +48,5 @@ public class ClueDatabase : ScriptableObject
 
         // Trie les indices par numéro d’ordre défini dans ClueData
         return clues.OrderBy(c => c.clueNumber).ToArray();
-    }
-
-    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    // -- RETOUR DE TOUTES LES ÉNIGMES DISPONIBLES -----------------
-    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-    /// <summary>
-    /// Retourne les noms des énigmes disponibles dans la base de données.
-    /// Exemple : ["Enigma_01", "Enigma_03", "Enigma_05"]
-    /// </summary>
-    public string[] GetAllEnigmas()
-    {
-        List<string> availableEnigmas = new();
-
-        // Vérifie chaque liste : si elle contient des indices, on ajoute son nom à la liste finale
-        if (cluesEnigma1?.Count > 0) availableEnigmas.Add("Enigma_01");
-        if (cluesEnigma2?.Count > 0) availableEnigmas.Add("Enigma_02");
-        if (cluesEnigma3?.Count > 0) availableEnigmas.Add("Enigma_03");
-        if (cluesEnigma4?.Count > 0) availableEnigmas.Add("Enigma_04");
-        if (cluesEnigma5?.Count > 0) availableEnigmas.Add("Enigma_05");
-        if (cluesEnigma6?.Count > 0) availableEnigmas.Add("Enigma_06");
-
-        return availableEnigmas.ToArray();
     }
 }

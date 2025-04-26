@@ -5,8 +5,8 @@ public class HandheldCameraManager : MonoBehaviour
     public static HandheldCameraManager Instance;
     
     [Header("Camera References"), Space(5)]
-    public GameObject handheldCameraPrefab;
     private GameObject handheldCamera;
+    public GameObject handheldCameraPrefab;
     public GameObject spawnPoint;
     
     [Header("Variables"), Space(5)]
@@ -32,7 +32,7 @@ public class HandheldCameraManager : MonoBehaviour
         }
     }
     
-    public void UnInstallCamera()
+    public void UninstallCamera()
     {
         if (cameraIsInstall)
         {
