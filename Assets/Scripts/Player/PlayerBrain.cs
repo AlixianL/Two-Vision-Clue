@@ -10,9 +10,16 @@ public class PlayerBrain : MonoBehaviour
     public Animator playerAnimator;
     public GameObject playerGameObject;
     public GameObject cameraGameObject;
+    public GameObject CluesInteractPosition;
+    
+    [Header("Player Scripts"), Space(5)]
+    public CameraRotation cameraRotation;
+    public PlayerHandheldCamera playerHandheldCamera;
     
     [Header("Variables"), Space(5)]
     public bool isAlive;
+
+    public bool asAlreadyTalkWhisGumGum = false;
     
     [Header("Rewired"), Space(5)]
     public int playerID;
@@ -26,3 +33,4 @@ public class PlayerBrain : MonoBehaviour
         player = ReInput.players.GetPlayer(playerID);
     }
 }
+    
