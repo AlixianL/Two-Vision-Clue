@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class HandheldCameraManager : MonoBehaviour
@@ -12,8 +13,7 @@ public class HandheldCameraManager : MonoBehaviour
     [Header("Variables"), Space(5)]
     public bool cameraIsInstall;
     public bool playerCanTakeCamera;
-    [Space(5)]
-    public float rangeToInstallCamera;
+    public bool cameraCanBeInstalled;
     
 
     void Awake()
@@ -24,7 +24,7 @@ public class HandheldCameraManager : MonoBehaviour
 
     public void InstallCamera()
     {
-        if (PlayerRayCast.Instance.hit.distance > rangeToInstallCamera && !cameraIsInstall)
+        if (cameraCanBeInstalled && !cameraIsInstall)
         {
             handheldCamera = Instantiate(handheldCameraPrefab);
             handheldCamera.transform.position = spawnPoint.transform.position;
