@@ -31,7 +31,7 @@ public class CameraRotation : MonoBehaviour
             currentVerticalRotation = Mathf.Clamp(currentVerticalRotation, _limitVerticalCameraRotationMin, _limitVerticalCameraRotationMax);
 
             // Appliquer la rotation avec clamp
-            PlayerBrain.Instance.cameraGameObject.transform.localEulerAngles = new Vector3(-currentVerticalRotation, 0f, 0f);
+            PlayerBrain.Instance.cinemachineGameObject.transform.localEulerAngles = new Vector3(-currentVerticalRotation, 0f, 0f);
         }
         
     }
