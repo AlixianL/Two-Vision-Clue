@@ -16,17 +16,17 @@ public class MirrorRotation : MonoBehaviour
     {
         if (Input.GetKey(_turnRight))
         {
-            RotateReflector(Vector3.up); // rotation vers la droite
+            RotateReflector(Vector3.up);
         }
         if (Input.GetKey(_turnLeft))
         {
-            RotateReflector(-Vector3.up); // rotation vers la gauche
+            RotateReflector(-Vector3.up); 
         }
     }
 
     void RotateReflector(Vector3 direction)
     {
-        float rotationSpeed = 100f; // tu peux ajuster cette valeur
-        reflector.transform.Rotate(direction * rotationSpeed * Time.deltaTime, Space.World);
+        float rotationSpeed = 100f;
+        reflector.transform.Rotate(direction * rotationSpeed * Time.deltaTime);
     }
 }
