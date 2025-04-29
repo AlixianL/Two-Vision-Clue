@@ -3,12 +3,16 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-public class Interactable : MonoBehaviour
+public class Button : MonoBehaviour
 {
     public Outline outline;
     public string message;
 
     public UnityEvent onInteraction;
+
+    [SerializeField] Color defaultColor;
+    [SerializeField] Color highlightColor;
+    [SerializeField] float resetDelay = .25f;
 
     private void Start()
     {
@@ -31,5 +35,18 @@ public class Interactable : MonoBehaviour
         outline.enabled = true;
     }
 
-    
+    public void PressButton()
+    {
+        GetComponent<MeshRenderer>().material.color = highlightColor;
+        Invoke("ResetButton", resetDelay);
+    }
+
+    void ResetButton()
+    {
+        GetComponent<MeshRenderer>().material.color = defaultColor;
+    }
+
+
+
+
 }
