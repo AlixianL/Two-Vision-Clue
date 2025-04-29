@@ -10,7 +10,7 @@ public class PlayerRayCast : MonoBehaviour
     [SerializeField] private LayerMask _layerMask;
     
     [Header("Generic Variables"), Space(5)]
-    [SerializeField] private int _rayRange = 5;
+    [SerializeField] private float _rayRange;
     
     [Header("Layer Index"), Space(5)]
     [SerializeField] private int _indexLayerEnvironement;

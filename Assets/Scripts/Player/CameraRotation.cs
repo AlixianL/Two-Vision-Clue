@@ -17,23 +17,25 @@ public class CameraRotation : MonoBehaviour
     
     void Update()
     {
-        _rotationOnX = PlayerBrain.Instance.player.GetAxis("RotateOnX");
-        _rotationOnY = PlayerBrain.Instance.player.GetAxis("RotateOnY");
-        
-        if (useHorizontalCameraRotation)
+        if (PlayerBrain.Instance.playerCanLookAround)
         {
-            PlayerBrain.Instance.playerGameObject.transform.localEulerAngles += Vector3.up * (_rotationOnY * _sensibility);
-        }
+            _rotationOnX = PlayerBrain.Instance.player.GetAxis("RotateOnX");
+            _rotationOnY = PlayerBrain.Instance.player.GetAxis("RotateOnY");
+        
+            if (useHorizontalCameraRotation)
+            {
+                PlayerBrain.Instance.playerGameObject.transform.localEulerAngles += Vector3.up * (_rotationOnY * _sensibility);
+            }
     
-        if (useVerticalCameraRotation)
-        {
-            currentVerticalRotation += (_rotationOnX * _sensibility);
-            currentVerticalRotation = Mathf.Clamp(currentVerticalRotation, _limitVerticalCameraRotationMin, _limitVerticalCameraRotationMax);
+            if (useVerticalCameraRotation)
+            {
+                currentVerticalRotation += (_rotationOnX * _sensibility);
+                currentVerticalRotation = Mathf.Clamp(currentVerticalRotation, _limitVerticalCameraRotationMin, _limitVerticalCameraRotationMax);
 
-            // Appliquer la rotation avec clamp
-            PlayerBrain.Instance.cinemachineGameObject.transform.localEulerAngles = new Vector3(-currentVerticalRotation, 0f, 0f);
+                // Appliquer la rotation avec clamp
+                PlayerBrain.Instance.cinemachineGameObject.transform.localEulerAngles = new Vector3(-currentVerticalRotation, 0f, 0f);
+            }
         }
-        
     }
 }
 

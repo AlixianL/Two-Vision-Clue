@@ -20,6 +20,10 @@ public class PlayerBrain : MonoBehaviour
     [Space(5)]
     public bool isAlive;
     public bool asAlreadyTalkWhisGumGum = false;
+    [Space(5)]
+    public bool playerCanMove = true;
+    public bool playerCanLookAround = true;
+    
     
     [Header("Rewired"), Space(5)]
     public int playerID;
