@@ -9,17 +9,21 @@ public class PlayerBrain : MonoBehaviour
     public Rigidbody playerRigidbody;
     public Animator playerAnimator;
     public GameObject playerGameObject;
-    public GameObject cameraGameObject;
-    public GameObject CluesInteractPosition;
+    public GameObject cinemachineGameObject;
     
     [Header("Player Scripts"), Space(5)]
     public CameraRotation cameraRotation;
     public PlayerHandheldCamera playerHandheldCamera;
     
     [Header("Variables"), Space(5)]
+    public int chewingGumCount;
+    [Space(5)]
     public bool isAlive;
-
     public bool asAlreadyTalkWhisGumGum = false;
+    [Space(5)]
+    public bool playerCanMove = true;
+    public bool playerCanLookAround = true;
+    
     
     [Header("Rewired"), Space(5)]
     public int playerID;

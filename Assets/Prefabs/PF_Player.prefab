@@ -86,6 +86,76 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &3290468535979970163
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5440283782083759404}
+  - component: {fileID: 6449508283970912456}
+  - component: {fileID: 4027942355798497606}
+  m_Layer: 3
+  m_Name: Trigger Box
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5440283782083759404
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3290468535979970163}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.415, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4444488233674352570}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &6449508283970912456
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3290468535979970163}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.8, y: 2, z: 2}
+  m_Center: {x: 0, y: 0.48, z: 0}
+--- !u!114 &4027942355798497606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3290468535979970163}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a14d0c9e439360547919b420c3d082c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _layerMask:
+    serializedVersion: 2
+    m_Bits: 776
+  _objectsDetected: []
 --- !u!1 &3384682604960987922
 GameObject:
   m_ObjectHideFlags: 0
@@ -894,37 +964,6 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   CustomBlends: {fileID: 0}
---- !u!1 &8189915260446659124
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7273299116488495421}
-  m_Layer: 0
-  m_Name: CluesInteractPosition
-  m_TagString: Untagged
-  m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7273299116488495421
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8189915260446659124}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.74585164, z: 0.843031}
-  m_LocalScale: {x: 1.2147421, y: 0.7919147, z: 0.031822596}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 4444488233674352570}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &9013753269867907282
 GameObject:
   m_ObjectHideFlags: 0
@@ -943,6 +982,7 @@ GameObject:
   - component: {fileID: 5080872992246456796}
   - component: {fileID: 7434773898259913790}
   - component: {fileID: 8568988485900865952}
+  - component: {fileID: 5180664815561736959}
   m_Layer: 0
   m_Name: PF_Player
   m_TagString: Player
@@ -958,7 +998,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9013753269867907282}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.9913933, y: 2.108106, z: -14.381578}
   m_LocalScale: {x: 0.82322, y: 0.82322, z: 0.82322}
   m_ConstrainProportionsScale: 0
@@ -966,9 +1006,9 @@ Transform:
   - {fileID: 6309336251216706855}
   - {fileID: 2863280499908934327}
   - {fileID: 3339023112858672194}
-  - {fileID: 7273299116488495421}
   - {fileID: 3863180615115504688}
   - {fileID: 6551385600972439954}
+  - {fileID: 5440283782083759404}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8036255235573886517
@@ -1111,10 +1151,10 @@ MonoBehaviour:
   playerRigidbody: {fileID: 4548657116243157454}
   playerAnimator: {fileID: 8021250850565776497}
   playerGameObject: {fileID: 9013753269867907282}
-  cameraGameObject: {fileID: 3384682604960987922}
-  CluesInteractPosition: {fileID: 0}
+  cinemachineGameObject: {fileID: 3384682604960987922}
   cameraRotation: {fileID: 7434773898259913790}
   playerHandheldCamera: {fileID: 8568988485900865952}
+  chewingGumCount: 0
   isAlive: 1
   asAlreadyTalkWhisGumGum: 0
   playerID: 0
@@ -1144,13 +1184,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8037be922121fcb49aeb8071844d9983, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationOnX: 0
-  rotationOnY: 0
-  sensibility: 0.2
+  _rotationOnX: 0
+  _rotationOnY: 0
+  _sensibility: 0.2
   useHorizontalCameraRotation: 1
   useVerticalCameraRotation: 1
-  limitVerticalCameraRotationMin: -75
-  limitVerticalCameraRotationMax: 75
+  _limitVerticalCameraRotationMin: -75
+  _limitVerticalCameraRotationMax: 75
   currentVerticalRotation: 0
 --- !u!114 &8568988485900865952
 MonoBehaviour:
@@ -1164,3 +1204,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d727b2815d64cf8b34f7c3d85a2a3fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5180664815561736959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9013753269867907282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42dc422ee6f3b514ebbd7794830a68c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rayOrigine: {fileID: 3863180615115504688}
+  _layerMask:
+    serializedVersion: 2
+    m_Bits: 448
+  _rayRange: 20
+  _indexLayerEnvironement: 6
+  _indexLayerGumGum: 7
+  _indexLayerChewingGum: 8

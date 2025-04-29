@@ -3,13 +3,6 @@ using UnityEngine;
 
 public class PlayerHandheldCamera : MonoBehaviour
 {
-    private bool _lookInHandheldCamera;
-
-    void Start()
-    {
-        
-    }
-    
     void Update()
     {
         // Poser la cam
@@ -22,7 +15,7 @@ public class PlayerHandheldCamera : MonoBehaviour
         if (HandheldCameraManager.Instance.playerCanTakeCamera &&
             PlayerBrain.Instance.player.GetButtonDown("InteractWhisCamera"))
         {
-            HandheldCameraManager.Instance.UnInstallCamera();
+            HandheldCameraManager.Instance.UninstallCamera();
         }
     }
 }

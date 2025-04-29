@@ -9,11 +9,11 @@ public class DialogueTrigger : MonoBehaviour
     {
         if (GumGumManager.Instance._isInRange && PlayerBrain.Instance.player.GetButtonDown("Interact"))
         {
-            TriggerDialoque();
+            TriggerDialogue();
         }
     }
 
-    public void TriggerDialoque()
+    public void TriggerDialogue()
     {
         GumGumManager.Instance.gumGumPanel.SetActive(true);
             
@@ -30,29 +30,6 @@ public class DialogueTrigger : MonoBehaviour
         {
             GumGumManager.Instance.GumGumPresentHimself();
             PlayerBrain.Instance.asAlreadyTalkWhisGumGum = true;
-        }
-    }
-
-
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            GumGumManager.Instance._isInRange = true;
-        }
-    }
-
-    void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            GumGumManager.Instance._isInRange = false;
-            GumGumManager.Instance.gumGumPanel.SetActive(false);
-        
-            Cursor.visible = false;
-            Cursor.lockState = CursorLockMode.Locked;
-            PlayerBrain.Instance.cameraRotation.useVerticalCameraRotation = true;
-            PlayerBrain.Instance.cameraRotation.useHorizontalCameraRotation = true;
         }
     }
 }
