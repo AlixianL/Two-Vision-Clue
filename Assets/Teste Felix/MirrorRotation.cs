@@ -7,29 +7,26 @@ public class MirrorRotation : MonoBehaviour
     public GameObject reflector;//------------------> La partie du miroire qui tourne
 
     public KeyCode activationKey = KeyCode.E;
+    public KeyCode _turnRight = KeyCode.E;
+    public KeyCode _turnLeft = KeyCode.A;
     private bool _isPlayerInRange = false;//--------> Condition d'interaction avec le bouton
 
 
-    void OnTriggerEnter(Collider other)
+    void Update()
     {
-        if (other.gameObject == player)
+        if (Input.GetKey(_turnRight))
         {
-            _isPlayerInRange = true;
+            RotateReflector(Vector3.up); // rotation vers la droite
+        }
+        if (Input.GetKey(_turnLeft))
+        {
+            RotateReflector(-Vector3.up); // rotation vers la gauche
         }
     }
 
-    void OnTriggerExit(Collider other)
+    void RotateReflector(Vector3 direction)
     {
-        if (other.gameObject == player)
-        {
-            _isPlayerInRange = false;
-        }
-    }
-    void Update()
-    {
-        if (_isPlayerInRange && Input.GetKeyDown(activationKey))
-        {
-            
-        }
+        float rotationSpeed = 100f; // tu peux ajuster cette valeur
+        reflector.transform.Rotate(direction * rotationSpeed * Time.deltaTime, Space.World);
     }
 }

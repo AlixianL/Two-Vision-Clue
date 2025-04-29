@@ -8,36 +8,39 @@ using UnityEngine;
 /// </summary>
 public class LaserBeam : MonoBehaviour
 {
-    public LineRenderer lineRenderer; //------------> Visuel du rayon
-    public GameObject startPointObject;//-----------> Point de départ du rayon
-    public GameObject player;//---------------------> Joueur
+    [SerializeField] private LineRenderer _lineRenderer; //------------> Visuel du rayon
+    [SerializeField] private GameObject _startPointObject;//-----------> Point de départ du rayon
+    [SerializeField] private GameObject _player;//---------------------> Joueur
 
-    private bool _isPlayerInRange = false;//--------> Condition d'interaction avec le bouton
+    private bool _isplayerInRange = false;//---------------------------> Condition d'interaction avec le bouton
     public KeyCode activationKey = KeyCode.E; // remplacer par rewired input
-    private bool _lazerIsOn = false;//--------------> Condition Si le lazer est actif
-    private bool _puzzleEnd = false;//--------------> Condition de fin de l'énigme
+    private bool _lazerIsOn = false;//---------------------------------> Condition Si le lazer est actif
+    private bool _puzzleEnd = false;//---------------------------------> Condition de fin de l'énigme
 
 
-    public float maxDistance = 100f;//--------------> Distance max entre 2 point du line renderer
+    public float maxDistance = 100f;//---------------------------------> Distance max entre 2 point du line renderer
 
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     // -- Détection du joueur pour le bouton -----------------------
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+    void interaction()
+    {
 
+    }
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject == player)
+        if (other.gameObject == _player)
         {
-            _isPlayerInRange = true;
+            _isplayerInRange = true;
         }
     }
 
     void OnTriggerExit(Collider other)
     {
-        if (other.gameObject == player)
+        if (other.gameObject == _player)
         {
-            _isPlayerInRange = false;
+            _isplayerInRange = false;
         }
     }
 
@@ -45,14 +48,14 @@ public class LaserBeam : MonoBehaviour
     {
         if (_puzzleEnd) return;
 
-        if (_isPlayerInRange && Input.GetKeyDown(activationKey) && !_lazerIsOn)
+        if (_isplayerInRange && Input.GetKeyDown(activationKey) && !_lazerIsOn)
         {
             _lazerIsOn = true;
         }
-        else if (_isPlayerInRange && Input.GetKeyDown(activationKey) && _lazerIsOn)
+        else if (_isplayerInRange && Input.GetKeyDown(activationKey) && _lazerIsOn)
         {
             _lazerIsOn = false;
-            lineRenderer.positionCount = 0;
+            _lineRenderer.positionCount = 0;
         }
 
         if (_lazerIsOn)
@@ -66,17 +69,17 @@ public class LaserBeam : MonoBehaviour
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     /// <summary>
-    /// Ici on fait apparaitre le rayon et avec le linerenderer
+    /// Ici on fait apparaitre le rayon et avec le lineRenderer
     /// Ensuite on verifie si le rayon rentre en collision.
     /// Soit il touche un "mirror" et il rebondi, soit un "puzzleEnd" et il met fin a l'énigme
     /// </summary>
     void DrawLaser()
     {
-        Vector3 direction = startPointObject.transform.forward;
-        Vector3 currentPosition = startPointObject.transform.position;
+        Vector3 direction = _startPointObject.transform.forward;
+        Vector3 currentPosition = _startPointObject.transform.position;
 
-        lineRenderer.positionCount = 1;
-        lineRenderer.SetPosition(0, currentPosition);
+        _lineRenderer.positionCount = 1;
+        _lineRenderer.SetPosition(0, currentPosition);
 
         while (true)
         {
@@ -84,8 +87,8 @@ public class LaserBeam : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(currentPosition, direction, out hit, maxDistance))
             {
-                lineRenderer.positionCount += 1;
-                lineRenderer.SetPosition(lineRenderer.positionCount - 1, hit.point);
+                _lineRenderer.positionCount += 1;
+                _lineRenderer.SetPosition(_lineRenderer.positionCount - 1, hit.point);
 
                 if (hit.collider.CompareTag("Mirror"))
                 {
@@ -103,8 +106,8 @@ public class LaserBeam : MonoBehaviour
             }
             else
             {
-                lineRenderer.positionCount += 1;
-                lineRenderer.SetPosition(lineRenderer.positionCount - 1, currentPosition + direction * maxDistance);
+                _lineRenderer.positionCount += 1;
+                _lineRenderer.SetPosition(_lineRenderer.positionCount - 1, currentPosition + direction * maxDistance);
                 break;
             }
         }
