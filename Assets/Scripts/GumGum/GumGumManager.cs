@@ -1,8 +1,10 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using Random = UnityEngine.Random;
 
 /// <summary>
 /// Gère les dialogues et les indices donnés par le personnage GumGum.
@@ -21,7 +23,7 @@ public class GumGumManager : MonoBehaviour
 
     [Header("GumGum Logic"), Space(5)]
     [SerializeField] private GumGum _gumGum;//-------------------> Référence au script contenant les données de dialogues
-    [SerializeField] private DialogueTrigger _dialogueTrigger;//-> Référence du script pour les conditions de dialogue
+    public DialogueTrigger dialogueTrigger;//-> Référence du script pour les conditions de dialogue
 
     [Header("Clue Prefab System"), Space(5)]
     [HideInInspector] public GameObject clueInstance;//----------> Variable de stockage de l'instance
@@ -60,19 +62,6 @@ public class GumGumManager : MonoBehaviour
             if (!enigmaSpawnPoint.ContainsKey(entry.enigmaNumber))
                 enigmaSpawnPoint.Add(entry.enigmaNumber, entry.spawnPoint);
         }
-    }
-
-    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    // -- LANCEMENT DE GUMGUM --------------------------------------
-    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-    /// <summary>
-    /// Redirige vers l’indice correspondant en fonction du nom reçu.
-    /// Exemple : "Enigma_03" → appel de GiveClueForEnigma(3)
-    /// </summary>
-    public void ActivateGumGum()
-    {
-        _dialogueTrigger.TriggerDialogue();
     }
 
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -285,8 +274,7 @@ public class GumGumManager : MonoBehaviour
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
 
-        PlayerBrain.Instance.cameraRotation.useVerticalCameraRotation = true;
-        PlayerBrain.Instance.cameraRotation.useHorizontalCameraRotation = true;
+        GameManager.Instance.ToggleCameraFreezePlayer();
     }
 }
 

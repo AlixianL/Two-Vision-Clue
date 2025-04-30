@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class GumGum : MonoBehaviour
+public class GumGum : MonoBehaviour, IActivatable
 {
     public string gumgumName;
     
@@ -28,5 +28,9 @@ public class GumGum : MonoBehaviour
 
         return clueDataBase.GetCluesForEnigma(enigmaName);
     }
-    
+
+    public void Activate()
+    {
+        GumGumManager.Instance.dialogueTrigger.TriggerDialogue();
+    }
 }

@@ -19,8 +19,7 @@ public class DialogueTrigger : MonoBehaviour
             
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
-        PlayerBrain.Instance.cameraRotation.useVerticalCameraRotation = false;
-        PlayerBrain.Instance.cameraRotation.useHorizontalCameraRotation = false;
+        GameManager.Instance.ToggleCameraFreezePlayer();
         
         if (PlayerBrain.Instance.asAlreadyTalkWhisGumGum)
         {

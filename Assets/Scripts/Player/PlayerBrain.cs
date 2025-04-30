@@ -7,9 +7,8 @@ public class PlayerBrain : MonoBehaviour
     
     [Header("References"), Space(5)]
     public Rigidbody playerRigidbody;
-    public Animator playerAnimator;
     public GameObject playerGameObject;
-    public GameObject cinemachineGameObject;
+    public GameObject cinemachineTargetGameObject;
     
     [Header("Player Scripts"), Space(5)]
     public CameraRotation cameraRotation;
