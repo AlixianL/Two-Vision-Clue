@@ -72,7 +72,6 @@ public class TurnPillar : MonoBehaviour
 
     public void EndEnigme()
     {
-        Debug.Log("qieuvboidvb");
         _enigmeisend = true;
     }
 }
