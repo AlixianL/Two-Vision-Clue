@@ -166,8 +166,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6551385600972439954}
   - component: {fileID: 2627042256486855348}
-  - component: {fileID: 1251500831850318704}
-  - component: {fileID: 7866669379686633341}
+  - component: {fileID: 6135470442982247667}
+  - component: {fileID: 5350314301443201354}
   m_Layer: 0
   m_Name: CinemachineCamera
   m_TagString: Untagged
@@ -210,7 +210,7 @@ MonoBehaviour:
   m_StreamingVersion: 20241001
   m_LegacyPriority: 0
   Target:
-    TrackingTarget: {fileID: 1509362680113553752}
+    TrackingTarget: {fileID: 862101328459118634}
     LookAtTarget: {fileID: 0}
     CustomLookAtTarget: 0
   Lens:
@@ -233,7 +233,7 @@ MonoBehaviour:
       BarrelClipping: 0.25
       Anamorphism: 0
   BlendHint: 0
---- !u!114 &1251500831850318704
+--- !u!114 &6135470442982247667
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -246,7 +246,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damping: 0
---- !u!114 &7866669379686633341
+--- !u!114 &5350314301443201354
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1023,6 +1023,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4444488233674352570}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8603021124355863082
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 862101328459118634}
+  m_Layer: 0
+  m_Name: CinemachineTarget
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &862101328459118634
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8603021124355863082}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.72884524, z: 0}
+  m_LocalScale: {x: 1.2147421, y: 1.2147421, z: 1.2147421}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4444488233674352570}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &9013753269867907282
 GameObject:
   m_ObjectHideFlags: 0
@@ -1067,6 +1098,7 @@ Transform:
   - {fileID: 3339023112858672194}
   - {fileID: 3863180615115504688}
   - {fileID: 6551385600972439954}
+  - {fileID: 862101328459118634}
   - {fileID: 1509362680113553752}
   - {fileID: 5440283782083759404}
   m_Father: {fileID: 0}
@@ -1210,7 +1242,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerRigidbody: {fileID: 4548657116243157454}
   playerGameObject: {fileID: 9013753269867907282}
-  cinemachineTargetGameObject: {fileID: 8457656269801763969}
+  cinemachineTargetGameObject: {fileID: 8603021124355863082}
+  playerMovement: {fileID: 5080872992246456796}
   cameraRotation: {fileID: 7434773898259913790}
   playerHandheldCamera: {fileID: 8568988485900865952}
   chewingGumCount: 0

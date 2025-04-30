@@ -11,6 +11,7 @@ public class PlayerBrain : MonoBehaviour
     public GameObject cinemachineTargetGameObject;
     
     [Header("Player Scripts"), Space(5)]
+    public PlayerMovement playerMovement;
     public CameraRotation cameraRotation;
     public PlayerHandheldCamera playerHandheldCamera;
     
