@@ -13,6 +13,7 @@ public class PlayerBrain : MonoBehaviour
     public GameObject CluesInteractPosition;
     
     [Header("Player Scripts"), Space(5)]
+    public PlayerMovement playerMovement;
     public CameraRotation cameraRotation;
     public PlayerHandheldCamera playerHandheldCamera;
     

@@ -14,13 +14,13 @@ public class DetectionGround : MonoBehaviour
     [SerializeField]
     private bool BlendTerrainSounds;
 
-    private CharacterController Controller;
-    
+    private CapsuleCollider capsulecollider;
+
 
     private void Awake()
     {
-        Controller = GetComponent<CharacterController>();
-        
+        capsulecollider = GetComponent<CapsuleCollider>();
+
     }
 
     private void Start()
@@ -35,14 +35,14 @@ public class DetectionGround : MonoBehaviour
     {
         while (true)
         {
-            if (Controller.isGrounded && Controller.velocity != Vector3.zero &&
-                Physics.Raycast(transform.position - new Vector3(0, 0.5f * Controller.height + 0.5f * Controller.radius, 0),
-                    Vector3.down,
-                    out RaycastHit hit,
-                    1f,
-                    FloorLayer)
-                )
-            {
+
+            Physics.Raycast(transform.position - new Vector3(0, 0.5f * capsulecollider.height + 0.5f * capsulecollider.radius, 0),
+                Vector3.down,
+                out RaycastHit hit,
+                1f,
+                FloorLayer);
+                
+            
                 if (hit.collider.TryGetComponent<Terrain>(out Terrain terrain))
                 {
                     yield return StartCoroutine(PlayFootstepSoundFromTerrain(terrain, hit.point));
@@ -51,7 +51,7 @@ public class DetectionGround : MonoBehaviour
                 {
                     yield return StartCoroutine(PlayFootstepSoundFromRenderer(renderer));
                 }
-            }
+            
 
             yield return null;
         }
@@ -91,14 +91,14 @@ public class DetectionGround : MonoBehaviour
                 {
                     EventReference clip = GetClipFromTextureSound(textureSound);
                     RuntimeManager.PlayOneShot(clip);
-                    yield return null; 
+                    yield return null;
                 }
             }
         }
-       
+
     }
 
-    
+
     private IEnumerator PlayFootstepSoundFromRenderer(Renderer Renderer)
     {
         foreach (TextureSound textureSound in TextureSounds)
@@ -116,10 +116,10 @@ public class DetectionGround : MonoBehaviour
     //Récupère l'information envoyer dans le script et revoie l'information du son de la texture associer.
     private EventReference GetClipFromTextureSound(TextureSound TextureSound)
     {
-       
+
         return TextureSound.Clips;
     }
-    
+
     [System.Serializable]
     private class TextureSound
     {
