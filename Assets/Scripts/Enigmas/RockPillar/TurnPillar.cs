@@ -15,6 +15,7 @@ public class TurnPillar : MonoBehaviour
     private GameObject _currentRock;
     private int _currentIndex = 0;
     private bool _isRotating = false;
+    private bool _enigmeisend = false;
 
     void Start()
     {
@@ -23,20 +24,20 @@ public class TurnPillar : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(nextRock))
+        if (!_isRotating && !_enigmeisend)
         {
-            _currentIndex = (_currentIndex + 1) % turnRock.Count;
-            _currentRock = turnRock[_currentIndex];
-        }
+            if (Input.GetKeyDown(nextRock))
+            {
+                _currentIndex = (_currentIndex + 1) % turnRock.Count;
+                _currentRock = turnRock[_currentIndex];
+            }
 
-        if (Input.GetKeyDown(previousRock))
-        {
-            _currentIndex = (_currentIndex - 1 + turnRock.Count) % turnRock.Count;
-            _currentRock = turnRock[_currentIndex];
-        }
+            if (Input.GetKeyDown(previousRock))
+            {
+                _currentIndex = (_currentIndex - 1 + turnRock.Count) % turnRock.Count;
+                _currentRock = turnRock[_currentIndex];
+            }
 
-        if (!_isRotating)
-        {
             if (Input.GetKeyDown(turnLeft))
             {
                 StartCoroutine(RotateRockSmooth(-90f, 0.5f));
@@ -67,5 +68,11 @@ public class TurnPillar : MonoBehaviour
 
         _currentRock.transform.rotation = endRotation;
         _isRotating = false;
+    }
+
+    public void EndEnigme()
+    {
+        Debug.Log("qieuvboidvb");
+        _enigmeisend = true;
     }
 }
