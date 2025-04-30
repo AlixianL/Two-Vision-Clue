@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6268953815785820390}
   - component: {fileID: 6209188820683962342}
   - component: {fileID: 652024249572840377}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PF_HandhledCamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -133,9 +133,10 @@ GameObject:
   m_Component:
   - component: {fileID: 906992516201932853}
   - component: {fileID: 2914795073913662468}
+  - component: {fileID: 1423462950555524239}
   - component: {fileID: 5620355985138374858}
-  m_Layer: 0
-  m_Name: Cam
+  m_Layer: 9
+  m_Name: Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -207,6 +208,14 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!81 &1423462950555524239
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1521503067569245992}
+  m_Enabled: 0
 --- !u!114 &5620355985138374858
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -263,7 +272,7 @@ GameObject:
   - component: {fileID: 4753188432461844892}
   - component: {fileID: 7372137431008345580}
   - component: {fileID: 2808785103396265690}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}

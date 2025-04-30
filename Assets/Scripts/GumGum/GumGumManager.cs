@@ -1,7 +1,10 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+using Random = UnityEngine.Random;
 
 /// <summary>
 /// Gère les dialogues et les indices donnés par le personnage GumGum.
@@ -20,18 +23,19 @@ public class GumGumManager : MonoBehaviour
 
     [Header("GumGum Logic"), Space(5)]
     [SerializeField] private GumGum _gumGum;//-------------------> Référence au script contenant les données de dialogues
-    [SerializeField] private DialogueTrigger _dialogueTrigger;//-> Référence du script pour les conditions de dialogue
+    public DialogueTrigger dialogueTrigger;//-> Référence du script pour les conditions de dialogue
 
     [Header("Clue Prefab System"), Space(5)]
-    [HideInInspector] public GameObject clueinstance;//----------> Variable de stockage de l'instance
+    [HideInInspector] public GameObject clueInstance;//----------> Variable de stockage de l'instance
     [SerializeField] private GameObject cluePrefab;//------------> Prefab contenant un script "Clue" lié à un ScriptableObject
+    [SerializeField] private CluePosition _cluePosition;//-------> Reference au script pour le positionnement des indices
     private Transform targetSpawn;//-----------------------------> transform du point de spawn
-    private int _clueIndexEnigma1 = 0;//-------------------------> Index pour instancier les indices au fur et a mesure
-    private int _clueIndexEnigma2 = 0;//-------------------------> Index pour instancier les indices au fur et a mesure
-    private int _clueIndexEnigma3 = 0;//-------------------------> Index pour instancier les indices au fur et a mesure
-    private int _clueIndexEnigma4 = 0;//-------------------------> Index pour instancier les indices au fur et a mesure
-    private int _clueIndexEnigma5 = 0;//-------------------------> Index pour instancier les indices au fur et a mesure
-    private int _clueIndexEnigma6 = 0;//-------------------------> Index pour instancier les indices au fur et a mesure
+    private int _clueIndexEnigma1;//-------------------------> Index pour instancier les indices au fur et a mesure
+    private int _clueIndexEnigma2;//-------------------------> Index pour instancier les indices au fur et a mesure
+    private int _clueIndexEnigma3;//-------------------------> Index pour instancier les indices au fur et a mesure
+    private int _clueIndexEnigma4;//-------------------------> Index pour instancier les indices au fur et a mesure
+    private int _clueIndexEnigma5;//-------------------------> Index pour instancier les indices au fur et a mesure
+    private int _clueIndexEnigma6;//-------------------------> Index pour instancier les indices au fur et a mesure
     
     private Dictionary<int, Transform> enigmaSpawnPoint;//------> Dictionnaire liant une énigme a un point de spawn 
     [SerializeField] private EnigmaSpawn[] spawnPointsArray;//---> Array regroupant les Dictionnaire enigmaSpawnPoint
@@ -61,19 +65,6 @@ public class GumGumManager : MonoBehaviour
     }
 
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    // -- LANCEMENT DE GUMGUM --------------------------------------
-    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-    /// <summary>
-    /// Redirige vers l’indice correspondant en fonction du nom reçu.
-    /// Exemple : "Enigma_03" → appel de GiveClueForEnigma(3)
-    /// </summary>
-    public void ActivateGumGum()
-    {
-        _dialogueTrigger.TriggerDialoque();
-    }
-
-    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     // -- REDIRECTION VERS UNE ÉNIGME --------------------------------
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -83,16 +74,23 @@ public class GumGumManager : MonoBehaviour
     /// </summary>
     public void RedirectTowardEnigmaClue(string name)
     {
-        if (name.StartsWith("Enigma_"))
+        if (PlayerBrain.Instance.chewingGumCount > 0)
         {
-            if (int.TryParse(name.Replace("Enigma_", ""), out int enigmaNumber))
+            if (name.StartsWith("Enigma_"))
             {
-                GiveClueForEnigma(enigmaNumber);
-                return;
+                if (int.TryParse(name.Replace("Enigma_", ""), out int enigmaNumber))
+                {
+                    GiveClueForEnigma(enigmaNumber);
+                    PlayerBrain.Instance.chewingGumCount--;
+                }
             }
         }
-
-        Debug.LogWarning("Enigma Clue Not Found");
+        else
+        {
+            EndDialogue();
+        }
+        
+        
     }
 
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -149,7 +147,7 @@ public class GumGumManager : MonoBehaviour
         int clueIndex = GetCurrentClueIndex(enigmaKey);
 
         // Récupère les données d’indices depuis le ScriptableObject
-        ClueData[] clues = _gumGum.GetCluesForEnigma(enigmaKey);
+        ClueData[] clues = _gumGum.GetClues(enigmaKey);
 
         if (clues == null || clues.Length == 0)
         {
@@ -174,7 +172,7 @@ public class GumGumManager : MonoBehaviour
         // Instancie l’indice correspondant à l’index courant
         IntanciateClue();
 
-        Clue clueComponent = clueinstance.GetComponent<Clue>();
+        Clue clueComponent = clueInstance.GetComponent<Clue>();
         if (clueComponent != null)
         {
             clueComponent.Initialize(clues[clueIndex]);
@@ -193,8 +191,12 @@ public class GumGumManager : MonoBehaviour
     /// </summary>
     private void IntanciateClue()
     {
-        clueinstance = Instantiate(cluePrefab,targetSpawn.position + new Vector3(Random.Range(-0.15f, 0.15f), 0, Random.Range(-0.15f, 0.15f)), targetSpawn.rotation);
-        clueinstance.transform.SetParent(targetSpawn);
+        clueInstance = Instantiate(cluePrefab,targetSpawn.position + new Vector3(Random.Range(-0.15f, 0.15f), 0, Random.Range(-0.15f, 0.15f)), targetSpawn.rotation);
+        clueInstance.transform.SetParent(targetSpawn);
+        _cluePosition = targetSpawn.GetComponent<CluePosition>();
+        
+        _cluePosition.clues.Add(clueInstance);
+        _cluePosition.UpdatePosition();
     }
 
     /// <summary>
@@ -272,8 +274,7 @@ public class GumGumManager : MonoBehaviour
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
 
-        PlayerBrain.Instance.cameraRotation.useVerticalCameraRotation = true;
-        PlayerBrain.Instance.cameraRotation.useHorizontalCameraRotation = true;
+        GameManager.Instance.ToggleCameraFreezePlayer();
     }
 }
 
