@@ -152,9 +152,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a14d0c9e439360547919b420c3d082c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _layerMask:
+  _layerMaskToIgnore:
     serializedVersion: 2
-    m_Bits: 776
+    m_Bits: 0
   _objectsDetected: []
 --- !u!1 &3384682604960987922
 GameObject:
@@ -306,7 +306,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 581b3e3c96df0ef42aef16b63b27b87f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dontDestroyOnLoad: 1
+  _dontDestroyOnLoad: 0
   _userData:
     configVars:
       updateMode: 0
@@ -868,7 +868,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 1023
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -982,7 +982,6 @@ GameObject:
   - component: {fileID: 5080872992246456796}
   - component: {fileID: 7434773898259913790}
   - component: {fileID: 8568988485900865952}
-  - component: {fileID: 5180664815561736959}
   m_Layer: 0
   m_Name: PF_Player
   m_TagString: Player
@@ -1124,7 +1123,7 @@ Animator:
   m_GameObject: {fileID: 9013753269867907282}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 531af79a696c29c43ba37d7af61c5f30, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1149,9 +1148,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerRigidbody: {fileID: 4548657116243157454}
-  playerAnimator: {fileID: 8021250850565776497}
   playerGameObject: {fileID: 9013753269867907282}
-  cinemachineGameObject: {fileID: 3384682604960987922}
+  cinemachineTargetGameObject: {fileID: 0}
   cameraRotation: {fileID: 7434773898259913790}
   playerHandheldCamera: {fileID: 8568988485900865952}
   chewingGumCount: 0
@@ -1189,8 +1187,6 @@ MonoBehaviour:
   _rotationOnX: 0
   _rotationOnY: 0
   _sensibility: 0.2
-  useHorizontalCameraRotation: 1
-  useVerticalCameraRotation: 1
   _limitVerticalCameraRotationMin: -75
   _limitVerticalCameraRotationMax: 75
   currentVerticalRotation: 0
@@ -1206,23 +1202,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d727b2815d64cf8b34f7c3d85a2a3fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &5180664815561736959
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9013753269867907282}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42dc422ee6f3b514ebbd7794830a68c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _rayOrigine: {fileID: 3863180615115504688}
-  _layerMask:
-    serializedVersion: 2
-    m_Bits: 448
-  _rayRange: 3.25
-  _indexLayerEnvironement: 6
-  _indexLayerGumGum: 7
-  _indexLayerChewingGum: 8

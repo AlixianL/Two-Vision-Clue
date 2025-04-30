@@ -6,7 +6,7 @@ using UnityEngine;
 public class HandheldCameraTriggerBox : MonoBehaviour
 {
     [Header("References"), Space(5)]
-    [SerializeField] private LayerMask _layerMask;
+    [SerializeField] private LayerMask _layerMaskToIgnore;
     
     [Header("Variables"), Space(5)]
     [SerializeField] private List<GameObject> _objectsDetected = new List<GameObject>();
@@ -27,7 +27,7 @@ public class HandheldCameraTriggerBox : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         // Vérifie si l'objet appartient au LayerMask
-        if (((1 << other.gameObject.layer) & _layerMask) == 0)
+        if (((1 << other.gameObject.layer) & _layerMaskToIgnore) == 0)
         {
             _objectsDetected.Add(other.gameObject);
         }

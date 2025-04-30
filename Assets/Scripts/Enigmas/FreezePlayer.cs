@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class FreezeBox : MonoBehaviour
+public class FreezePlayer : MonoBehaviour
 {
     [Header("Variables"), Space(5)]
     [SerializeField] private bool _playerIsInFreezeArea = false;
@@ -32,19 +32,19 @@ public class FreezeBox : MonoBehaviour
         // ~~ FREEZE TOTAL ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
         if (_freezeAll && PlayerBrain.Instance.player.GetButtonDown("Interact"))
         {
-            EnigmasManager.Instance.ToggleTotalFreezePlayer();
+            GameManager.Instance.ToggleTotalFreezePlayer();
         }
             
         // ~~ FREEZE DU MOUVEMENT ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
         if (_freezeMovement && PlayerBrain.Instance.player.GetButtonDown("Interact"))
         {
-            EnigmasManager.Instance.ToggleMovementFreezePlayer();
+            GameManager.Instance.ToggleMovementFreezePlayer();
         }
             
         // ~~ FREEZE DE LA CAMERA ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
         if (_freezeCameraRotation && PlayerBrain.Instance.player.GetButtonDown("Interact"))
         {
-            EnigmasManager.Instance.ToggleCameraFreezePlayer();
+            GameManager.Instance.ToggleCameraFreezePlayer();
         }
     }
 }

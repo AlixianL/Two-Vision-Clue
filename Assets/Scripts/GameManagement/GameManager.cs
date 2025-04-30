@@ -1,11 +1,9 @@
 using UnityEngine;
 
-public class EnigmasManager : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
-    public static EnigmasManager Instance;
-
-    //[Header("References"), Space(5)]
-
+    public static GameManager Instance;
+    
     void Awake()
     {
         if (Instance == null)
@@ -29,7 +27,4 @@ public class EnigmasManager : MonoBehaviour
     {
         PlayerBrain.Instance.playerCanLookAround = !PlayerBrain.Instance.playerCanLookAround;
     }
-    
-    
-    
 }
