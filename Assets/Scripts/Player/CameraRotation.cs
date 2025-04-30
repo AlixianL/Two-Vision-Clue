@@ -13,8 +13,11 @@ public class CameraRotation : MonoBehaviour
     private float _limitVerticalCameraRotationMin = -45f; // Limite minimale
 
     [SerializeField, Range(0, 75f)] private float _limitVerticalCameraRotationMax = 45f; // Limite maximale
-    [Space(5)] [SerializeField] private float currentVerticalRotation;
+    [Space(5)]
+    [SerializeField] private float currentVerticalRotation;
 
+    
+    
     void Update()
     {
         if (PlayerBrain.Instance.playerCanLookAround)
@@ -27,8 +30,7 @@ public class CameraRotation : MonoBehaviour
 
             // ## ROTATION AXE X #######################################################################################
             currentVerticalRotation += (_rotationOnX * _sensibility);
-            currentVerticalRotation = Mathf.Clamp(currentVerticalRotation, _limitVerticalCameraRotationMin,
-                _limitVerticalCameraRotationMax);
+            currentVerticalRotation = Mathf.Clamp(currentVerticalRotation, _limitVerticalCameraRotationMin, _limitVerticalCameraRotationMax);
 
             // Appliquer la rotation avec clamp
             PlayerBrain.Instance.cinemachineTargetGameObject.transform.localEulerAngles = new Vector3(-currentVerticalRotation, 0f, 0f);
