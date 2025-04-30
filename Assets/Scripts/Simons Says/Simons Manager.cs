@@ -8,23 +8,43 @@ public class SimonsManager : MonoBehaviour
     [SerializeField] Button[] button;
     [Header("Color Order")]
     [SerializeField] List<int> colorOrder;
+    [SerializeField] float PickDelay = .4f;
+    [SerializeField] int pickNumber = 0;
 
     private void Start()
     {
-        PlayGame();
-
-
+        SetButtonIndex();
+        StartCoroutine("PlayGame");
     }
 
-    void PlayGame()
+    void SetButtonIndex()
     {
         for (int cnt = 0; cnt < button.Length; cnt++)
-        {
-            Debug.Log(button[cnt]);
-            RandomColorOrder();
-        }
+            button[cnt].ButtonIndex = cnt;
     }
-    
+
+    IEnumerator PlayGame()
+    {
+
+        pickNumber = 0;
+        yield return new WaitForSeconds(PickDelay);
+
+        foreach(int colorIndex in colorOrder)
+        {
+            button[colorIndex].PressButton();
+            yield return new WaitForSeconds(PickDelay);
+        }
+
+        RandomColorOrder();
+
+
+      //  for (int cnt = 0; cnt < 5; cnt++)
+        //{
+          //  yield return new WaitForSeconds(PickDelay);
+            //RandomColorOrder();
+       // }
+    }
+
 
     void RandomColorOrder()
     {
@@ -32,4 +52,29 @@ public class SimonsManager : MonoBehaviour
         button[rnd].PressButton();
         colorOrder.Add(rnd);
     }
+
+    public void PlayersPick(int pick)
+    {
+        Debug.Log("Ouaissss" + pick);
+
+        if (pick == colorOrder[pickNumber])
+        {
+            Debug.Log("Correct");
+            pickNumber++;
+            if(pickNumber == colorOrder.Count)
+            {
+
+                StartCoroutine(PlayGame());
+            }
+        }
+        else
+        {
+            Debug.Log("Fail");
+        }
+
+
+
+
+     }
+
 }

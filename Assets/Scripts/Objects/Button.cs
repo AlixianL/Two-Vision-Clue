@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 using FMODUnity;
+using UnityEditor.Build.Content;
 
 public class Button : MonoBehaviour
 {
@@ -11,6 +12,9 @@ public class Button : MonoBehaviour
 
     public UnityEvent onInteraction;
 
+
+    public int ButtonIndex { get; set; }
+    [SerializeField] SimonsManager simonsManager;
     [SerializeField] Color defaultColor;
     [SerializeField] Color highlightColor;
     [SerializeField] float resetDelay = .25f;
@@ -32,8 +36,7 @@ public class Button : MonoBehaviour
     {
         GetComponent<MeshRenderer>().material.color = highlightColor;
         Invoke("ResetButton", resetDelay);
-        Interact();
-        AudioManager.instance.PlayOneShot(SoundActivate, this.transform.position);
+        
     }
 
 //#--------------------------------------------------------------------------------
@@ -41,11 +44,13 @@ public class Button : MonoBehaviour
     void ResetButton()
     {
         GetComponent<MeshRenderer>().material.color = defaultColor;
+        AudioManager.instance.PlayOneShot(SoundActivate, this.transform.position);
     }
-
+       
     public void Interact()
     {
         onInteraction.Invoke();
+        simonsManager.PlayersPick(ButtonIndex);
     }
     public void DisableOutline()
     {
