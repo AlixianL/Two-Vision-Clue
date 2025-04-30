@@ -8,6 +8,7 @@ public class PlayerInteractionSystem : MonoBehaviour
     [Header("References"), Space(5)]
     [SerializeField] private Transform _rayOrigin;                 // Origine du rayon
     [SerializeField] private LayerMask _layerMaskToCheck;          // Couches à considérer dans le raycast
+    [SerializeField] private GameObject hitObject;
     private RaycastHit hit;                                         // Stocke les infos du dernier Raycast
     private Interactable currentInteractable;                      // Référence à l'interactable détecté
     
@@ -30,10 +31,12 @@ public class PlayerInteractionSystem : MonoBehaviour
         {
             Debug.DrawRay(_rayOrigin.position, _rayOrigin.forward * hit.distance, Color.magenta);
 
-            GameObject hitObject = hit.collider.gameObject;
+            hitObject = hit.collider.gameObject;
 
-            // Gestion du surlignage si l'objet est un Interactable
+            // Gestion du surlignage
+            
             Interactable newInteractable = hitObject.GetComponent<Interactable>();
+            
             if (newInteractable != null && newInteractable.enabled)
             {
                 SetNewCurrentInteractable(newInteractable);
@@ -46,13 +49,6 @@ public class PlayerInteractionSystem : MonoBehaviour
             // Interaction si le joueur appuie sur le bouton
             if (PlayerBrain.Instance.player.GetButtonDown("Interact"))
             {
-                // 1. Si c’est un Interactable → appel à Interact()
-                if (newInteractable != null && newInteractable.enabled)
-                {
-                    newInteractable.Interact();
-                }
-
-                // 2. Si c’est un IActivatable → appel à Activate()
                 IActivatable activatable = hitObject.GetComponent<IActivatable>();
                 if (activatable != null)
                 {
@@ -86,7 +82,10 @@ public class PlayerInteractionSystem : MonoBehaviour
     /// </summary>
     private void DisableCurrentInteractable()
     {
-        currentInteractable?.DisableOutline();
-        currentInteractable = null;
+        if (currentInteractable)
+        {
+            currentInteractable.DisableOutline();
+            currentInteractable = null;
+        }
     }
 }
