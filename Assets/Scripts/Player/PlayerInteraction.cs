@@ -4,7 +4,7 @@ public class PlayerInteraction : MonoBehaviour
 {
     public float playerReach = 3f;
 
-    Interactable currentInteractable;
+    Button currentInteractable;
 
     private void Update()
     {
@@ -12,6 +12,7 @@ public class PlayerInteraction : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F) && currentInteractable != null )
         {
             currentInteractable.Interact();
+            
         }
 
         
@@ -23,40 +24,51 @@ public class PlayerInteraction : MonoBehaviour
         Ray ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
         if (Physics.Raycast(ray, out hit, playerReach))
         {
-            if (hit.collider.tag == "Interactable")
+            if (hit.collider.tag == "Button")
             {
-                Interactable newInteractable = hit.collider.GetComponent<Interactable>();
+                Button newInteractable = hit.collider.GetComponent<Button>();
+                
 
                 if (newInteractable.enabled)
 
                 {
+
                     SetNewcurrentInteractable(newInteractable);
+                    
                 }
                 else
                 {
                     DisableCurrentInteractable();
+                    
                 }
             }
             else
             {
                 DisableCurrentInteractable();
+                
             }
         }
         else
         {
             DisableCurrentInteractable();
+           
         }
     }
 
-    void SetNewcurrentInteractable(Interactable newInteractable)
+    void SetNewcurrentInteractable(Button newInteractable)
     {
+
         currentInteractable = newInteractable;
         currentInteractable.EnableOutline();
+        
+        
     }
 
     void DisableCurrentInteractable()
     {
+
         currentInteractable?.DisableOutline();
         currentInteractable=null;
+        
     }
 }
