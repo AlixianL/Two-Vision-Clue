@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.Cinemachine;
 using UnityEngine;
 
 public class RotateWeel : MonoBehaviour, IActivatable
@@ -6,6 +7,7 @@ public class RotateWeel : MonoBehaviour, IActivatable
     [Header("References"), Space(5)]
     [SerializeField] private GameObject _labyrinth;
     [SerializeField] private GameObject _ball;
+    [SerializeField] private CinemachineCamera _enigmaCinemachineCamera;
     
     [Header("Variables"), Space(5)]
     [SerializeField] private float _rotationSpeed;
@@ -22,6 +24,8 @@ public class RotateWeel : MonoBehaviour, IActivatable
             _interactWhisEnigma = true;
         }
         else _interactWhisEnigma = false;
+        
+        ChangePositionCinemachine.Instance.SwitchCam(_enigmaCinemachineCamera, !_interactWhisEnigma);
     }
     
     void Update()

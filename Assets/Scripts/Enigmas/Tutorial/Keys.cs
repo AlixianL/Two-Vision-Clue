@@ -8,8 +8,8 @@ public class Keys : MonoBehaviour
 
     public void OnMouseDown()
     {
+        _keypad.feedBack.text = "";
         clickOnKey.Invoke();
-        Debug.Log(gameObject.name + " clicked");
     }
 
     public void WriteNumber(int number)
@@ -20,6 +20,7 @@ public class Keys : MonoBehaviour
     public void ClearText()
     {
         _keypad.Clear();
+        _keypad.feedBack.text = _keypad._defaultText;
     }
     
     public void ValidateText()

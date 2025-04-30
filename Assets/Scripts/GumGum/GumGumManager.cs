@@ -44,6 +44,7 @@ public class GumGumManager : MonoBehaviour
 
     [Header("State Variables"), Space(5)]
     [HideInInspector] public bool _isInRange;//------------------> Indique si le joueur est proche de GumGum
+    public bool isInteracting;
 
     void Awake()
     {         
@@ -257,7 +258,6 @@ public class GumGumManager : MonoBehaviour
             EndDialogue();
             return;
         }
-
         _gumgumDialogues.text = _sentences.Dequeue();
     }
 
@@ -275,6 +275,8 @@ public class GumGumManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
 
         GameManager.Instance.ToggleCameraFreezePlayer();
+        isInteracting = false;
+        _gumGum.BlendCam(!isInteracting);
     }
 }
 

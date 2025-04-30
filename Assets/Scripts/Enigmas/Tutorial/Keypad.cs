@@ -1,5 +1,8 @@
+using System.Collections;
 using System.Collections.Generic;
+using NUnit.Framework.Constraints;
 using TMPro;
+using Unity.Cinemachine;
 using UnityEngine;
 
 public class Keypad : MonoBehaviour, IActivatable
@@ -10,28 +13,43 @@ public class Keypad : MonoBehaviour, IActivatable
     [SerializeField] private Color _defaultMaterialColor;
     [SerializeField] private Color _validateMaterialColor;
     [SerializeField] private MeshRenderer _indicatorLight;
+    [SerializeField] private CinemachineCamera _enigmaCinemachineCamera;
     
     [Header("Variables"), Space(5)]
     [SerializeField] private int _password;
+    [Space(5)]
+    public string _defaultText;
+    [Space(5)]
+    private bool _isInteractingWhisEnigma = false;
 
     void Start()
     {
         _indicatorLight.material.color = _defaultMaterialColor;
+        feedBack.text = _defaultText;
     }
 
+    
     public void Activate()
     {
         GameManager.Instance.ToggleTotalFreezePlayer();
         
-        Collider collider = GetComponent<Collider>();
-
-        collider.enabled = !collider.enabled; 
+        //Collider collider = GetComponent<Collider>();
+        //collider.enabled = !collider.enabled;
         
         if (Cursor.lockState == CursorLockMode.Locked) Cursor.lockState = CursorLockMode.None;
         else Cursor.lockState = CursorLockMode.Locked;
         
         if (Cursor.visible == false) Cursor.visible = true;
         else Cursor.visible = false;
+        _isInteractingWhisEnigma = !_isInteractingWhisEnigma;
+        
+        ChangePositionCinemachine.Instance.SwitchCam(_enigmaCinemachineCamera, !_isInteractingWhisEnigma);
+    }
+
+    private IEnumerator Delay(float seconds)
+    {
+        Debug.Log("Delay");
+        yield return new WaitForSeconds(seconds);
     }
     
     public void Clear()
