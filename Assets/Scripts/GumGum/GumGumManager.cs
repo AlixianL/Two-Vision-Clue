@@ -86,6 +86,8 @@ public class GumGumManager : MonoBehaviour
                     PlayerBrain.Instance.chewingGumCount--;
                 }
             }
+            
+            
         }
         else
         {
