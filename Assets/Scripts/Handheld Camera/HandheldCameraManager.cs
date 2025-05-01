@@ -39,6 +39,7 @@ public class HandheldCameraManager : MonoBehaviour
             Destroy(handheldCamera);
             cameraIsInstall = false;
             playerCanTakeCamera = false;
+            cameraCanBeInstalled = true;
         }
     }
 }

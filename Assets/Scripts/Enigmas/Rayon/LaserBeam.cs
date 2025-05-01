@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
@@ -6,7 +7,7 @@ using UnityEngine;
 /// Ici on a la gestion du bouton on/off de cette énigme la gestion des rebon sur les surface
 /// et la condition de victoire de l'énigme.
 /// </summary>
-public class LaserBeam : MonoBehaviour
+public class LaserBeam : MonoBehaviour, IActivatable
 {
     [SerializeField] private LineRenderer _lineRenderer; //------------> Visuel du rayon
     [SerializeField] private GameObject _startPointObject;//-----------> Point de départ du rayon
@@ -17,6 +18,8 @@ public class LaserBeam : MonoBehaviour
 
 
     public float maxDistance = 100f;//---------------------------------> Distance max entre 2 point du line renderer
+
+    [SerializeField] private List<GameObject> _mirror = new List<GameObject>();
 
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     // -- Détection du joueur pour le bouton -----------------------
@@ -102,5 +105,17 @@ public class LaserBeam : MonoBehaviour
     void EndLaserEnigme()
     {
         _puzzleEnd = true;
+        foreach (GameObject mirrorObject in _mirror)
+        {
+            MirrorRotation mirror = mirrorObject.GetComponent<MirrorRotation>();
+            if (mirror != null)
+            {
+                mirror.FreezMirror();
+            }
+            else
+            {
+                Debug.LogWarning("Un objet de la liste _mirror n'a pas de script MirrorRotation !");
+            }
+        }
     }
 }
