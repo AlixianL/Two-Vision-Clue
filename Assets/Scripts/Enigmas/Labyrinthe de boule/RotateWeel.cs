@@ -25,7 +25,7 @@ public class RotateWeel : MonoBehaviour, IActivatable
         }
         else _interactWhisEnigma = false;
         
-        ChangePositionCinemachine.Instance.SwitchCam(_enigmaCinemachineCamera, !_interactWhisEnigma);
+        ChangePositionCinemachine.Instance.SwitchCam(_enigmaCinemachineCamera, _interactWhisEnigma);
     }
     
     void Update()

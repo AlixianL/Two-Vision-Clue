@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using NUnit.Framework.Constraints;
@@ -20,7 +21,9 @@ public class Keypad : MonoBehaviour, IActivatable
     [Space(5)]
     public string _defaultText;
     [Space(5)]
-    private bool _isInteractingWhisEnigma = false;
+    public bool _isInteractingWhisEnigma = false;
+    public bool _isClear = true;
+    private bool _isValidated = false;
 
     void Start()
     {
@@ -32,9 +35,16 @@ public class Keypad : MonoBehaviour, IActivatable
     public void Activate()
     {
         GameManager.Instance.ToggleTotalFreezePlayer();
-        
-        //Collider collider = GetComponent<Collider>();
-        //collider.enabled = !collider.enabled;
+
+        if (!_isValidated) Reset();
+        BoxCollider collider = GetComponent<BoxCollider>();
+
+        Vector3 colliderSize = new(collider.size.x, 1, 1);
+
+        if (colliderSize.x == 1.5f) colliderSize.x = 1;
+        else if (colliderSize.x == 1) colliderSize.x = 1.5f;
+
+        collider.size = colliderSize; 
         
         if (Cursor.lockState == CursorLockMode.Locked) Cursor.lockState = CursorLockMode.None;
         else Cursor.lockState = CursorLockMode.Locked;
@@ -43,18 +53,13 @@ public class Keypad : MonoBehaviour, IActivatable
         else Cursor.visible = false;
         _isInteractingWhisEnigma = !_isInteractingWhisEnigma;
         
-        ChangePositionCinemachine.Instance.SwitchCam(_enigmaCinemachineCamera, !_isInteractingWhisEnigma);
-    }
-
-    private IEnumerator Delay(float seconds)
-    {
-        Debug.Log("Delay");
-        yield return new WaitForSeconds(seconds);
+        ChangePositionCinemachine.Instance.SwitchCam(_enigmaCinemachineCamera, _isInteractingWhisEnigma);
     }
     
     public void Clear()
     {
         feedBack.text = "";
+        _isClear = true;
     }
 
     public void Validate()
@@ -68,6 +73,18 @@ public class Keypad : MonoBehaviour, IActivatable
                 boxColliders.enabled = false;
                 boxColliders.gameObject.layer = 0;
             }
+            
+            _isValidated = true;
         }
+        else
+        {
+            Reset();
+        }
+    }
+
+    public void Reset()
+    {
+        feedBack.text = "_ _ _ _";
+        _isClear = false;
     }
 }

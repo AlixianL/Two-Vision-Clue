@@ -28,12 +28,12 @@ public class ChangePositionCinemachine : MonoBehaviour
     {
         if (isOnEnigmaCam)
         {
-            enigmaCineCame.Priority = 0;
+            enigmaCineCame.Priority = 10;
         }
 
         else
         {
-            enigmaCineCame.Priority = 10;
+            enigmaCineCame.Priority = 0;
         }
     }
 }

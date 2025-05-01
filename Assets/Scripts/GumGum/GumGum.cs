@@ -4,7 +4,6 @@ using UnityEngine;
 public class GumGum : MonoBehaviour, IActivatable
 {
     public string gumgumName;
-    public CinemachineCamera _enigmaCinemachineCamera;
     
     [Header("Presentation"), Space(5)]
     [TextArea(3,10)] public string[] gumgumPresentation;
@@ -37,10 +36,5 @@ public class GumGum : MonoBehaviour, IActivatable
 
         GumGumManager.Instance.isInteracting = true;
         
-    }
-
-    public void BlendCam(bool state)
-    {
-        ChangePositionCinemachine.Instance.SwitchCam(_enigmaCinemachineCamera, state);
     }
 }
