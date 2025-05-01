@@ -12,8 +12,6 @@ public class LaserBeam : MonoBehaviour
     [SerializeField] private GameObject _startPointObject;//-----------> Point de départ du rayon
     [SerializeField] private GameObject _player;//---------------------> Joueur
 
-    private bool _isplayerInRange = false;//---------------------------> Condition d'interaction avec le bouton
-    public KeyCode activationKey = KeyCode.E; // remplacer par rewired input
     private bool _lazerIsOn = false;//---------------------------------> Condition Si le lazer est actif
     private bool _puzzleEnd = false;//---------------------------------> Condition de fin de l'énigme
 
@@ -24,39 +22,24 @@ public class LaserBeam : MonoBehaviour
     // -- Détection du joueur pour le bouton -----------------------
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-    void interaction()
+    public void Activate()
     {
-
-    }
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject == _player)
+        if (!_lazerIsOn)
         {
-            _isplayerInRange = true;
+            _lazerIsOn = true;
+        }
+        else if (_lazerIsOn)
+        {
+            _lazerIsOn = false;
+            _lineRenderer.positionCount = 0;
         }
     }
-
-    void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject == _player)
-        {
-            _isplayerInRange = false;
-        }
-    }
+    
 
     void Update()
     {
         if (_puzzleEnd) return;
 
-        if (_isplayerInRange && Input.GetKeyDown(activationKey) && !_lazerIsOn)
-        {
-            _lazerIsOn = true;
-        }
-        else if (_isplayerInRange && Input.GetKeyDown(activationKey) && _lazerIsOn)
-        {
-            _lazerIsOn = false;
-            _lineRenderer.positionCount = 0;
-        }
 
         if (_lazerIsOn)
         {
