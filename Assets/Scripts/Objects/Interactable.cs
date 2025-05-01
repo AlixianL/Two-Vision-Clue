@@ -20,9 +20,6 @@ public class Interactable : MonoBehaviour
 
         // Désactive l'effet de surbrillance (outline) au départ
         DisableOutline();
-
-        // Affiche dans la console si le composant Outline a bien été trouvé
-        Debug.Log(outline);
     }
 
     // Désactive l'effet de surbrillance de l'objet

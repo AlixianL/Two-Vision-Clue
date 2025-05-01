@@ -23,10 +23,14 @@ public class DialogueTrigger : MonoBehaviour
         
         if (PlayerBrain.Instance.asAlreadyTalkWhisGumGum)
         {
+            GumGumManager.Instance.isInteracting = true;
+            ChangePositionCinemachine.Instance.SwitchCam(GumGumManager.Instance.gumgumCinemachineCamera, GumGumManager.Instance.isInteracting);
             GumGumManager.Instance.GumGumAsksThePlayerWhichHesBlockingOn();
         }
         else
         {
+            GumGumManager.Instance.isInteracting = true;
+            ChangePositionCinemachine.Instance.SwitchCam(GumGumManager.Instance.gumgumCinemachineCamera, GumGumManager.Instance.isInteracting);
             GumGumManager.Instance.GumGumPresentHimself();
             PlayerBrain.Instance.asAlreadyTalkWhisGumGum = true;
         }

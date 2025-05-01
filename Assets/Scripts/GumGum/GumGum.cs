@@ -1,3 +1,4 @@
+using Unity.Cinemachine;
 using UnityEngine;
 
 public class GumGum : MonoBehaviour, IActivatable
@@ -32,5 +33,8 @@ public class GumGum : MonoBehaviour, IActivatable
     public void Activate()
     {
         GumGumManager.Instance.dialogueTrigger.TriggerDialogue();
+
+        GumGumManager.Instance.isInteracting = true;
+        
     }
 }
