@@ -49,5 +49,6 @@ public class PlayerMovement : MonoBehaviour
         velocity.y = PlayerBrain.Instance.playerRigidbody.linearVelocity.y;
 
         PlayerBrain.Instance.playerRigidbody.linearVelocity = velocity;
+        PlayerBrain.Instance.velocity = velocity.linearVelocity;
     }
 }

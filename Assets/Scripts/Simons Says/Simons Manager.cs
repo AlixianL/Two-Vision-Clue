@@ -17,6 +17,14 @@ public class SimonsManager : MonoBehaviour
         StartCoroutine("PlayGame");
     }
 
+    public void Update()
+    {
+        if (colorOrder.Count == 6)
+        {
+            Debug.Log("ahhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh");
+        }
+    }
+
     void SetButtonIndex()
     {
         for (int cnt = 0; cnt < button.Length; cnt++)
@@ -38,11 +46,6 @@ public class SimonsManager : MonoBehaviour
         RandomColorOrder();
 
 
-      //  for (int cnt = 0; cnt < 5; cnt++)
-        //{
-          //  yield return new WaitForSeconds(PickDelay);
-            //RandomColorOrder();
-       // }
     }
 
 
@@ -73,7 +76,7 @@ public class SimonsManager : MonoBehaviour
         }
 
 
-
+        
 
      }
 

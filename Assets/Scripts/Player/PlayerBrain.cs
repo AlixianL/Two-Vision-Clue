@@ -18,8 +18,12 @@ public class PlayerBrain : MonoBehaviour
     public PlayerHandheldCamera playerHandheldCamera;
     
     [Header("Variables"), Space(5)]
-    public bool isAlive;
+    public bool isGrounded;
+    public float height;
+    public float velocity;
+    public float radius;
 
+    [Header("Variables"), Space(5)]
     public bool asAlreadyTalkWhisGumGum = false;
     
     [Header("Rewired"), Space(5)]
@@ -32,6 +36,21 @@ public class PlayerBrain : MonoBehaviour
         else Destroy(this);
         
         player = ReInput.players.GetPlayer(playerID);
+    }
+
+
+    void Update()
+    {
+        if (Physics.Raycast(transform.position, Vector3.down, height))
+        {
+            isGrounded = true;
+            Debug.Log("Grounded");
+        }
+        else
+        {
+            isGrounded = false;
+            Debug.Log("Not Grounded!");
+        }
     }
 }
     

@@ -8,20 +8,11 @@ using FMODUnity;
 public class DetectionGround : MonoBehaviour
 {
     [SerializeField]
-    private LayerMask FloorLayer;
+    private LayerMask _floorLayer;
     [SerializeField]
-    private TextureSound[] TextureSounds;
+    private TextureSound[] _textureSounds;
     [SerializeField]
-    private bool BlendTerrainSounds;
-
-    private CapsuleCollider capsulecollider;
-
-
-    private void Awake()
-    {
-        capsulecollider = GetComponent<CapsuleCollider>();
-
-    }
+    private bool _blendTerrainSounds;
 
     private void Start()
     {
@@ -35,14 +26,14 @@ public class DetectionGround : MonoBehaviour
     {
         while (true)
         {
-
-            Physics.Raycast(transform.position - new Vector3(0, 0.5f * capsulecollider.height + 0.5f * capsulecollider.radius, 0),
-                Vector3.down,
-                out RaycastHit hit,
-                1f,
-                FloorLayer);
-                
-            
+            if (PlayerBrain.Instance.isGrounded && PlayerBrain.Instance.velocity != Vector3.zero &&
+                Physics.Raycast(transform.position - new Vector3(0, 0.5f * PlayerBrain.Instance.height + 0.5f * PlayerBrain.Instance.radius, 0),
+                    Vector3.down,
+                    out RaycastHit hit,
+                    1f,
+                    _floorLayer)
+                )
+            {
                 if (hit.collider.TryGetComponent<Terrain>(out Terrain terrain))
                 {
                     yield return StartCoroutine(PlayFootstepSoundFromTerrain(terrain, hit.point));
@@ -51,7 +42,7 @@ public class DetectionGround : MonoBehaviour
                 {
                     yield return StartCoroutine(PlayFootstepSoundFromRenderer(renderer));
                 }
-            
+            }
 
             yield return null;
         }
@@ -74,7 +65,7 @@ public class DetectionGround : MonoBehaviour
 
         float[,,] alphaMap = Terrain.terrainData.GetAlphamaps(x, z, 1, 1);
 
-        if (!BlendTerrainSounds)
+        if (!_blendTerrainSounds)
         {
             int primaryIndex = 0;
             for (int i = 1; i < alphaMap.Length; i++)
@@ -85,7 +76,7 @@ public class DetectionGround : MonoBehaviour
                 }
             }
 
-            foreach (TextureSound textureSound in TextureSounds)
+            foreach (TextureSound textureSound in _textureSounds)
             {
                 if (textureSound.BaseColor == Terrain.terrainData.terrainLayers[primaryIndex].diffuseTexture)
                 {
@@ -101,7 +92,7 @@ public class DetectionGround : MonoBehaviour
 
     private IEnumerator PlayFootstepSoundFromRenderer(Renderer Renderer)
     {
-        foreach (TextureSound textureSound in TextureSounds)
+        foreach (TextureSound textureSound in _textureSounds)
         {
             if (textureSound.BaseColor == Renderer.material.GetTexture("_MainTex"))
             {
