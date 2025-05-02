@@ -2433,8 +2433,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 737235726}
+  - component: {fileID: 737235731}
   - component: {fileID: 737235727}
-  m_Layer: 0
+  - component: {fileID: 737235730}
+  - component: {fileID: 737235729}
+  - component: {fileID: 737235728}
+  m_Layer: 13
   m_Name: Enigma 2  - Clue  Spawn Point
   m_TagString: Untagged
   m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
@@ -2471,6 +2475,73 @@ MonoBehaviour:
   clues: []
   clueCinemachineCamera: {fileID: 1947821118}
   distanceFromCenter: 0.3
+  _playerIsInteracting: 0
+--- !u!114 &737235728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 737235725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 031f8f92ef123fb41b23b89bbddc0e9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outline: {fileID: 737235729}
+  message: 
+--- !u!114 &737235729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 737235725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0, g: 1, b: 0.9917376, a: 0.54901963}
+  outlineWidth: 5
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
+--- !u!114 &737235730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 737235725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1004f47222638c5469b177c1d39c4b80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _cinemachineCamera: {fileID: 1947821118}
+--- !u!65 &737235731
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 737235725}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.7319081, y: 0.3324175, z: 0.7319081}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &743293795
 GameObject:
   m_ObjectHideFlags: 0
@@ -6035,8 +6106,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1916979381}
+  - component: {fileID: 1916979386}
   - component: {fileID: 1916979382}
-  m_Layer: 0
+  - component: {fileID: 1916979385}
+  - component: {fileID: 1916979384}
+  - component: {fileID: 1916979383}
+  m_Layer: 13
   m_Name: Enigma 4  - Clue  Spawn Point
   m_TagString: Untagged
   m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
@@ -6073,6 +6148,73 @@ MonoBehaviour:
   clues: []
   clueCinemachineCamera: {fileID: 1019160866}
   distanceFromCenter: 0.3
+  _playerIsInteracting: 0
+--- !u!114 &1916979383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1916979380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 031f8f92ef123fb41b23b89bbddc0e9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outline: {fileID: 1916979384}
+  message: 
+--- !u!114 &1916979384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1916979380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0, g: 1, b: 0.9917376, a: 0.54901963}
+  outlineWidth: 5
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
+--- !u!114 &1916979385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1916979380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1004f47222638c5469b177c1d39c4b80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _cinemachineCamera: {fileID: 1019160866}
+--- !u!65 &1916979386
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1916979380}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.7319081, y: 0.3324175, z: 0.7319081}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1922677011
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7353,8 +7495,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2081287248}
+  - component: {fileID: 2081287253}
   - component: {fileID: 2081287249}
-  m_Layer: 0
+  - component: {fileID: 2081287252}
+  - component: {fileID: 2081287251}
+  - component: {fileID: 2081287250}
+  m_Layer: 13
   m_Name: Enigma 3  - Clue  Spawn Point
   m_TagString: Untagged
   m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
@@ -7391,6 +7537,73 @@ MonoBehaviour:
   clues: []
   clueCinemachineCamera: {fileID: 191572521}
   distanceFromCenter: 0.3
+  _playerIsInteracting: 0
+--- !u!114 &2081287250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2081287247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 031f8f92ef123fb41b23b89bbddc0e9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outline: {fileID: 2081287251}
+  message: 
+--- !u!114 &2081287251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2081287247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0, g: 1, b: 0.9917376, a: 0.54901963}
+  outlineWidth: 5
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
+--- !u!114 &2081287252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2081287247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1004f47222638c5469b177c1d39c4b80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _cinemachineCamera: {fileID: 191572521}
+--- !u!65 &2081287253
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2081287247}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.7319081, y: 0.3324175, z: 0.7319081}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2089425024
 GameObject:
   m_ObjectHideFlags: 0
@@ -7576,8 +7789,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2144461319}
-  - component: {fileID: 2144461320}
   - component: {fileID: 2144461321}
+  - component: {fileID: 2144461320}
   - component: {fileID: 2144461324}
   - component: {fileID: 2144461323}
   - component: {fileID: 2144461322}
@@ -7618,6 +7831,7 @@ MonoBehaviour:
   clues: []
   clueCinemachineCamera: {fileID: 1373922526}
   distanceFromCenter: 0.3
+  _playerIsInteracting: 0
 --- !u!65 &2144461321
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7633,7 +7847,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -7666,8 +7880,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   outlineMode: 0
-  outlineColor: {r: 1, g: 1, b: 1, a: 0}
-  outlineWidth: 0
+  outlineColor: {r: 0, g: 1, b: 0.9917376, a: 0.54901963}
+  outlineWidth: 5
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []

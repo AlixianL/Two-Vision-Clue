@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using Unity.Cinemachine;
 using UnityEngine;
 
-public class CluePosition : MonoBehaviour
+public class CluePosition : MonoBehaviour, IActivatable
 {
     [Header("References"), Space(5)]
     public List<GameObject> clues = new List<GameObject>();
@@ -10,6 +10,9 @@ public class CluePosition : MonoBehaviour
 
     [Header("Settings"), Space(5)]
     public float distanceFromCenter;
+    
+    [Header("Variables"), Space(5)]
+    public bool _playerIsInteracting = false;
     
 
     /// <summary>
@@ -37,6 +40,12 @@ public class CluePosition : MonoBehaviour
         }
     }
     
+    public void Activate()
+    {
+        _playerIsInteracting = !_playerIsInteracting;
+        ChangePositionCinemachine.Instance.SwitchCam(clueCinemachineCamera, _playerIsInteracting);
+        GameManager.Instance.ToggleTotalFreezePlayer();
+    }
     
     // Pour tester directement depuis l'inspecteur (facultatif)
     private void OnValidate()

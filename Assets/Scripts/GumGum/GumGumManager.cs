@@ -213,6 +213,8 @@ public class GumGumManager : MonoBehaviour
         PlayerBrain.Instance.playerGameObject.transform.position = new Vector3(targetSpawn.position.x, PlayerBrain.Instance.playerGameObject.transform.position.y, targetSpawn.position.z - 1.5f);
         PlayerBrain.Instance.playerGameObject.transform.rotation = Quaternion.Euler(0, targetSpawn.rotation.eulerAngles.y, 0);
         PlayerBrain.Instance.cinemachineTargetGameObject.transform.LookAt(targetSpawn.position);
+        CluePosition tempVar = targetSpawn.GetComponent<CluePosition>();
+        tempVar._playerIsInteracting = true;
     }
 
     /// <summary>
