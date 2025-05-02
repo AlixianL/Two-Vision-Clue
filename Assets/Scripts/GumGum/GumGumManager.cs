@@ -201,7 +201,6 @@ public class GumGumManager : MonoBehaviour
         
         ChangePositionCinemachine.Instance.SwitchIntoClueCinemachineCamera(gumgumCinemachineCamera, _cluePosition.clueCinemachineCamera);
         ChangePositionCinemachine.Instance._gumgumCinemachineCamera.Priority = 0;
-        ToggleCollider();
         
         if (Cursor.lockState == CursorLockMode.Locked) Cursor.lockState = CursorLockMode.None;
         else Cursor.lockState = CursorLockMode.Locked;
@@ -295,15 +294,6 @@ public class GumGumManager : MonoBehaviour
         
         isInteracting = false;
         ChangePositionCinemachine.Instance.SwitchCam(gumgumCinemachineCamera, isInteracting);
-    }
-
-    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    // -- TOGGLE DU COLLIDER DE SECUTITE -------------------------------------------------------------------------------
-    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-    public void ToggleCollider()
-    {
-        _collider.enabled = !_collider.enabled;
     }
 }
 
