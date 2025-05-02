@@ -41,6 +41,11 @@ public class HandheldCameraTriggerBox : MonoBehaviour
         CheckIfListIsNull();
     }
 
+    private void Update()
+    {
+        CheckIfListIsNull();
+    }
+
     private void CheckIfListIsNull()
     {
         if (_objectsDetected.Count == 0)

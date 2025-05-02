@@ -13,6 +13,7 @@ public class Keypad : MonoBehaviour, IActivatable
     [SerializeField] private List<BoxCollider> _keyBoxColliders = new List<BoxCollider>();
     [SerializeField] private Color _defaultMaterialColor;
     [SerializeField] private Color _validateMaterialColor;
+    [SerializeField] private Color _falseMaterialColor;
     [SerializeField] private MeshRenderer _indicatorLight;
     [SerializeField] private CinemachineCamera _enigmaCinemachineCamera;
     
@@ -79,7 +80,8 @@ public class Keypad : MonoBehaviour, IActivatable
         }
         else
         {
-            Reset();
+            _indicatorLight.material.color = _falseMaterialColor;
+            StartCoroutine(Delay());
         }
     }
 
@@ -87,5 +89,12 @@ public class Keypad : MonoBehaviour, IActivatable
     {
         feedBack.text = "_ _ _ _";
         _isClear = false;
+    }
+
+    public IEnumerator Delay()
+    {
+        yield return new WaitForSeconds(1f);
+        Reset();
+        _indicatorLight.material.color = _defaultMaterialColor;
     }
 }
