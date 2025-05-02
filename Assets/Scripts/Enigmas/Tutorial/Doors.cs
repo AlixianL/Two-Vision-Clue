@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class DoubleDoorInteraction : MonoBehaviour, IInteractable
+public class Doors : MonoBehaviour, IInteractable
 {
     [Header("Interaction Settings"), Space(5)]
     [SerializeField] private Animator[] _animators;
@@ -14,7 +14,7 @@ public class DoubleDoorInteraction : MonoBehaviour, IInteractable
         
         foreach (var animator in _animators)
         {
-            animator.SetTrigger("IsOpen");
+            animator.SetTrigger("transition");
         }
     }
 
