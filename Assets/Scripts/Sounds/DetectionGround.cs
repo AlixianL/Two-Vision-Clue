@@ -14,6 +14,7 @@ public class DetectionGround : MonoBehaviour
     [SerializeField]
     private bool _blendTerrainSounds;
 
+
     private void Start()
     {
         StartCoroutine(CheckGround());
@@ -26,8 +27,10 @@ public class DetectionGround : MonoBehaviour
     {
         while (true)
         {
+            Vector3 origin = transform.position;
+            Debug.Log(origin);
             if (PlayerBrain.Instance.isGrounded && PlayerBrain.Instance.velocity != Vector3.zero &&
-                Physics.Raycast(transform.position - new Vector3(0, 0.5f * PlayerBrain.Instance.height + 0.5f * PlayerBrain.Instance.radius, 0),
+                Physics.Raycast(origin,
                     Vector3.down,
                     out RaycastHit hit,
                     1f,
@@ -82,6 +85,7 @@ public class DetectionGround : MonoBehaviour
                 {
                     EventReference clip = GetClipFromTextureSound(textureSound);
                     RuntimeManager.PlayOneShot(clip);
+                    Debug.Log("C'est good");
                     yield return null;
                 }
             }
@@ -99,6 +103,7 @@ public class DetectionGround : MonoBehaviour
                 EventReference clip = GetClipFromTextureSound(textureSound);
 
                 RuntimeManager.PlayOneShot(clip);
+                Debug.Log("Ca marche");
                 yield return null;
             }
         }

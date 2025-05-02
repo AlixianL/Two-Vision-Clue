@@ -20,7 +20,7 @@ public class PlayerBrain : MonoBehaviour
     [Header("Variables"), Space(5)]
     public bool isGrounded;
     public float height;
-    public float velocity;
+    public Vector3 velocity;
     public float radius;
 
     [Header("Variables"), Space(5)]
