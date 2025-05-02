@@ -8,10 +8,16 @@ public class ChangePositionCinemachine : MonoBehaviour
     public static ChangePositionCinemachine Instance;
     
     [Header("Renfereces"), Space(5)]
-    [SerializeField] private CinemachineCamera _cinemachineCameraClue_01;
-    [SerializeField] private CinemachineCamera _cinemachineCameraClue_02;
-    [SerializeField] private CinemachineCamera _cinemachineCameraClue_03;
-    [SerializeField] private CinemachineCamera _cinemachineCameraClue_04;
+    public CinemachineCamera _playerCinemachineCamera;
+    public CinemachineCamera _gumgumCinemachineCamera;
+    public CinemachineCamera _digicodeCinemachineCamera;
+    public CinemachineCamera _labyrinthCinemachineCamera;
+    public CinemachineCamera _pilerCinemachineCamera;
+    public CinemachineCamera _laserCinemachineCamera;
+    public CinemachineCamera _clue_01CinemachineCamera;
+    public CinemachineCamera _clue_02CinemachineCamera;
+    public CinemachineCamera _clue_03CinemachineCamera;
+    public CinemachineCamera _clue_04CinemachineCamera;
 
     void Awake()
     {
@@ -30,16 +36,22 @@ public class ChangePositionCinemachine : MonoBehaviour
     /// </summary>
     /// <param name="enigmaCineCame"></param> 
     /// <param name="isOnEnigmaCam"></param>
-    public void SwitchCam(CinemachineCamera enigmaCineCame, bool isNotOnPlayerCineCam)
+    public void SwitchCam(CinemachineCamera targetCineCame, bool isNotOnPlayerCineCam)
     {
         if (isNotOnPlayerCineCam)
         {
-            enigmaCineCame.Priority = 2;
+            targetCineCame.Priority = 2;
         }
 
         else
         {
-            enigmaCineCame.Priority = 0;
+            targetCineCame.Priority = 0;
         }
+    }
+
+    public void SwitchIntoClueCinemachineCamera(CinemachineCamera gumgumCinemachineCamera, CinemachineCamera targetCinemachineCamera)
+    {
+        gumgumCinemachineCamera.Priority = 0;
+        targetCinemachineCamera.Priority = 2;
     }
 }

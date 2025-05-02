@@ -5,7 +5,7 @@ using UnityEngine;
 public class Clue : MonoBehaviour
 {
     [Header("References"), Space(5)]
-    [SerializeField] private ClueData clueData;
+    [SerializeField] private ClueData _clueData;
     [SerializeField] private TMP_Text _clueTextRenderer;
     
     [Header("Clue Variables")]
@@ -15,10 +15,9 @@ public class Clue : MonoBehaviour
     
     public void Initialize(ClueData data)
     {
-        clueData = data;
+        _clueData = data;
         _enigmaName = data.enigmaName;
         _clueNumber = data.clueNumber;
-        _clueText = data.clueText;
         _clueTextRenderer.text = data.clueText;
     }
 }

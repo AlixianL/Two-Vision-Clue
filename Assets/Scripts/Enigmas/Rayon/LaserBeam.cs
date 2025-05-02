@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
@@ -7,42 +6,57 @@ using UnityEngine;
 /// Ici on a la gestion du bouton on/off de cette énigme la gestion des rebon sur les surface
 /// et la condition de victoire de l'énigme.
 /// </summary>
-public class LaserBeam : MonoBehaviour, IActivatable
+public class LaserBeam : MonoBehaviour
 {
     [SerializeField] private LineRenderer _lineRenderer; //------------> Visuel du rayon
     [SerializeField] private GameObject _startPointObject;//-----------> Point de départ du rayon
     [SerializeField] private GameObject _player;//---------------------> Joueur
 
+    private bool _isplayerInRange = false;//---------------------------> Condition d'interaction avec le bouton
+    public KeyCode activationKey = KeyCode.E; // remplacer par rewired input
     private bool _lazerIsOn = false;//---------------------------------> Condition Si le lazer est actif
     private bool _puzzleEnd = false;//---------------------------------> Condition de fin de l'énigme
 
 
     public float maxDistance = 100f;//---------------------------------> Distance max entre 2 point du line renderer
 
-    [SerializeField] private List<GameObject> _mirror = new List<GameObject>();
-
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     // -- Détection du joueur pour le bouton -----------------------
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-    public void Activate()
+    void interaction()
     {
-        if (!_lazerIsOn)
+
+    }
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject == _player)
         {
-            _lazerIsOn = true;
-        }
-        else if (_lazerIsOn)
-        {
-            _lazerIsOn = false;
-            _lineRenderer.positionCount = 0;
+            _isplayerInRange = true;
         }
     }
-    
+
+    void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject == _player)
+        {
+            _isplayerInRange = false;
+        }
+    }
 
     void Update()
     {
         if (_puzzleEnd) return;
 
+        if (_isplayerInRange && Input.GetKeyDown(activationKey) && !_lazerIsOn)
+        {
+            _lazerIsOn = true;
+        }
+        else if (_isplayerInRange && Input.GetKeyDown(activationKey) && _lazerIsOn)
+        {
+            _lazerIsOn = false;
+            _lineRenderer.positionCount = 0;
+        }
 
         if (_lazerIsOn)
         {
@@ -105,17 +119,5 @@ public class LaserBeam : MonoBehaviour, IActivatable
     void EndLaserEnigme()
     {
         _puzzleEnd = true;
-        foreach (GameObject mirrorObject in _mirror)
-        {
-            MirrorRotation mirror = mirrorObject.GetComponent<MirrorRotation>();
-            if (mirror != null)
-            {
-                mirror.FreezMirror();
-            }
-            else
-            {
-                Debug.LogWarning("Un objet de la liste _mirror n'a pas de script MirrorRotation !");
-            }
-        }
     }
 }

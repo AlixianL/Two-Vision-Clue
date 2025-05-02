@@ -117,11 +117,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4440659096847421128}
-  - component: {fileID: 7165605052661262520}
-  - component: {fileID: 6372355314993268855}
-  - component: {fileID: 9050303147530346080}
-  - component: {fileID: 4273922979924037091}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: MIROR
   m_TagString: Mirror
   m_Icon: {fileID: 0}
@@ -136,84 +132,15 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7938419917422774067}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0.70465904, z: 0, w: 0.70954615}
-  m_LocalPosition: {x: -0.07, y: 0, z: -5.96}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.14963254, y: 0.23045574, z: 0.4233781}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4769532090551392874}
   - {fileID: 3961795757118333644}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: -89.604, z: 0}
---- !u!114 &7165605052661262520
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7938419917422774067}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b34b6ed931bd59740bbeffec40ac3544, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  reflector: {fileID: 9067985387799004028}
-  _interactWhisEnigma: 0
-  _enigmaisend: 0
---- !u!114 &6372355314993268855
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7938419917422774067}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 1, g: 0, b: 0, a: 1}
-  outlineWidth: 10
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
---- !u!114 &9050303147530346080
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7938419917422774067}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 031f8f92ef123fb41b23b89bbddc0e9c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outline: {fileID: 6372355314993268855}
-  message: 
---- !u!65 &4273922979924037091
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7938419917422774067}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.13644291, y: 2.1172256, z: 0.15309812}
-  m_Center: {x: 1.1604289, y: 2.204998, z: -0.44494992}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &9067985387799004028
 GameObject:
   m_ObjectHideFlags: 0
@@ -227,7 +154,7 @@ GameObject:
   - component: {fileID: 7097075524035019193}
   - component: {fileID: 2786584953216448013}
   m_Layer: 0
-  m_Name: Reflector
+  m_Name: f
   m_TagString: Mirror
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -241,8 +168,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9067985387799004028}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.1603676, y: 2.6495445, z: -0.4233774}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.1603674, y: 2.6495445, z: -0.4233781}
   m_LocalScale: {x: 0.13627, y: 1.2394, z: 1.251}
   m_ConstrainProportionsScale: 0
   m_Children: []

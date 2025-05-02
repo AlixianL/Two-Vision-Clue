@@ -7,10 +7,8 @@ public class PlayerBrain : MonoBehaviour
     
     [Header("References"), Space(5)]
     public Rigidbody playerRigidbody;
-    public Animator playerAnimator;
     public GameObject playerGameObject;
-    public GameObject cameraGameObject;
-    public GameObject CluesInteractPosition;
+    public GameObject cinemachineTargetGameObject;
     
     [Header("Player Scripts"), Space(5)]
     public PlayerMovement playerMovement;
@@ -18,13 +16,14 @@ public class PlayerBrain : MonoBehaviour
     public PlayerHandheldCamera playerHandheldCamera;
     
     [Header("Variables"), Space(5)]
-    public bool isGrounded;
-    public float height;
-    public Vector3 velocity;
-    public float radius;
-
-    [Header("Variables"), Space(5)]
+    public int chewingGumCount;
+    [Space(5)]
+    public bool isAlive;
     public bool asAlreadyTalkWhisGumGum = false;
+    [Space(5)]
+    public bool playerCanMove = true;
+    public bool playerCanLookAround = true;
+    
     
     [Header("Rewired"), Space(5)]
     public int playerID;
@@ -36,21 +35,6 @@ public class PlayerBrain : MonoBehaviour
         else Destroy(this);
         
         player = ReInput.players.GetPlayer(playerID);
-    }
-
-
-    void Update()
-    {
-        if (Physics.Raycast(transform.position, Vector3.down, height))
-        {
-            isGrounded = true;
-            Debug.Log("Grounded");
-        }
-        else
-        {
-            isGrounded = false;
-            Debug.Log("Not Grounded!");
-        }
     }
 }
     

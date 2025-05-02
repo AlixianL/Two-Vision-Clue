@@ -9,50 +9,30 @@ public class DialogueTrigger : MonoBehaviour
     {
         if (GumGumManager.Instance._isInRange && PlayerBrain.Instance.player.GetButtonDown("Interact"))
         {
-            TriggerDialoque();
+            TriggerDialogue();
         }
     }
 
-    public void TriggerDialoque()
+    public void TriggerDialogue()
     {
         GumGumManager.Instance.gumGumPanel.SetActive(true);
             
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
-        PlayerBrain.Instance.cameraRotation.useVerticalCameraRotation = false;
-        PlayerBrain.Instance.cameraRotation.useHorizontalCameraRotation = false;
+        GameManager.Instance.ToggleTotalFreezePlayer();
         
         if (PlayerBrain.Instance.asAlreadyTalkWhisGumGum)
         {
+            GumGumManager.Instance.isInteracting = true;
+            ChangePositionCinemachine.Instance.SwitchCam(GumGumManager.Instance.gumgumCinemachineCamera, GumGumManager.Instance.isInteracting);
             GumGumManager.Instance.GumGumAsksThePlayerWhichHesBlockingOn();
         }
         else
         {
+            GumGumManager.Instance.isInteracting = true;
+            ChangePositionCinemachine.Instance.SwitchCam(GumGumManager.Instance.gumgumCinemachineCamera, GumGumManager.Instance.isInteracting);
             GumGumManager.Instance.GumGumPresentHimself();
             PlayerBrain.Instance.asAlreadyTalkWhisGumGum = true;
-        }
-    }
-
-
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            GumGumManager.Instance._isInRange = true;
-        }
-    }
-
-    void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            GumGumManager.Instance._isInRange = false;
-            GumGumManager.Instance.gumGumPanel.SetActive(false);
-        
-            Cursor.visible = false;
-            Cursor.lockState = CursorLockMode.Locked;
-            PlayerBrain.Instance.cameraRotation.useVerticalCameraRotation = true;
-            PlayerBrain.Instance.cameraRotation.useHorizontalCameraRotation = true;
         }
     }
 }

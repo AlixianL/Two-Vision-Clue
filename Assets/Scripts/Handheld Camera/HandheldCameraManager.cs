@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class HandheldCameraManager : MonoBehaviour
@@ -5,13 +6,14 @@ public class HandheldCameraManager : MonoBehaviour
     public static HandheldCameraManager Instance;
     
     [Header("Camera References"), Space(5)]
-    public GameObject handheldCameraPrefab;
     private GameObject handheldCamera;
+    public GameObject handheldCameraPrefab;
     public GameObject spawnPoint;
     
     [Header("Variables"), Space(5)]
     public bool cameraIsInstall;
     public bool playerCanTakeCamera;
+    public bool cameraCanBeInstalled;
     
 
     void Awake()
@@ -22,22 +24,22 @@ public class HandheldCameraManager : MonoBehaviour
 
     public void InstallCamera()
     {
-        if (!cameraIsInstall)
+        if (cameraCanBeInstalled && !cameraIsInstall)
         {
             handheldCamera = Instantiate(handheldCameraPrefab);
             handheldCamera.transform.position = spawnPoint.transform.position;
-            
             cameraIsInstall = true;
         }
     }
     
-    public void UnInstallCamera()
+    public void UninstallCamera()
     {
         if (cameraIsInstall)
         {
             Destroy(handheldCamera);
             cameraIsInstall = false;
             playerCanTakeCamera = false;
+            cameraCanBeInstalled = true;
         }
     }
 }
