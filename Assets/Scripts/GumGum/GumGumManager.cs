@@ -18,6 +18,7 @@ public class GumGumManager : MonoBehaviour
     [SerializeField] private TMP_Text _gumgumDialogues;//--------> Zone de texte pour afficher les dialogues
     public GameObject gumGumPanel;//-----------------------------> Panneau UI contenant le dialogue
     public GameObject enigmaContainer;//-------------------------> Conteneur UI avec les boutons d’énigmes
+    [SerializeField] private Collider _collider; 
 
     [Header("GumGum Logic"), Space(5)]
     [SerializeField] private GumGum _gumGum;//-------------------> Référence au script contenant les données de dialogues
@@ -66,9 +67,9 @@ public class GumGumManager : MonoBehaviour
         }
     }
 
-    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    // -- REDIRECTION VERS UNE ÉNIGME --------------------------------
-    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    // -- REDIRECTION VERS UNE ÉNIGME ----------------------------------------------------------------------------------
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     /// <summary>
     /// Redirige vers l’indice correspondant en fonction du nom reçu.
@@ -86,20 +87,16 @@ public class GumGumManager : MonoBehaviour
                     PlayerBrain.Instance.chewingGumCount--;
                 }
             }
-            
-            
         }
         else
         {
             EndDialogue();
         }
-        
-        
     }
 
-    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    // -- PRÉSENTATION DE GUMGUM -------------------------------------
-    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    // -- PRÉSENTATION DE GUMGUM ---------------------------------------------------------------------------------------
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     /// <summary>
     /// Présente GumGum au joueur avec son dialogue d’introduction.
@@ -114,9 +111,9 @@ public class GumGumManager : MonoBehaviour
         DisplayNextSentence();
     }
 
-    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    // -- INTERROGATION SUR ÉNIGME ----------------------------------
-    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    // -- INTERROGATION SUR ÉNIGME -------------------------------------------------------------------------------------
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     /// <summary>
     /// Demande au joueur sur quelle énigme il est bloqué.
@@ -133,9 +130,9 @@ public class GumGumManager : MonoBehaviour
         enigmaContainer.SetActive(true);
     }
 
-    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    // -- AFFICHAGE DES INDICES -------------------------------------
-    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    // -- AFFICHAGE DES INDICES ----------------------------------------------------------------------------------------
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     /// <summary>
     /// Affiche les indices sous forme de prefabs pour une énigme donnée.
@@ -201,6 +198,21 @@ public class GumGumManager : MonoBehaviour
         
         _cluePosition.clues.Add(clueInstance);
         _cluePosition.UpdatePosition();
+        
+        ChangePositionCinemachine.Instance.SwitchIntoClueCinemachineCamera(gumgumCinemachineCamera, _cluePosition.clueCinemachineCamera);
+        ChangePositionCinemachine.Instance._gumgumCinemachineCamera.Priority = 0;
+        ToggleCollider();
+        
+        if (Cursor.lockState == CursorLockMode.Locked) Cursor.lockState = CursorLockMode.None;
+        else Cursor.lockState = CursorLockMode.Locked;
+        
+        if (Cursor.visible == false) Cursor.visible = true;
+        else Cursor.visible = false;
+        
+        GameManager.Instance.ToggleTotalFreezePlayer(); 
+        PlayerBrain.Instance.playerGameObject.transform.position = new Vector3(targetSpawn.position.x, PlayerBrain.Instance.playerGameObject.transform.position.y, targetSpawn.position.z - 1.5f);
+        PlayerBrain.Instance.playerGameObject.transform.rotation = Quaternion.Euler(0, targetSpawn.rotation.eulerAngles.y, 0);
+        PlayerBrain.Instance.cinemachineTargetGameObject.transform.LookAt(targetSpawn.position);
     }
 
     /// <summary>
@@ -237,9 +249,9 @@ public class GumGumManager : MonoBehaviour
     }
 
 
-    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    // -- AFFICHAGE DIALOGUE CLASSIQUE ------------------------------
-    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    // -- AFFICHAGE DIALOGUE CLASSIQUE ---------------------------------------------------------------------------------
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     /// <summary>
     /// Affiche la première phrase du dialogue.
@@ -264,9 +276,9 @@ public class GumGumManager : MonoBehaviour
         _gumgumDialogues.text = _sentences.Dequeue();
     }
 
-    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    // -- FIN DU DIALOGUE -------------------------------------------
-    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    // -- FIN DU DIALOGUE ----------------------------------------------------------------------------------------------
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     /// <summary>
     /// Termine le dialogue : désactive l'UI et restaure le contrôle au joueur.
@@ -281,6 +293,15 @@ public class GumGumManager : MonoBehaviour
         
         isInteracting = false;
         ChangePositionCinemachine.Instance.SwitchCam(gumgumCinemachineCamera, isInteracting);
+    }
+
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    // -- TOGGLE DU COLLIDER DE SECUTITE -------------------------------------------------------------------------------
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    public void ToggleCollider()
+    {
+        _collider.enabled = !_collider.enabled;
     }
 }
 

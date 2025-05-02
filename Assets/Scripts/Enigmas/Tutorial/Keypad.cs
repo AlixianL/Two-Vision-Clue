@@ -75,6 +75,7 @@ public class Keypad : MonoBehaviour, IActivatable
             }
             
             _isValidated = true;
+            Activate();
         }
         else
         {

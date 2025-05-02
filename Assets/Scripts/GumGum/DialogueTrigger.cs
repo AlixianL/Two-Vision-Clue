@@ -19,7 +19,7 @@ public class DialogueTrigger : MonoBehaviour
             
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
-        GameManager.Instance.ToggleCameraFreezePlayer();
+        GameManager.Instance.ToggleTotalFreezePlayer();
         
         if (PlayerBrain.Instance.asAlreadyTalkWhisGumGum)
         {

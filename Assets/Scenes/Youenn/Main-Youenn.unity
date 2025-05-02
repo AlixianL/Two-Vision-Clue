@@ -2469,6 +2469,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clues: []
+  clueCinemachineCamera: {fileID: 1947821118}
   distanceFromCenter: 0.3
 --- !u!1 &743293795
 GameObject:
@@ -2824,6 +2825,59 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -451338611581416480, guid: ddfab52eed8b43a47a8136f33ef8e85a, type: 3}
+--- !u!1 &958447058
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 958447059}
+  - component: {fileID: 958447060}
+  m_Layer: 12
+  m_Name: "S\xE9cu Collider"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &958447059
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 958447058}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.521, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 543450653546223515}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &958447060
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 958447058}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Size: {x: 2.9711144, y: 3.984744, z: 3.1784754}
+  m_Center: {x: -0, y: 1.4148464, z: -0.0038762689}
 --- !u!1 &986705122
 GameObject:
   m_ObjectHideFlags: 0
@@ -2893,6 +2947,7 @@ MonoBehaviour:
   _gumgumDialogues: {fileID: 1309197290}
   gumGumPanel: {fileID: 502846020}
   enigmaContainer: {fileID: 51885665}
+  _collider: {fileID: 958447060}
   _gumGum: {fileID: 519714483}
   dialogueTrigger: {fileID: 466153083}
   clueInstance: {fileID: 0}
@@ -2946,10 +3001,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d00728ea1ce89fa458c8d2da43e18a0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cinemachineCameraClue_01: {fileID: 1373922526}
-  _cinemachineCameraClue_02: {fileID: 1947821118}
-  _cinemachineCameraClue_03: {fileID: 191572521}
-  _cinemachineCameraClue_04: {fileID: 1019160866}
+  _playerCinemachineCamera: {fileID: 1560337629}
+  _gumgumCinemachineCamera: {fileID: 1991842115}
+  _digicodeCinemachineCamera: {fileID: 1932492326}
+  _labyrinthCinemachineCamera: {fileID: 736131071}
+  _pilerCinemachineCamera: {fileID: 0}
+  _laserCinemachineCamera: {fileID: 0}
+  _clue_01CinemachineCamera: {fileID: 1373922526}
+  _clue_02CinemachineCamera: {fileID: 1947821118}
+  _clue_03CinemachineCamera: {fileID: 191572521}
+  _clue_04CinemachineCamera: {fileID: 1019160866}
 --- !u!1 &996301368
 GameObject:
   m_ObjectHideFlags: 0
@@ -4295,50 +4356,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2627042256486855348, guid: 1e09be4150bf4e04f8b03b044ec2a6ed, type: 3}
-      propertyPath: Priority.Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2627042256486855348, guid: 1e09be4150bf4e04f8b03b044ec2a6ed, type: 3}
-      propertyPath: Priority.m_Value
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3384682604960987922, guid: 1e09be4150bf4e04f8b03b044ec2a6ed, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3474356997181438742, guid: 1e09be4150bf4e04f8b03b044ec2a6ed, type: 3}
-      propertyPath: field of view
-      value: 60.000004
-      objectReference: {fileID: 0}
-    - target: {fileID: 3863180615115504688, guid: 1e09be4150bf4e04f8b03b044ec2a6ed, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3863180615115504688, guid: 1e09be4150bf4e04f8b03b044ec2a6ed, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.72884524
-      objectReference: {fileID: 0}
-    - target: {fileID: 3863180615115504688, guid: 1e09be4150bf4e04f8b03b044ec2a6ed, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3863180615115504688, guid: 1e09be4150bf4e04f8b03b044ec2a6ed, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3863180615115504688, guid: 1e09be4150bf4e04f8b03b044ec2a6ed, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3863180615115504688, guid: 1e09be4150bf4e04f8b03b044ec2a6ed, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3863180615115504688, guid: 1e09be4150bf4e04f8b03b044ec2a6ed, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4444488233674352570, guid: 1e09be4150bf4e04f8b03b044ec2a6ed, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.27
@@ -4379,17 +4396,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6033768311128567184, guid: 1e09be4150bf4e04f8b03b044ec2a6ed, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6033768311128567184, guid: 1e09be4150bf4e04f8b03b044ec2a6ed, type: 3}
-      propertyPath: CustomBlends
-      value: 
-      objectReference: {fileID: 11400000, guid: dd31ef8507fef0744a386161da687a25, type: 2}
-    - target: {fileID: 7772678601428569155, guid: 1e09be4150bf4e04f8b03b044ec2a6ed, type: 3}
-      propertyPath: m_IsActive
-      value: 1
+    - target: {fileID: 7151245461555468841, guid: 1e09be4150bf4e04f8b03b044ec2a6ed, type: 3}
+      propertyPath: _layerMaskToCheck.m_Bits
+      value: 14720
       objectReference: {fileID: 0}
     - target: {fileID: 9013753269867907282, guid: 1e09be4150bf4e04f8b03b044ec2a6ed, type: 3}
       propertyPath: m_Name
@@ -4779,6 +4788,17 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.2938111, y: 1.2938116, z: 0.0989167}
   m_Center: {x: 0.00000008940697, y: 0, z: 0.04945835}
+--- !u!114 &1560337629 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2627042256486855348, guid: 1e09be4150bf4e04f8b03b044ec2a6ed, type: 3}
+  m_PrefabInstance: {fileID: 1427815673}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9dfa5b682dcd46bda6128250e975f58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1574355075
 GameObject:
   m_ObjectHideFlags: 0
@@ -6051,6 +6071,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clues: []
+  clueCinemachineCamera: {fileID: 1019160866}
   distanceFromCenter: 0.3
 --- !u!1001 &1922677011
 PrefabInstance:
@@ -7368,6 +7389,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clues: []
+  clueCinemachineCamera: {fileID: 191572521}
   distanceFromCenter: 0.3
 --- !u!1 &2089425024
 GameObject:
@@ -7555,7 +7577,11 @@ GameObject:
   m_Component:
   - component: {fileID: 2144461319}
   - component: {fileID: 2144461320}
-  m_Layer: 0
+  - component: {fileID: 2144461321}
+  - component: {fileID: 2144461324}
+  - component: {fileID: 2144461323}
+  - component: {fileID: 2144461322}
+  m_Layer: 13
   m_Name: Enigma 1  - Clue  Spawn Point
   m_TagString: Untagged
   m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
@@ -7590,7 +7616,74 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clues: []
+  clueCinemachineCamera: {fileID: 1373922526}
   distanceFromCenter: 0.3
+--- !u!65 &2144461321
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2144461318}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.7319081, y: 0.3324175, z: 0.7319081}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2144461322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2144461318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 031f8f92ef123fb41b23b89bbddc0e9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outline: {fileID: 2144461323}
+  message: 
+--- !u!114 &2144461323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2144461318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 1, a: 0}
+  outlineWidth: 0
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
+--- !u!114 &2144461324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2144461318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1004f47222638c5469b177c1d39c4b80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _cinemachineCamera: {fileID: 1373922526}
 --- !u!4 &543450653546223515
 Transform:
   m_ObjectHideFlags: 0
@@ -7604,6 +7697,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 958447059}
   - {fileID: 1991842114}
   - {fileID: 7876817294051783197}
   - {fileID: 483862026}

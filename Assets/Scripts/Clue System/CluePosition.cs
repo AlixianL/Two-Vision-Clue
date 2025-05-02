@@ -1,13 +1,16 @@
 using System.Collections.Generic;
+using Unity.Cinemachine;
 using UnityEngine;
 
 public class CluePosition : MonoBehaviour
 {
     [Header("References"), Space(5)]
     public List<GameObject> clues = new List<GameObject>();
+    public CinemachineCamera clueCinemachineCamera;
 
     [Header("Settings"), Space(5)]
     public float distanceFromCenter;
+    
 
     /// <summary>
     /// Appelle cette méthode pour répartir les indices autour du centre
@@ -33,7 +36,8 @@ public class CluePosition : MonoBehaviour
             clues[i].transform.position = transform.position + offset;
         }
     }
-
+    
+    
     // Pour tester directement depuis l'inspecteur (facultatif)
     private void OnValidate()
     {
