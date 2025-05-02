@@ -1,9 +1,7 @@
-using System;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 using System.Collections.Generic;
-using Unity.VisualScripting;
+using Unity.Cinemachine;
 using Random = UnityEngine.Random;
 
 /// <summary>
@@ -44,6 +42,10 @@ public class GumGumManager : MonoBehaviour
 
     [Header("State Variables"), Space(5)]
     [HideInInspector] public bool _isInRange;//------------------> Indique si le joueur est proche de GumGum
+    
+    [Header("Cinemachine Variables"), Space(5)]
+    public bool isInteracting;
+    public CinemachineCamera gumgumCinemachineCamera;
 
     void Awake()
     {         
@@ -84,6 +86,8 @@ public class GumGumManager : MonoBehaviour
                     PlayerBrain.Instance.chewingGumCount--;
                 }
             }
+            
+            
         }
         else
         {
@@ -257,7 +261,6 @@ public class GumGumManager : MonoBehaviour
             EndDialogue();
             return;
         }
-
         _gumgumDialogues.text = _sentences.Dequeue();
     }
 
@@ -275,6 +278,9 @@ public class GumGumManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
 
         GameManager.Instance.ToggleCameraFreezePlayer();
+        
+        isInteracting = false;
+        ChangePositionCinemachine.Instance.SwitchCam(gumgumCinemachineCamera, isInteracting);
     }
 }
 
