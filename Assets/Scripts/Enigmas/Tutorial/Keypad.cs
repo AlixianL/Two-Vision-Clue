@@ -16,6 +16,8 @@ public class Keypad : MonoBehaviour, IActivatable
     [SerializeField] private Color _falseMaterialColor;
     [SerializeField] private MeshRenderer _indicatorLight;
     [SerializeField] private CinemachineCamera _enigmaCinemachineCamera;
+
+    public Doors doors;
     
     [Header("Variables"), Space(5)]
     [SerializeField] private int _password;
@@ -68,7 +70,7 @@ public class Keypad : MonoBehaviour, IActivatable
         if (feedBack.text == _password.ToString())
         {
             _indicatorLight.material.color = _validateMaterialColor;
-
+            
             foreach (BoxCollider boxColliders in _keyBoxColliders)
             {
                 boxColliders.enabled = false;
@@ -76,7 +78,7 @@ public class Keypad : MonoBehaviour, IActivatable
             }
             
             _isValidated = true;
-            Activate();
+            doors.Interact();
         }
         else
         {
