@@ -9,7 +9,6 @@ public class QuitClueCinemachineCamera : MonoBehaviour, IActivatable
 
     public void Activate()
     {
-        GumGumManager.Instance.ToggleCollider();
         ReturnToPlayerCinemachineCamera();
         StartCoroutine(Delay());
         GameManager.Instance.ToggleTotalFreezePlayer();
