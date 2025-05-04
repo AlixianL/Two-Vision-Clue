@@ -18,7 +18,6 @@ public class GumGumManager : MonoBehaviour
     [SerializeField] private TMP_Text _gumgumDialogues;//--------> Zone de texte pour afficher les dialogues
     public GameObject gumGumPanel;//-----------------------------> Panneau UI contenant le dialogue
     public GameObject enigmaContainer;//-------------------------> Conteneur UI avec les boutons d’énigmes
-    [SerializeField] private Collider _collider; 
 
     [Header("GumGum Logic"), Space(5)]
     [SerializeField] private GumGum _gumGum;//-------------------> Référence au script contenant les données de dialogues
