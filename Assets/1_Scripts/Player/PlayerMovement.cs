@@ -5,6 +5,7 @@ public class PlayerMovement : MonoBehaviour
 {
     [Header("Variables PlayerMovement"), Space(5)]
     public float playerSpeed;
+    public float playerAtraction;
     [Space(5)]
     public bool isMoving;
     private bool _forwardMovement;
@@ -32,6 +33,7 @@ public class PlayerMovement : MonoBehaviour
         // Déterminer si le joueur bouge
         isMoving = _forwardMovement || _backwardMovement || _leftMovement || _rightMovement;
         
+        CheckIfPlayerIsGrounded();
     }
     
     void FixedUpdate()
@@ -51,6 +53,23 @@ public class PlayerMovement : MonoBehaviour
             velocity.y = PlayerBrain.Instance.playerRigidbody.linearVelocity.y;
     
             PlayerBrain.Instance.playerRigidbody.linearVelocity = velocity;
+        }
+
+        if (!PlayerBrain.Instance.isGrounded)
+        {
+            PlayerBrain.Instance.playerRigidbody.AddForce(Vector3.down * playerAtraction, ForceMode.Force);
+        }
+    }
+    
+    void CheckIfPlayerIsGrounded()
+    {
+        if (Physics.Raycast(transform.position, Vector3.down, PlayerBrain.Instance.height))
+        {
+            PlayerBrain.Instance.isGrounded = true;
+        }
+        else
+        {
+            PlayerBrain.Instance.isGrounded = false;
         }
     }
 }

@@ -35,18 +35,18 @@ public class RotateWeel : MonoBehaviour, IActivatable
             // Rotation droite
             if (PlayerBrain.Instance.player.GetButton("RightMovement"))
             {
-                transform.Rotate(0f, 0f, -_rotationSpeed * Time.deltaTime);
+                transform.Rotate(0f, 0f, _rotationSpeed * Time.deltaTime);
             }
 
             // Rotation gauche
             else if (PlayerBrain.Instance.player.GetButton("LeftMovement"))
             {
-                transform.Rotate(0f, 0f, _rotationSpeed * Time.deltaTime);
+                transform.Rotate(0f, 0f, -_rotationSpeed * Time.deltaTime);
             }
 
             if (!enigmaIsValidate)
             {
-                _labyrinth.transform.localEulerAngles = new Vector3(transform.rotation.eulerAngles.z, -90f, 90f);
+                _labyrinth.transform.localEulerAngles = new Vector3(-transform.rotation.eulerAngles.z, -207f, 90f);
             }
         }
     }

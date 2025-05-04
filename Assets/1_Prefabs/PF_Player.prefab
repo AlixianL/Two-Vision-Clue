@@ -68,7 +68,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _layerMaskToIgnore:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 776
   _objectsDetected: []
 --- !u!1 &3384682604960987922
 GameObject:
@@ -1128,7 +1128,10 @@ MonoBehaviour:
   cameraRotation: {fileID: 7434773898259913790}
   playerHandheldCamera: {fileID: 8568988485900865952}
   chewingGumCount: 0
-  isAlive: 1
+  height: 1.25
+  radius: 0
+  velocity: {x: 0, y: 0, z: 0}
+  isGrounded: 0
   asAlreadyTalkWhisGumGum: 0
   playerCanMove: 1
   playerCanLookAround: 1
@@ -1146,6 +1149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSpeed: 10
+  playerAtraction: 100
   isMoving: 1
 --- !u!114 &7434773898259913790
 MonoBehaviour:
@@ -1192,6 +1196,6 @@ MonoBehaviour:
   _rayOrigin: {fileID: 6551385600972439954}
   _layerMaskToCheck:
     serializedVersion: 2
-    m_Bits: 2432
+    m_Bits: 6528
   hitObject: {fileID: 0}
   _rayRange: 3.25
