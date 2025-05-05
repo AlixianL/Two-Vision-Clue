@@ -79,6 +79,16 @@ public class Keypad : MonoBehaviour, IActivatable
             
             _isValidated = true;
             doors.Interact();
+            
+            if (Cursor.lockState == CursorLockMode.Locked) Cursor.lockState = CursorLockMode.None;
+            else Cursor.lockState = CursorLockMode.Locked;
+        
+            if (Cursor.visible == false) Cursor.visible = true;
+            else Cursor.visible = false;
+            _isInteractingWhisEnigma = !_isInteractingWhisEnigma;
+            
+            ChangePositionCinemachine.Instance.SwitchCam(_enigmaCinemachineCamera, _isInteractingWhisEnigma);
+            GameManager.Instance.ToggleTotalFreezePlayer();
         }
         else
         {

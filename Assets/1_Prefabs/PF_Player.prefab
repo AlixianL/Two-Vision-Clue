@@ -810,7 +810,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 3063
+    m_Bits: 11255
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -1044,7 +1044,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9013753269867907282}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: cbc7f72ce6ba95d4c80b0944694100fe, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1148,7 +1148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72e497a0a2d3e944fa60b88b35434681, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSpeed: 10
+  playerSpeed: 6
   playerAtraction: 100
   isMoving: 1
 --- !u!114 &7434773898259913790
@@ -1196,6 +1196,6 @@ MonoBehaviour:
   _rayOrigin: {fileID: 6551385600972439954}
   _layerMaskToCheck:
     serializedVersion: 2
-    m_Bits: 6528
+    m_Bits: 14720
   hitObject: {fileID: 0}
   _rayRange: 3.25
