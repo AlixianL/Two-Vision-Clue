@@ -18,12 +18,16 @@ public class PlayerBrain : MonoBehaviour
     [Header("Variables"), Space(5)]
     public int chewingGumCount;
     [Space(5)]
-    public bool isAlive;
+    public float height;
+    public float radius;
+    [Space(5)]
+    public Vector3 velocity;
+    [Space(5)]
+    public bool isGrounded;
     public bool asAlreadyTalkWhisGumGum = false;
     [Space(5)]
     public bool playerCanMove = true;
     public bool playerCanLookAround = true;
-    
     
     [Header("Rewired"), Space(5)]
     public int playerID;

@@ -2390,7 +2390,7 @@ GameObject:
   - component: {fileID: 737235730}
   - component: {fileID: 737235729}
   - component: {fileID: 737235728}
-  m_Layer: 13
+  m_Layer: 12
   m_Name: Enigma 2  - Clue  Spawn Point
   m_TagString: Untagged
   m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
@@ -2935,6 +2935,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4027942355798497606, guid: 1e09be4150bf4e04f8b03b044ec2a6ed, type: 3}
+      propertyPath: _layerMaskToIgnore.m_Bits
+      value: 776
+      objectReference: {fileID: 0}
     - target: {fileID: 4444488233674352570, guid: 1e09be4150bf4e04f8b03b044ec2a6ed, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.27
@@ -3057,7 +3061,6 @@ MonoBehaviour:
   _gumgumDialogues: {fileID: 6746245023518329505}
   gumGumPanel: {fileID: 5479305271687390422}
   enigmaContainer: {fileID: 1359375288986250057}
-  _collider: {fileID: 0}
   _gumGum: {fileID: 519714483}
   dialogueTrigger: {fileID: 466153083}
   clueInstance: {fileID: 0}
@@ -6386,7 +6389,7 @@ GameObject:
   - component: {fileID: 1916979385}
   - component: {fileID: 1916979384}
   - component: {fileID: 1916979383}
-  m_Layer: 13
+  m_Layer: 12
   m_Name: Enigma 4  - Clue  Spawn Point
   m_TagString: Untagged
   m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
@@ -7634,7 +7637,7 @@ GameObject:
   - component: {fileID: 2081287252}
   - component: {fileID: 2081287251}
   - component: {fileID: 2081287250}
-  m_Layer: 13
+  m_Layer: 12
   m_Name: Enigma 3  - Clue  Spawn Point
   m_TagString: Untagged
   m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
@@ -7928,7 +7931,7 @@ GameObject:
   - component: {fileID: 2144461324}
   - component: {fileID: 2144461323}
   - component: {fileID: 2144461322}
-  m_Layer: 13
+  m_Layer: 12
   m_Name: Enigma 1  - Clue  Spawn Point
   m_TagString: Untagged
   m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
@@ -10071,7 +10074,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4613974090041186689}
-  m_Mesh: {fileID: 5246404541078881586, guid: 0d21530558bd45740a3fe5e99a0054d9, type: 3}
+  m_Mesh: {fileID: 5246404541078881586, guid: 50998349db8a7bd4191acd90dd3e3ca6, type: 3}
 --- !u!114 &8661176799729736888
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -21,7 +21,7 @@ public class HandheldCameraManager : MonoBehaviour
         if (Instance == null) Instance = this;
         else Destroy(this);
     }
-
+    
     public void InstallCamera()
     {
         if (cameraCanBeInstalled && !cameraIsInstall)
