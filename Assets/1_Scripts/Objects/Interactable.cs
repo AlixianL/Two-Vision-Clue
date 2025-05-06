@@ -7,8 +7,8 @@ using UnityEngine.UI;
 public class Interactable : MonoBehaviour
 {
     // Composant Outline utilisé pour mettre en évidence l'objet (effet visuel)
-    public Outline outline;
-
+    [SerializeField] private Outline outline;
+    
     // Message associé à l'interaction (peut être utilisé pour l'affichage UI par exemple)
     public string message;
 

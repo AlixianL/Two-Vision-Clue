@@ -1,51 +1,63 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Cinemachine;
 using UnityEngine;
 
-public class TurnPillar : MonoBehaviour
+public class TurnPillar : MonoBehaviour, IActivatable
 {
-    [SerializeField]
-    private List<GameObject> turnRock = new List<GameObject>();
 
-    public KeyCode previousRock = KeyCode.G;
-    public KeyCode nextRock = KeyCode.T;
-    public KeyCode turnLeft = KeyCode.H;
-    public KeyCode turnRight = KeyCode.F;
+    [SerializeField] private List<GameObject> turnRock = new List<GameObject>();
 
     private GameObject _currentRock;
     private int _currentIndex = 0;
     private bool _isRotating = false;
     private bool _enigmeisend = false;
 
+    [SerializeField] private bool _interactWhisEnigma;
+    [SerializeField] private bool _enigmaisend;
+
+    [SerializeField] private CinemachineCamera _enigmaCinemachineCamera;
+
     void Start()
     {
         _currentRock = turnRock[_currentIndex];
     }
 
+    public void Activate()
+    {
+        if (!_interactWhisEnigma)
+        {
+            _interactWhisEnigma = true;
+        }
+        else _interactWhisEnigma = false;
+        GameManager.Instance.ToggleTotalFreezePlayer();
+
+        
+
+        ChangePositionCinemachine.Instance.SwitchCam(_enigmaCinemachineCamera, _interactWhisEnigma);
+    }
     void Update()
     {
-        if (!_isRotating && !_enigmeisend)
+        if (_interactWhisEnigma && !_isRotating && !_enigmeisend)
         {
-            if (Input.GetKeyDown(nextRock))
+            if (PlayerBrain.Instance.player.GetButton("RightMovement"))
             {
-                _currentIndex = (_currentIndex + 1) % turnRock.Count;
-                _currentRock = turnRock[_currentIndex];
+                StartCoroutine(RotateRockSmooth(90f, 0.5f));
             }
-
-            if (Input.GetKeyDown(previousRock))
-            {
-                _currentIndex = (_currentIndex - 1 + turnRock.Count) % turnRock.Count;
-                _currentRock = turnRock[_currentIndex];
-            }
-
-            if (Input.GetKeyDown(turnLeft))
+            if (PlayerBrain.Instance.player.GetButton("LeftMovement"))
             {
                 StartCoroutine(RotateRockSmooth(-90f, 0.5f));
             }
 
-            if (Input.GetKeyDown(turnRight))
+            if (PlayerBrain.Instance.player.GetButtonDown("ForwardMovement"))
             {
-                StartCoroutine(RotateRockSmooth(90f, 0.5f));
+                _currentIndex = (_currentIndex + 1+ turnRock.Count) % turnRock.Count;
+                _currentRock = turnRock[_currentIndex];
+            }
+            if (PlayerBrain.Instance.player.GetButtonDown("BackwardMovement"))
+            {
+                _currentIndex = (_currentIndex - 1 + turnRock.Count) % turnRock.Count;
+                _currentRock = turnRock[_currentIndex];
             }
         }
     }
