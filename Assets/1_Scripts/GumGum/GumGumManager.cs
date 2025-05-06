@@ -289,7 +289,7 @@ public class GumGumManager : MonoBehaviour
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
 
-        GameManager.Instance.ToggleCameraFreezePlayer();
+        GameManager.Instance.ToggleTotalFreezePlayer();
         
         isInteracting = false;
         ChangePositionCinemachine.Instance.SwitchCam(gumgumCinemachineCamera, isInteracting);
