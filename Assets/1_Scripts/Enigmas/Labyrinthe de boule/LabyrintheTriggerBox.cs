@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class TriggerBox : MonoBehaviour
+public class LabyrintheTriggerBox : MonoBehaviour
 {
     [Header("References"), Space(5)]
     [SerializeField] private RotateWeel _rotateWeel;
