@@ -28,7 +28,7 @@ public class DetectionGround : MonoBehaviour
         while (true)
         {
             Vector3 origin = transform.position;
-            Debug.Log(origin);
+            //Debug.Log(origin);
             if (PlayerBrain.Instance.isGrounded && PlayerBrain.Instance.velocity != Vector3.zero &&
                 Physics.Raycast(origin,
                     Vector3.down,
