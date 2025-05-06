@@ -29,17 +29,20 @@ public class DetectionGround : MonoBehaviour
         {
             Vector3 origin = transform.position;
             //Debug.Log(origin);
-            if (PlayerBrain.Instance.isGrounded && PlayerBrain.Instance.velocity != Vector3.zero &&
-                Physics.Raycast(origin,
+            Debug.Log(PlayerBrain.Instance.playerRigidbody.linearVelocity);
+            if (PlayerBrain.Instance.isGrounded && PlayerBrain.Instance.playerRigidbody.linearVelocity != Vector3.zero &&
+                Physics.Raycast (origin, 
                     Vector3.down,
                     out RaycastHit hit,
-                    1f,
+                    2f,
                     _floorLayer)
                 )
             {
                 if (hit.collider.TryGetComponent<Terrain>(out Terrain terrain))
                 {
+                    Debug.Log("ca marche");
                     yield return StartCoroutine(PlayFootstepSoundFromTerrain(terrain, hit.point));
+                    
                 }
                 else if (hit.collider.TryGetComponent<Renderer>(out Renderer renderer))
                 {
