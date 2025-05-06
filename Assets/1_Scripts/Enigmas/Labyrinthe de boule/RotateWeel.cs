@@ -46,7 +46,17 @@ public class RotateWeel : MonoBehaviour, IActivatable
 
             if (!enigmaIsValidate)
             {
-                _labyrinth.transform.localEulerAngles = new Vector3(transform.rotation.eulerAngles.x, 152.5f, 0f);
+                // Rotation droite
+                if (PlayerBrain.Instance.player.GetButton("RightMovement"))
+                {
+                    _labyrinth.transform.Rotate(-_rotationSpeed * Time.deltaTime, 0f, 0f);
+                }
+
+                // Rotation gauche
+                else if (PlayerBrain.Instance.player.GetButton("LeftMovement"))
+                {
+                    _labyrinth.transform.Rotate(_rotationSpeed * Time.deltaTime, 0f, 0f);
+                }
             }
         }
     }
