@@ -7,13 +7,12 @@ public class MirrorRotation : MonoBehaviour, IActivatable
     public GameObject player;//----------------------------> Joueur
     public GameObject reflector;//-------------------------> La partie du miroire qui tourne
 
-    [SerializeField] private bool _interactWhisEnigma;
+    [SerializeField] private bool _interactWhisEnigma = false;
     [SerializeField] private bool _enigmaisend;
 
 
     public void Activate()
     {
-        Debug.Log("jetournelemiroir");
         GameManager.Instance.ToggleTotalFreezePlayer();
 
         if (!_interactWhisEnigma)
