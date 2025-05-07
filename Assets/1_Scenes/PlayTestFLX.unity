@@ -3180,8 +3180,8 @@ MonoBehaviour:
 
     Interact'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: af39d6dc88b54374784eb213a4e3a9aa, type: 2}
+  m_sharedMaterial: {fileID: 680552849063828202, guid: af39d6dc88b54374784eb213a4e3a9aa, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3275,7 +3275,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - {fileID: 680552849063828202, guid: af39d6dc88b54374784eb213a4e3a9aa, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3789,7 +3789,7 @@ GameObject:
   - component: {fileID: 213537224}
   - component: {fileID: 213537223}
   m_Layer: 0
-  m_Name: Ambient LIght (2)
+  m_Name: Ambient P LIght 006
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3829,7 +3829,7 @@ Light:
   serializedVersion: 11
   m_Type: 2
   m_Color: {r: 0.9254902, g: 0.5033815, b: 0.32549018, a: 1}
-  m_Intensity: 0.6
+  m_Intensity: 0.7
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -3896,7 +3896,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2024380558}
+  m_Father: {fileID: 989188113}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &225734311
 GameObject:
@@ -4009,7 +4009,7 @@ GameObject:
   - component: {fileID: 242070358}
   - component: {fileID: 242070357}
   m_Layer: 0
-  m_Name: Ambient (4)
+  m_Name: Ambient S Light 005
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4049,7 +4049,7 @@ Light:
   serializedVersion: 11
   m_Type: 0
   m_Color: {r: 0.7169812, g: 0.52882797, b: 0.4024564, a: 1}
-  m_Intensity: 50
+  m_Intensity: 80
   m_Range: 11.43
   m_SpotAngle: 96.91589
   m_InnerSpotAngle: 0
@@ -4116,7 +4116,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2024380558}
+  m_Father: {fileID: 402124117}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!1 &245495092
 GameObject:
@@ -5481,7 +5481,7 @@ Transform:
   m_GameObject: {fileID: 380451077}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -0.084, y: 1.728, z: 3.8437}
+  m_LocalPosition: {x: 0.015, y: 1.728, z: 3.8437}
   m_LocalScale: {x: 1.5459558, y: 1.5459558, z: 1.5459558}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5960,6 +5960,43 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 390832407}
   m_Mesh: {fileID: 2879339439283628994, guid: c89e03250fa73c740aeacc003070d79a, type: 3}
+--- !u!1 &402124116
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 402124117}
+  m_Layer: 0
+  m_Name: Spot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &402124117
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 402124116}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1729168027}
+  - {fileID: 1065525593}
+  - {fileID: 1724112416}
+  - {fileID: 615478550}
+  - {fileID: 242070359}
+  - {fileID: 1086532475}
+  m_Father: {fileID: 2024380558}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &405919345
 GameObject:
   m_ObjectHideFlags: 0
@@ -9035,7 +9072,7 @@ GameObject:
   - component: {fileID: 615478549}
   - component: {fileID: 615478548}
   m_Layer: 0
-  m_Name: Ambient (3)
+  m_Name: Ambient S Light 004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9075,7 +9112,7 @@ Light:
   serializedVersion: 11
   m_Type: 0
   m_Color: {r: 0.7169812, g: 0.52882797, b: 0.4024564, a: 1}
-  m_Intensity: 50
+  m_Intensity: 80
   m_Range: 11.43
   m_SpotAngle: 96.91589
   m_InnerSpotAngle: 0
@@ -9142,7 +9179,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2024380558}
+  m_Father: {fileID: 402124117}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!1 &618631861
 GameObject:
@@ -12013,7 +12050,7 @@ GameObject:
   - component: {fileID: 739641482}
   - component: {fileID: 739641481}
   m_Layer: 0
-  m_Name: Ambient LIght (6)
+  m_Name: Ambient P LIght 004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12052,8 +12089,8 @@ Light:
   m_Enabled: 1
   serializedVersion: 11
   m_Type: 2
-  m_Color: {r: 0.9254902, g: 0.5033815, b: 0.32549018, a: 1}
-  m_Intensity: 0.5
+  m_Color: {r: 0.9254902, g: 0.3647059, b: 0.3254902, a: 1}
+  m_Intensity: 0.7
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -12116,11 +12153,11 @@ Transform:
   m_GameObject: {fileID: 739641480}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -10.507247, y: -1.3207583, z: -0.12922734}
+  m_LocalPosition: {x: -11.587, y: -1.321, z: 1.079}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2024380558}
+  m_Father: {fileID: 989188113}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &743293795
 GameObject:
@@ -14507,7 +14544,7 @@ GameObject:
   - component: {fileID: 853683169}
   - component: {fileID: 853683168}
   m_Layer: 0
-  m_Name: Ambient LIght (5)
+  m_Name: Ambient P LIght 005
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14546,8 +14583,8 @@ Light:
   m_Enabled: 1
   serializedVersion: 11
   m_Type: 2
-  m_Color: {r: 0.9254902, g: 0.5033815, b: 0.32549018, a: 1}
-  m_Intensity: 0.5
+  m_Color: {r: 0.9254902, g: 0.3647059, b: 0.3254902, a: 1}
+  m_Intensity: 0.7
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -14614,7 +14651,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2024380558}
+  m_Father: {fileID: 989188113}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &868386109
 GameObject:
@@ -16554,6 +16591,44 @@ MonoBehaviour:
   _clue_02CinemachineCamera: {fileID: 1947821118}
   _clue_03CinemachineCamera: {fileID: 191572521}
   _clue_04CinemachineCamera: {fileID: 1019160866}
+--- !u!1 &989188112
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 989188113}
+  m_Layer: 0
+  m_Name: Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &989188113
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 989188112}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1281069485}
+  - {fileID: 1733617790}
+  - {fileID: 1264341313}
+  - {fileID: 739641483}
+  - {fileID: 853683170}
+  - {fileID: 213537225}
+  - {fileID: 1142976574}
+  m_Father: {fileID: 2024380558}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &989602522
 GameObject:
   m_ObjectHideFlags: 0
@@ -18295,7 +18370,7 @@ GameObject:
   - component: {fileID: 1065525592}
   - component: {fileID: 1065525591}
   m_Layer: 0
-  m_Name: Ambient (1)
+  m_Name: Ambient S Light 002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18335,7 +18410,7 @@ Light:
   serializedVersion: 11
   m_Type: 0
   m_Color: {r: 0.7169812, g: 0.52882797, b: 0.4024564, a: 1}
-  m_Intensity: 50
+  m_Intensity: 80
   m_Range: 11.43
   m_SpotAngle: 96.91589
   m_InnerSpotAngle: 0
@@ -18402,7 +18477,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2024380558}
+  m_Father: {fileID: 402124117}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!1001 &1066089545
 PrefabInstance:
@@ -18478,7 +18553,7 @@ GameObject:
   - component: {fileID: 1086532474}
   - component: {fileID: 1086532473}
   m_Layer: 0
-  m_Name: Ambient (5)
+  m_Name: Ambient S Light 006
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18518,7 +18593,7 @@ Light:
   serializedVersion: 11
   m_Type: 0
   m_Color: {r: 0.7169812, g: 0.52882797, b: 0.4024564, a: 1}
-  m_Intensity: 50
+  m_Intensity: 80
   m_Range: 11.43
   m_SpotAngle: 96.91589
   m_InnerSpotAngle: 0
@@ -18585,7 +18660,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2024380558}
+  m_Father: {fileID: 402124117}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!1 &1087009531
 GameObject:
@@ -18646,8 +18721,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: SPACE
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: af39d6dc88b54374784eb213a4e3a9aa, type: 2}
+  m_sharedMaterial: {fileID: 680552849063828202, guid: af39d6dc88b54374784eb213a4e3a9aa, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -18741,7 +18816,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - {fileID: 680552849063828202, guid: af39d6dc88b54374784eb213a4e3a9aa, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -19477,7 +19552,7 @@ GameObject:
   - component: {fileID: 1142976573}
   - component: {fileID: 1142976572}
   m_Layer: 0
-  m_Name: Ambient LIght (3)
+  m_Name: Ambient P LIght 007
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19517,7 +19592,7 @@ Light:
   serializedVersion: 11
   m_Type: 2
   m_Color: {r: 0.9254902, g: 0.5033815, b: 0.32549018, a: 1}
-  m_Intensity: 0.6
+  m_Intensity: 0.7
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -19584,7 +19659,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2024380558}
+  m_Father: {fileID: 989188113}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1143860419 stripped
 GameObject:
@@ -21518,7 +21593,7 @@ GameObject:
   - component: {fileID: 1264341312}
   - component: {fileID: 1264341311}
   m_Layer: 0
-  m_Name: Ambient LIght (4)
+  m_Name: Ambient P LIght 003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21557,8 +21632,8 @@ Light:
   m_Enabled: 1
   serializedVersion: 11
   m_Type: 2
-  m_Color: {r: 0.9254902, g: 0.5033815, b: 0.32549018, a: 1}
-  m_Intensity: 0.5
+  m_Color: {r: 0.9254902, g: 0.3647059, b: 0.3254902, a: 1}
+  m_Intensity: 0.7
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -21625,7 +21700,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2024380558}
+  m_Father: {fileID: 989188113}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1267650923
 GameObject:
@@ -21812,7 +21887,7 @@ GameObject:
   - component: {fileID: 1281069484}
   - component: {fileID: 1281069483}
   m_Layer: 0
-  m_Name: Ambient LIght
+  m_Name: Ambient P LIght 001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21851,8 +21926,8 @@ Light:
   m_Enabled: 1
   serializedVersion: 11
   m_Type: 2
-  m_Color: {r: 0.9245283, g: 0.36287114, b: 0.3270737, a: 1}
-  m_Intensity: 0.5
+  m_Color: {r: 0.9254902, g: 0.3647059, b: 0.3254902, a: 1}
+  m_Intensity: 0.7
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -21919,7 +21994,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2024380558}
+  m_Father: {fileID: 989188113}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1282887464
 PrefabInstance:
@@ -25706,8 +25781,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: af39d6dc88b54374784eb213a4e3a9aa, type: 2}
+  m_sharedMaterial: {fileID: 680552849063828202, guid: af39d6dc88b54374784eb213a4e3a9aa, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -25801,7 +25876,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - {fileID: 680552849063828202, guid: af39d6dc88b54374784eb213a4e3a9aa, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -31388,7 +31463,7 @@ GameObject:
   - component: {fileID: 1724112415}
   - component: {fileID: 1724112414}
   m_Layer: 0
-  m_Name: Ambient (2)
+  m_Name: Ambient S Light 003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31428,7 +31503,7 @@ Light:
   serializedVersion: 11
   m_Type: 0
   m_Color: {r: 0.7169812, g: 0.52882797, b: 0.4024564, a: 1}
-  m_Intensity: 50
+  m_Intensity: 80
   m_Range: 11.43
   m_SpotAngle: 96.91589
   m_InnerSpotAngle: 0
@@ -31495,7 +31570,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2024380558}
+  m_Father: {fileID: 402124117}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!1 &1729168024
 GameObject:
@@ -31509,7 +31584,7 @@ GameObject:
   - component: {fileID: 1729168026}
   - component: {fileID: 1729168025}
   m_Layer: 0
-  m_Name: Ambient
+  m_Name: Ambient S Light 001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31549,7 +31624,7 @@ Light:
   serializedVersion: 11
   m_Type: 0
   m_Color: {r: 0.7169812, g: 0.52882797, b: 0.4024564, a: 1}
-  m_Intensity: 50
+  m_Intensity: 80
   m_Range: 11.43
   m_SpotAngle: 96.91589
   m_InnerSpotAngle: 0
@@ -31616,7 +31691,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2024380558}
+  m_Father: {fileID: 402124117}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!1 &1730495071
 GameObject:
@@ -31716,7 +31791,7 @@ GameObject:
   - component: {fileID: 1733617789}
   - component: {fileID: 1733617788}
   m_Layer: 0
-  m_Name: Ambient LIght (1)
+  m_Name: Ambient P LIght 002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31755,8 +31830,8 @@ Light:
   m_Enabled: 1
   serializedVersion: 11
   m_Type: 2
-  m_Color: {r: 0.9245283, g: 0.36287114, b: 0.3270737, a: 1}
-  m_Intensity: 0.5
+  m_Color: {r: 0.9254902, g: 0.3647059, b: 0.3254902, a: 1}
+  m_Intensity: 0.7
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -31823,7 +31898,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2024380558}
+  m_Father: {fileID: 989188113}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1761231730
 GameObject:
@@ -36589,19 +36664,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1281069485}
-  - {fileID: 213537225}
-  - {fileID: 1264341313}
-  - {fileID: 739641483}
-  - {fileID: 853683170}
-  - {fileID: 1142976574}
-  - {fileID: 1733617790}
-  - {fileID: 1729168027}
-  - {fileID: 1065525593}
-  - {fileID: 1724112416}
-  - {fileID: 615478550}
-  - {fileID: 242070359}
-  - {fileID: 1086532475}
+  - {fileID: 402124117}
+  - {fileID: 989188113}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2024402725
