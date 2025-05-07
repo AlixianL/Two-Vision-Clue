@@ -86,9 +86,7 @@ public class Keypad : MonoBehaviour, IActivatable
             if (Cursor.visible == false) Cursor.visible = true;
             else Cursor.visible = false;
             _isInteractingWhisEnigma = !_isInteractingWhisEnigma;
-            
-            // ~~ POUR PLAYTEST ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
-            //ChangePositionCinemachine.Instance.SwitchCam(_enigmaCinemachineCamera, _isInteractingWhisEnigma);
+
             
             ChangePositionCinemachine.Instance.SwitchIntoDoorCinemachineCamera(ChangePositionCinemachine.Instance._digicodeCinemachineCamera, ChangePositionCinemachine.Instance._doorCinemachineCamera);
             
