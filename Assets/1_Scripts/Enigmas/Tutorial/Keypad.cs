@@ -15,7 +15,8 @@ public class Keypad : MonoBehaviour, IActivatable
     [SerializeField] private Color _validateMaterialColor;
     [SerializeField] private Color _falseMaterialColor;
     [SerializeField] private MeshRenderer _indicatorLight;
-    [SerializeField] private CinemachineCamera _enigmaCinemachineCamera;
+    [SerializeField] private CinemachineCamera _digicodeCinemachineCamera;
+    [SerializeField] private CinemachineCamera _doorCinemachineCamera;
 
     public Doors doors;
     
@@ -56,7 +57,7 @@ public class Keypad : MonoBehaviour, IActivatable
         else Cursor.visible = false;
         _isInteractingWhisEnigma = !_isInteractingWhisEnigma;
         
-        ChangePositionCinemachine.Instance.SwitchCam(_enigmaCinemachineCamera, _isInteractingWhisEnigma);
+        ChangePositionCinemachine.Instance.SwitchCam(_digicodeCinemachineCamera, _isInteractingWhisEnigma);
     }
     
     public void Clear()
@@ -78,7 +79,6 @@ public class Keypad : MonoBehaviour, IActivatable
             }
             
             _isValidated = true;
-            doors.Interact();
             
             if (Cursor.lockState == CursorLockMode.Locked) Cursor.lockState = CursorLockMode.None;
             else Cursor.lockState = CursorLockMode.Locked;
@@ -87,13 +87,19 @@ public class Keypad : MonoBehaviour, IActivatable
             else Cursor.visible = false;
             _isInteractingWhisEnigma = !_isInteractingWhisEnigma;
             
-            ChangePositionCinemachine.Instance.SwitchCam(_enigmaCinemachineCamera, _isInteractingWhisEnigma);
+            // ~~ POUR PLAYTEST ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+            //ChangePositionCinemachine.Instance.SwitchCam(_enigmaCinemachineCamera, _isInteractingWhisEnigma);
+            
+            ChangePositionCinemachine.Instance.SwitchIntoDoorCinemachineCamera(ChangePositionCinemachine.Instance._digicodeCinemachineCamera, ChangePositionCinemachine.Instance._doorCinemachineCamera);
+            
+            doors.Interact();
+            
             GameManager.Instance.ToggleTotalFreezePlayer();
         }
         else
         {
             _indicatorLight.material.color = _falseMaterialColor;
-            StartCoroutine(Delay());
+            StartCoroutine(Delay(1f));
         }
     }
 
@@ -103,9 +109,9 @@ public class Keypad : MonoBehaviour, IActivatable
         _isClear = false;
     }
 
-    public IEnumerator Delay()
+    public IEnumerator Delay(float time)
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(time);
         Reset();
         _indicatorLight.material.color = _defaultMaterialColor;
     }

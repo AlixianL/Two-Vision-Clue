@@ -14,6 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CustomBlends:
   - From: Player - CinemachineCamera
+    To: Digicode - CinemachineCamera
+    Blend:
+      Style: 1
+      Time: 0.5
+      CustomCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 0
+        m_PostInfinity: 0
+        m_RotationOrder: 4
+  - From: Player - CinemachineCamera
     To: Labyrinthe - CinemachineCamera
     Blend:
       Style: 1
@@ -25,7 +36,7 @@ MonoBehaviour:
         m_PostInfinity: 0
         m_RotationOrder: 4
   - From: Player - CinemachineCamera
-    To: Digicode - CinemachineCamera
+    To: PillarCamera
     Blend:
       Style: 1
       Time: 0.5
@@ -90,7 +101,7 @@ MonoBehaviour:
         m_PreInfinity: 0
         m_PostInfinity: 0
         m_RotationOrder: 4
-  - From: Labyrinthe - CinemachineCamera
+  - From: Digicode - CinemachineCamera
     To: Player - CinemachineCamera
     Blend:
       Style: 1
@@ -101,7 +112,18 @@ MonoBehaviour:
         m_PreInfinity: 0
         m_PostInfinity: 0
         m_RotationOrder: 4
-  - From: Digicode - CinemachineCamera
+  - From: PillarCamera
+    To: Player - CinemachineCamera
+    Blend:
+      Style: 1
+      Time: 0.2
+      CustomCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 0
+        m_PostInfinity: 0
+        m_RotationOrder: 4
+  - From: Labyrinthe - CinemachineCamera
     To: Player - CinemachineCamera
     Blend:
       Style: 1
@@ -211,22 +233,22 @@ MonoBehaviour:
         m_PreInfinity: 0
         m_PostInfinity: 0
         m_RotationOrder: 4
-  - From: Player - CinemachineCamera
-    To: PillarCamera
+  - From: Digicode - CinemachineCamera
+    To: Door - Cinemachine
     Blend:
       Style: 1
-      Time: 0.5
+      Time: 0.4
       CustomCurve:
         serializedVersion: 2
         m_Curve: []
         m_PreInfinity: 0
         m_PostInfinity: 0
         m_RotationOrder: 4
-  - From: PillarCamera
+  - From: Door - Cinemachine
     To: Player - CinemachineCamera
     Blend:
       Style: 1
-      Time: 0.2
+      Time: 0.4
       CustomCurve:
         serializedVersion: 2
         m_Curve: []
