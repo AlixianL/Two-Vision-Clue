@@ -16,6 +16,10 @@ public class LaserBeam : MonoBehaviour, IActivatable
     [SerializeField] private GameObject _validationLight;//-------------------------> Light Sur le pilier central pour validé l'énigme
     [SerializeField] private List<GameObject> _mirror = new List<GameObject>();//---> Liste des mirroir a désactiver
     [SerializeField] private LayerMask _raycastMask;//------------------------------> Layer ignorer par le rayon
+    [SerializeField] private Color _isOn;//-----------------------------------------> Led on
+    [SerializeField] private Color _isOff;//----------------------------------------> Led off
+    [SerializeField] private MeshRenderer _verifLight ;//---------------------------> Led affichage
+
 
 
     private bool _lazerIsOn = false;//----------------------------------------------> Condition Si le lazer est actif
@@ -32,16 +36,19 @@ public class LaserBeam : MonoBehaviour, IActivatable
     void Start()
     {
         _validationLight.SetActive(false);
+        _verifLight.material.color = _isOff;
 
     }
-public void Activate()
+    public void Activate()
     {
         if (!_lazerIsOn)
         {
+            _verifLight.material.color = _isOn;
             _lazerIsOn = true;
         }
         else if (_lazerIsOn)
         {
+            _verifLight.material.color = _isOff;
             _lazerIsOn = false;
             _lineRenderer.positionCount = 0;
         }
