@@ -11,6 +11,7 @@ public class ChangePositionCinemachine : MonoBehaviour
     public CinemachineCamera _playerCinemachineCamera;
     public CinemachineCamera _gumgumCinemachineCamera;
     public CinemachineCamera _digicodeCinemachineCamera;
+    public CinemachineCamera _doorCinemachineCamera;
     public CinemachineCamera _labyrinthCinemachineCamera;
     public CinemachineCamera _pilerCinemachineCamera;
     public CinemachineCamera _laserCinemachineCamera;
@@ -53,5 +54,16 @@ public class ChangePositionCinemachine : MonoBehaviour
     {
         gumgumCinemachineCamera.Priority = 0;
         targetCinemachineCamera.Priority = 2;
+    }
+
+    public void SwitchIntoDoorCinemachineCamera(CinemachineCamera digicodeCinemachineCamera, CinemachineCamera doorCinemachineCamera)
+    {
+        digicodeCinemachineCamera.Priority = 0;
+        doorCinemachineCamera.Priority = 2;
+    }
+    
+    public void ReturnOnPlayerCinemachineCamera(CinemachineCamera currentCinemachineCamera)
+    {
+        currentCinemachineCamera.Priority = 0;
     }
 }

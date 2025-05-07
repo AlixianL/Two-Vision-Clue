@@ -16,21 +16,19 @@ public class Interactable : MonoBehaviour
     private void Start()
     {
         // Récupère automatiquement le composant Outline attaché à l'objet
-        outline = GetComponent<Outline>();
+        if (outline == null) outline = GetComponent<Outline>();
 
         // Désactive l'effet de surbrillance (outline) au départ
         DisableOutline();
     }
 
-    // Désactive l'effet de surbrillance de l'objet
-    public void DisableOutline()
-    {
-        outline.enabled = false;
-    }
-
-    // Active l'effet de surbrillance de l'objet
     public void EnableOutline()
     {
-        outline.enabled = true;
+        if (outline != null) outline.enabled = true;
+    }
+
+    public void DisableOutline()
+    {
+        if (outline != null) outline.enabled = false;
     }
 }

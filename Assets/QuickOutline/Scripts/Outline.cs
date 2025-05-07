@@ -79,7 +79,13 @@ public class Outline : MonoBehaviour {
   private Material outlineFillMaterial;
 
   private bool needsUpdate;
-
+  
+  /*
+  [Header("============================================================")]
+  [Header("EDIT"), Space(5)]
+  [SerializeField] private GameObject _currentGameObject;
+  */
+  
   void Awake() {
 
     // Cache renderers
