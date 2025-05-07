@@ -4,6 +4,12 @@ public class LabyrintheTriggerBox : MonoBehaviour
 {
     [Header("References"), Space(5)]
     [SerializeField] private RotateWeel _rotateWeel;
+    [SerializeField] private GameObject _validationLight;//-------------------------> Light Sur le pilier central pour validé l'énigme
+
+    void Start()
+    {
+        _validationLight.SetActive(false);
+    }
     void OnTriggerEnter(Collider other)
     {
         if (other.name == "SM_Boule_001")
@@ -11,6 +17,8 @@ public class LabyrintheTriggerBox : MonoBehaviour
             _rotateWeel.enigmaIsValidate = true;
             other.attachedRigidbody.freezeRotation = true;
             other.attachedRigidbody.useGravity = false;
+            _validationLight.SetActive(true);
+
         }
     }
 }

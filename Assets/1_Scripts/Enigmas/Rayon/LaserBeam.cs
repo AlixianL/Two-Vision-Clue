@@ -9,23 +9,32 @@ using UnityEngine;
 /// </summary>
 public class LaserBeam : MonoBehaviour, IActivatable
 {
-    [SerializeField] private LineRenderer _lineRenderer; //------------> Visuel du rayon
-    [SerializeField] private GameObject _startPointObject;//-----------> Point de départ du rayon
-    [SerializeField] private GameObject _player;//---------------------> Joueur
+    [Header("References"), Space(5)]
+    [SerializeField] private LineRenderer _lineRenderer; //-------------------------> Visuel du rayon
+    [SerializeField] private GameObject _startPointObject;//------------------------> Point de départ du rayon
+    [SerializeField] private GameObject _player;//----------------------------------> Joueur
+    [SerializeField] private GameObject _validationLight;//-------------------------> Light Sur le pilier central pour validé l'énigme
+    [SerializeField] private List<GameObject> _mirror = new List<GameObject>();//---> Liste des mirroir a désactiver
+    [SerializeField] private LayerMask _raycastMask;//------------------------------> Layer ignorer par le rayon
 
-    private bool _lazerIsOn = false;//---------------------------------> Condition Si le lazer est actif
-    private bool _puzzleEnd = false;//---------------------------------> Condition de fin de l'énigme
+
+    private bool _lazerIsOn = false;//----------------------------------------------> Condition Si le lazer est actif
+    private bool _puzzleEnd = false;//----------------------------------------------> Condition de fin de l'énigme
 
 
-    public float maxDistance = 100f;//---------------------------------> Distance max entre 2 point du line renderer
+    public float maxDistance = 100f;//----------------------------------------------> Distance max entre 2 point du line renderer
 
-    [SerializeField] private List<GameObject> _mirror = new List<GameObject>();
 
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     // -- Détection du joueur pour le bouton -----------------------
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-    public void Activate()
+    void Start()
+    {
+        _validationLight.SetActive(false);
+
+    }
+public void Activate()
     {
         if (!_lazerIsOn)
         {
@@ -71,7 +80,7 @@ public class LaserBeam : MonoBehaviour, IActivatable
         {
             if (_puzzleEnd) break;
             RaycastHit hit;
-            if (Physics.Raycast(currentPosition, direction, out hit, maxDistance))
+            if (Physics.Raycast(currentPosition, direction, out hit, maxDistance, _raycastMask))
             {
                 _lineRenderer.positionCount += 1;
                 _lineRenderer.SetPosition(_lineRenderer.positionCount - 1, hit.point);
@@ -105,6 +114,8 @@ public class LaserBeam : MonoBehaviour, IActivatable
     void EndLaserEnigme()
     {
         _puzzleEnd = true;
+        _validationLight.SetActive(true);
+
         foreach (GameObject mirrorObject in _mirror)
         {
             MirrorRotation mirror = mirrorObject.GetComponent<MirrorRotation>();

@@ -13,32 +13,35 @@ public class TurnPillar : MonoBehaviour, IActivatable
     private bool _isRotating = false;
     private bool _enigmeisend = false;
 
-    [SerializeField] private bool _interactWhisEnigma;
+    [SerializeField] private bool _interactWithEnigma;
     [SerializeField] private bool _enigmaisend;
 
     [SerializeField] private CinemachineCamera _enigmaCinemachineCamera;
+    [SerializeField] private GameObject _validationLight;
+
 
     void Start()
     {
+        _validationLight.SetActive(false);
         _currentRock = turnRock[_currentIndex];
     }
 
     public void Activate()
     {
-        if (!_interactWhisEnigma)
+        if (!_interactWithEnigma)
         {
-            _interactWhisEnigma = true;
+            _interactWithEnigma = true;
         }
-        else _interactWhisEnigma = false;
+        else _interactWithEnigma = false;
         GameManager.Instance.ToggleTotalFreezePlayer();
 
         
 
-        ChangePositionCinemachine.Instance.SwitchCam(_enigmaCinemachineCamera, _interactWhisEnigma);
+        ChangePositionCinemachine.Instance.SwitchCam(_enigmaCinemachineCamera, _interactWithEnigma);
     }
     void Update()
     {
-        if (_interactWhisEnigma && !_isRotating && !_enigmeisend)
+        if (_interactWithEnigma && !_isRotating && !_enigmeisend)
         {
             if (PlayerBrain.Instance.player.GetButton("RightMovement"))
             {
@@ -84,6 +87,7 @@ public class TurnPillar : MonoBehaviour, IActivatable
 
     public void EndEnigme()
     {
+        _validationLight.SetActive(true);
         _enigmeisend = true;
     }
 }

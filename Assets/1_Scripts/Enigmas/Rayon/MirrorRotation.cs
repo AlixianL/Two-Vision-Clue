@@ -1,52 +1,74 @@
 using Rewired;
-using System.Collections;
+using Unity.Cinemachine;
 using UnityEngine;
 
 public class MirrorRotation : MonoBehaviour, IActivatable
 {
-    public GameObject player;//----------------------------> Joueur
-    public GameObject reflector;//-------------------------> La partie du miroire qui tourne
+    [Header("Références")]
+    public Transform pivotHorizontal;              // Pivot de rotation gauche/droite
+    public Transform mirrorTilt;                   // Partie du miroir qui s'incline
 
-    [SerializeField] private bool _interactWhisEnigma = false;
-    [SerializeField] private bool _enigmaisend;
+    [Header("Paramètres")]
+    public float rotationSpeed = 50f;
+    public float verticalMin = -45f;               // Limite minimum d'inclinaison
+    public float verticalMax = 45f;                // Limite maximum d'inclinaison
+
+    private bool _interactWithEnigma = false;
+    [SerializeField] private bool _enigmaisend = false;
+
+    private float verticalAngle = 0f;              // Stocke l'angle d'inclinaison
+
+
+    [SerializeField] private CinemachineCamera _enigmaCinemachineCamera;
 
 
     public void Activate()
     {
+        
+        if (!_interactWithEnigma)
+        {
+            _interactWithEnigma = true;
+        }
+        else _interactWithEnigma = false;
         GameManager.Instance.ToggleTotalFreezePlayer();
 
-        if (!_interactWhisEnigma)
+        if (_enigmaCinemachineCamera != null)
         {
-            _interactWhisEnigma = true;
+            ChangePositionCinemachine.Instance.SwitchCam(_enigmaCinemachineCamera, _interactWithEnigma);
         }
-        else _interactWhisEnigma = false;
+
     }
+
     void Update()
     {
-
-        if (_interactWhisEnigma && !_enigmaisend)
+        if (_interactWithEnigma && !_enigmaisend)
         {
             if (PlayerBrain.Instance.player.GetButton("RightMovement"))
             {
-                RotateReflector(Vector3.up);
+                pivotHorizontal.Rotate(Vector3.up * rotationSpeed * Time.deltaTime);
             }
             if (PlayerBrain.Instance.player.GetButton("LeftMovement"))
             {
-                RotateReflector(-Vector3.up);
+                pivotHorizontal.Rotate(-Vector3.up * rotationSpeed * Time.deltaTime);
             }
-        }
-        
-    }
 
-    void RotateReflector(Vector3 direction)
-    {
-        float rotationSpeed = 100f;
-        reflector.transform.Rotate(direction * rotationSpeed * Time.deltaTime);
+            if (PlayerBrain.Instance.player.GetButton("ForwardMovement"))
+            {
+                verticalAngle -= rotationSpeed * Time.deltaTime;
+            }
+            if (PlayerBrain.Instance.player.GetButton("BackwardMovement"))
+            {
+                verticalAngle += rotationSpeed * Time.deltaTime;
+            }
+
+            verticalAngle = Mathf.Clamp(verticalAngle, verticalMin, verticalMax);
+
+            mirrorTilt.localEulerAngles = new Vector3(0f, 0f, verticalAngle);
+        }
     }
 
     public void FreezMirror()
     {
-        Debug.Log("ca freez");
         _enigmaisend = true;
     }
 }
