@@ -17,9 +17,12 @@ public class TurnPillar : MonoBehaviour, IActivatable
     [SerializeField] private bool _enigmaisend;
 
     [SerializeField] private CinemachineCamera _enigmaCinemachineCamera;
+    [SerializeField] private GameObject _validationLight;
+
 
     void Start()
     {
+        _validationLight.SetActive(false);
         _currentRock = turnRock[_currentIndex];
     }
 
@@ -84,6 +87,7 @@ public class TurnPillar : MonoBehaviour, IActivatable
 
     public void EndEnigme()
     {
+        _validationLight.SetActive(true);
         _enigmeisend = true;
     }
 }
