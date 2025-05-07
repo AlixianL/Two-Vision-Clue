@@ -233,3 +233,25 @@ MonoBehaviour:
         m_PreInfinity: 0
         m_PostInfinity: 0
         m_RotationOrder: 4
+  - From: Player - CinemachineCamera
+    To: Mirror III Camera
+    Blend:
+      Style: 1
+      Time: 0.5
+      CustomCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 0
+        m_PostInfinity: 0
+        m_RotationOrder: 4
+  - From: Mirror III Camera
+    To: Player - CinemachineCamera
+    Blend:
+      Style: 1
+      Time: 0.2
+      CustomCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 0
+        m_PostInfinity: 0
+        m_RotationOrder: 4

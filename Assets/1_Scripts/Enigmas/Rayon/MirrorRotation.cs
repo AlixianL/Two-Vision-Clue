@@ -5,7 +5,6 @@ using UnityEngine;
 public class MirrorRotation : MonoBehaviour, IActivatable
 {
     [Header("Références")]
-    public GameObject player;                      // Joueur
     public Transform pivotHorizontal;              // Pivot de rotation gauche/droite
     public Transform mirrorTilt;                   // Partie du miroir qui s'incline
 
@@ -15,7 +14,7 @@ public class MirrorRotation : MonoBehaviour, IActivatable
     public float verticalMax = 45f;                // Limite maximum d'inclinaison
 
     private bool _interactWithEnigma = false;
-    [SerializeField] private bool _enigmaisend;
+    [SerializeField] private bool _enigmaisend = false;
 
     private float verticalAngle = 0f;              // Stocke l'angle d'inclinaison
 
@@ -33,7 +32,10 @@ public class MirrorRotation : MonoBehaviour, IActivatable
         else _interactWithEnigma = false;
         GameManager.Instance.ToggleTotalFreezePlayer();
 
-        ChangePositionCinemachine.Instance.SwitchCam(_enigmaCinemachineCamera, _interactWithEnigma);
+        if (_enigmaCinemachineCamera != null)
+        {
+            ChangePositionCinemachine.Instance.SwitchCam(_enigmaCinemachineCamera, _interactWithEnigma);
+        }
 
     }
 
@@ -67,7 +69,6 @@ public class MirrorRotation : MonoBehaviour, IActivatable
 
     public void FreezMirror()
     {
-        Debug.Log("ca freez");
         _enigmaisend = true;
     }
 }
