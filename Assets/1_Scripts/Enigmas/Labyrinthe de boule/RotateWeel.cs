@@ -6,15 +6,21 @@ public class RotateWeel : MonoBehaviour, IActivatable
 {
     [Header("References"), Space(5)]
     [SerializeField] private GameObject _labyrinth;
-    [SerializeField] private GameObject _ball;
     [SerializeField] private CinemachineCamera _enigmaCinemachineCamera;
-    
+    [SerializeField] private GameObject _labyrintheLight;//-------------------------> Light pour voir le labyrinthe
+    private Light _lightComponent;
+
+
     [Header("Variables"), Space(5)]
     [SerializeField] private float _rotationSpeed;
     [Space(5)]
     [SerializeField] private bool _interactWhisEnigma;
     public bool enigmaIsValidate;
 
+    void Start()
+    {
+        _lightComponent = _labyrintheLight.GetComponent<Light>();
+    }
     public void Activate()
     {
         GameManager.Instance.ToggleTotalFreezePlayer();
@@ -26,6 +32,13 @@ public class RotateWeel : MonoBehaviour, IActivatable
         else _interactWhisEnigma = false;
         
         ChangePositionCinemachine.Instance.SwitchCam(_enigmaCinemachineCamera, _interactWhisEnigma);
+
+        if (_lightComponent.enabled == false)
+        {
+            _lightComponent.enabled = true;
+        }
+        else _lightComponent.enabled = false;
+        
     }
     
     void FixedUpdate()

@@ -24,7 +24,6 @@ public class Keys : MonoBehaviour, IActivatable
     {
         if (!_keypad._isClear)
         {
-            Debug.Log(!_keypad._isClear);
             ClearText();
         }
         _keypad.feedBack.text = _keypad.feedBack.text + number.ToString();
