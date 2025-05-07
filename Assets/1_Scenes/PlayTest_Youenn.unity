@@ -119,17 +119,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!114 &9788753 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8957493722877804688, guid: 59c2f36a68b7ed5488e047d523d71e57, type: 3}
-  m_PrefabInstance: {fileID: 2099421626}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9dfa5b682dcd46bda6128250e975f58, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &12353830
 GameObject:
   m_ObjectHideFlags: 0
@@ -4854,7 +4843,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 5858396016296143135, guid: a2d6163742f1c1245ac2bee59505dca6, type: 3}
-      insertIndex: 5
+      insertIndex: -1
       addedObject: {fileID: 268088145}
     - targetCorrespondingSourceObject: {fileID: 3798695840813663798, guid: a2d6163742f1c1245ac2bee59505dca6, type: 3}
       insertIndex: -1
@@ -13758,7 +13747,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clues: []
-  clueCinemachineCamera: {fileID: 1947821118}
+  clueCinemachineCamera: {fileID: 0}
   distanceFromCenter: 0.3
   _playerIsInteracting: 0
 --- !u!114 &737235728
@@ -16793,15 +16782,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3863180615115504688, guid: 1e09be4150bf4e04f8b03b044ec2a6ed, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -15.173345
       objectReference: {fileID: 0}
     - target: {fileID: 3863180615115504688, guid: 1e09be4150bf4e04f8b03b044ec2a6ed, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.7288452
+      value: 1.7115715
       objectReference: {fileID: 0}
     - target: {fileID: 3863180615115504688, guid: 1e09be4150bf4e04f8b03b044ec2a6ed, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 26.578558
       objectReference: {fileID: 0}
     - target: {fileID: 4027942355798497606, guid: 1e09be4150bf4e04f8b03b044ec2a6ed, type: 3}
       propertyPath: _layerMaskToIgnore.m_Bits
@@ -17704,10 +17693,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d480f5129c4f80e4cb8cc5fa2ef5f760, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gumgumName: {fileID: 9217027308964373540}
-  _gumgumDialogues: {fileID: 6746245023518329505}
-  gumGumPanel: {fileID: 5479305271687390422}
-  enigmaContainer: {fileID: 1359375288986250057}
+  _gumgumName: {fileID: 0}
+  _gumgumDialogues: {fileID: 0}
+  gumGumPanel: {fileID: 0}
+  enigmaContainer: {fileID: 0}
   _gumGum: {fileID: 519714483}
   dialogueTrigger: {fileID: 466153083}
   clueInstance: {fileID: 0}
@@ -17761,17 +17750,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d00728ea1ce89fa458c8d2da43e18a0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerCinemachineCamera: {fileID: 2627042255194312269}
-  _gumgumCinemachineCamera: {fileID: 1991842115}
-  _digicodeCinemachineCamera: {fileID: 2093823784}
-  _doorCinemachineCamera: {fileID: 9788753}
-  _labyrinthCinemachineCamera: {fileID: 736131071}
+  _playerCinemachineCamera: {fileID: 0}
+  _gumgumCinemachineCamera: {fileID: 0}
+  _digicodeCinemachineCamera: {fileID: 0}
+  _doorCinemachineCamera: {fileID: 0}
+  _labyrinthCinemachineCamera: {fileID: 0}
   _pilerCinemachineCamera: {fileID: 0}
   _laserCinemachineCamera: {fileID: 0}
-  _clue_01CinemachineCamera: {fileID: 1373922526}
-  _clue_02CinemachineCamera: {fileID: 1947821118}
-  _clue_03CinemachineCamera: {fileID: 191572521}
-  _clue_04CinemachineCamera: {fileID: 1019160866}
+  _clue_01CinemachineCamera: {fileID: 0}
+  _clue_02CinemachineCamera: {fileID: 0}
+  _clue_03CinemachineCamera: {fileID: 0}
+  _clue_04CinemachineCamera: {fileID: 0}
 --- !u!1 &990429944
 GameObject:
   m_ObjectHideFlags: 0
@@ -31648,7 +31637,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clues: []
-  clueCinemachineCamera: {fileID: 1019160866}
+  clueCinemachineCamera: {fileID: 0}
   distanceFromCenter: 0.3
   _playerIsInteracting: 0
 --- !u!114 &1916979383
@@ -34326,7 +34315,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clues: []
-  clueCinemachineCamera: {fileID: 191572521}
+  clueCinemachineCamera: {fileID: 0}
   distanceFromCenter: 0.3
   _playerIsInteracting: 0
 --- !u!114 &2081287250
@@ -34620,17 +34609,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.2599674, y: 1.9157625, z: 2.5312543}
   m_Center: {x: 0.0000009536743, y: 0.9578813, z: 0.000015258789}
---- !u!114 &2093823784 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1204977951367276878, guid: 59c2f36a68b7ed5488e047d523d71e57, type: 3}
-  m_PrefabInstance: {fileID: 2099421626}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9dfa5b682dcd46bda6128250e975f58, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2093869104
 GameObject:
   m_ObjectHideFlags: 0
@@ -35919,7 +35897,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clues: []
-  clueCinemachineCamera: {fileID: 1373922526}
+  clueCinemachineCamera: {fileID: 0}
   distanceFromCenter: 0.3
   _playerIsInteracting: 0
 --- !u!65 &2144461321
@@ -36076,22 +36054,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1359375288986250057 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6783722625221995424, guid: 02cfb1780f4c0104389c69bff630f8bd, type: 3}
-  m_PrefabInstance: {fileID: 8263779075024447603}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2627042255194312269 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2627042256486855348, guid: 1e09be4150bf4e04f8b03b044ec2a6ed, type: 3}
-  m_PrefabInstance: {fileID: 956701310}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9dfa5b682dcd46bda6128250e975f58, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &3632824837855015743 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3632824836965453766, guid: 1e09be4150bf4e04f8b03b044ec2a6ed, type: 3}
@@ -36119,22 +36081,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &5479305271687390422 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8637714777560538702, guid: 02cfb1780f4c0104389c69bff630f8bd, type: 3}
-  m_PrefabInstance: {fileID: 8263779075024447603}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &6746245023518329505 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1925170391856067459, guid: 02cfb1780f4c0104389c69bff630f8bd, type: 3}
-  m_PrefabInstance: {fileID: 8263779075024447603}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &7876817294051783197
 Transform:
   m_ObjectHideFlags: 0
@@ -36352,17 +36298,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   outline: {fileID: 8661176799729736888}
   message: 
---- !u!114 &9217027308964373540 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2161455940490451410, guid: 02cfb1780f4c0104389c69bff630f8bd, type: 3}
-  m_PrefabInstance: {fileID: 8263779075024447603}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
