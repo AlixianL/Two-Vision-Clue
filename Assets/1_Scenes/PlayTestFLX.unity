@@ -16292,11 +16292,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -30410251104332370, guid: 1568e735c9ea3ab49af1720912a29652, type: 3}
---- !u!1 &965615335 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5858396016296143135, guid: a2d6163742f1c1245ac2bee59505dca6, type: 3}
-  m_PrefabInstance: {fileID: 1444313844}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &976311420
 GameObject:
   m_ObjectHideFlags: 0
@@ -16392,6 +16387,11 @@ GameObject:
 Transform:
   m_CorrespondingSourceObject: {fileID: 4440659096847421128, guid: 434bf24d6ae3488438ad5c73b1daa107, type: 3}
   m_PrefabInstance: {fileID: 1377311373}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &981320562 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5679491999362122239, guid: a2d6163742f1c1245ac2bee59505dca6, type: 3}
+  m_PrefabInstance: {fileID: 1444313844}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &985863282
 PrefabInstance:
@@ -25289,28 +25289,41 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4005349384020726518, guid: a2d6163742f1c1245ac2bee59505dca6, type: 3}
+      propertyPath: _arrow
+      value: 
+      objectReference: {fileID: 981320562}
+    - target: {fileID: 4005349384020726518, guid: a2d6163742f1c1245ac2bee59505dca6, type: 3}
       propertyPath: _validationLight
       value: 
       objectReference: {fileID: 1336211890}
-    - target: {fileID: 5388333951288290465, guid: a2d6163742f1c1245ac2bee59505dca6, type: 3}
-      propertyPath: outline
+    - target: {fileID: 4005349384020726518, guid: a2d6163742f1c1245ac2bee59505dca6, type: 3}
+      propertyPath: arrowposition.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4005349384020726518, guid: a2d6163742f1c1245ac2bee59505dca6, type: 3}
+      propertyPath: 'arrowposition.Array.data[0]'
       value: 
-      objectReference: {fileID: 1444313852}
+      objectReference: {fileID: 1444313848}
+    - target: {fileID: 4005349384020726518, guid: a2d6163742f1c1245ac2bee59505dca6, type: 3}
+      propertyPath: 'arrowposition.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1444313845}
+    - target: {fileID: 4005349384020726518, guid: a2d6163742f1c1245ac2bee59505dca6, type: 3}
+      propertyPath: 'arrowposition.Array.data[2]'
+      value: 
+      objectReference: {fileID: 1444313846}
+    - target: {fileID: 4005349384020726518, guid: a2d6163742f1c1245ac2bee59505dca6, type: 3}
+      propertyPath: 'arrowposition.Array.data[3]'
+      value: 
+      objectReference: {fileID: 1444313847}
     - target: {fileID: 5858396016296143135, guid: a2d6163742f1c1245ac2bee59505dca6, type: 3}
       propertyPath: m_Name
       value: Enigme - LoeilQuiVoitTout
-      objectReference: {fileID: 0}
-    - target: {fileID: 5858396016296143135, guid: a2d6163742f1c1245ac2bee59505dca6, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5858396016296143135, guid: a2d6163742f1c1245ac2bee59505dca6, type: 3}
-      insertIndex: 5
-      addedObject: {fileID: 1444313852}
     - targetCorrespondingSourceObject: {fileID: 3798695840813663798, guid: a2d6163742f1c1245ac2bee59505dca6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
@@ -25348,24 +25361,26 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: a2d6163742f1c1245ac2bee59505dca6, type: 3}
---- !u!114 &1444313852
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+--- !u!4 &1444313845 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7818940840498882300, guid: a2d6163742f1c1245ac2bee59505dca6, type: 3}
+  m_PrefabInstance: {fileID: 1444313844}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 965615335}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 1, g: 0, b: 0, a: 1}
-  outlineWidth: 10
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
+--- !u!4 &1444313846 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2881415048179417768, guid: a2d6163742f1c1245ac2bee59505dca6, type: 3}
+  m_PrefabInstance: {fileID: 1444313844}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1444313847 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4620362934293777809, guid: a2d6163742f1c1245ac2bee59505dca6, type: 3}
+  m_PrefabInstance: {fileID: 1444313844}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1444313848 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1876809497340216718, guid: a2d6163742f1c1245ac2bee59505dca6, type: 3}
+  m_PrefabInstance: {fileID: 1444313844}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1455511573
 GameObject:
   m_ObjectHideFlags: 0
@@ -32052,8 +32067,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bafe7495d110284b85671e116c6ed86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rotateWeel: {fileID: 1559363761}
-  _validationLight: {fileID: 772399624}
+  _rotateWeel: {fileID: 0}
+  _validationLight: {fileID: 0}
 --- !u!1 &1789327828
 GameObject:
   m_ObjectHideFlags: 0
