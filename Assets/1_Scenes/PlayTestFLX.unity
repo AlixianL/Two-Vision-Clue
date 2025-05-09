@@ -12190,6 +12190,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &752402417 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2840881164380306905, guid: 375034b5630682e4d9fbfd64d8979910, type: 3}
+  m_PrefabInstance: {fileID: 1288879638}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &756148709
 GameObject:
   m_ObjectHideFlags: 0
@@ -22101,9 +22106,17 @@ PrefabInstance:
       propertyPath: _validationLight
       value: 
       objectReference: {fileID: 1336211890}
+    - target: {fileID: 2967471766798132560, guid: 375034b5630682e4d9fbfd64d8979910, type: 3}
+      propertyPath: 'turnRock.Array.data[0]'
+      value: 
+      objectReference: {fileID: 752402417}
+    - target: {fileID: 3813738899012839528, guid: 375034b5630682e4d9fbfd64d8979910, type: 3}
+      propertyPath: Pillar
+      value: 
+      objectReference: {fileID: 2051252401}
     - target: {fileID: 7056323052581240930, guid: 375034b5630682e4d9fbfd64d8979910, type: 3}
       propertyPath: m_Name
-      value: PillarEnigme
+      value: Enigme - Pillar
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -31958,7 +31971,7 @@ GameObject:
   m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1776426895
 Transform:
   m_ObjectHideFlags: 0
@@ -32007,8 +32020,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bafe7495d110284b85671e116c6ed86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rotateWeel: {fileID: 0}
-  _validationLight: {fileID: 0}
+  _rotateWeel: {fileID: 1559363761}
+  _validationLight: {fileID: 772399624}
 --- !u!1 &1789327828
 GameObject:
   m_ObjectHideFlags: 0
@@ -37795,6 +37808,17 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -30410251104332370, guid: 1568e735c9ea3ab49af1720912a29652, type: 3}
+--- !u!114 &2051252401 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2967471766798132560, guid: 375034b5630682e4d9fbfd64d8979910, type: 3}
+  m_PrefabInstance: {fileID: 1288879638}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d7df99af829bcd4aba58076323be0a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2060175582 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 1167be68dfc206545b8c51fa25cb4a4c, type: 3}
@@ -40941,6 +40965,7 @@ SceneRoots:
   - {fileID: 2099421626}
   - {fileID: 1129909234}
   - {fileID: 1256354742}
+  - {fileID: 1288879638}
   - {fileID: 481441271}
   - {fileID: 1345550798}
   - {fileID: 636029046}
@@ -40953,4 +40978,3 @@ SceneRoots:
   - {fileID: 1361652672}
   - {fileID: 1569162305}
   - {fileID: 1212307052}
-  - {fileID: 1288879638}
