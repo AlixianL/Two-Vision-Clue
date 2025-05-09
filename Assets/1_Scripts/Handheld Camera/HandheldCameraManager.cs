@@ -31,6 +31,7 @@ public class HandheldCameraManager : MonoBehaviour
             
             handheldCamera.transform.position = spawnPoint.transform.position;
             cameraIsInstall = true;
+            PlayerBrain.Instance.cameraBack.SetActive(true);
         }
     }
     
@@ -42,6 +43,7 @@ public class HandheldCameraManager : MonoBehaviour
             cameraIsInstall = false;
             //playerCanTakeCamera = false;
             cameraCanBeInstalled = true;
+            PlayerBrain.Instance.cameraBack.SetActive(false);
         }
     }
 }

@@ -5,6 +5,7 @@ using NUnit.Framework.Constraints;
 using TMPro;
 using Unity.Cinemachine;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Keypad : MonoBehaviour, IActivatable
 {
@@ -17,6 +18,7 @@ public class Keypad : MonoBehaviour, IActivatable
     [SerializeField] private MeshRenderer _indicatorLight;
     [SerializeField] private CinemachineCamera _digicodeCinemachineCamera;
     [SerializeField] private CinemachineCamera _doorCinemachineCamera;
+    [SerializeField] private Transform _playerTransform;
 
     public Doors doors;
     
@@ -38,11 +40,20 @@ public class Keypad : MonoBehaviour, IActivatable
     
     public void Activate()
     {
+        _isInteractingWhisEnigma = !_isInteractingWhisEnigma;
+        
+        ChangePositionCinemachine.Instance.SwitchCam(_digicodeCinemachineCamera, _isInteractingWhisEnigma);
         GameManager.Instance.ToggleTotalFreezePlayer();
 
-        if (!_isValidated) Reset();
+        //Vector3 direction = new Vector3(gameObject.transform.position.x, PlayerBrain.Instance.playerGameObject.transform.position.y, gameObject.transform.position.z + 2f);
+        //PlayerBrain.Instance.playerGameObject.transform.position = new Vector3(_playerTransform.position.x, PlayerBrain.Instance.cinemachineTargetGameObject.transform.position.y, _playerTransform.position.z);
+        //PlayerBrain.Instance.playerGameObject.transform.rotation = Quaternion.Euler(0, _digicodeCinemachineCamera.transform.eulerAngles.y, 0);
+        //PlayerBrain.Instance.cinemachineTargetGameObject.transform.LookAt(direction);
+        
+        
+        if (!_isValidated && _isClear) Reset();
+        
         BoxCollider collider = GetComponent<BoxCollider>();
-
         Vector3 colliderSize = new(collider.size.x, 1, 1);
 
         if (colliderSize.x == 1.5f) colliderSize.x = 1;
@@ -55,9 +66,6 @@ public class Keypad : MonoBehaviour, IActivatable
         
         if (Cursor.visible == false) Cursor.visible = true;
         else Cursor.visible = false;
-        _isInteractingWhisEnigma = !_isInteractingWhisEnigma;
-        
-        ChangePositionCinemachine.Instance.SwitchCam(_digicodeCinemachineCamera, _isInteractingWhisEnigma);
     }
     
     public void Clear()
@@ -107,7 +115,7 @@ public class Keypad : MonoBehaviour, IActivatable
         _isClear = false;
     }
 
-    public IEnumerator Delay(float time)
+    IEnumerator Delay(float time)
     {
         yield return new WaitForSeconds(time);
         Reset();
