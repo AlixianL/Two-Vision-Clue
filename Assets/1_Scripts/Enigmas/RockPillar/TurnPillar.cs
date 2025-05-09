@@ -22,6 +22,9 @@ public class TurnPillar : MonoBehaviour, IActivatable
     [SerializeField] private GameObject _validationLight;
     [SerializeField] private Transform _arrow;
     [SerializeField] private float arrowMoveSpeed = 5f;
+    [SerializeField] private float rockspeed;
+
+
 
     private Transform targetArrowPosition;
 
@@ -54,11 +57,11 @@ public class TurnPillar : MonoBehaviour, IActivatable
         {
             if (PlayerBrain.Instance.player.GetButton("RightMovement"))
             {
-                StartCoroutine(RotateRockSmooth(90f, 0.5f));
+                StartCoroutine(RotateRockSmooth(90f, rockspeed));
             }
             if (PlayerBrain.Instance.player.GetButton("LeftMovement"))
             {
-                StartCoroutine(RotateRockSmooth(-90f, 0.5f));
+                StartCoroutine(RotateRockSmooth(-90f, rockspeed));
             }
 
             if (PlayerBrain.Instance.player.GetButtonDown("ForwardMovement"))
