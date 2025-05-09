@@ -7,8 +7,6 @@ public class TurnPillar : MonoBehaviour, IActivatable
 {
 
     [SerializeField] private List<GameObject> turnRock = new List<GameObject>();
-    [SerializeField] private List<Transform> arrowposition = new List<Transform>();
-
 
     private GameObject _currentRock;
     private int _currentIndex = 0;
@@ -20,15 +18,7 @@ public class TurnPillar : MonoBehaviour, IActivatable
 
     [SerializeField] private CinemachineCamera _enigmaCinemachineCamera;
     [SerializeField] private GameObject _validationLight;
-    [SerializeField] private Transform _arrow;
-    [SerializeField] private float arrowMoveSpeed = 5f;
-    [SerializeField] private float rockspeed;
-
-
-
-    private Transform targetArrowPosition;
-
-
+    [SerializeField] private Transform _playerTransform;
 
 
     void Start()
@@ -39,17 +29,18 @@ public class TurnPillar : MonoBehaviour, IActivatable
 
     public void Activate()
     {
-        if (!_interactWithEnigma)
-        {
-            _interactWithEnigma = true;
-        }
+        if (!_interactWithEnigma)_interactWithEnigma = true;
         else _interactWithEnigma = false;
-
-        GameManager.Instance.ToggleTotalFreezePlayer();
-
         
-
+        PlayerBrain.Instance.transform.position = new Vector3(_playerTransform.position.x, PlayerBrain.Instance.transform.position.y, _playerTransform.position.z);
+        GameManager.Instance.ToggleTotalFreezePlayer();
+        
         ChangePositionCinemachine.Instance.SwitchCam(_enigmaCinemachineCamera, _interactWithEnigma);
+        
+        Vector3 direction = new Vector3(gameObject.transform.position.x, PlayerBrain.Instance.playerGameObject.transform.position.y, gameObject.transform.position.z);
+        PlayerBrain.Instance.playerGameObject.transform.position = new Vector3(_playerTransform.position.x, PlayerBrain.Instance.cinemachineTargetGameObject.transform.position.y, _playerTransform.position.z);
+        PlayerBrain.Instance.playerGameObject.transform.rotation = Quaternion.Euler(0, _enigmaCinemachineCamera.transform.eulerAngles.y, 0);
+        PlayerBrain.Instance.cinemachineTargetGameObject.transform.LookAt(direction);
     }
     void Update()
     {
@@ -57,11 +48,11 @@ public class TurnPillar : MonoBehaviour, IActivatable
         {
             if (PlayerBrain.Instance.player.GetButton("RightMovement"))
             {
-                StartCoroutine(RotateRockSmooth(90f, rockspeed));
+                StartCoroutine(RotateRockSmooth(90f, 0.5f));
             }
             if (PlayerBrain.Instance.player.GetButton("LeftMovement"))
             {
-                StartCoroutine(RotateRockSmooth(-90f, rockspeed));
+                StartCoroutine(RotateRockSmooth(-90f, 0.5f));
             }
 
             if (PlayerBrain.Instance.player.GetButtonDown("ForwardMovement"))
@@ -74,20 +65,6 @@ public class TurnPillar : MonoBehaviour, IActivatable
                 _currentIndex = (_currentIndex - 1 + turnRock.Count) % turnRock.Count;
                 _currentRock = turnRock[_currentIndex];
             }
-        }
-
-        if (_interactWithEnigma)
-        {
-            targetArrowPosition = arrowposition[_currentIndex+1];
-        }
-        else
-        {
-            targetArrowPosition = arrowposition[0]; // Position "idle"
-        }
-
-        if (_arrow != null && targetArrowPosition != null)
-        {
-            _arrow.position = Vector3.Lerp(_arrow.position, targetArrowPosition.position, Time.deltaTime * arrowMoveSpeed);
         }
     }
 

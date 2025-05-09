@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class MirrorRotation : MonoBehaviour, IActivatable
 {
-    [Header("Références")]
+    [Header("Rï¿½fï¿½rences")]
     public Transform pivotHorizontal;              // Pivot de rotation gauche/droite
     public Transform mirrorTilt;                   // Partie du miroir qui s'incline
+    [SerializeField] private Transform _playerTransform;
 
-    [Header("Paramètres")]
+    [Header("Paramï¿½tres")]
     public float rotationSpeed = 50f;
     public float verticalMin = -45f;               // Limite minimum d'inclinaison
     public float verticalMax = 45f;                // Limite maximum d'inclinaison
@@ -32,11 +33,12 @@ public class MirrorRotation : MonoBehaviour, IActivatable
         else _interactWithEnigma = false;
         GameManager.Instance.ToggleTotalFreezePlayer();
 
-        if (_enigmaCinemachineCamera != null)
-        {
-            ChangePositionCinemachine.Instance.SwitchCam(_enigmaCinemachineCamera, _interactWithEnigma);
-        }
-
+        ChangePositionCinemachine.Instance.SwitchCam(_enigmaCinemachineCamera, _interactWithEnigma);
+        
+        Vector3 direction = new Vector3(gameObject.transform.position.x, PlayerBrain.Instance.playerGameObject.transform.position.y, gameObject.transform.position.z);
+        PlayerBrain.Instance.playerGameObject.transform.position = new Vector3(_playerTransform.position.x, PlayerBrain.Instance.cinemachineTargetGameObject.transform.position.y, _playerTransform.position.z);
+        PlayerBrain.Instance.playerGameObject.transform.rotation = Quaternion.Euler(0, _enigmaCinemachineCamera.transform.eulerAngles.y, 0);
+        PlayerBrain.Instance.cinemachineTargetGameObject.transform.LookAt(direction);
     }
 
     void Update()

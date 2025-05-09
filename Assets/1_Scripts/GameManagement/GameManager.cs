@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -26,5 +27,10 @@ public class GameManager : MonoBehaviour
     public void ToggleCameraFreezePlayer()
     {
         PlayerBrain.Instance.playerCanLookAround = !PlayerBrain.Instance.playerCanLookAround;
+    }
+
+    public IEnumerator GeneralDelay(float time)
+    {
+        yield return new WaitForSeconds(time);
     }
 }

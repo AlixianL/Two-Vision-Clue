@@ -9,6 +9,9 @@ public class PlayerBrain : MonoBehaviour
     public Rigidbody playerRigidbody;
     public GameObject playerGameObject;
     public GameObject cinemachineTargetGameObject;
+
+    [Header("UI References"), Space(5)] [SerializeField]
+    public GameObject cameraBack;
     
     [Header("Player Scripts"), Space(5)]
     public PlayerMovement playerMovement;
