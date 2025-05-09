@@ -31,6 +31,8 @@ public class Keypad : MonoBehaviour, IActivatable
     public bool _isClear = true;
     private bool _isValidated = false;
 
+    
+
     void Start()
     {
         _indicatorLight.material.color = _defaultMaterialColor;

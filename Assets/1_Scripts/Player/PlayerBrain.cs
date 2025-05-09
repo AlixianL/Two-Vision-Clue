@@ -24,7 +24,7 @@ public class PlayerBrain : MonoBehaviour
     public float height;
     public float radius;
     [Space(5)]
-    public Vector3 velocity;
+   
     [Space(5)]
     public bool isGrounded;
     public bool asAlreadyTalkWhisGumGum = false;
@@ -42,6 +42,18 @@ public class PlayerBrain : MonoBehaviour
         else Destroy(this);
         
         player = ReInput.players.GetPlayer(playerID);
+    }
+
+    void Update()
+    {
+        if (Physics.Raycast(transform.position, Vector3.down, PlayerBrain.Instance.height))
+        {
+            PlayerBrain.Instance.isGrounded = true;
+        }
+        else
+        {
+            PlayerBrain.Instance.isGrounded = false;
+        }
     }
 }
     
