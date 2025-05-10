@@ -7,15 +7,15 @@ public class TabletteToggle : MonoBehaviour, IActivatable
     [Header("References"), Space(5)]
     [SerializeField] private CanvasGroup _interactCanvasGroup;
     [SerializeField] private CanvasGroup _informationsCanvasGroup; // L'élément à faire apparaître en fondu
-    [SerializeField] private Coroutine _informationsFadeCoroutine;
-    [SerializeField] private Coroutine _interactFadeCoroutine;
+    private Coroutine _informationsFadeCoroutine;
+    private Coroutine _interactFadeCoroutine;
     
     [Header("Variables"), Space(5)]
     [SerializeField] private float fadeDuration = 0.5f;
     [SerializeField] private bool _infoIsOn;
 
     
-    private void Start()
+    void Start()
     {
         FadeOut();
     }
@@ -26,7 +26,7 @@ public class TabletteToggle : MonoBehaviour, IActivatable
         else FadeIn();
     }
     
-    public void FadeIn()
+    void FadeIn()
     {
         if (_informationsFadeCoroutine != null) StopCoroutine(_informationsFadeCoroutine);
         _informationsFadeCoroutine = StartCoroutine(FadeCanvasGroup(_informationsCanvasGroup, 1f, fadeDuration));
@@ -36,7 +36,7 @@ public class TabletteToggle : MonoBehaviour, IActivatable
         _interactFadeCoroutine = StartCoroutine(FadeCanvasGroup(_interactCanvasGroup, 0f, fadeDuration));
     }
 
-    public void FadeOut()
+    void FadeOut()
     {
         if (_informationsFadeCoroutine != null) StopCoroutine(_informationsFadeCoroutine);
         _informationsFadeCoroutine = StartCoroutine(FadeCanvasGroup(_informationsCanvasGroup, 0f, fadeDuration));
@@ -46,7 +46,7 @@ public class TabletteToggle : MonoBehaviour, IActivatable
         _interactFadeCoroutine = StartCoroutine(FadeCanvasGroup(_interactCanvasGroup, 1f, fadeDuration));
     }
     
-    public IEnumerator FadeCanvasGroup(CanvasGroup canvasGroup, float targetAlpha, float duration)
+    IEnumerator FadeCanvasGroup(CanvasGroup canvasGroup, float targetAlpha, float duration)
     {
         float startAlpha = canvasGroup.alpha;
         float elapsed = 0f;

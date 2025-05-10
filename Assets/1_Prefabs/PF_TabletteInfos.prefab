@@ -292,7 +292,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4426832217765432812}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -764,6 +764,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5176092071190342859}
+  - component: {fileID: 3663530067575846890}
+  - component: {fileID: 6333142291879796408}
   m_Layer: 0
   m_Name: PF_TabletteInfos
   m_TagString: Untagged
@@ -789,3 +791,38 @@ Transform:
   - {fileID: 1610136355361566152}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3663530067575846890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8724471394831803979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f5fe002fd2ad5847bbb1a1a93d7957f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetCanva: {fileID: 236777075193534550}
+  fadeDuration: 0.5
+--- !u!65 &6333142291879796408
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8724471394831803979}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.8394241, y: 1, z: 2.087122}
+  m_Center: {x: -0.41971207, y: 0, z: 0.026107788}
