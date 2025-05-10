@@ -16298,13 +16298,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3863180615115504688, guid: 1e09be4150bf4e04f8b03b044ec2a6ed, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3863180615115504688, guid: 1e09be4150bf4e04f8b03b044ec2a6ed, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
+    - target: {fileID: 4027942355798497606, guid: 1e09be4150bf4e04f8b03b044ec2a6ed, type: 3}
+      propertyPath: _layerMaskToIgnore.m_Bits
+      value: 2824
       objectReference: {fileID: 0}
     - target: {fileID: 4444488233674352570, guid: 1e09be4150bf4e04f8b03b044ec2a6ed, type: 3}
       propertyPath: m_LocalPosition.x
@@ -16346,66 +16342,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4981867122271251715, guid: 1e09be4150bf4e04f8b03b044ec2a6ed, type: 3}
-      propertyPath: _userData.actions.Array.data[7]._name
-      value: InstallCamera
-      objectReference: {fileID: 0}
-    - target: {fileID: 4981867122271251715, guid: 1e09be4150bf4e04f8b03b044ec2a6ed, type: 3}
-      propertyPath: _userData.actions.Array.data[8]._name
-      value: DestroyCamera
-      objectReference: {fileID: 0}
-    - target: {fileID: 4981867122271251715, guid: 1e09be4150bf4e04f8b03b044ec2a6ed, type: 3}
-      propertyPath: _userData.keyboardMaps.Array.data[0].actionElementMaps.Array.size
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 4981867122271251715, guid: 1e09be4150bf4e04f8b03b044ec2a6ed, type: 3}
-      propertyPath: _userData.keyboardMaps.Array.data[0].actionElementMaps.Array.data[4]._actionId
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4981867122271251715, guid: 1e09be4150bf4e04f8b03b044ec2a6ed, type: 3}
-      propertyPath: _userData.keyboardMaps.Array.data[0].actionElementMaps.Array.data[5]._actionId
-      value: 13
-      objectReference: {fileID: 0}
-    - target: {fileID: 4981867122271251715, guid: 1e09be4150bf4e04f8b03b044ec2a6ed, type: 3}
-      propertyPath: _userData.keyboardMaps.Array.data[0].actionElementMaps.Array.data[6]._actionId
-      value: 14
-      objectReference: {fileID: 0}
-    - target: {fileID: 4981867122271251715, guid: 1e09be4150bf4e04f8b03b044ec2a6ed, type: 3}
-      propertyPath: _userData.keyboardMaps.Array.data[0].actionElementMaps.Array.data[6]._elementType
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4981867122271251715, guid: 1e09be4150bf4e04f8b03b044ec2a6ed, type: 3}
-      propertyPath: _userData.keyboardMaps.Array.data[0].actionElementMaps.Array.data[4]._keyboardKeyCode
-      value: 101
-      objectReference: {fileID: 0}
-    - target: {fileID: 4981867122271251715, guid: 1e09be4150bf4e04f8b03b044ec2a6ed, type: 3}
-      propertyPath: _userData.keyboardMaps.Array.data[0].actionElementMaps.Array.data[5]._keyboardKeyCode
-      value: 32
-      objectReference: {fileID: 0}
-    - target: {fileID: 4981867122271251715, guid: 1e09be4150bf4e04f8b03b044ec2a6ed, type: 3}
-      propertyPath: _userData.keyboardMaps.Array.data[0].actionElementMaps.Array.data[6]._keyboardKeyCode
-      value: 114
-      objectReference: {fileID: 0}
-    - target: {fileID: 4981867122271251715, guid: 1e09be4150bf4e04f8b03b044ec2a6ed, type: 3}
-      propertyPath: _userData.keyboardMaps.Array.data[0].actionElementMaps.Array.data[6]._elementIdentifierId
-      value: -1
-      objectReference: {fileID: 0}
     - target: {fileID: 5568179522162661937, guid: 1e09be4150bf4e04f8b03b044ec2a6ed, type: 3}
       propertyPath: cameraBack
       value: 
       objectReference: {fileID: 535069300}
-    - target: {fileID: 5568179522162661937, guid: 1e09be4150bf4e04f8b03b044ec2a6ed, type: 3}
-      propertyPath: _cameraBack
-      value: 
-      objectReference: {fileID: 3481685290052665494}
-    - target: {fileID: 7151245461555468841, guid: 1e09be4150bf4e04f8b03b044ec2a6ed, type: 3}
-      propertyPath: _rayOrigin
-      value: 
-      objectReference: {fileID: 1586753291}
-    - target: {fileID: 7151245461555468841, guid: 1e09be4150bf4e04f8b03b044ec2a6ed, type: 3}
-      propertyPath: _layerMaskToCheck.m_Bits
-      value: 47488
-      objectReference: {fileID: 0}
     - target: {fileID: 9013753269867907282, guid: 1e09be4150bf4e04f8b03b044ec2a6ed, type: 3}
       propertyPath: m_Name
       value: PF_Player
@@ -30079,11 +30019,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1578557679}
   m_Mesh: {fileID: 2879339439283628994, guid: c89e03250fa73c740aeacc003070d79a, type: 3}
---- !u!4 &1586753291 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3863180615115504688, guid: 1e09be4150bf4e04f8b03b044ec2a6ed, type: 3}
-  m_PrefabInstance: {fileID: 956701310}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1598963943 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 1568e735c9ea3ab49af1720912a29652, type: 3}
@@ -41344,11 +41279,6 @@ MonoBehaviour:
 --- !u!1 &3209457400088118227 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7289523054687391149, guid: 02cfb1780f4c0104389c69bff630f8bd, type: 3}
-  m_PrefabInstance: {fileID: 6447162690534433205}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &3481685290052665494 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6930756132606829285, guid: 02cfb1780f4c0104389c69bff630f8bd, type: 3}
   m_PrefabInstance: {fileID: 6447162690534433205}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &3632824837855015743 stripped
