@@ -32,15 +32,10 @@ public class TurnPillar : MonoBehaviour, IActivatable
         if (!_interactWithEnigma)_interactWithEnigma = true;
         else _interactWithEnigma = false;
         
-        PlayerBrain.Instance.transform.position = new Vector3(_playerTransform.position.x, PlayerBrain.Instance.transform.position.y, _playerTransform.position.z);
         GameManager.Instance.ToggleTotalFreezePlayer();
+        PlayerBrain.Instance.playerRigidbody.linearVelocity = Vector3.zero;
         
         ChangePositionCinemachine.Instance.SwitchCam(_enigmaCinemachineCamera, _interactWithEnigma);
-        
-        Vector3 direction = new Vector3(gameObject.transform.position.x, PlayerBrain.Instance.playerGameObject.transform.position.y, gameObject.transform.position.z);
-        PlayerBrain.Instance.playerGameObject.transform.position = new Vector3(_playerTransform.position.x, PlayerBrain.Instance.cinemachineTargetGameObject.transform.position.y, _playerTransform.position.z);
-        PlayerBrain.Instance.playerGameObject.transform.rotation = Quaternion.Euler(0, _enigmaCinemachineCamera.transform.eulerAngles.y, 0);
-        PlayerBrain.Instance.cinemachineTargetGameObject.transform.LookAt(direction);
     }
     void Update()
     {

@@ -7775,10 +7775,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gumgumName: GumGum
   gumgumPresentation:
-  - "Moi... GumGum...\r"
+  - "Moi... GumGum... Toi ... NumNum.\r"
   - "Moi, grosse t\xEAte en... piiiiiierre.\r"
   - "GumGum garde mus\xE9\xE9\xE9\xE9\xE9e... regarde... touuut ! "
-  - "Toi, p'tit humain maaalin ?\r"
+  - "Si NumNum donner chewing gum ... GumGum donner indice.\r"
   gumgumInterogation:
   - "Dis \xE0 GumGum... quelle \xE9niiiigme... emb\xEAte p'tit humain ?"
   clueDataBase: {fileID: 11400000, guid: 5bc8308b1990d424c99f6d5b42e3bbe9, type: 2}
@@ -8076,6 +8076,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 703234513}
     m_Modifications:
+    - target: {fileID: 4273922979924037091, guid: 434bf24d6ae3488438ad5c73b1daa107, type: 3}
+      propertyPath: m_Size.x
+      value: 0.8311005
+      objectReference: {fileID: 0}
+    - target: {fileID: 4273922979924037091, guid: 434bf24d6ae3488438ad5c73b1daa107, type: 3}
+      propertyPath: m_Size.z
+      value: 1.2792075
+      objectReference: {fileID: 0}
+    - target: {fileID: 4273922979924037091, guid: 434bf24d6ae3488438ad5c73b1daa107, type: 3}
+      propertyPath: m_Center.x
+      value: -0.00050474703
+      objectReference: {fileID: 0}
+    - target: {fileID: 4273922979924037091, guid: 434bf24d6ae3488438ad5c73b1daa107, type: 3}
+      propertyPath: m_Center.z
+      value: 0.0049607083
+      objectReference: {fileID: 0}
     - target: {fileID: 4440659096847421128, guid: 434bf24d6ae3488438ad5c73b1daa107, type: 3}
       propertyPath: m_LocalPosition.x
       value: 8.962752
@@ -8127,7 +8143,7 @@ PrefabInstance:
     - target: {fileID: 7165605052661262520, guid: 434bf24d6ae3488438ad5c73b1daa107, type: 3}
       propertyPath: _enigmaCinemachineCamera
       value: 
-      objectReference: {fileID: 1608730718}
+      objectReference: {fileID: 0}
     - target: {fileID: 7938419917422774067, guid: 434bf24d6ae3488438ad5c73b1daa107, type: 3}
       propertyPath: m_Name
       value: MIROR II
@@ -8135,9 +8151,6 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 4440659096847421128, guid: 434bf24d6ae3488438ad5c73b1daa107, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1608730717}
     - targetCorrespondingSourceObject: {fileID: 4440659096847421128, guid: 434bf24d6ae3488438ad5c73b1daa107, type: 3}
       insertIndex: -1
       addedObject: {fileID: 197876484}
@@ -9750,81 +9763,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1568e735c9ea3ab49af1720912a29652, type: 3}
   m_PrefabInstance: {fileID: 637551979}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &652839403
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 652839404}
-  - component: {fileID: 652839405}
-  m_Layer: 11
-  m_Name: Mirror V - CinemachineCamera
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &652839404
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 652839403}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0.06315243, y: -0.70428103, z: 0.06315245, w: 0.7042811}
-  m_LocalPosition: {x: 1.778, y: 1.359, z: -0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 976721232}
-  m_LocalEulerAnglesHint: {x: 10.248, y: -90, z: 0}
---- !u!114 &652839405
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 652839403}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9dfa5b682dcd46bda6128250e975f58, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Priority:
-    Enabled: 0
-    m_Value: 0
-  OutputChannel: 1
-  StandbyUpdate: 2
-  m_StreamingVersion: 20241001
-  m_LegacyPriority: 0
-  Target:
-    TrackingTarget: {fileID: 0}
-    LookAtTarget: {fileID: 0}
-    CustomLookAtTarget: 0
-  Lens:
-    FieldOfView: 60.000004
-    OrthographicSize: 10
-    NearClipPlane: 0.1
-    FarClipPlane: 5000
-    Dutch: 0
-    ModeOverride: 0
-    PhysicalProperties:
-      GateFit: 2
-      SensorSize: {x: 21.946, y: 16.002}
-      LensShift: {x: 0, y: 0}
-      FocusDistance: 10
-      Iso: 200
-      ShutterSpeed: 0.005
-      Aperture: 16
-      BladeCount: 5
-      Curvature: {x: 2, y: 11}
-      BarrelClipping: 0.25
-      Anamorphism: 0
-  BlendHint: 0
 --- !u!1 &658568415
 GameObject:
   m_ObjectHideFlags: 0
@@ -12590,19 +12528,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4273922979924037091, guid: 434bf24d6ae3488438ad5c73b1daa107, type: 3}
       propertyPath: m_Size.x
-      value: 0.72993076
+      value: 0.7854356
+      objectReference: {fileID: 0}
+    - target: {fileID: 4273922979924037091, guid: 434bf24d6ae3488438ad5c73b1daa107, type: 3}
+      propertyPath: m_Size.y
+      value: 4.5070047
       objectReference: {fileID: 0}
     - target: {fileID: 4273922979924037091, guid: 434bf24d6ae3488438ad5c73b1daa107, type: 3}
       propertyPath: m_Size.z
-      value: 0.8306186
+      value: 1.2460446
       objectReference: {fileID: 0}
     - target: {fileID: 4273922979924037091, guid: 434bf24d6ae3488438ad5c73b1daa107, type: 3}
       propertyPath: m_Center.x
-      value: -0.030615868
+      value: -0.002863497
+      objectReference: {fileID: 0}
+    - target: {fileID: 4273922979924037091, guid: 434bf24d6ae3488438ad5c73b1daa107, type: 3}
+      propertyPath: m_Center.y
+      value: 1.7535033
       objectReference: {fileID: 0}
     - target: {fileID: 4273922979924037091, guid: 434bf24d6ae3488438ad5c73b1daa107, type: 3}
       propertyPath: m_Center.z
-      value: -0.02093756
+      value: -0.005618393
       objectReference: {fileID: 0}
     - target: {fileID: 4440659096847421128, guid: 434bf24d6ae3488438ad5c73b1daa107, type: 3}
       propertyPath: m_LocalPosition.x
@@ -24577,6 +24523,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 703234513}
     m_Modifications:
+    - target: {fileID: 4273922979924037091, guid: 434bf24d6ae3488438ad5c73b1daa107, type: 3}
+      propertyPath: m_Size.x
+      value: 0.8072393
+      objectReference: {fileID: 0}
+    - target: {fileID: 4273922979924037091, guid: 434bf24d6ae3488438ad5c73b1daa107, type: 3}
+      propertyPath: m_Size.y
+      value: 2.2480512
+      objectReference: {fileID: 0}
+    - target: {fileID: 4273922979924037091, guid: 434bf24d6ae3488438ad5c73b1daa107, type: 3}
+      propertyPath: m_Size.z
+      value: 1.2712661
+      objectReference: {fileID: 0}
+    - target: {fileID: 4273922979924037091, guid: 434bf24d6ae3488438ad5c73b1daa107, type: 3}
+      propertyPath: m_Center.x
+      value: -0.00050474604
+      objectReference: {fileID: 0}
+    - target: {fileID: 4273922979924037091, guid: 434bf24d6ae3488438ad5c73b1daa107, type: 3}
+      propertyPath: m_Center.y
+      value: 0.6240259
+      objectReference: {fileID: 0}
+    - target: {fileID: 4273922979924037091, guid: 434bf24d6ae3488438ad5c73b1daa107, type: 3}
+      propertyPath: m_Center.z
+      value: 0.0049607097
+      objectReference: {fileID: 0}
     - target: {fileID: 4440659096847421128, guid: 434bf24d6ae3488438ad5c73b1daa107, type: 3}
       propertyPath: m_LocalPosition.x
       value: -10.04
@@ -24624,7 +24594,7 @@ PrefabInstance:
     - target: {fileID: 7165605052661262520, guid: 434bf24d6ae3488438ad5c73b1daa107, type: 3}
       propertyPath: _enigmaCinemachineCamera
       value: 
-      objectReference: {fileID: 652839405}
+      objectReference: {fileID: 0}
     - target: {fileID: 7938419917422774067, guid: 434bf24d6ae3488438ad5c73b1daa107, type: 3}
       propertyPath: m_Name
       value: MIROR V
@@ -24632,9 +24602,6 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 4440659096847421128, guid: 434bf24d6ae3488438ad5c73b1daa107, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 652839404}
     - targetCorrespondingSourceObject: {fileID: 4440659096847421128, guid: 434bf24d6ae3488438ad5c73b1daa107, type: 3}
       insertIndex: -1
       addedObject: {fileID: 891985652}
@@ -25657,6 +25624,30 @@ PrefabInstance:
     - target: {fileID: 3961795757118333644, guid: 434bf24d6ae3488438ad5c73b1daa107, type: 3}
       propertyPath: m_LocalScale.y
       value: 2.764
+      objectReference: {fileID: 0}
+    - target: {fileID: 4273922979924037091, guid: 434bf24d6ae3488438ad5c73b1daa107, type: 3}
+      propertyPath: m_Size.x
+      value: 0.7951229
+      objectReference: {fileID: 0}
+    - target: {fileID: 4273922979924037091, guid: 434bf24d6ae3488438ad5c73b1daa107, type: 3}
+      propertyPath: m_Size.y
+      value: 3.1097367
+      objectReference: {fileID: 0}
+    - target: {fileID: 4273922979924037091, guid: 434bf24d6ae3488438ad5c73b1daa107, type: 3}
+      propertyPath: m_Size.z
+      value: 1.2663808
+      objectReference: {fileID: 0}
+    - target: {fileID: 4273922979924037091, guid: 434bf24d6ae3488438ad5c73b1daa107, type: 3}
+      propertyPath: m_Center.x
+      value: -0.00050476193
+      objectReference: {fileID: 0}
+    - target: {fileID: 4273922979924037091, guid: 434bf24d6ae3488438ad5c73b1daa107, type: 3}
+      propertyPath: m_Center.y
+      value: 1.0548686
+      objectReference: {fileID: 0}
+    - target: {fileID: 4273922979924037091, guid: 434bf24d6ae3488438ad5c73b1daa107, type: 3}
+      propertyPath: m_Center.z
+      value: 0.004960716
       objectReference: {fileID: 0}
     - target: {fileID: 4440659096847421128, guid: 434bf24d6ae3488438ad5c73b1daa107, type: 3}
       propertyPath: m_LocalPosition.x
@@ -30184,81 +30175,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1608550707}
   m_Mesh: {fileID: 2879339439283628994, guid: c89e03250fa73c740aeacc003070d79a, type: 3}
---- !u!1 &1608730716
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1608730717}
-  - component: {fileID: 1608730718}
-  m_Layer: 11
-  m_Name: Mirror II - CinemachineCamera
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1608730717
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1608730716}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0.07005003, y: 0.7036284, z: -0.070050046, w: 0.7036285}
-  m_LocalPosition: {x: -1.778, y: 1.337, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 551432422}
-  m_LocalEulerAnglesHint: {x: 11.371, y: 90, z: 0}
---- !u!114 &1608730718
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1608730716}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9dfa5b682dcd46bda6128250e975f58, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Priority:
-    Enabled: 0
-    m_Value: 0
-  OutputChannel: 1
-  StandbyUpdate: 2
-  m_StreamingVersion: 20241001
-  m_LegacyPriority: 0
-  Target:
-    TrackingTarget: {fileID: 0}
-    LookAtTarget: {fileID: 0}
-    CustomLookAtTarget: 0
-  Lens:
-    FieldOfView: 60.000004
-    OrthographicSize: 10
-    NearClipPlane: 0.1
-    FarClipPlane: 5000
-    Dutch: 0
-    ModeOverride: 0
-    PhysicalProperties:
-      GateFit: 2
-      SensorSize: {x: 21.946, y: 16.002}
-      LensShift: {x: 0, y: 0}
-      FocusDistance: 10
-      Iso: 200
-      ShutterSpeed: 0.005
-      Aperture: 16
-      BladeCount: 5
-      Curvature: {x: 2, y: 11}
-      BarrelClipping: 0.25
-      Anamorphism: 0
-  BlendHint: 0
 --- !u!1 &1611432535
 GameObject:
   m_ObjectHideFlags: 0
@@ -30425,7 +30341,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3600802564291325831, guid: 1bffe339bfedde14c9bd89cdd19ebe0b, type: 3}
       propertyPath: _raycastMask.m_Bits
-      value: 32247
+      value: 30199
       objectReference: {fileID: 0}
     - target: {fileID: 3600802564291325831, guid: 1bffe339bfedde14c9bd89cdd19ebe0b, type: 3}
       propertyPath: '_mirror.Array.data[0]'

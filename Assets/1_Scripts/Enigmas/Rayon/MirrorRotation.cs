@@ -31,14 +31,14 @@ public class MirrorRotation : MonoBehaviour, IActivatable
             _interactWithEnigma = true;
         }
         else _interactWithEnigma = false;
-        GameManager.Instance.ToggleTotalFreezePlayer();
-
-        ChangePositionCinemachine.Instance.SwitchCam(_enigmaCinemachineCamera, _interactWithEnigma);
         
-        Vector3 direction = new Vector3(gameObject.transform.position.x, PlayerBrain.Instance.playerGameObject.transform.position.y, gameObject.transform.position.z);
-        PlayerBrain.Instance.playerGameObject.transform.position = new Vector3(_playerTransform.position.x, PlayerBrain.Instance.cinemachineTargetGameObject.transform.position.y, _playerTransform.position.z);
-        PlayerBrain.Instance.playerGameObject.transform.rotation = Quaternion.Euler(0, _enigmaCinemachineCamera.transform.eulerAngles.y, 0);
-        PlayerBrain.Instance.cinemachineTargetGameObject.transform.LookAt(direction);
+        GameManager.Instance.ToggleTotalFreezePlayer();
+        PlayerBrain.Instance.playerRigidbody.linearVelocity = Vector3.zero;
+
+        if (_enigmaCinemachineCamera != null)
+        {
+            ChangePositionCinemachine.Instance.SwitchCam(_enigmaCinemachineCamera, _interactWithEnigma);
+        }
     }
 
     void Update()

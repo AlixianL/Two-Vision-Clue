@@ -25,6 +25,7 @@ public class RotateWeel : MonoBehaviour, IActivatable
     public void Activate()
     {
         GameManager.Instance.ToggleTotalFreezePlayer();
+        PlayerBrain.Instance.playerRigidbody.linearVelocity = Vector3.zero;
         
         if (!_interactWhisEnigma)
         {
@@ -33,14 +34,6 @@ public class RotateWeel : MonoBehaviour, IActivatable
         else _interactWhisEnigma = false;
         
         ChangePositionCinemachine.Instance.SwitchCam(_enigmaCinemachineCamera, _interactWhisEnigma);
-
-        GameManager.Instance.GeneralDelay(0.5f);
-        PlayerBrain.Instance.transform.Translate(_playerTransform.position.x, PlayerBrain.Instance.transform.position.y + 0.5f, _playerTransform.position.z);
-        
-        //Vector3 direction = new Vector3(gameObject.transform.position.x, PlayerBrain.Instance.playerGameObject.transform.position.y, gameObject.transform.position.z + 2f);
-        //PlayerBrain.Instance.playerGameObject.transform.position = new Vector3(_playerTransform.position.x, PlayerBrain.Instance.cinemachineTargetGameObject.transform.position.y, _playerTransform.position.z);
-        //PlayerBrain.Instance.playerGameObject.transform.rotation = Quaternion.Euler(0, _enigmaCinemachineCamera.transform.eulerAngles.y, 0);
-        //PlayerBrain.Instance.cinemachineTargetGameObject.transform.LookAt(direction);
 
         if (_lightComponent.enabled == false)
         {
