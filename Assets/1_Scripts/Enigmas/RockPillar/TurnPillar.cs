@@ -7,21 +7,21 @@ public class TurnPillar : MonoBehaviour, IActivatable
 {
     [Header("References")]
     [SerializeField] private List<GameObject> turnRock = new List<GameObject>();//----> liste des 3 caillou a tourner
-    [SerializeField] private List<Transform> arrowposition = new List<Transform>();//-> liste des position de la flèche
+    [SerializeField] private List<Transform> arrowposition = new List<Transform>();//-> liste des position de la flï¿½che
 
 
     [SerializeField] private CinemachineCamera _enigmaCinemachineCamera;//------------> reference a la cinemachine camera pour voir le pilier
     [SerializeField] private GameObject _validationLight;//---------------------------> reference a la light de validation sur le pilier centrale
-    [SerializeField] private Transform _arrow;//--------------------------------------> reference a la position de la flèche
+    [SerializeField] private Transform _arrow;//--------------------------------------> reference a la position de la flï¿½che
     private Transform targetArrowPosition;//------------------------------------------> prochaine position de la fleche
 
 
-    private GameObject _currentRock;//------------------------------------------------> caillou actuellement séléctionné
-    private int _currentIndex = 0;//--------------------------------------------------> index du caillou actuellement séléctionné
-    private bool _isRotating = false;//-----------------------------------------------> booléen qui verifie si un cube tourne
-    private bool _enigmeisend = false;//----------------------------------------------> booléen qui verifie si l'enigme est fini
+    private GameObject _currentRock;//------------------------------------------------> caillou actuellement sï¿½lï¿½ctionnï¿½
+    private int _currentIndex = 0;//--------------------------------------------------> index du caillou actuellement sï¿½lï¿½ctionnï¿½
+    private bool _isRotating = false;//-----------------------------------------------> boolï¿½en qui verifie si un cube tourne
+    private bool _enigmeisend = false;//----------------------------------------------> boolï¿½en qui verifie si l'enigme est fini
 
-    [SerializeField] private bool _interactWithEnigma;//------------------------------> booléen qui verifie si on est entrein d'interagir avec le pillier
+    [SerializeField] private bool _interactWithEnigma;//------------------------------> boolï¿½en qui verifie si on est entrein d'interagir avec le pillier
 
     [SerializeField] private float arrowMoveSpeed = 5f;//-----------------------------> vitesse de la fleche pour changer de position
 
@@ -47,15 +47,8 @@ public class TurnPillar : MonoBehaviour, IActivatable
             _interactWithEnigma = true;
         }
         else _interactWithEnigma = false;
-<<<<<<< HEAD
-        
-        GameManager.Instance.ToggleTotalFreezePlayer();
-        PlayerBrain.Instance.playerRigidbody.linearVelocity = Vector3.zero;
-        
-=======
 
         GameManager.Instance.ToggleTotalFreezePlayer();
->>>>>>> Master-Felix
         ChangePositionCinemachine.Instance.SwitchCam(_enigmaCinemachineCamera, _interactWithEnigma);
     }
 

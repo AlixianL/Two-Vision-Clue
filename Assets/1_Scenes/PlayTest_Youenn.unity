@@ -8071,6 +8071,11 @@ Transform:
   - {fileID: 1157753892}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &525236555 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7289523054687391149, guid: 02cfb1780f4c0104389c69bff630f8bd, type: 3}
+  m_PrefabInstance: {fileID: 8263779075024447603}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &534081591
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16590,6 +16595,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 12705340}
   m_LocalEulerAnglesHint: {x: 0, y: -96.678, z: 0}
+--- !u!114 &939994371 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3378984538322336164, guid: 02cfb1780f4c0104389c69bff630f8bd, type: 3}
+  m_PrefabInstance: {fileID: 8263779075024447603}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &948393447
 GameObject:
   m_ObjectHideFlags: 0
@@ -17277,10 +17293,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d480f5129c4f80e4cb8cc5fa2ef5f760, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gumgumName: {fileID: 0}
-  _gumgumDialogues: {fileID: 0}
-  gumGumPanel: {fileID: 0}
-  enigmaContainer: {fileID: 0}
+  _gumgumName: {fileID: 1424985965}
+  _gumgumDialogues: {fileID: 939994371}
+  gumGumPanel: {fileID: 1499743265}
+  enigmaContainer: {fileID: 525236555}
   _gumGum: {fileID: 519714483}
   dialogueTrigger: {fileID: 466153083}
   clueInstance: {fileID: 0}
@@ -25965,6 +25981,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 12705340}
   m_LocalEulerAnglesHint: {x: 47.562, y: -272.115, z: 0.026}
+--- !u!114 &1424985965 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 486993281078599018, guid: 02cfb1780f4c0104389c69bff630f8bd, type: 3}
+  m_PrefabInstance: {fileID: 8263779075024447603}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1428274942
 GameObject:
   m_ObjectHideFlags: 0
@@ -27470,6 +27497,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1499687486}
   m_Mesh: {fileID: 2879339439283628994, guid: c89e03250fa73c740aeacc003070d79a, type: 3}
+--- !u!1 &1499743265 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8532516588303002576, guid: 02cfb1780f4c0104389c69bff630f8bd, type: 3}
+  m_PrefabInstance: {fileID: 8263779075024447603}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1505140347
 GameObject:
   m_ObjectHideFlags: 0
@@ -42102,6 +42134,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 764200143009827600, guid: 02cfb1780f4c0104389c69bff630f8bd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 764200143009827600, guid: 02cfb1780f4c0104389c69bff630f8bd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 986705125}
+    - target: {fileID: 764200143009827600, guid: 02cfb1780f4c0104389c69bff630f8bd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RedirectTowardEnigmaClue
+      objectReference: {fileID: 0}
     - target: {fileID: 791179869729207827, guid: 02cfb1780f4c0104389c69bff630f8bd, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -42114,6 +42158,18 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 986705125}
+    - target: {fileID: 5057635845367974214, guid: 02cfb1780f4c0104389c69bff630f8bd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5057635845367974214, guid: 02cfb1780f4c0104389c69bff630f8bd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 986705125}
+    - target: {fileID: 5057635845367974214, guid: 02cfb1780f4c0104389c69bff630f8bd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RedirectTowardEnigmaClue
+      objectReference: {fileID: 0}
     - target: {fileID: 5155227108355441615, guid: 02cfb1780f4c0104389c69bff630f8bd, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -42194,10 +42250,42 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6037952614151109591, guid: 02cfb1780f4c0104389c69bff630f8bd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6037952614151109591, guid: 02cfb1780f4c0104389c69bff630f8bd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 986705125}
+    - target: {fileID: 6037952614151109591, guid: 02cfb1780f4c0104389c69bff630f8bd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RedirectTowardEnigmaClue
+      objectReference: {fileID: 0}
+    - target: {fileID: 6738756277289704173, guid: 02cfb1780f4c0104389c69bff630f8bd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 986705125}
+    - target: {fileID: 6738756277289704173, guid: 02cfb1780f4c0104389c69bff630f8bd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: DisplayNextSentence
+      objectReference: {fileID: 0}
     - target: {fileID: 8124545520010480767, guid: 02cfb1780f4c0104389c69bff630f8bd, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 986705125}
+    - target: {fileID: 8555598876654538051, guid: 02cfb1780f4c0104389c69bff630f8bd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8555598876654538051, guid: 02cfb1780f4c0104389c69bff630f8bd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 986705125}
+    - target: {fileID: 8555598876654538051, guid: 02cfb1780f4c0104389c69bff630f8bd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RedirectTowardEnigmaClue
+      objectReference: {fileID: 0}
     - target: {fileID: 8624033803072669704, guid: 02cfb1780f4c0104389c69bff630f8bd, type: 3}
       propertyPath: m_Name
       value: Canvas
