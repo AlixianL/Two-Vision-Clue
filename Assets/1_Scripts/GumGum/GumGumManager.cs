@@ -1,4 +1,5 @@
 using TMPro;
+using System.Collections;
 using UnityEngine;
 using System.Collections.Generic;
 using Unity.Cinemachine;
@@ -13,6 +14,9 @@ public class GumGumManager : MonoBehaviour
 {
     public static GumGumManager Instance;
 
+    [Header("Animation")]
+    [SerializeField] private Animator _gumGumAnimator;
+    [SerializeField] private string _showClueAnimationTrigger = "ShowClue";
     [Header("UI References"), Space(5)]
     [SerializeField] private TMP_Text _gumgumName;//-------------> Nom de GumGum affiché dans l'UI (non utilisé ici)
     [SerializeField] private TMP_Text _gumgumDialogues;//--------> Zone de texte pour afficher les dialogues
@@ -84,14 +88,13 @@ public class GumGumManager : MonoBehaviour
             {
                 if (int.TryParse(name.Replace("Enigma_", ""), out int enigmaNumber))
                 {
-                    GiveClueForEnigma(enigmaNumber);
                     PlayerBrain.Instance.chewingGumCount--;
                     if (gumUIManager == null)
                         gumUIManager = FindObjectOfType<GumUIManager>();
-        
+                        
                         // Met à jour l'UI
                         gumUIManager?.ShowGumCount(PlayerBrain.Instance.chewingGumCount);
-        
+                    StartCoroutine(ShowClueWithAnimation(enigmaNumber));
                 }
             }
         }
@@ -193,7 +196,21 @@ public class GumGumManager : MonoBehaviour
         enigmaContainer.SetActive(false);
         EndDialogue();
     }
-
+    // Coroutine pour afficher un indice avec une animation
+    private IEnumerator ShowClueWithAnimation(int enigmaNumber)
+    {
+        if (_gumGumAnimator != null)
+        {
+            _gumGumAnimator.SetTrigger(_showClueAnimationTrigger);
+ 
+            yield return new WaitForSeconds(5f);; 
+        }
+        else
+        {
+            yield return new WaitForSeconds(0.3f);
+        }
+        GiveClueForEnigma(enigmaNumber);
+    }
     /// <summary>
     /// Instancie un indice à une position aléatoire.
     /// </summary>
