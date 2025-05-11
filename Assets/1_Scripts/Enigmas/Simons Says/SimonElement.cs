@@ -37,6 +37,8 @@ public class SimonsElement : MonoBehaviour, IActivatable
         {
             FeedbackSimons();
             _simonsManager._simonsElementActivate(ButtonIndex);
+            Debug.Log("activation");
+            AudioManager.instance.PlayOneShot(SoundActivate, this.transform.position);
         }
     }
 
@@ -47,7 +49,7 @@ public class SimonsElement : MonoBehaviour, IActivatable
     public void FeedbackSimons()
     {
         StartCoroutine(FlashRoutine());
-        //AudioManager.instance.PlayOneShot(SoundActivate, this.transform.position);
+        AudioManager.instance.PlayOneShot(SoundActivate, this.transform.position);
 
     }
 
