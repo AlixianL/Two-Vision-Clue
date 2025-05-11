@@ -7,7 +7,7 @@ public class MirrorRotation : MonoBehaviour, IActivatable
     [Header("R�f�rences")]
     public Transform pivotHorizontal;              // Pivot de rotation gauche/droite
     public Transform mirrorTilt;                   // Partie du miroir qui s'incline
-    [SerializeField] private Transform _playerTransform;
+
 
     [Header("Param�tres")]
     public float rotationSpeed = 50f;
@@ -31,14 +31,11 @@ public class MirrorRotation : MonoBehaviour, IActivatable
             _interactWithEnigma = true;
         }
         else _interactWithEnigma = false;
-        
         GameManager.Instance.ToggleTotalFreezePlayer();
         PlayerBrain.Instance.playerRigidbody.linearVelocity = Vector3.zero;
 
-        if (_enigmaCinemachineCamera != null)
-        {
-            ChangePositionCinemachine.Instance.SwitchCam(_enigmaCinemachineCamera, _interactWithEnigma);
-        }
+        ChangePositionCinemachine.Instance.SwitchCam(_enigmaCinemachineCamera, _interactWithEnigma);
+
     }
 
     void Update()
@@ -47,11 +44,11 @@ public class MirrorRotation : MonoBehaviour, IActivatable
         {
             if (PlayerBrain.Instance.player.GetButton("RightMovement"))
             {
-                pivotHorizontal.Rotate(Vector3.up * rotationSpeed * Time.deltaTime);
+                pivotHorizontal.Rotate(-Vector3.up * rotationSpeed * Time.deltaTime);
             }
             if (PlayerBrain.Instance.player.GetButton("LeftMovement"))
             {
-                pivotHorizontal.Rotate(-Vector3.up * rotationSpeed * Time.deltaTime);
+                pivotHorizontal.Rotate(Vector3.up * rotationSpeed * Time.deltaTime);
             }
 
             if (PlayerBrain.Instance.player.GetButton("ForwardMovement"))

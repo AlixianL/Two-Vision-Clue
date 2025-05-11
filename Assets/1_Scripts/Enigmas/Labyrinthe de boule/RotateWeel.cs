@@ -26,7 +26,7 @@ public class RotateWeel : MonoBehaviour, IActivatable
     {
         GameManager.Instance.ToggleTotalFreezePlayer();
         PlayerBrain.Instance.playerRigidbody.linearVelocity = Vector3.zero;
-        
+
         if (!_interactWhisEnigma)
         {
             _interactWhisEnigma = true;
@@ -34,6 +34,7 @@ public class RotateWeel : MonoBehaviour, IActivatable
         else _interactWhisEnigma = false;
         
         ChangePositionCinemachine.Instance.SwitchCam(_enigmaCinemachineCamera, _interactWhisEnigma);
+
 
         if (_lightComponent.enabled == false)
         {
