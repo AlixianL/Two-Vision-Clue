@@ -49,7 +49,7 @@ public class TurnPillar : MonoBehaviour, IActivatable
         else _interactWithEnigma = false;
 
         GameManager.Instance.ToggleTotalFreezePlayer();
-        PlayerBrain.Instance.playerRigidbody.linearVelocity = Vector3.zero;
+        //PlayerBrain.Instance.playerRigidbody.linearVelocity = Vector3.zero;
         ChangePositionCinemachine.Instance.SwitchCam(_enigmaCinemachineCamera, _interactWithEnigma);
     }
 
