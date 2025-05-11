@@ -44,11 +44,11 @@ public class MirrorRotation : MonoBehaviour, IActivatable
         {
             if (PlayerBrain.Instance.player.GetButton("RightMovement"))
             {
-                pivotHorizontal.Rotate(Vector3.up * rotationSpeed * Time.deltaTime);
+                pivotHorizontal.Rotate(-Vector3.up * rotationSpeed * Time.deltaTime);
             }
             if (PlayerBrain.Instance.player.GetButton("LeftMovement"))
             {
-                pivotHorizontal.Rotate(-Vector3.up * rotationSpeed * Time.deltaTime);
+                pivotHorizontal.Rotate(Vector3.up * rotationSpeed * Time.deltaTime);
             }
 
             if (PlayerBrain.Instance.player.GetButton("ForwardMovement"))
