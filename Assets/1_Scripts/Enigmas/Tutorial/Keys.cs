@@ -29,7 +29,14 @@ public class Keys : MonoBehaviour, IActivatable
         {
             ClearText();
         }
-        _keypad.feedBack.text = _keypad.feedBack.text + number.ToString();
+
+        if (_keypad.feedBack.text.Length < _keypad._password.ToString().Length)
+        {
+            _keypad.feedBack.text = _keypad.feedBack.text + number.ToString();
+            
+            if (_keypad.feedBack.text.Length == _keypad._password.ToString().Length) _keypad.Validate();
+        }
+        else _keypad.Validate();
     }
 
     public void ClearText()

@@ -12,18 +12,21 @@ public class TabletteToggle : MonoBehaviour, IActivatable
     
     [Header("Variables"), Space(5)]
     [SerializeField] private float fadeDuration = 0.5f;
-    [SerializeField] private bool _infoIsOn;
+    public bool _infoIsOn;
 
     
     void Start()
     {
-        FadeOut();
+        _informationsCanvasGroup.alpha = 0;
     }
 
     public void Activate()
     {   
         if (_infoIsOn) FadeOut();
         else FadeIn();
+        
+        if (Cursor.visible == true) Cursor.visible = false;
+        else Cursor.visible = true;
     }
     
     void FadeIn()

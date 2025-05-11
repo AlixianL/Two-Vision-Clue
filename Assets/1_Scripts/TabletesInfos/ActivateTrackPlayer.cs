@@ -10,18 +10,18 @@ public class ActivateTrackPlayer : MonoBehaviour
 
     [Header("Variables"), Space(5)]
     [SerializeField] private float fadeDuration = 0.5f;
-    [SerializeField] private bool _playerInRange = false;
+    public bool _playerInRange;
     
     void Start()
     {
+        _playerInRange = false;
         _targetCanva.alpha = 0f;
-        
-        if (_playerInRange) FadeInTracker();
-        else FadeOutTracker();
+        FadeOutTracker();
     }
 
     void FadeInTracker()
     {
+        Debug.Log(this.name);
         if (_informationsFadeCoroutine != null) StopCoroutine(_informationsFadeCoroutine);
         _informationsFadeCoroutine = StartCoroutine(FadeCanvasGroup(_targetCanva, 1f, fadeDuration));
     }
@@ -36,6 +36,7 @@ public class ActivateTrackPlayer : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            Debug.LogWarning("Player entered");
             _playerInRange = true;
             FadeInTracker();
         }
@@ -45,6 +46,7 @@ public class ActivateTrackPlayer : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            Debug.LogWarning("Player exited");
             _playerInRange = false;
             FadeOutTracker();
         }

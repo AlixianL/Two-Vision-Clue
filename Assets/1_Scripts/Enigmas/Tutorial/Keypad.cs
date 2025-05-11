@@ -18,12 +18,10 @@ public class Keypad : MonoBehaviour, IActivatable
     [SerializeField] private MeshRenderer _indicatorLight;
     [SerializeField] private CinemachineCamera _digicodeCinemachineCamera;
     [SerializeField] private CinemachineCamera _doorCinemachineCamera;
-    [SerializeField] private Transform _playerTransform;
-
     public Doors doors;
     
     [Header("Variables"), Space(5)]
-    [SerializeField] private int _password;
+    public int _password;
     [Space(5)]
     public string _defaultText;
     [Space(5)]
@@ -46,11 +44,7 @@ public class Keypad : MonoBehaviour, IActivatable
         
         ChangePositionCinemachine.Instance.SwitchCam(_digicodeCinemachineCamera, _isInteractingWhisEnigma);
         GameManager.Instance.ToggleTotalFreezePlayer();
-
-        //Vector3 direction = new Vector3(gameObject.transform.position.x, PlayerBrain.Instance.playerGameObject.transform.position.y, gameObject.transform.position.z + 2f);
-        //PlayerBrain.Instance.playerGameObject.transform.position = new Vector3(_playerTransform.position.x, PlayerBrain.Instance.cinemachineTargetGameObject.transform.position.y, _playerTransform.position.z);
-        //PlayerBrain.Instance.playerGameObject.transform.rotation = Quaternion.Euler(0, _digicodeCinemachineCamera.transform.eulerAngles.y, 0);
-        //PlayerBrain.Instance.cinemachineTargetGameObject.transform.LookAt(direction);
+        PlayerBrain.Instance.playerRigidbody.linearVelocity = Vector3.zero;
         
         
         if (!_isValidated && _isClear) Reset();
