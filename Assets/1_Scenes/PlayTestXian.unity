@@ -4358,6 +4358,7 @@ MonoBehaviour:
       Data3: 373913254
       Data4: 1912298318
     Path: event:/Validation-3
+  _playerHandheldCamera: {fileID: 328159575}
 --- !u!114 &250830837
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5092,6 +5093,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7938419917422774067, guid: 434bf24d6ae3488438ad5c73b1daa107, type: 3}
   m_PrefabInstance: {fileID: 758509230}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &328159575 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8568988485900865952, guid: 1e09be4150bf4e04f8b03b044ec2a6ed, type: 3}
+  m_PrefabInstance: {fileID: 330319034}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d727b2815d64cf8b34f7c3d85a2a3fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &330319034
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8099,6 +8111,8 @@ MonoBehaviour:
   gumgumInterogation:
   - "Dis \xE0 GumGum... quelle \xE9niiiigme... emb\xEAte p'tit humain ?"
   clueDataBase: {fileID: 11400000, guid: 5bc8308b1990d424c99f6d5b42e3bbe9, type: 2}
+  LightOfRoom: []
+  _isPlaying: 0
 --- !u!1 &524568245
 GameObject:
   m_ObjectHideFlags: 0
@@ -17529,7 +17543,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99480387c72fb97498ac7c39ed88c119, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  listenerA: {fileID: 1072522166}
 --- !u!1 &989188112
 GameObject:
   m_ObjectHideFlags: 0
@@ -19529,6 +19542,7 @@ MonoBehaviour:
       Data3: 416575372
       Data4: -985003712
     Path: event:/Validation-2
+  _playerHandheldCamera: {fileID: 328159575}
 --- !u!114 &1074642458
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30904,6 +30918,7 @@ MonoBehaviour:
       Data3: 980670908
       Data4: 1076759563
     Path: event:/Validation-1
+  _playerHandheldCamera: {fileID: 328159575}
 --- !u!114 &1599153888
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34224,6 +34239,7 @@ MonoBehaviour:
       Data3: 1422740650
       Data4: -1800019922
     Path: event:/Validation-4
+  _playerHandheldCamera: {fileID: 328159575}
 --- !u!114 &1829321110
 MonoBehaviour:
   m_ObjectHideFlags: 0
