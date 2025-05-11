@@ -14,28 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CustomBlends:
   - From: Player - CinemachineCamera
-    To: Labyrinthe - CinemachineCamera
-    Blend:
-      Style: 1
-      Time: 0.5
-      CustomCurve:
-        serializedVersion: 2
-        m_Curve: []
-        m_PreInfinity: 0
-        m_PostInfinity: 0
-        m_RotationOrder: 4
-  - From: Labyrinthe - CinemachineCamera
-    To: Player - CinemachineCamera
-    Blend:
-      Style: 1
-      Time: 0.2
-      CustomCurve:
-        serializedVersion: 2
-        m_Curve: []
-        m_PreInfinity: 0
-        m_PostInfinity: 0
-        m_RotationOrder: 4
-  - From: Player - CinemachineCamera
     To: Digicode - CinemachineCamera
     Blend:
       Style: 1
@@ -46,11 +24,22 @@ MonoBehaviour:
         m_PreInfinity: 0
         m_PostInfinity: 0
         m_RotationOrder: 4
-  - From: Digicode - CinemachineCamera
-    To: Player - CinemachineCamera
+  - From: Player - CinemachineCamera
+    To: Labyrinthe - CinemachineCamera
     Blend:
       Style: 1
-      Time: 0.2
+      Time: 0.5
+      CustomCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 0
+        m_PostInfinity: 0
+        m_RotationOrder: 4
+  - From: Player - CinemachineCamera
+    To: PillarCamera
+    Blend:
+      Style: 1
+      Time: 0.5
       CustomCurve:
         serializedVersion: 2
         m_Curve: []
@@ -68,7 +57,216 @@ MonoBehaviour:
         m_PreInfinity: 0
         m_PostInfinity: 0
         m_RotationOrder: 4
+  - From: Player - CinemachineCamera
+    To: Clues Enigma 1 - CinemachineCamera
+    Blend:
+      Style: 1
+      Time: 0.5
+      CustomCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 0
+        m_PostInfinity: 0
+        m_RotationOrder: 4
+  - From: Player - CinemachineCamera
+    To: Clues Enigma 2 - CinemachineCamera
+    Blend:
+      Style: 1
+      Time: 0.5
+      CustomCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 0
+        m_PostInfinity: 0
+        m_RotationOrder: 4
+  - From: Player - CinemachineCamera
+    To: Clues Enigma 3 - CinemachineCamera
+    Blend:
+      Style: 1
+      Time: 0.5
+      CustomCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 0
+        m_PostInfinity: 0
+        m_RotationOrder: 4
+  - From: Player - CinemachineCamera
+    To: Clues Enigma 4 - CinemachineCamera
+    Blend:
+      Style: 1
+      Time: 0.2
+      CustomCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 0
+        m_PostInfinity: 0
+        m_RotationOrder: 4
+  - From: Digicode - CinemachineCamera
+    To: Player - CinemachineCamera
+    Blend:
+      Style: 1
+      Time: 0.2
+      CustomCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 0
+        m_PostInfinity: 0
+        m_RotationOrder: 4
+  - From: PillarCamera
+    To: Player - CinemachineCamera
+    Blend:
+      Style: 1
+      Time: 0.2
+      CustomCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 0
+        m_PostInfinity: 0
+        m_RotationOrder: 4
+  - From: Labyrinthe - CinemachineCamera
+    To: Player - CinemachineCamera
+    Blend:
+      Style: 1
+      Time: 0.2
+      CustomCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 0
+        m_PostInfinity: 0
+        m_RotationOrder: 4
   - From: GumGum - CinemachineCamera
+    To: Player - CinemachineCamera
+    Blend:
+      Style: 1
+      Time: 0.2
+      CustomCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 0
+        m_PostInfinity: 0
+        m_RotationOrder: 4
+  - From: GumGum - CinemachineCamera
+    To: Clues Enigma 1 - CinemachineCamera
+    Blend:
+      Style: 1
+      Time: 0.75
+      CustomCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 0
+        m_PostInfinity: 0
+        m_RotationOrder: 4
+  - From: GumGum - CinemachineCamera
+    To: Clues Enigma 2 - CinemachineCamera
+    Blend:
+      Style: 1
+      Time: 0.75
+      CustomCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 0
+        m_PostInfinity: 0
+        m_RotationOrder: 4
+  - From: GumGum - CinemachineCamera
+    To: Clues Enigma 3 - CinemachineCamera
+    Blend:
+      Style: 1
+      Time: 0.75
+      CustomCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 0
+        m_PostInfinity: 0
+        m_RotationOrder: 4
+  - From: GumGum - CinemachineCamera
+    To: Clues Enigma 4 - CinemachineCamera
+    Blend:
+      Style: 1
+      Time: 0.75
+      CustomCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 0
+        m_PostInfinity: 0
+        m_RotationOrder: 4
+  - From: Clues Enigma 1 - CinemachineCamera
+    To: Player - CinemachineCamera
+    Blend:
+      Style: 1
+      Time: 0.4
+      CustomCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 0
+        m_PostInfinity: 0
+        m_RotationOrder: 4
+  - From: Clues Enigma 2 - CinemachineCamera
+    To: Player - CinemachineCamera
+    Blend:
+      Style: 1
+      Time: 0.4
+      CustomCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 0
+        m_PostInfinity: 0
+        m_RotationOrder: 4
+  - From: Clues Enigma 3 - CinemachineCamera
+    To: Player - CinemachineCamera
+    Blend:
+      Style: 1
+      Time: 0.4
+      CustomCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 0
+        m_PostInfinity: 0
+        m_RotationOrder: 4
+  - From: Clues Enigma 4 - CinemachineCamera
+    To: Player - CinemachineCamera
+    Blend:
+      Style: 1
+      Time: 0.4
+      CustomCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 0
+        m_PostInfinity: 0
+        m_RotationOrder: 4
+  - From: Digicode - CinemachineCamera
+    To: Door - Cinemachine
+    Blend:
+      Style: 1
+      Time: 0.4
+      CustomCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 0
+        m_PostInfinity: 0
+        m_RotationOrder: 4
+  - From: Door - Cinemachine
+    To: Player - CinemachineCamera
+    Blend:
+      Style: 1
+      Time: 0.4
+      CustomCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 0
+        m_PostInfinity: 0
+        m_RotationOrder: 4
+  - From: Player - CinemachineCamera
+    To: Mirror III Camera
+    Blend:
+      Style: 1
+      Time: 0.5
+      CustomCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 0
+        m_PostInfinity: 0
+        m_RotationOrder: 4
+  - From: Mirror III Camera
     To: Player - CinemachineCamera
     Blend:
       Style: 1
