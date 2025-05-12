@@ -16,6 +16,9 @@ public class GumGumLightStart : MonoBehaviour
         {
             LightOfGumgum.enabled = true;
         }
+        
+        // Sera dans un autre script dans le futur mais ça faisais des bugs sinon
+        PlayerBrain.Instance.playerInteractionSystem.playerCanInteractWhithMouse = true;
     }
 
 }

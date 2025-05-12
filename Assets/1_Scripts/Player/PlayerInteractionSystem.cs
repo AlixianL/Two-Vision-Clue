@@ -14,6 +14,7 @@ public class PlayerInteractionSystem : MonoBehaviour
     
     [Header("Varaibles"), Space(5)]
     [SerializeField] private float _rayRange;                 // Portée du rayon
+    public bool playerCanInteractWhithMouse = true;
     
     
     private void Update()
@@ -47,7 +48,7 @@ public class PlayerInteractionSystem : MonoBehaviour
             }
 
             // Interaction si le joueur appuie sur le bouton
-            if (PlayerBrain.Instance.player.GetButtonDown("Interact"))
+            if (PlayerBrain.Instance.player.GetButtonDown("KeyboardInteract"))
             {
                 IActivatable activatable = hitObject.GetComponent<IActivatable>();
                 if (activatable != null)
@@ -55,6 +56,16 @@ public class PlayerInteractionSystem : MonoBehaviour
                     activatable.Activate();
                 }
             }
+            
+            if (PlayerBrain.Instance.player.GetButtonDown("MouseInteract") && playerCanInteractWhithMouse)
+            {
+                IActivatable activatable = hitObject.GetComponent<IActivatable>();
+                if (activatable != null)
+                {
+                    activatable.Activate();
+                }
+            }
+            
         }
         else
         {

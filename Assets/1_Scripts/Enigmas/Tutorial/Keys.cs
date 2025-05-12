@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
-public class Keys : MonoBehaviour, IActivatable
+public class Keys : MonoBehaviour
 {
     [SerializeField] private Keypad _keypad; 
     public UnityEvent clickOnKey;
@@ -16,11 +16,6 @@ public class Keys : MonoBehaviour, IActivatable
             clickOnKey.Invoke();
            
         }
-    }
-
-    public void Activate()
-    {
-        _keypad.Activate();
     }
     
     public void WriteNumber(int number)

@@ -68,7 +68,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _layerMaskToIgnore:
     serializedVersion: 2
-    m_Bits: 776
+    m_Bits: 2824
   _objectsDetected: []
 --- !u!1 &3384682604960987922
 GameObject:
@@ -439,7 +439,19 @@ MonoBehaviour:
         _ruleSets: []
     actions:
     - _id: 3
-      _name: Interact
+      _name: KeyboardInteract
+      _type: 1
+      _descriptiveName: Action0
+      _positiveDescriptiveName: 
+      _negativeDescriptiveName: 
+      _key: 
+      _positiveKey: 
+      _negativeKey: 
+      _behaviorId: 0
+      _userAssignable: 1
+      _categoryId: 0
+    - _id: 19
+      _name: MouseInteract
       _type: 1
       _descriptiveName: Action0
       _positiveDescriptiveName: 
@@ -556,7 +568,7 @@ MonoBehaviour:
     actionCategoryMap:
       list:
       - categoryId: 0
-        actionIds: 090000000f0000000a00000010000000030000000c0000000b0000000d0000000e000000
+        actionIds: 090000000f0000000a0000001000000003000000130000000c0000000b0000000d0000000e000000
     inputBehaviors:
     - _id: 0
       _name: Default
@@ -726,12 +738,23 @@ MonoBehaviour:
         _modifierKey1: 0
         _modifierKey2: 0
         _modifierKey3: 0
+      - _actionCategoryId: 0
+        _actionId: 3
+        _elementType: 1
+        _elementIdentifierId: 3
+        _axisRange: 0
+        _invert: 0
+        _axisContribution: 0
+        _keyboardKeyCode: 0
+        _modifierKey1: 0
+        _modifierKey2: 0
+        _modifierKey3: 0
     customControllerMaps: []
     customControllers: []
     controllerMapLayoutManagerRuleSets: []
     controllerMapEnablerRuleSets: []
     playerIdCounter: 2
-    actionIdCounter: 19
+    actionIdCounter: 20
     actionCategoryIdCounter: 1
     inputBehaviorIdCounter: 1
     mapCategoryIdCounter: 1
@@ -778,7 +801,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0.7288452, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 3037893034862230377}
   m_Father: {fileID: 4444488233674352570}
   m_LocalEulerAnglesHint: {x: 0, y: 10.506, z: -0.019}
 --- !u!20 &3474356997181438742
@@ -938,6 +962,37 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4444488233674352570}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8815598308514067076
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3037893034862230377}
+  m_Layer: 3
+  m_Name: RaycastOrigine
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3037893034862230377
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8815598308514067076}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3863180615115504688}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &9013753269867907282
 GameObject:
@@ -1131,6 +1186,7 @@ MonoBehaviour:
   playerMovement: {fileID: 5080872992246456796}
   cameraRotation: {fileID: 7434773898259913790}
   playerHandheldCamera: {fileID: 8568988485900865952}
+  playerInteractionSystem: {fileID: 7151245461555468841}
   chewingGumCount: 0
   height: 1.25
   radius: 0
@@ -1196,12 +1252,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e506ae731dff9cf408e88cdab6fff1ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rayOrigin: {fileID: 3863180615115504688}
+  _rayOrigin: {fileID: 3037893034862230377}
   _layerMaskToCheck:
     serializedVersion: 2
-    m_Bits: 47488
+    m_Bits: 14720
   hitObject: {fileID: 0}
   _rayRange: 3.25
+  playerCanInteractWhithMouse: 0
 --- !u!114 &5388472745544384870
 MonoBehaviour:
   m_ObjectHideFlags: 0

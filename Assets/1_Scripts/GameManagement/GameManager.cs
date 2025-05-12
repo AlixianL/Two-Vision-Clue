@@ -4,6 +4,13 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
+    public GameObject playerUI;
+    public GameObject digicodeUI;
+    public GameObject pillarUI;
+    public GameObject labyrintheUI;
+    public GameObject mirrorUI;
+    public GameObject interactUI;
+    
     
     void Awake()
     {

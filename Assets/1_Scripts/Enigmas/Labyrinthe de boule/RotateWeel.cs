@@ -34,7 +34,9 @@ public class RotateWeel : MonoBehaviour, IActivatable
         else _interactWhisEnigma = false;
         
         ChangePositionCinemachine.Instance.SwitchCam(_enigmaCinemachineCamera, _interactWhisEnigma);
-
+        
+        GameManager.Instance.playerUI.SetActive(!_interactWhisEnigma);
+        GameManager.Instance.labyrintheUI.SetActive(_interactWhisEnigma);
 
         if (_lightComponent.enabled == false)
         {
