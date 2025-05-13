@@ -6,6 +6,10 @@ public class Play : MonoBehaviour,IActivatable
 {
     [SerializeField] private List<GameObject> MainMenu = new List<GameObject>();
     [SerializeField] private GameObject _recuperationPanel;
+    [SerializeField] private Light _menuLight;
+    [SerializeField] private Light _recuperationlight;
+
+
 
 
 
@@ -41,6 +45,10 @@ public class Play : MonoBehaviour,IActivatable
 
 
         GameManager.Instance.ToggleMovementFreezePlayer();
+
+        _menuLight.enabled = false;
+        _recuperationlight.enabled = true;
+
     }
 
     private void SetLayerRecursively(GameObject obj, int newLayer)
