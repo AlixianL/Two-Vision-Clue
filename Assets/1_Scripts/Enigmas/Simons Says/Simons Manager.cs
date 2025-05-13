@@ -20,10 +20,10 @@ public class SimonsManager : MonoBehaviour
 
     [SerializeField] private int _numberForEnd;//-----------------------------------> nombre de sequence a faire
     [SerializeField] private int _sequenceNumber;//---------------------------------> index de la sequence actuelle
-    private int _placeTocheckSequence = 0;//----------------------------------------> place qui doit être verifier dans la liste
+    private int _placeTocheckSequence = 0;//----------------------------------------> place qui doit ï¿½tre verifier dans la liste
 
-    private bool _enigmaIsEnd = false;//--------------------------------------------> booléen pour verifier si l'enigme est finit
-    private bool _enigmaIsOn = false;//---------------------------------------------> booléen pour verifier si l'enigme est lancé
+    private bool _enigmaIsEnd = false;//--------------------------------------------> boolï¿½en pour verifier si l'enigme est finit
+    private bool _enigmaIsOn = false;//---------------------------------------------> boolï¿½en pour verifier si l'enigme est lancï¿½
 
     [SerializeField] private float _simonsDelay = .4f;//----------------------------> Delay entre chaque chevre lors du montrage de la sequence
     [SerializeField] private float _feedbackDuration = 1.5f;//----------------------> delay des light pour le feedback global
@@ -112,7 +112,7 @@ public class SimonsManager : MonoBehaviour
     {
         if (!_enigmaIsEnd && _enigmaIsOn)
         {
-            Debug.LogError("le bouton a marché");
+            Debug.LogError("le bouton a marchï¿½");
 
             if (simonsElementIndex == SimonsOrder[_placeTocheckSequence])
             {
@@ -199,7 +199,7 @@ public class SimonsManager : MonoBehaviour
         {
             _validationLight.SetActive(true);
         }
-       
+       Debug.Log("Enigme Simon Fini");
         _enigmaIsEnd = true;
 
         foreach (SimonsElement SimonsElementObject in SimonsElement)
