@@ -46,7 +46,7 @@ public class Play : MonoBehaviour,IActivatable
 
         GameManager.Instance.ToggleMovementFreezePlayer();
 
-        _menuLight.enabled = false;
+        StartCoroutine(FadeLight(_menuLight, 0f, 1.5f));
         _recuperationlight.enabled = true;
 
     }
@@ -103,4 +103,19 @@ public class Play : MonoBehaviour,IActivatable
         camRect.anchoredPosition = endPosUI;
     }
 
+
+    private IEnumerator FadeLight(Light lightToFade, float targetIntensity, float duration)
+    {
+        float startIntensity = lightToFade.intensity;
+        float timeElapsed = 0f;
+
+        while (timeElapsed < duration)
+        {
+            lightToFade.intensity = Mathf.Lerp(startIntensity, targetIntensity, timeElapsed / duration);
+            timeElapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        lightToFade.intensity = targetIntensity;
+    }
 }
