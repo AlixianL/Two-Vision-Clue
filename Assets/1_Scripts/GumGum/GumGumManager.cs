@@ -18,6 +18,8 @@ public class GumGumManager : MonoBehaviour
     [SerializeField] private Animator _GumGumAnimator;
     [SerializeField] private Animator _BullGumAnimator;
     [SerializeField] private string _showClueAnimationTrigger = "ShowClue";
+    [SerializeField] private string _TalkAnimationTrigger = "Talk";
+    
     [Header("UI References"), Space(5)]
     [SerializeField] private TMP_Text _gumgumName;//-------------> Nom de GumGum affiché dans l'UI (non utilisé ici)
     [SerializeField] private TMP_Text _gumgumDialogues;//--------> Zone de texte pour afficher les dialogues
@@ -203,6 +205,7 @@ public class GumGumManager : MonoBehaviour
         if (_BullGumAnimator != null)
         {
             _BullGumAnimator.SetTrigger(_showClueAnimationTrigger);
+            _GumGumAnimator.SetTrigger(_showClueAnimationTrigger);
  
             yield return new WaitForSeconds(5f);; 
         }
@@ -299,13 +302,13 @@ public class GumGumManager : MonoBehaviour
             EndDialogue();
             return;
         }
+        _GumGumAnimator.SetTrigger(_TalkAnimationTrigger);
         _gumgumDialogues.text = _sentences.Dequeue();
     }
 
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     // -- FIN DU DIALOGUE ----------------------------------------------------------------------------------------------
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
     /// <summary>
     /// Termine le dialogue : désactive l'UI et restaure le contrôle au joueur.
     /// </summary>
@@ -321,7 +324,6 @@ public class GumGumManager : MonoBehaviour
         ChangePositionCinemachine.Instance.SwitchCam(gumgumCinemachineCamera, isInteracting);
     }
 }
-
 [System.Serializable]
 public class EnigmaSpawn
 {
