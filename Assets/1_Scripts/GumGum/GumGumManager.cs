@@ -15,7 +15,8 @@ public class GumGumManager : MonoBehaviour
     public static GumGumManager Instance;
 
     [Header("Animation")]
-    [SerializeField] private Animator _gumGumAnimator;
+    [SerializeField] private Animator _GumGumAnimator;
+    [SerializeField] private Animator _BullGumAnimator;
     [SerializeField] private string _showClueAnimationTrigger = "ShowClue";
     [Header("UI References"), Space(5)]
     [SerializeField] private TMP_Text _gumgumName;//-------------> Nom de GumGum affiché dans l'UI (non utilisé ici)
@@ -199,9 +200,9 @@ public class GumGumManager : MonoBehaviour
     // Coroutine pour afficher un indice avec une animation
     private IEnumerator ShowClueWithAnimation(int enigmaNumber)
     {
-        if (_gumGumAnimator != null)
+        if (_BullGumAnimator != null)
         {
-            _gumGumAnimator.SetTrigger(_showClueAnimationTrigger);
+            _BullGumAnimator.SetTrigger(_showClueAnimationTrigger);
  
             yield return new WaitForSeconds(5f);; 
         }

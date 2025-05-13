@@ -2,7 +2,11 @@ using Unity.Cinemachine;
 using UnityEngine;
 
 public class GumGum : MonoBehaviour, IActivatable
-{
+{   
+    [Header("Animation")]
+    [SerializeField] private Animator _GumGumAnimator;
+
+    [SerializeField] private string _TalkAnimationTrigger = "Talk";
     public string gumgumName;
     
     [Header("Presentation"), Space(5)]
@@ -33,7 +37,7 @@ public class GumGum : MonoBehaviour, IActivatable
     public void Activate()
     {
         GumGumManager.Instance.dialogueTrigger.TriggerDialogue();
-
+        _GumGumAnimator.SetTrigger(_TalkAnimationTrigger);
         GumGumManager.Instance.isInteracting = true;
         
     }
