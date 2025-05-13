@@ -15,6 +15,9 @@ public class HandheldCameraManager : MonoBehaviour
     public bool playerCanTakeCamera;
     public bool cameraCanBeInstalled;
     
+    //SoundDesign
+
+    
 
     void Awake()
     {
@@ -32,6 +35,8 @@ public class HandheldCameraManager : MonoBehaviour
             handheldCamera.transform.position = spawnPoint.transform.position;
             cameraIsInstall = true;
             PlayerBrain.Instance.cameraBack.SetActive(true);
+            AudioManager.instance.listenerCamera.SwitchCamera();
+
         }
     }
     
@@ -44,6 +49,8 @@ public class HandheldCameraManager : MonoBehaviour
             //playerCanTakeCamera = false;
             cameraCanBeInstalled = true;
             PlayerBrain.Instance.cameraBack.SetActive(false);
+            AudioManager.instance.listenerCamera.cam2 = null;
+            AudioManager.instance.listenerCamera.SwitchCamera();
         }
     }
 }

@@ -395,6 +395,69 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 18559263}
   m_Mesh: {fileID: -3372603956317539439, guid: c89e03250fa73c740aeacc003070d79a, type: 3}
+--- !u!1 &22516491
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 22516493}
+  - component: {fileID: 22516492}
+  m_Layer: 0
+  m_Name: SonTest (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &22516492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 22516491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1525759016
+      Data2: 1214473587
+      Data3: 513667773
+      Data4: -1440065546
+    Path: event:/MusiqueTesstCam2
+  Event: 
+  EventPlayTrigger: 1
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!4 &22516493
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 22516491}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.88, y: -0.787, z: -2.084}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &22902199
 GameObject:
   m_ObjectHideFlags: 0
@@ -5175,11 +5238,11 @@ PrefabInstance:
     - target: {fileID: 8568988485900865952, guid: 1e09be4150bf4e04f8b03b044ec2a6ed, type: 3}
       propertyPath: cameraSwitch
       value: 
-      objectReference: {fileID: 986705130}
+      objectReference: {fileID: 0}
     - target: {fileID: 8568988485900865952, guid: 1e09be4150bf4e04f8b03b044ec2a6ed, type: 3}
       propertyPath: listernerActDes
       value: 
-      objectReference: {fileID: 986705130}
+      objectReference: {fileID: 0}
     - target: {fileID: 9013753269867907282, guid: 1e09be4150bf4e04f8b03b044ec2a6ed, type: 3}
       propertyPath: m_Name
       value: PF_Player
@@ -15548,7 +15611,7 @@ MonoBehaviour:
       Data2: 1283455703
       Data3: -390863486
       Data4: 1946972847
-    Path: event:/MusiqueTesst
+    Path: event:/MusiqueTesstCam1
   Event: 
   EventPlayTrigger: 1
   EventStopTrigger: 0
@@ -15569,7 +15632,7 @@ Transform:
   m_GameObject: {fileID: 861663071}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.347, y: -0.787, z: -2.084}
+  m_LocalPosition: {x: -8.06, y: -0.787, z: -2.084}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -17398,8 +17461,6 @@ GameObject:
   - component: {fileID: 986705125}
   - component: {fileID: 986705126}
   - component: {fileID: 986705128}
-  - component: {fileID: 986705129}
-  - component: {fileID: 986705130}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -17419,7 +17480,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 2.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 2090526005}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &986705124
@@ -17519,30 +17581,6 @@ MonoBehaviour:
   _clue_02CinemachineCamera: {fileID: 1947821118}
   _clue_03CinemachineCamera: {fileID: 191572521}
   _clue_04CinemachineCamera: {fileID: 1019160866}
---- !u!114 &986705129
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 986705122}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4546d71608fa7b40873ffd436742b09, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &986705130
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 986705122}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99480387c72fb97498ac7c39ed88c119, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &989188112
 GameObject:
   m_ObjectHideFlags: 0
@@ -19512,6 +19550,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nonRigidbodyVelocity: 0
   attenuationObject: {fileID: 0}
+--- !u!20 &1072522169 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 3474356997181438742, guid: 1e09be4150bf4e04f8b03b044ec2a6ed, type: 3}
+  m_PrefabInstance: {fileID: 330319034}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1074642456 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 7ffed8a51a20af5479383b5f02e987d9, type: 3}
@@ -20545,11 +20588,11 @@ MonoBehaviour:
   - {fileID: 1933975637}
   _originalColor: {r: 1, g: 0.94509804, b: 0.7058824, a: 0}
   _wrongColor: {r: 1, g: 0, b: 0, a: 0}
-  _validateColor: {r: 0.19127488, g: 1, b: 0, a: 0}
+  _validateColor: {r: 0.13383985, g: 1, b: 0, a: 0}
   _numberForEnd: 5
   _sequenceNumber: 0
-  _simonsDelay: 1
-  _feedbackDuration: 0.5
+  _simonsDelay: 0.4
+  _feedbackDuration: 1.5
   _validationLight: {fileID: 1026312892}
 --- !u!4 &1130240001
 Transform:
@@ -20698,9 +20741,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c55018a55cadc749b52926f825e8f6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animators:
-  - {fileID: 819888543}
-  - {fileID: 783403205}
+  _animators: []
   uiInteract: {fileID: 0}
   _isOpen: 0
 --- !u!1 &1137683891 stripped
@@ -40408,6 +40449,68 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &2090526004
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2090526005}
+  - component: {fileID: 2090526007}
+  - component: {fileID: 2090526006}
+  m_Layer: 0
+  m_Name: SoundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2090526005
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2090526004}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -6.712118, y: -8.797092, z: 10.418341}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 986705123}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2090526006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2090526004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe567d3ef4e4d1346ad381e41f346585, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam1: {fileID: 1072522169}
+  cam2: {fileID: 0}
+  tempListenerCam1: {fileID: 1072522166}
+  tempListenerCam2: {fileID: 0}
+--- !u!114 &2090526007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2090526004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4546d71608fa7b40873ffd436742b09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  listenerCamera: {fileID: 2090526006}
 --- !u!1 &2094211278
 GameObject:
   m_ObjectHideFlags: 0
@@ -42592,3 +42695,4 @@ SceneRoots:
   - {fileID: 1569162305}
   - {fileID: 1212307052}
   - {fileID: 861663073}
+  - {fileID: 22516493}

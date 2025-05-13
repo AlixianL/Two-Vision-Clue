@@ -4,6 +4,8 @@ using FMODUnity;
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance { get; private set; }
+    public ListenerCamera listenerCamera;
+    
 
     //Permet de savoir si il y a plus de 1 AudioManager dans la scène.
     private void Awake()
