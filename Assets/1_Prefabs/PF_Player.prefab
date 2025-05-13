@@ -68,7 +68,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _layerMaskToIgnore:
     serializedVersion: 2
-    m_Bits: 2824
+    m_Bits: 76552
   _objectsDetected: []
 --- !u!1 &3384682604960987922
 GameObject:
@@ -739,7 +739,7 @@ MonoBehaviour:
         _modifierKey2: 0
         _modifierKey3: 0
       - _actionCategoryId: 0
-        _actionId: 3
+        _actionId: 19
         _elementType: 1
         _elementIdentifierId: 3
         _axisRange: 0
@@ -972,6 +972,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3037893034862230377}
+  - component: {fileID: 8832621597450099050}
   m_Layer: 3
   m_Name: RaycastOrigine
   m_TagString: Untagged
@@ -994,6 +995,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3863180615115504688}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8832621597450099050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8815598308514067076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474c1c6ad8d66214caf5a497cc78ff4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trackedTarget: {fileID: 7772678601428569155}
+  canTrackTarget: 1
 --- !u!1 &9013753269867907282
 GameObject:
   m_ObjectHideFlags: 0
@@ -1255,10 +1270,10 @@ MonoBehaviour:
   _rayOrigin: {fileID: 3037893034862230377}
   _layerMaskToCheck:
     serializedVersion: 2
-    m_Bits: 14720
+    m_Bits: 47520
   hitObject: {fileID: 0}
   _rayRange: 3.25
-  playerCanInteractWhithMouse: 0
+  playerCanInteractWhithMouse: 1
 --- !u!114 &5388472745544384870
 MonoBehaviour:
   m_ObjectHideFlags: 0
