@@ -4778,7 +4778,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _simonsLight: {fileID: 558354630}
   _simonsManager: {fileID: 1130240000}
-  _defaultColor: {r: 0.030037403, g: 1, b: 0, a: 0}
+  _defaultColor: {r: 0.1078623, g: 0.8207547, b: 0.0038714937, a: 0}
   _pressColor: {r: 0.99607843, g: 0.60784316, b: 1, a: 0}
   resetDelay: 0.8
   _enigmaIsEnd: 0
@@ -8828,7 +8828,7 @@ MonoBehaviour:
   - {fileID: 1451701064}
   - {fileID: 558354630}
   - {fileID: 1505230126}
-  _isPlaying: 0
+  _isPlaying: 1
 --- !u!1 &524568245
 GameObject:
   m_ObjectHideFlags: 0
@@ -18575,6 +18575,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   handheldCameraPrefab: {fileID: 834981317997538477, guid: a58ef789fdb8ddd4990d073bebee5058, type: 3}
   spawnPoint: {fileID: 1372983670}
+  _cameraToDestroy: {fileID: 0}
   cameraIsInstall: 0
   playerCanTakeCamera: 0
   cameraCanBeInstalled: 0
@@ -20558,7 +20559,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _simonsLight: {fileID: 1451701064}
   _simonsManager: {fileID: 1130240000}
-  _defaultColor: {r: 0.07457018, g: 0, b: 1, a: 0}
+  _defaultColor: {r: 0, g: 0.286582, b: 1, a: 0}
   _pressColor: {r: 0.99607843, g: 0.60784316, b: 1, a: 0}
   resetDelay: 0.8
   _enigmaIsEnd: 0
@@ -21575,12 +21576,12 @@ MonoBehaviour:
   - {fileID: 715352636}
   - {fileID: 1933975637}
   _originalColor: {r: 1, g: 0.94509804, b: 0.7058824, a: 0}
-  _wrongColor: {r: 1, g: 0, b: 0, a: 0}
-  _validateColor: {r: 0.19127488, g: 1, b: 0, a: 0}
+  _wrongColor: {r: 0.6320754, g: 0.11031505, b: 0.11031505, a: 0}
+  _validateColor: {r: 0.24953417, g: 0.49056602, b: 0.057849757, a: 0}
   _numberForEnd: 5
   _sequenceNumber: 0
-  _simonsDelay: 1
-  _feedbackDuration: 0.5
+  _simonsDelay: 0.4
+  _feedbackDuration: 1.5
   _validationLight: {fileID: 1026312892}
 --- !u!4 &1130240001
 Transform:
@@ -32503,8 +32504,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _simonsLight: {fileID: 1991289773}
   _simonsManager: {fileID: 1130240000}
-  _defaultColor: {r: 1, g: 0.047002606, b: 0, a: 0}
-  _pressColor: {r: 0.9976403, g: 0.6084906, b: 1, a: 0}
+  _defaultColor: {r: 0.7830189, g: 0.0110804355, b: 0.0110804355, a: 0}
+  _pressColor: {r: 0.99607843, g: 0.60784316, b: 1, a: 0}
   resetDelay: 0.8
   _enigmaIsEnd: 0
   SoundActivate:
@@ -36402,7 +36403,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _simonsLight: {fileID: 1505230126}
   _simonsManager: {fileID: 1130240000}
-  _defaultColor: {r: 0, g: 0.6132076, b: 0.5822544, a: 0}
+  _defaultColor: {r: 1, g: 0.89918464, b: 0, a: 0}
   _pressColor: {r: 0.99607843, g: 0.60784316, b: 1, a: 0}
   resetDelay: 0.8
   _enigmaIsEnd: 0
