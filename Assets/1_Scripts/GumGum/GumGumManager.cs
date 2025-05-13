@@ -293,6 +293,8 @@ public class GumGumManager : MonoBehaviour
         
         isInteracting = false;
         ChangePositionCinemachine.Instance.SwitchCam(gumgumCinemachineCamera, isInteracting);
+        GameManager.Instance.playerUI.gameObject.SetActive(true);
+        PlayerBrain.Instance.playerInteractionSystem.playerCanInteractWhithMouse = true;
     }
 }
 
