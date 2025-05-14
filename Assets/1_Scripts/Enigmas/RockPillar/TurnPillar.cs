@@ -5,28 +5,31 @@ using UnityEngine;
 
 public class TurnPillar : MonoBehaviour, IActivatable
 {
-
-    [SerializeField] private List<GameObject> turnRock = new List<GameObject>();
-    [SerializeField] private List<Transform> arrowposition = new List<Transform>();
-
-
-    private GameObject _currentRock;
-    private int _currentIndex = 0;
-    private bool _isRotating = false;
-    private bool _enigmeisend = false;
-
-    [SerializeField] private bool _interactWithEnigma;
-    [SerializeField] private bool _enigmaisend;
-
-    [SerializeField] private CinemachineCamera _enigmaCinemachineCamera;
-    [SerializeField] private GameObject _validationLight;
-    [SerializeField] private Transform _arrow;
-    [SerializeField] private float arrowMoveSpeed = 5f;
-
-    private Transform targetArrowPosition;
+    [Header("References")]
+    [SerializeField] private Animator _pillarAnimator;
+    [SerializeField] private List<GameObject> turnRock = new List<GameObject>();//----> liste des 3 caillou a tourner
+    [SerializeField] private List<Transform> arrowposition = new List<Transform>();//-> liste des position de la fl�che
 
 
+    [SerializeField] private CinemachineCamera _enigmaCinemachineCamera;//------------> reference a la cinemachine camera pour voir le pilier
+    [SerializeField] private GameObject _validationLight;//---------------------------> reference a la light de validation sur le pilier centrale
+    [SerializeField] private Transform _arrow;//--------------------------------------> reference a la position de la fl�che
+    private Transform targetArrowPosition;//------------------------------------------> prochaine position de la fleche
 
+
+    private GameObject _currentRock;//------------------------------------------------> caillou actuellement s�l�ctionn�
+    private int _currentIndex = 0;//--------------------------------------------------> index du caillou actuellement s�l�ctionn�
+    private bool _isRotating = false;//-----------------------------------------------> bool�en qui verifie si un cube tourne
+    private bool _enigmeisend = false;//----------------------------------------------> bool�en qui verifie si l'enigme est fini
+
+    [SerializeField] private bool _interactWithEnigma;//------------------------------> bool�en qui verifie si on est entrein d'interagir avec le pillier
+
+    [SerializeField] private float arrowMoveSpeed = 5f;//-----------------------------> vitesse de la fleche pour changer de position
+
+
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    // -- initialisation de l'enigme -------------------------------
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     void Start()
     {
@@ -34,8 +37,12 @@ public class TurnPillar : MonoBehaviour, IActivatable
         _currentRock = turnRock[_currentIndex];
     }
 
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    // -- Activation avec l'interaction du joueur  -----------------
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     public void Activate()
     {
+        _currentIndex = 0;
         if (!_interactWithEnigma)
         {
             _interactWithEnigma = true;
@@ -43,11 +50,15 @@ public class TurnPillar : MonoBehaviour, IActivatable
         else _interactWithEnigma = false;
 
         GameManager.Instance.ToggleTotalFreezePlayer();
-
-        
-
+        //PlayerBrain.Instance.playerRigidbody.linearVelocity = Vector3.zero;
         ChangePositionCinemachine.Instance.SwitchCam(_enigmaCinemachineCamera, _interactWithEnigma);
+        GameManager.Instance.playerUI.SetActive(!_interactWithEnigma);
+        GameManager.Instance.pillarUI.SetActive(_interactWithEnigma);
     }
+
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    // -- logique des touche du pillier  ---------------------------
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     void Update()
     {
         if (_interactWithEnigma && !_isRotating && !_enigmeisend)
@@ -63,7 +74,7 @@ public class TurnPillar : MonoBehaviour, IActivatable
 
             if (PlayerBrain.Instance.player.GetButtonDown("ForwardMovement"))
             {
-                _currentIndex = (_currentIndex + 1+ turnRock.Count) % turnRock.Count;
+                _currentIndex = (_currentIndex + 1 + turnRock.Count) % turnRock.Count;
                 _currentRock = turnRock[_currentIndex];
             }
             if (PlayerBrain.Instance.player.GetButtonDown("BackwardMovement"))
@@ -72,22 +83,28 @@ public class TurnPillar : MonoBehaviour, IActivatable
                 _currentRock = turnRock[_currentIndex];
             }
         }
-
+        //-----> ICI la position de la fleche quand on interagit avec l'enigme
         if (_interactWithEnigma)
         {
+            _pillarAnimator.SetBool("IsActive", true);
+            
             targetArrowPosition = arrowposition[_currentIndex+1];
         }
         else
         {
             targetArrowPosition = arrowposition[0]; // Position "idle"
+            _pillarAnimator.SetBool("IsActive", false); 
         }
-
+        //-----> ICI la position de la fleche quand on passe d'un cube a l'autre
         if (_arrow != null && targetArrowPosition != null)
         {
             _arrow.position = Vector3.Lerp(_arrow.position, targetArrowPosition.position, Time.deltaTime * arrowMoveSpeed);
         }
     }
 
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    // -- logique de rotation de l'enigme --------------------------
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     IEnumerator RotateRockSmooth(float angle, float duration)
     {
         _isRotating = true;
@@ -108,9 +125,13 @@ public class TurnPillar : MonoBehaviour, IActivatable
         _isRotating = false;
     }
 
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    // -- fin de l'enigme  -----------------------------------------
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     public void EndEnigme()
     {
         _validationLight.SetActive(true);
         _enigmeisend = true;
+        Debug.Log("Pillar fini");
     }
 }

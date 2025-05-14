@@ -9,11 +9,15 @@ public class PlayerBrain : MonoBehaviour
     public Rigidbody playerRigidbody;
     public GameObject playerGameObject;
     public GameObject cinemachineTargetGameObject;
+
+    [Header("UI References"), Space(5)]
+    [SerializeField] public GameObject cameraBack;
     
     [Header("Player Scripts"), Space(5)]
     public PlayerMovement playerMovement;
     public CameraRotation cameraRotation;
     public PlayerHandheldCamera playerHandheldCamera;
+    public PlayerInteractionSystem playerInteractionSystem;
     
     [Header("Variables"), Space(5)]
     public int chewingGumCount;
@@ -43,13 +47,13 @@ public class PlayerBrain : MonoBehaviour
 
     void Update()
     {
-        if (Physics.Raycast(transform.position, Vector3.down, PlayerBrain.Instance.height))
+        if (Physics.Raycast(transform.position, Vector3.down, height))
         {
-            PlayerBrain.Instance.isGrounded = true;
+            isGrounded = true;
         }
         else
         {
-            PlayerBrain.Instance.isGrounded = false;
+            isGrounded = false;
         }
     }
 }

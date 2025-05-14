@@ -236,11 +236,11 @@ Transform:
   m_GameObject: {fileID: 159152848715336189}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.389, z: -0.923}
-  m_LocalScale: {x: 1.3640083, y: 0.13250071, z: 0.22226503}
+  m_LocalPosition: {x: 3.0795627, y: -0.53119516, z: -1.784078}
+  m_LocalScale: {x: 0.22690499, y: 0.226905, z: 0.22690499}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 1291277562272114611}
+  m_Father: {fileID: 2951758970772515540}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3032184529874725853
 MeshFilter:
@@ -531,7 +531,6 @@ Transform:
   - {fileID: 4838860066700475725}
   - {fileID: 4144826755844559955}
   - {fileID: 1858751237858890063}
-  - {fileID: 4226780887039948558}
   m_Father: {fileID: 2951758970772515540}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &9172458308579793888
@@ -639,6 +638,7 @@ MonoBehaviour:
   _indicatorLight: {fileID: 4188021675371090572}
   _digicodeCinemachineCamera: {fileID: 1204977951367276878}
   _doorCinemachineCamera: {fileID: 8957493722877804688}
+  _playerTransform: {fileID: 0}
   doors: {fileID: 0}
   _password: 6254
   _defaultText: _ _ _ _
@@ -1133,6 +1133,7 @@ Transform:
   - {fileID: 8565323799549137368}
   - {fileID: 4121697909688087870}
   - {fileID: 1291277562272114611}
+  - {fileID: 4226780887039948558}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3506988057886206004

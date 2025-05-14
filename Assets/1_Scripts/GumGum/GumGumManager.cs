@@ -1,4 +1,5 @@
 using TMPro;
+using System.Collections;
 using UnityEngine;
 using System.Collections.Generic;
 using Unity.Cinemachine;
@@ -13,11 +14,19 @@ public class GumGumManager : MonoBehaviour
 {
     public static GumGumManager Instance;
 
+    [Header("Animation")]
+    [SerializeField] private Animator _GumGumAnimator;
+    [SerializeField] private Animator _BullGumAnimator;
+    [SerializeField] private string _showClueAnimationTrigger = "ShowClue";
+    [SerializeField] private string _TalkAnimationTrigger = "Talk";
+    
     [Header("UI References"), Space(5)]
     [SerializeField] private TMP_Text _gumgumName;//-------------> Nom de GumGum affiché dans l'UI (non utilisé ici)
     [SerializeField] private TMP_Text _gumgumDialogues;//--------> Zone de texte pour afficher les dialogues
     public GameObject gumGumPanel;//-----------------------------> Panneau UI contenant le dialogue
     public GameObject enigmaContainer;//-------------------------> Conteneur UI avec les boutons d’énigmes
+    [Header("Références")]
+    public GumUIManager gumUIManager;//-------------------------->Mise à jour compteur chewingum UI
 
     [Header("GumGum Logic"), Space(5)]
     [SerializeField] private GumGum _gumGum;//-------------------> Référence au script contenant les données de dialogues
@@ -82,8 +91,13 @@ public class GumGumManager : MonoBehaviour
             {
                 if (int.TryParse(name.Replace("Enigma_", ""), out int enigmaNumber))
                 {
-                    GiveClueForEnigma(enigmaNumber);
                     PlayerBrain.Instance.chewingGumCount--;
+                    if (gumUIManager == null)
+                        gumUIManager = FindObjectOfType<GumUIManager>();
+                        
+                        // Met à jour l'UI
+                        gumUIManager?.ShowGumCount(PlayerBrain.Instance.chewingGumCount);
+                    StartCoroutine(ShowClueWithAnimation(enigmaNumber));
                 }
             }
         }
@@ -185,7 +199,22 @@ public class GumGumManager : MonoBehaviour
         enigmaContainer.SetActive(false);
         EndDialogue();
     }
-
+    // Coroutine pour afficher un indice avec une animation
+    private IEnumerator ShowClueWithAnimation(int enigmaNumber)
+    {
+        if (_BullGumAnimator != null)
+        {
+            _BullGumAnimator.SetTrigger(_showClueAnimationTrigger);
+            _GumGumAnimator.SetTrigger(_showClueAnimationTrigger);
+ 
+            yield return new WaitForSeconds(5f);; 
+        }
+        else
+        {
+            yield return new WaitForSeconds(0.3f);
+        }
+        GiveClueForEnigma(enigmaNumber);
+    }
     /// <summary>
     /// Instancie un indice à une position aléatoire.
     /// </summary>
@@ -273,13 +302,13 @@ public class GumGumManager : MonoBehaviour
             EndDialogue();
             return;
         }
+        _GumGumAnimator.SetTrigger(_TalkAnimationTrigger);
         _gumgumDialogues.text = _sentences.Dequeue();
     }
 
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     // -- FIN DU DIALOGUE ----------------------------------------------------------------------------------------------
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
     /// <summary>
     /// Termine le dialogue : désactive l'UI et restaure le contrôle au joueur.
     /// </summary>
@@ -293,9 +322,10 @@ public class GumGumManager : MonoBehaviour
         
         isInteracting = false;
         ChangePositionCinemachine.Instance.SwitchCam(gumgumCinemachineCamera, isInteracting);
+        GameManager.Instance.playerUI.gameObject.SetActive(true);
+        PlayerBrain.Instance.playerInteractionSystem.playerCanInteractWhithMouse = true;
     }
 }
-
 [System.Serializable]
 public class EnigmaSpawn
 {

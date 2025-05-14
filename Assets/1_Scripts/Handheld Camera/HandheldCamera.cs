@@ -8,7 +8,7 @@ public class HandheldCamera : MonoBehaviour
     {
         gameObject.transform.rotation = Quaternion.Euler(0, PlayerBrain.Instance.transform.rotation.eulerAngles.y - 90f, 0);
     }
-
+    /*
     void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
@@ -23,5 +23,5 @@ public class HandheldCamera : MonoBehaviour
         {
             HandheldCameraManager.Instance.playerCanTakeCamera = false;
         }
-    }
+    }*/
 }

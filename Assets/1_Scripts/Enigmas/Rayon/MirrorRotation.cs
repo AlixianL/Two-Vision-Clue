@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class MirrorRotation : MonoBehaviour, IActivatable
 {
-    [Header("Références")]
+    [Header("Rï¿½fï¿½rences")]
     public Transform pivotHorizontal;              // Pivot de rotation gauche/droite
     public Transform mirrorTilt;                   // Partie du miroir qui s'incline
 
-    [Header("Paramètres")]
+
+    [Header("Paramï¿½tres")]
     public float rotationSpeed = 50f;
     public float verticalMin = -45f;               // Limite minimum d'inclinaison
     public float verticalMax = 45f;                // Limite maximum d'inclinaison
@@ -30,13 +31,12 @@ public class MirrorRotation : MonoBehaviour, IActivatable
             _interactWithEnigma = true;
         }
         else _interactWithEnigma = false;
+
         GameManager.Instance.ToggleTotalFreezePlayer();
-
-        if (_enigmaCinemachineCamera != null)
-        {
-            ChangePositionCinemachine.Instance.SwitchCam(_enigmaCinemachineCamera, _interactWithEnigma);
-        }
-
+        PlayerBrain.Instance.playerRigidbody.linearVelocity = Vector3.zero;
+        ChangePositionCinemachine.Instance.SwitchCam(_enigmaCinemachineCamera, _interactWithEnigma);
+        GameManager.Instance.playerUI.SetActive(!_interactWithEnigma);
+        GameManager.Instance.mirrorUI.SetActive(_interactWithEnigma);
     }
 
     void Update()
@@ -45,11 +45,11 @@ public class MirrorRotation : MonoBehaviour, IActivatable
         {
             if (PlayerBrain.Instance.player.GetButton("RightMovement"))
             {
-                pivotHorizontal.Rotate(Vector3.up * rotationSpeed * Time.deltaTime);
+                pivotHorizontal.Rotate(-Vector3.up * rotationSpeed * Time.deltaTime);
             }
             if (PlayerBrain.Instance.player.GetButton("LeftMovement"))
             {
-                pivotHorizontal.Rotate(-Vector3.up * rotationSpeed * Time.deltaTime);
+                pivotHorizontal.Rotate(Vector3.up * rotationSpeed * Time.deltaTime);
             }
 
             if (PlayerBrain.Instance.player.GetButton("ForwardMovement"))
@@ -70,5 +70,6 @@ public class MirrorRotation : MonoBehaviour, IActivatable
     public void FreezMirror()
     {
         _enigmaisend = true;
+        Debug.Log("Enigme Miroir fini");
     }
 }

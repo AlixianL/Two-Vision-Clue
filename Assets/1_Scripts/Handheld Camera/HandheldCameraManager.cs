@@ -9,7 +9,10 @@ public class HandheldCameraManager : MonoBehaviour
     private GameObject handheldCamera;
     public GameObject handheldCameraPrefab;
     public GameObject spawnPoint;
-    
+
+    [SerializeField] public GameObject _cameraToDestroy;
+
+
     [Header("Variables"), Space(5)]
     public bool cameraIsInstall;
     public bool playerCanTakeCamera;
@@ -24,22 +27,31 @@ public class HandheldCameraManager : MonoBehaviour
     
     public void InstallCamera()
     {
-        if (cameraCanBeInstalled && !cameraIsInstall)
+        if (cameraCanBeInstalled)
         {
+            if (handheldCamera != null) Destroy(handheldCamera);
             handheldCamera = Instantiate(handheldCameraPrefab);
+            
             handheldCamera.transform.position = spawnPoint.transform.position;
             cameraIsInstall = true;
+            PlayerBrain.Instance.cameraBack.SetActive(true);
         }
     }
     
     public void UninstallCamera()
     {
+        if (_cameraToDestroy != null)
+        {
+            Destroy(_cameraToDestroy);
+            _cameraToDestroy = null;
+        }
         if (cameraIsInstall)
         {
             Destroy(handheldCamera);
             cameraIsInstall = false;
-            playerCanTakeCamera = false;
+            //playerCanTakeCamera = false;
             cameraCanBeInstalled = true;
+            PlayerBrain.Instance.cameraBack.SetActive(false);
         }
     }
 }
