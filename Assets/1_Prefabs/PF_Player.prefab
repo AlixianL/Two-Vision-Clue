@@ -1184,6 +1184,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d727b2815d64cf8b34f7c3d85a2a3fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _cam: 0
 --- !u!114 &7151245461555468841
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1216,14 +1217,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _floorLayer:
     serializedVersion: 2
-    m_Bits: 16384
+    m_Bits: 64
   _textureSounds:
-  - BaseColor: {fileID: 0}
+  - BaseColor: {fileID: 2800000, guid: 5ed9db88ab29f8f4a973eab106540d7f, type: 3}
     Clips:
       Guid:
-        Data1: 0
-        Data2: 0
-        Data3: 0
-        Data4: 0
-      Path: 
+        Data1: -1622254783
+        Data2: 1112193727
+        Data3: -290353530
+        Data4: 1468586364
+      Path: event:/SFX/FootSteps/ConcreteFootSteps/FootStepsConcrete
+  - BaseColor: {fileID: 2800000, guid: 91a41c3cf6b86904ba3408d8fabed14a, type: 3}
+    Clips:
+      Guid:
+        Data1: 938686951
+        Data2: 1080385843
+        Data3: 910858893
+        Data4: -2000784951
+      Path: event:/SFX/FootSteps/CarpetFootSteps/FootStepsCarpet
   _blendTerrainSounds: 0

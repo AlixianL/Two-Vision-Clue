@@ -26,7 +26,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 17000
+  Length: 15000
 --- !u!114 &-6962918865739694869
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42,10 +42,10 @@ MonoBehaviour:
   Path: FmodTwoVisionClue/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638828334264842002
+  lastModified: 638828416531304504
   FileSizes:
   - Name: Desktop
-    Value: 1676
+    Value: 1786
   Exists: 1
 --- !u!114 &-6767906382364202036
 MonoBehaviour:
@@ -74,6 +74,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 604
+--- !u!114 &-5715291553598225676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/KeyPadSound
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/KeyPadSound
+  Guid:
+    Data1: -1735184653
+    Data2: 1138057227
+    Data3: -1273228904
+    Data4: -930426282
+  Banks:
+  - {fileID: 6393148642341197882}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 547
 --- !u!114 &-5671813636484730633
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -197,7 +224,7 @@ MonoBehaviour:
   Path: FmodTwoVisionClue/Build/Desktop/Dialogue.bank
   Name: Dialogue
   StudioPath: bank:/Dialogue
-  lastModified: 638828330026593111
+  lastModified: 638828363471398432
   FileSizes:
   - Name: Desktop
     Value: 25056
@@ -379,7 +406,7 @@ MonoBehaviour:
   Path: FmodTwoVisionClue/Build/Desktop/Ambiant.bank
   Name: Ambiant
   StudioPath: bank:/Ambiant
-  lastModified: 638828334268217688
+  lastModified: 638828363900856687
   FileSizes:
   - Name: Desktop
     Value: 218912
@@ -438,6 +465,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 900
+--- !u!114 &-470710609155899886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/AnimationSFX/OpenDoorTuto
+  m_EditorClassIdentifier: 
+  Path: event:/AnimationSFX/OpenDoorTuto
+  Guid:
+    Data1: -1894318333
+    Data2: 1163109014
+    Data3: -1111560307
+    Data4: 125985612
+  Banks:
+  - {fileID: 6393148642341197882}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1381
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -471,13 +525,15 @@ MonoBehaviour:
   - {fileID: -1486842912099007342}
   - {fileID: 8927073731503210213}
   - {fileID: -8304240203752399213}
+  - {fileID: -470710609155899886}
+  - {fileID: -5715291553598225676}
   EditorParameters: []
   MasterBanks:
   - {fileID: 5355810948488914165}
   StringsBanks:
   - {fileID: -6962918865739694869}
   cacheVersion: 131847
-  cacheTime: 638828334268217688
+  cacheTime: 638828416532117351
   SerializableEventsDict:
   - key: event:/MusiqueTesstCam2
     index: 0
@@ -505,6 +561,12 @@ MonoBehaviour:
     index: 11
   - key: event:/GumGumDialogue/MMHHHGumGum
     index: 12
+  - key: event:/Ambiant/Amb-2
+    index: 13
+  - key: event:/AnimationSFX/OpenDoorTuto
+    index: 14
+  - key: event:/SFX/KeyPadSound
+    index: 15
 --- !u!114 &1222750152495611876
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -729,7 +791,7 @@ MonoBehaviour:
   Path: FmodTwoVisionClue/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638828334264819510
+  lastModified: 638828416531274586
   FileSizes:
   - Name: Desktop
     Value: 1309920
@@ -776,10 +838,10 @@ MonoBehaviour:
   Path: FmodTwoVisionClue/Build/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 638828288086692587
+  lastModified: 638828416532117351
   FileSizes:
   - Name: Desktop
-    Value: 178560
+    Value: 204224
   Exists: 1
 --- !u!114 &6860948528353464037
 MonoBehaviour:

@@ -18,7 +18,6 @@ public class Keypad : MonoBehaviour, IActivatable
     [SerializeField] private MeshRenderer _indicatorLight;
     [SerializeField] private CinemachineCamera _digicodeCinemachineCamera;
     [SerializeField] private CinemachineCamera _doorCinemachineCamera;
-    [SerializeField] private Transform _playerTransform;
 
     public Doors doors;
     
@@ -30,6 +29,10 @@ public class Keypad : MonoBehaviour, IActivatable
     public bool _isInteractingWhisEnigma = false;
     public bool _isClear = true;
     private bool _isValidated = false;
+
+    
+
+    
 
     
 
@@ -68,6 +71,8 @@ public class Keypad : MonoBehaviour, IActivatable
         
         if (Cursor.visible == false) Cursor.visible = true;
         else Cursor.visible = false;
+
+      
     }
     
     public void Clear()
