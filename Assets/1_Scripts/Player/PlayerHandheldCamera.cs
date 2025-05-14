@@ -11,7 +11,7 @@ public class PlayerHandheldCamera : MonoBehaviour
     }
     void Update()
     {
-        // Poser la cam
+        // Poser la cam (Space)
         if (PlayerBrain.Instance.player.GetButtonDown("InstallCamera"))
         {
             HandheldCameraManager.Instance.InstallCamera();
@@ -21,7 +21,7 @@ public class PlayerHandheldCamera : MonoBehaviour
         }
         
         
-        // Reprendre la cam
+        // Reprendre la cam (R)
         if (PlayerBrain.Instance.player.GetButtonDown("DestroyCamera"))
         {
             HandheldCameraManager.Instance.UninstallCamera();

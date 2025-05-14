@@ -2,6 +2,7 @@
 using FMODUnity;
 using FMOD;
 using FMOD.Studio;
+using UnityEditor.Rendering.LookDev;
 
 public class ListenerCamera : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class ListenerCamera : MonoBehaviour
 
     public StudioListener tempListenerCam1;
     public StudioListener tempListenerCam2;
+
+    public PlayerHandheldCamera playerHandheldCamera;
 
     void Start()
     {
@@ -28,16 +31,28 @@ public class ListenerCamera : MonoBehaviour
     {
         activeCam = newCam;
 
-        if (activeCam == cam1)
+        if (activeCam == cam1 )
         {
+           
             cam1Bus.setMute(false);
             cam2Bus.setMute(true);
+            UnityEngine.Debug.Log("Poser1");
+
+
         }
-        else
+
+        
+
+        if (activeCam == cam2)
         {
-            cam1Bus.setMute(true);
-            cam2Bus.setMute(false);
+
+            cam1Bus.setMute(false);
+            cam2Bus.setMute(true);
+            UnityEngine.Debug.Log("récupéré1");
+
         }
+
+        
     }
 
     // Exemple : switcher via une touche

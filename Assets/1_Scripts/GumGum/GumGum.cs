@@ -21,6 +21,8 @@ public class GumGum : MonoBehaviour, IActivatable
     [SerializeField] private List<Light> LightOfRoom = new List<Light>();
     [SerializeField] private bool _isPlaying;
 
+    public PlaySoundScript playSoundScript;
+
 
     void Start()
     {
@@ -53,6 +55,7 @@ public class GumGum : MonoBehaviour, IActivatable
 
 
         GumGumManager.Instance.dialogueTrigger.TriggerDialogue();
+        playSoundScript.PlaySound();
 
         GumGumManager.Instance.isInteracting = true;
 
