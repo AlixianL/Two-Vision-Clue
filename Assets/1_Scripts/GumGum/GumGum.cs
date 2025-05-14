@@ -3,11 +3,7 @@ using Unity.Cinemachine;
 using UnityEngine;
 
 public class GumGum : MonoBehaviour, IActivatable
-{   
-    [Header("Animation")]
-    [SerializeField] private Animator _GumGumAnimator;
-
-    [SerializeField] private string _TalkAnimationTrigger = "Talk";
+{
     public string gumgumName;
     
     [Header("Presentation"), Space(5)]
@@ -24,6 +20,8 @@ public class GumGum : MonoBehaviour, IActivatable
 
     [SerializeField] private List<Light> LightOfRoom = new List<Light>();
     [SerializeField] private bool _isPlaying;
+
+    public PlaySoundScript playSoundScript;
 
 
     void Start()
@@ -57,7 +55,8 @@ public class GumGum : MonoBehaviour, IActivatable
 
 
         GumGumManager.Instance.dialogueTrigger.TriggerDialogue();
-        _GumGumAnimator.SetTrigger(_TalkAnimationTrigger);
+        playSoundScript.PlaySound();
+
         GumGumManager.Instance.isInteracting = true;
 
         if (_isPlaying)

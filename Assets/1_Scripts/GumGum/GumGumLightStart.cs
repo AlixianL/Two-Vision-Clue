@@ -4,7 +4,7 @@ using UnityEngine;
 public class GumGumLightStart : MonoBehaviour
 {
     [SerializeField] private Light LightOfGumgum;
-
+    
 
     void Start()
     {
@@ -15,6 +15,7 @@ public class GumGumLightStart : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             LightOfGumgum.enabled = true;
+            
         }
         
         // Sera dans un autre script dans le futur mais ça faisais des bugs sinon
