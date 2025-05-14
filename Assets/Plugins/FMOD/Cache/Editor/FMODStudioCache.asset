@@ -1,5 +1,32 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8304240203752399213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Ambiant/Amb-2
+  m_EditorClassIdentifier: 
+  Path: event:/Ambiant/Amb-2
+  Guid:
+    Data1: 1052845018
+    Data2: 1303037052
+    Data3: -1531033208
+    Data4: -855785594
+  Banks:
+  - {fileID: -1121703459829537180}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 17000
 --- !u!114 &-6962918865739694869
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15,10 +42,10 @@ MonoBehaviour:
   Path: FmodTwoVisionClue/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638828330025931924
+  lastModified: 638828334264842002
   FileSizes:
   - Name: Desktop
-    Value: 1594
+    Value: 1676
   Exists: 1
 --- !u!114 &-6767906382364202036
 MonoBehaviour:
@@ -337,6 +364,26 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 491
+--- !u!114 &-1121703459829537180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Ambiant.bank
+  m_EditorClassIdentifier: 
+  Path: FmodTwoVisionClue/Build/Desktop/Ambiant.bank
+  Name: Ambiant
+  StudioPath: bank:/Ambiant
+  lastModified: 638828334268217688
+  FileSizes:
+  - Name: Desktop
+    Value: 218912
+  Exists: 1
 --- !u!114 &-728338126296518634
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -408,6 +455,7 @@ MonoBehaviour:
   - {fileID: 5355810948488914165}
   - {fileID: 6393148642341197882}
   - {fileID: -4181658274705138704}
+  - {fileID: -1121703459829537180}
   EditorEvents:
   - {fileID: 5756716562548411181}
   - {fileID: 3843757420082415224}
@@ -422,13 +470,14 @@ MonoBehaviour:
   - {fileID: -3659659168869754849}
   - {fileID: -1486842912099007342}
   - {fileID: 8927073731503210213}
+  - {fileID: -8304240203752399213}
   EditorParameters: []
   MasterBanks:
   - {fileID: 5355810948488914165}
   StringsBanks:
   - {fileID: -6962918865739694869}
   cacheVersion: 131847
-  cacheTime: 638828330026593111
+  cacheTime: 638828334268217688
   SerializableEventsDict:
   - key: event:/MusiqueTesstCam2
     index: 0
@@ -680,7 +729,7 @@ MonoBehaviour:
   Path: FmodTwoVisionClue/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638828330025911976
+  lastModified: 638828334264819510
   FileSizes:
   - Name: Desktop
     Value: 1309920
