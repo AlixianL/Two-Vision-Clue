@@ -25,12 +25,12 @@ public class GameManager : MonoBehaviour
         PlayerBrain.Instance.playerCanMove = !PlayerBrain.Instance.playerCanMove;
         PlayerBrain.Instance.playerCanLookAround = !PlayerBrain.Instance.playerCanLookAround;
     }
-    
+
     public void ToggleMovementFreezePlayer()
     {
         PlayerBrain.Instance.playerCanMove = !PlayerBrain.Instance.playerCanMove;
     }
-    
+
     public void ToggleCameraFreezePlayer()
     {
         PlayerBrain.Instance.playerCanLookAround = !PlayerBrain.Instance.playerCanLookAround;

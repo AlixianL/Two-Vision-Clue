@@ -99,7 +99,7 @@ public class Keypad : MonoBehaviour, IActivatable
             }
             
             _isValidated = true;
-            
+            Debug.Log("Tuto fini");
             if (Cursor.lockState == CursorLockMode.Locked) Cursor.lockState = CursorLockMode.None;
             else Cursor.lockState = CursorLockMode.Locked;
         

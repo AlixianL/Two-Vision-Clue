@@ -4,7 +4,7 @@ public class LabyrintheTriggerBox : MonoBehaviour
 {
     [Header("References"), Space(5)]
     [SerializeField] private RotateWeel _rotateWeel;
-    [SerializeField] private GameObject _validationLight;//-------------------------> Light Sur le pilier central pour validé l'énigme
+    [SerializeField] private GameObject _validationLight;//-------------------------> Light Sur le pilier central pour validï¿½ l'ï¿½nigme
 
     void Start()
     {
@@ -18,7 +18,7 @@ public class LabyrintheTriggerBox : MonoBehaviour
             other.attachedRigidbody.freezeRotation = true;
             other.attachedRigidbody.useGravity = false;
             _validationLight.SetActive(true);
-
+            Debug.Log("Labyrinthe Fini");
         }
     }
 }

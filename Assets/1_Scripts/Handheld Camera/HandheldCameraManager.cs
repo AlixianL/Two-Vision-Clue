@@ -9,7 +9,10 @@ public class HandheldCameraManager : MonoBehaviour
     private GameObject handheldCamera;
     public GameObject handheldCameraPrefab;
     public GameObject spawnPoint;
-    
+
+    [SerializeField] public GameObject _cameraToDestroy;
+
+
     [Header("Variables"), Space(5)]
     public bool cameraIsInstall;
     public bool playerCanTakeCamera;
@@ -37,6 +40,11 @@ public class HandheldCameraManager : MonoBehaviour
     
     public void UninstallCamera()
     {
+        if (_cameraToDestroy != null)
+        {
+            Destroy(_cameraToDestroy);
+            _cameraToDestroy = null;
+        }
         if (cameraIsInstall)
         {
             Destroy(handheldCamera);

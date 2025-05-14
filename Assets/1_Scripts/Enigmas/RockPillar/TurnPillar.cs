@@ -6,6 +6,7 @@ using UnityEngine;
 public class TurnPillar : MonoBehaviour, IActivatable
 {
     [Header("References")]
+    [SerializeField] private Animator _pillarAnimator;
     [SerializeField] private List<GameObject> turnRock = new List<GameObject>();//----> liste des 3 caillou a tourner
     [SerializeField] private List<Transform> arrowposition = new List<Transform>();//-> liste des position de la fl�che
 
@@ -85,11 +86,14 @@ public class TurnPillar : MonoBehaviour, IActivatable
         //-----> ICI la position de la fleche quand on interagit avec l'enigme
         if (_interactWithEnigma)
         {
+            _pillarAnimator.SetBool("IsActive", true);
+            
             targetArrowPosition = arrowposition[_currentIndex+1];
         }
         else
         {
             targetArrowPosition = arrowposition[0]; // Position "idle"
+            _pillarAnimator.SetBool("IsActive", false); 
         }
         //-----> ICI la position de la fleche quand on passe d'un cube a l'autre
         if (_arrow != null && targetArrowPosition != null)
@@ -128,5 +132,6 @@ public class TurnPillar : MonoBehaviour, IActivatable
     {
         _validationLight.SetActive(true);
         _enigmeisend = true;
+        Debug.Log("Pillar fini");
     }
 }

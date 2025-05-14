@@ -70,5 +70,6 @@ public class MirrorRotation : MonoBehaviour, IActivatable
     public void FreezMirror()
     {
         _enigmaisend = true;
+        Debug.Log("Enigme Miroir fini");
     }
 }
