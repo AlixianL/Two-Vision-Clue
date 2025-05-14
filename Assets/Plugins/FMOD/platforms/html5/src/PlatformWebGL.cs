@@ -44,9 +44,6 @@ namespace FMODUnity
         internal override IEnumerable<BuildTarget> GetBuildTargets()
         {
             yield return BuildTarget.WebGL;
-#if UNITY_WEIXINMINIGAME
-            yield return BuildTarget.WeixinMiniGame;
-#endif
         }
 
         internal override Legacy.Platform LegacyIdentifier { get { return Legacy.Platform.WebGL; } }

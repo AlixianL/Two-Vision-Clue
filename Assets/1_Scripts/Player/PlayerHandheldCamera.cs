@@ -1,43 +1,21 @@
 using UnityEngine;
 
-
 public class PlayerHandheldCamera : MonoBehaviour
-{
-
-    public bool _cam;
-    private void Start()
-    {
-       _cam = false;
-    }
+{           
+    private int installCameraCount = 0;
     void Update()
     {
-        // Poser la cam (Space)
+        // Poser la cam
         if (PlayerBrain.Instance.player.GetButtonDown("InstallCamera"))
         {
             HandheldCameraManager.Instance.InstallCamera();
-
-            _cam = true;
-           
+             installCameraCount++;
         }
         
-        
-        // Reprendre la cam (R)
+        // Reprendre la cam
         if (PlayerBrain.Instance.player.GetButtonDown("DestroyCamera"))
         {
             HandheldCameraManager.Instance.UninstallCamera();
-           
-            _cam = false;
         }
-
-        if (_cam)
-        {
-            //Debug.Log("Est actif");
-        }
-
-        else
-        {
-            //Debug.Log("n'est pas actif");
-        }
-        
     }
 }

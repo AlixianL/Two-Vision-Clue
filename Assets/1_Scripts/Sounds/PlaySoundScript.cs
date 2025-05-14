@@ -5,6 +5,10 @@ public class PlaySoundScript : MonoBehaviour
 {
     public FMODUnity.EventReference SoundActivate;
 
+    private void Update()
+    {
+        
+    }
 
     public void PlaySound()
     {
