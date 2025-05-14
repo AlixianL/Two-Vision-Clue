@@ -8864,7 +8864,7 @@ MonoBehaviour:
   - {fileID: 1451701064}
   - {fileID: 558354630}
   - {fileID: 1505230126}
-  _isPlaying: 0
+  _isPlaying: 1
 --- !u!1 &524568245
 GameObject:
   m_ObjectHideFlags: 0
@@ -22112,12 +22112,12 @@ MonoBehaviour:
   - {fileID: 715352636}
   - {fileID: 1933975637}
   _originalColor: {r: 1, g: 0.94509804, b: 0.7058824, a: 0}
-  _wrongColor: {r: 0.6320754, g: 0.11031505, b: 0.11031505, a: 0}
-  _validateColor: {r: 0.24953417, g: 0.49056602, b: 0.057849757, a: 0}
+  _wrongColor: {r: 0.9245283, g: 0.02180491, b: 0.02180491, a: 0}
+  _validateColor: {r: 0.38938764, g: 0.8396226, b: 0.027723404, a: 0}
   _numberForEnd: 5
   _sequenceNumber: 0
-  _simonsDelay: 0.4
-  _feedbackDuration: 1.5
+  _simonsDelay: 0.8
+  _feedbackDuration: 1
   _validationLight: {fileID: 1026312892}
 --- !u!4 &1130240001
 Transform:
@@ -24889,6 +24889,22 @@ PrefabInstance:
       propertyPath: _validationLight
       value: 
       objectReference: {fileID: 1336211890}
+    - target: {fileID: 4069421113142348718, guid: 375034b5630682e4d9fbfd64d8979910, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4069421113142348718, guid: 375034b5630682e4d9fbfd64d8979910, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4069421113142348718, guid: 375034b5630682e4d9fbfd64d8979910, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4069421113142348718, guid: 375034b5630682e4d9fbfd64d8979910, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
     - target: {fileID: 7056323052581240930, guid: 375034b5630682e4d9fbfd64d8979910, type: 3}
       propertyPath: m_Name
       value: Enigme - Pillar
