@@ -33,10 +33,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 3893100236122233404}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: -0.00012207031, y: 0}
-  m_SizeDelta: {x: 0, y: 2481.9}
+  m_SizeDelta: {x: 2314, y: 9584}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &6508091028881167825
 CanvasRenderer:
@@ -66,7 +66,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Quam ob rem ut ii qui superiores sunt submittere se debent in amicitia,
+  m_text: 'Quam ob rem ut ii qui superiores sunt submittere se debent in amicitia,
     sic quodam modo inferiores extollere. Sunt enim quidam qui molestas amicitias
     faciunt, cum ipsi se contemni putant; quod non fere contingit nisi iis qui etiam
     contemnendos se arbitrantur; qui hac opinione non modo verbis sed etiam opere
@@ -74,7 +74,22 @@ MonoBehaviour:
     sic quodam modo inferiores extollere. Sunt enim quidam qui molestas amicitias
     faciunt, cum ipsi se contemni putant; quod non fere contingit nisi iis qui etiam
     contemnendos se arbitrantur; qui hac opinione non modo verbis sed etiam opere
-    levandi sunt.
+    levandi sunt.Quam ob rem ut ii qui superiores sunt submittere se debent in amicitia,
+    sic quodam modo inferiores extollere. Sunt enim quidam qui molestas amicitias
+    faciunt, cum ipsi se contemni putant; quod non fere contingit nisi iis qui etiam
+    contemnendos se arbitrantur; qui hac opinione non modo verbis sed etiam opere
+    levandi sunt. Quam ob rem ut ii qui superiores sunt submittere se debent in amicitia,
+    sic quodam modo inferiores extollere. Sunt enim quidam qui molestas amicitias
+    faciunt, cum ipsi se contemni putant; quod non fere contingit nisi iis qui etiam
+    contemnendos se arbitrantur; qui hac opinione non modo verbis sed etiam opere
+    levandi sunt.Quam ob rem ut ii qui superiores sunt submittere se debent in amicitia,
+    sic quodam modo inferiores extollere. Sunt enim quidam qui molestas amicitias
+    faciunt, cum ipsi se contemni putant; quod non fere contingit nisi iis qui etiam
+    contemnendos se arbitrantur; qui hac opinione non modo verbis sed etiam opere
+    levandi sunt. Quam ob rem ut ii qui superiores sunt submittere se debent in amicitia,
+    sic quodam modo inferiores extollere. Sunt enim quidam qui molestas amicitias
+    faciunt, cum ipsi se contemni putant; quod non fere contingit nisi iis qui etiam
+    contemnendos se arbitrantur; qui hac opinione non modo verbis sed '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -161,8 +176,9 @@ MonoBehaviour:
   _activateTrackPlayer: {fileID: 3663530067575846890}
   _tabletteToggle: {fileID: 4071655993596597905}
   _tabletteRectTransform: {fileID: 5931290865787323325}
-  _scrollbarDefaultPosition: {x: -0.0001220703, y: 0, z: 0.001479149}
-  _scrollbarMaxPosition: {x: -0.0001220703, y: 730, z: 0.001479149}
+  _tabletteScrollPositionMax: {x: 0, y: 7100}
+  _mouseWeel: 0
+  _amplificator: 400
 --- !u!1 &4043173772598902073
 GameObject:
   m_ObjectHideFlags: 0

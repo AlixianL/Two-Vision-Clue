@@ -14,18 +14,23 @@ public class TabeltteScrollBar : MonoBehaviour
     [Header("Variables"), Space(5)]
     [SerializeField] private float _mouseWeel;
     [SerializeField, Range(1, 500)] private float _amplificator;
+    
     private void Update()
     {
         if (_activateTrackPlayer._playerInRange && _tabletteToggle._infoIsOn)
         {
             _mouseWeel = PlayerBrain.Instance.player.GetAxis("ScrollBarMovement");
+            
             if (_mouseWeel != 0)
             {
-                if (_tabletteRectTransform.position.y > 0 && _tabletteRectTransform.position.y < _tabletteScrollPositionMax.y)
-                {
-                    _tabletteRectTransform.transform.localPosition = new Vector2(_tabletteRectTransform.transform.localPosition.x, _tabletteRectTransform.transform.localPosition.y + -_mouseWeel*_amplificator);
-                }
+                float newY = _tabletteRectTransform.localPosition.y + -_mouseWeel * _amplificator;
+                float clampedY = Mathf.Clamp(newY, 1240.95f, _tabletteScrollPositionMax.y);
+                _tabletteRectTransform.localPosition = new Vector2(_tabletteRectTransform.localPosition.x, clampedY);
+
+                _scrollbar.value = Mathf.Clamp(clampedY, 0f, 1f);
+                Debug.LogWarning($"Scrolbar Value : {_scrollbar.value}");
             }
         }
     }
+
 }
