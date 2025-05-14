@@ -8,20 +8,12 @@ using FMODUnity;
 public class DetectionGround : MonoBehaviour
 {
     [SerializeField]
-    private LayerMask FloorLayer;
+    private LayerMask _floorLayer;
     [SerializeField]
-    private TextureSound[] TextureSounds;
+    private TextureSound[] _textureSounds;
     [SerializeField]
-    private bool BlendTerrainSounds;
+    private bool _blendTerrainSounds;
 
-    private CapsuleCollider capsulecollider;
-
-
-    private void Awake()
-    {
-        capsulecollider = GetComponent<CapsuleCollider>();
-
-    }
 
     private void Start()
     {
@@ -35,23 +27,28 @@ public class DetectionGround : MonoBehaviour
     {
         while (true)
         {
-
-            Physics.Raycast(transform.position - new Vector3(0, 0.5f * capsulecollider.height + 0.5f * capsulecollider.radius, 0),
-                Vector3.down,
-                out RaycastHit hit,
-                1f,
-                FloorLayer);
-                
-            
+            Vector3 origin = transform.position;
+            //Debug.Log(origin);
+            //Debug.Log(PlayerBrain.Instance.playerRigidbody.linearVelocity);
+            if (PlayerBrain.Instance.isGrounded && PlayerBrain.Instance.playerRigidbody.linearVelocity != Vector3.zero &&
+                Physics.Raycast (origin, 
+                    Vector3.down,
+                    out RaycastHit hit,
+                    2f,
+                    _floorLayer)
+                )
+            {
                 if (hit.collider.TryGetComponent<Terrain>(out Terrain terrain))
                 {
+                    //Debug.Log("ca marche");
                     yield return StartCoroutine(PlayFootstepSoundFromTerrain(terrain, hit.point));
+                    
                 }
                 else if (hit.collider.TryGetComponent<Renderer>(out Renderer renderer))
                 {
                     yield return StartCoroutine(PlayFootstepSoundFromRenderer(renderer));
                 }
-            
+            }
 
             yield return null;
         }
@@ -74,7 +71,7 @@ public class DetectionGround : MonoBehaviour
 
         float[,,] alphaMap = Terrain.terrainData.GetAlphamaps(x, z, 1, 1);
 
-        if (!BlendTerrainSounds)
+        if (!_blendTerrainSounds)
         {
             int primaryIndex = 0;
             for (int i = 1; i < alphaMap.Length; i++)
@@ -85,12 +82,13 @@ public class DetectionGround : MonoBehaviour
                 }
             }
 
-            foreach (TextureSound textureSound in TextureSounds)
+            foreach (TextureSound textureSound in _textureSounds)
             {
                 if (textureSound.BaseColor == Terrain.terrainData.terrainLayers[primaryIndex].diffuseTexture)
                 {
                     EventReference clip = GetClipFromTextureSound(textureSound);
                     RuntimeManager.PlayOneShot(clip);
+                    Debug.Log("C'est good");
                     yield return null;
                 }
             }
@@ -101,13 +99,14 @@ public class DetectionGround : MonoBehaviour
 
     private IEnumerator PlayFootstepSoundFromRenderer(Renderer Renderer)
     {
-        foreach (TextureSound textureSound in TextureSounds)
+        foreach (TextureSound textureSound in _textureSounds)
         {
             if (textureSound.BaseColor == Renderer.material.GetTexture("_MainTex"))
             {
                 EventReference clip = GetClipFromTextureSound(textureSound);
 
                 RuntimeManager.PlayOneShot(clip);
+                Debug.Log("Ca marche");
                 yield return null;
             }
         }

@@ -7,6 +7,8 @@ public class TurnPillar : MonoBehaviour, IActivatable
 {
 
     [SerializeField] private List<GameObject> turnRock = new List<GameObject>();
+    [SerializeField] private List<Transform> arrowposition = new List<Transform>();
+
 
     private GameObject _currentRock;
     private int _currentIndex = 0;
@@ -18,6 +20,12 @@ public class TurnPillar : MonoBehaviour, IActivatable
 
     [SerializeField] private CinemachineCamera _enigmaCinemachineCamera;
     [SerializeField] private GameObject _validationLight;
+    [SerializeField] private Transform _arrow;
+    [SerializeField] private float arrowMoveSpeed = 5f;
+
+    private Transform targetArrowPosition;
+
+
 
 
     void Start()
@@ -33,6 +41,7 @@ public class TurnPillar : MonoBehaviour, IActivatable
             _interactWithEnigma = true;
         }
         else _interactWithEnigma = false;
+
         GameManager.Instance.ToggleTotalFreezePlayer();
 
         
@@ -62,6 +71,20 @@ public class TurnPillar : MonoBehaviour, IActivatable
                 _currentIndex = (_currentIndex - 1 + turnRock.Count) % turnRock.Count;
                 _currentRock = turnRock[_currentIndex];
             }
+        }
+
+        if (_interactWithEnigma)
+        {
+            targetArrowPosition = arrowposition[_currentIndex+1];
+        }
+        else
+        {
+            targetArrowPosition = arrowposition[0]; // Position "idle"
+        }
+
+        if (_arrow != null && targetArrowPosition != null)
+        {
+            _arrow.position = Vector3.Lerp(_arrow.position, targetArrowPosition.position, Time.deltaTime * arrowMoveSpeed);
         }
     }
 

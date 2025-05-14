@@ -7,11 +7,14 @@ public class Keys : MonoBehaviour, IActivatable
     [SerializeField] private Keypad _keypad; 
     public UnityEvent clickOnKey;
 
+    
+
     public void OnMouseDown()
     {
         if (_keypad._isInteractingWhisEnigma)
         {
             clickOnKey.Invoke();
+           
         }
     }
 
