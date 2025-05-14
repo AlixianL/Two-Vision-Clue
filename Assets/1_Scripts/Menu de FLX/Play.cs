@@ -10,6 +10,8 @@ public class Play : MonoBehaviour,IActivatable
     [SerializeField] private Light _recuperationlight;
 
 
+    [SerializeField] private HandheldCameraManager _handheldCameraManager;
+
 
 
 
@@ -24,6 +26,7 @@ public class Play : MonoBehaviour,IActivatable
     {
         GameManager.Instance.ToggleMovementFreezePlayer();
         _cameraPanel.SetActive(false);
+        _handheldCameraManager.cameraCanBeInstalled = false;
     }
     public void Activate()
     {
@@ -49,6 +52,9 @@ public class Play : MonoBehaviour,IActivatable
         StartCoroutine(FadeLight(_menuLight, 0f, 1.5f));
         _recuperationlight.enabled = true;
 
+        _handheldCameraManager.isPlaying = true;
+
+        Debug.Log(_handheldCameraManager.isPlaying);
     }
 
     private void SetLayerRecursively(GameObject obj, int newLayer)

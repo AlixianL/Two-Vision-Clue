@@ -17,7 +17,9 @@ public class HandheldCameraManager : MonoBehaviour
     public bool cameraIsInstall;
     public bool playerCanTakeCamera;
     public bool cameraCanBeInstalled;
-    
+    public bool isPlaying;
+
+
 
     void Awake()
     {
@@ -27,31 +29,44 @@ public class HandheldCameraManager : MonoBehaviour
     
     public void InstallCamera()
     {
-        if (cameraCanBeInstalled)
+        if (isPlaying)
         {
-            if (handheldCamera != null) Destroy(handheldCamera);
-            handheldCamera = Instantiate(handheldCameraPrefab);
-            
-            handheldCamera.transform.position = spawnPoint.transform.position;
-            cameraIsInstall = true;
-            PlayerBrain.Instance.cameraBack.SetActive(true);
+            if (cameraCanBeInstalled)
+            {
+                if (_cameraToDestroy != null)
+                {
+                    Destroy(_cameraToDestroy);
+                    _cameraToDestroy = null;
+                }
+                if (handheldCamera != null) Destroy(handheldCamera);
+                handheldCamera = Instantiate(handheldCameraPrefab);
+
+                handheldCamera.transform.position = spawnPoint.transform.position;
+                cameraIsInstall = true;
+                PlayerBrain.Instance.cameraBack.SetActive(true);
+            }
         }
+        
     }
     
     public void UninstallCamera()
     {
-        if (_cameraToDestroy != null)
+        if (isPlaying)
         {
-            Destroy(_cameraToDestroy);
-            _cameraToDestroy = null;
+            if (_cameraToDestroy != null)
+            {
+                Destroy(_cameraToDestroy);
+                _cameraToDestroy = null;
+            }
+            if (cameraIsInstall)
+            {
+                Destroy(handheldCamera);
+                cameraIsInstall = false;
+                //playerCanTakeCamera = false;
+                cameraCanBeInstalled = true;
+                PlayerBrain.Instance.cameraBack.SetActive(false);
+            }
         }
-        if (cameraIsInstall)
-        {
-            Destroy(handheldCamera);
-            cameraIsInstall = false;
-            //playerCanTakeCamera = false;
-            cameraCanBeInstalled = true;
-            PlayerBrain.Instance.cameraBack.SetActive(false);
-        }
+        
     }
 }
