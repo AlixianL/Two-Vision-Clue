@@ -5554,6 +5554,10 @@ PrefabInstance:
       propertyPath: cameraBack
       value: 
       objectReference: {fileID: 612805295}
+    - target: {fileID: 7434773898259913790, guid: 1e09be4150bf4e04f8b03b044ec2a6ed, type: 3}
+      propertyPath: _sensibility
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 9013753269867907282, guid: 1e09be4150bf4e04f8b03b044ec2a6ed, type: 3}
       propertyPath: m_Name
       value: PF_Player
@@ -41543,8 +41547,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1341160240035448732, guid: 21f1b7083c8689943861f98736defc98, type: 3}
+      propertyPath: _scrollbar
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1341160240035448732, guid: 21f1b7083c8689943861f98736defc98, type: 3}
       propertyPath: _tabletteScrollPositionMax.y
       value: 8340.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 3352320907498796338, guid: 21f1b7083c8689943861f98736defc98, type: 3}
+      propertyPath: m_VerticalScrollbar
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5176092071190342859, guid: 21f1b7083c8689943861f98736defc98, type: 3}
       propertyPath: m_LocalPosition.x
@@ -41602,8 +41614,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF_TabletteInfos
       objectReference: {fileID: 0}
+    - target: {fileID: 8724471394831803979, guid: 21f1b7083c8689943861f98736defc98, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 8717784206502806551, guid: 21f1b7083c8689943861f98736defc98, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21f1b7083c8689943861f98736defc98, type: 3}
