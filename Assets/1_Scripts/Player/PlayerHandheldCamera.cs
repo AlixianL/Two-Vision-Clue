@@ -10,14 +10,12 @@ public class PlayerHandheldCamera : MonoBehaviour
         {
             HandheldCameraManager.Instance.InstallCamera();
              installCameraCount++;
-            Debug.Log("Caméra posée. Total posées: " + installCameraCount);
         }
         
         // Reprendre la cam
         if (PlayerBrain.Instance.player.GetButtonDown("DestroyCamera"))
         {
             HandheldCameraManager.Instance.UninstallCamera();
-            Debug.Log("Caméra reprise.");
         }
     }
 }

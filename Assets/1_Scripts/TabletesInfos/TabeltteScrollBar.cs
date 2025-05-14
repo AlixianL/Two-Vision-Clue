@@ -26,9 +26,6 @@ public class TabeltteScrollBar : MonoBehaviour
                 float newY = _tabletteRectTransform.localPosition.y + -_mouseWeel * _amplificator;
                 float clampedY = Mathf.Clamp(newY, 1240.95f, _tabletteScrollPositionMax.y);
                 _tabletteRectTransform.localPosition = new Vector2(_tabletteRectTransform.localPosition.x, clampedY);
-
-                _scrollbar.value = Mathf.Clamp(clampedY, 0f, 1f);
-                Debug.LogWarning($"Scrolbar Value : {_scrollbar.value}");
             }
         }
     }

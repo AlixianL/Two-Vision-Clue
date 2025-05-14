@@ -27,11 +27,11 @@ public class HandheldCameraManager : MonoBehaviour
     
     public void InstallCamera()
     {
-        if (cameraCanBeInstalled)
+        if (cameraCanBeInstalled && !cameraIsInstall)
         {
             if (handheldCamera != null) Destroy(handheldCamera);
             handheldCamera = Instantiate(handheldCameraPrefab);
-            
+            cameraCanBeInstalled = false;
             handheldCamera.transform.position = spawnPoint.transform.position;
             cameraIsInstall = true;
             PlayerBrain.Instance.cameraBack.SetActive(true);
@@ -49,7 +49,6 @@ public class HandheldCameraManager : MonoBehaviour
         {
             Destroy(handheldCamera);
             cameraIsInstall = false;
-            //playerCanTakeCamera = false;
             cameraCanBeInstalled = true;
             PlayerBrain.Instance.cameraBack.SetActive(false);
         }
