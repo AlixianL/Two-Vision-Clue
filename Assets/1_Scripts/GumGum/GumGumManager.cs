@@ -23,10 +23,7 @@ public class GumGumManager : MonoBehaviour
     [Header("UI References"), Space(5)]
     [SerializeField] private TMP_Text _gumgumName;//-------------> Nom de GumGum affiché dans l'UI (non utilisé ici)
     [SerializeField] private TMP_Text _gumgumDialogues;//--------> Zone de texte pour afficher les dialogues
-    public GameObject gumGumPanel;//-----------------------------> Panneau UI contenant le dialogue
     public GameObject enigmaContainer;//-------------------------> Conteneur UI avec les boutons d’énigmes
-    [Header("Références")]
-    public GumUIManager gumUIManager;//-------------------------->Mise à jour compteur chewingum UI
 
     [Header("GumGum Logic"), Space(5)]
     [SerializeField] private GumGum _gumGum;//-------------------> Référence au script contenant les données de dialogues
@@ -92,11 +89,10 @@ public class GumGumManager : MonoBehaviour
                 if (int.TryParse(name.Replace("Enigma_", ""), out int enigmaNumber))
                 {
                     PlayerBrain.Instance.chewingGumCount--;
-                    if (gumUIManager == null)
-                        gumUIManager = FindObjectOfType<GumUIManager>();
-                        
-                        // Met à jour l'UI
-                        gumUIManager?.ShowGumCount(PlayerBrain.Instance.chewingGumCount);
+                    
+                    GameManager.Instance.playerUI.SetActive(false);
+                    GameManager.Instance.gumgumUI.SetActive(false);
+                    
                     StartCoroutine(ShowClueWithAnimation(enigmaNumber));
                 }
             }
@@ -241,7 +237,8 @@ public class GumGumManager : MonoBehaviour
         PlayerBrain.Instance.playerGameObject.transform.rotation = Quaternion.Euler(0, targetSpawn.rotation.eulerAngles.y, 0);
         PlayerBrain.Instance.cinemachineTargetGameObject.transform.LookAt(targetSpawn.position);
         CluePosition tempVar = targetSpawn.GetComponent<CluePosition>();
-        tempVar._playerIsInteracting = true;
+        tempVar.playerIsInteracting = true;
+        GameManager.Instance.clueUI.SetActive(true);
     }
 
     /// <summary>
@@ -314,7 +311,7 @@ public class GumGumManager : MonoBehaviour
     /// </summary>
     void EndDialogue()
     {
-        gumGumPanel.SetActive(false);
+        GameManager.Instance.gumgumUI.SetActive(false);
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
 

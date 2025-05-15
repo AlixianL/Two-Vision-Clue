@@ -8,11 +8,13 @@ public class CluePosition : MonoBehaviour, IActivatable
     public List<GameObject> clues = new List<GameObject>();
     public CinemachineCamera clueCinemachineCamera;
 
+    [SerializeField] private Transform _targetPosition;
+
     [Header("Settings"), Space(5)]
     public float distanceFromCenter;
     
     [Header("Variables"), Space(5)]
-    public bool _playerIsInteracting = false;
+    public bool playerIsInteracting = false;
     
 
     /// <summary>
@@ -36,15 +38,16 @@ public class CluePosition : MonoBehaviour, IActivatable
                 Mathf.Sin(rad) * distanceFromCenter
             );
 
-            clues[i].transform.position = transform.position + offset;
+            clues[i].transform.position = _targetPosition.position + offset;
         }
     }
     
     public void Activate()
     {
-        _playerIsInteracting = !_playerIsInteracting;
-        ChangePositionCinemachine.Instance.SwitchCam(clueCinemachineCamera, _playerIsInteracting);
+        playerIsInteracting = !playerIsInteracting;
+        ChangePositionCinemachine.Instance.SwitchCam(clueCinemachineCamera, playerIsInteracting);
         GameManager.Instance.ToggleTotalFreezePlayer();
+        GameManager.Instance.clueUI.SetActive(!GameManager.Instance.clueUI.activeSelf);
     }
     
     // Pour tester directement depuis l'inspecteur (facultatif)

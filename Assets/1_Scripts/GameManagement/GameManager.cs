@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     public GameObject labyrintheUI;
     public GameObject mirrorUI;
     public GameObject interactUI;
+    public GameObject clueUI;
+    public GameObject gumgumUI;
     
     
     void Awake()
