@@ -46098,9 +46098,10 @@ GameObject:
   - component: {fileID: 4590946674488797676}
   - component: {fileID: 7946887758620887200}
   - component: {fileID: 2601538763251429273}
+  - component: {fileID: 7946887758620887201}
   m_Layer: 0
   m_Name: polySurface5
-  m_TagString: Untagged
+  m_TagString: Mirror
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46234,6 +46235,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4423567424358326428}
   m_Mesh: {fileID: -4545423930167495100, guid: 81901a7c10ff28241aa1878650b158d7, type: 3}
+--- !u!65 &7946887758620887201
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4423567424358326428}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.1831036, y: 1.1784668, z: 0.12910567}
+  m_Center: {x: 0, y: 0, z: 0.0000038146973}
 --- !u!1 &8067223548634187698
 GameObject:
   m_ObjectHideFlags: 0
