@@ -20,6 +20,7 @@ public class DialogueTrigger : MonoBehaviour
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
         GameManager.Instance.ToggleTotalFreezePlayer();
+        PlayerBrain.Instance.playerRigidbody.linearVelocity = Vector3.zero;
         GameManager.Instance.playerUI.gameObject.SetActive(false);
         PlayerBrain.Instance.playerInteractionSystem.playerCanInteractWhithMouse = false;
         

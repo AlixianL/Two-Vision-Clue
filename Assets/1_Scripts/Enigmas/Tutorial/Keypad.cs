@@ -31,6 +31,9 @@ public class Keypad : MonoBehaviour, IActivatable
     public bool _isClear = true;
     private bool _isValidated = false;
 
+    /// <summary>
+    /// 
+    /// </summary>
     
 
     void Start()
@@ -58,9 +61,7 @@ public class Keypad : MonoBehaviour, IActivatable
         if (_isInteractingWhisEnigma) PlaceRaycastOrigineForDigicode();
         else PlaceRaycastOrigineToPlayerCamera();
         
-        
         PlayerBrain.Instance.playerInteractionSystem.playerCanInteractWhithMouse = !_isInteractingWhisEnigma;
-        
         
         if (!_isValidated && _isClear) Reset();
         
@@ -77,10 +78,8 @@ public class Keypad : MonoBehaviour, IActivatable
         
         if (Cursor.visible == false) Cursor.visible = true;
         else Cursor.visible = false;
-        
-        
     }
-    
+
     public void Clear()
     {
         feedBack.text = "";
