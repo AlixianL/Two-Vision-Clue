@@ -89,10 +89,18 @@ public class GumGumManager : MonoBehaviour
                 if (int.TryParse(name.Replace("Enigma_", ""), out int enigmaNumber))
                 {
                     PlayerBrain.Instance.chewingGumCount--;
+<<<<<<< HEAD
                     
                     GameManager.Instance.playerUI.SetActive(false);
                     GameManager.Instance.gumgumUI.SetActive(false);
                     
+=======
+                    if (gumUIManager == null)
+                        gumUIManager = FindFirstObjectByType<GumUIManager>();
+                        
+                        // Met à jour l'UI
+                        gumUIManager?.ShowGumCount(PlayerBrain.Instance.chewingGumCount);
+>>>>>>> Master-Felix
                     StartCoroutine(ShowClueWithAnimation(enigmaNumber));
                 }
             }
