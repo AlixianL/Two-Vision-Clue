@@ -89,18 +89,12 @@ public class GumGumManager : MonoBehaviour
                 if (int.TryParse(name.Replace("Enigma_", ""), out int enigmaNumber))
                 {
                     PlayerBrain.Instance.chewingGumCount--;
-<<<<<<< HEAD
                     
                     GameManager.Instance.playerUI.SetActive(false);
                     GameManager.Instance.gumgumUI.SetActive(false);
                     
-=======
-                    if (gumUIManager == null)
-                        gumUIManager = FindFirstObjectByType<GumUIManager>();
-                        
-                        // Met à jour l'UI
-                        gumUIManager?.ShowGumCount(PlayerBrain.Instance.chewingGumCount);
->>>>>>> Master-Felix
+                    if (GameManager.Instance.gumUIManager == null) GameManager.Instance.gumUIManager = FindObjectOfType<GumUIManager>(); GameManager.Instance.gumUIManager?.ShowGumCount(PlayerBrain.Instance.chewingGumCount);
+                    
                     StartCoroutine(ShowClueWithAnimation(enigmaNumber));
                 }
             }
@@ -223,7 +217,7 @@ public class GumGumManager : MonoBehaviour
     /// Instancie un indice à une position aléatoire.
     /// </summary>
     private void IntanciateClue()
-    {
+    { 
         clueInstance = Instantiate(cluePrefab,targetSpawn.position + new Vector3(Random.Range(-0.15f, 0.15f), 0, Random.Range(-0.15f, 0.15f)), targetSpawn.rotation);
         clueInstance.transform.SetParent(targetSpawn);
         _cluePosition = targetSpawn.GetComponent<CluePosition>();
@@ -241,7 +235,7 @@ public class GumGumManager : MonoBehaviour
         else Cursor.visible = false;
         
         GameManager.Instance.ToggleTotalFreezePlayer(); 
-        PlayerBrain.Instance.playerGameObject.transform.position = new Vector3(targetSpawn.position.x, PlayerBrain.Instance.playerGameObject.transform.position.y, targetSpawn.position.z - 1.5f);
+        PlayerBrain.Instance.playerGameObject.transform.position = new Vector3(targetSpawn.position.x, PlayerBrain.Instance.playerGameObject.transform.position.y, targetSpawn.position.z + 1.5f);
         PlayerBrain.Instance.playerGameObject.transform.rotation = Quaternion.Euler(0, targetSpawn.rotation.eulerAngles.y, 0);
         PlayerBrain.Instance.cinemachineTargetGameObject.transform.LookAt(targetSpawn.position);
         CluePosition tempVar = targetSpawn.GetComponent<CluePosition>();

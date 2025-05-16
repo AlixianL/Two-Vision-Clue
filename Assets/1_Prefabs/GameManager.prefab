@@ -1,0 +1,229 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4951160814328225332
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8934851098289403035}
+  - component: {fileID: 6789886154056277814}
+  - component: {fileID: 1806322946645483059}
+  m_Layer: 0
+  m_Name: SoundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8934851098289403035
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4951160814328225332}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -6.712118, y: -8.797092, z: 10.418341}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8720240631924104946}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6789886154056277814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4951160814328225332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4546d71608fa7b40873ffd436742b09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1806322946645483059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4951160814328225332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe567d3ef4e4d1346ad381e41f346585, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam1: {fileID: 0}
+  cam2: {fileID: 0}
+  tempListenerCam1: {fileID: 0}
+  tempListenerCam2: {fileID: 0}
+  playerHandheldCamera: {fileID: 0}
+--- !u!1 &6578125025817267554
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8720240631924104946}
+  - component: {fileID: 3426596621621602038}
+  - component: {fileID: 2968898430702619326}
+  - component: {fileID: 5965820035858382223}
+  - component: {fileID: 7715716786101729071}
+  - component: {fileID: 801579245542985658}
+  - component: {fileID: 6580716170555168759}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8720240631924104946
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6578125025817267554}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 2.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 8934851098289403035}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3426596621621602038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6578125025817267554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1eb2351d9cc7c94484a4e90907c12ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerUI: {fileID: 0}
+  digicodeUI: {fileID: 0}
+  pillarUI: {fileID: 0}
+  labyrintheUI: {fileID: 0}
+  mirrorUI: {fileID: 0}
+  interactUI: {fileID: 0}
+  clueUI: {fileID: 0}
+  gumgumUI: {fileID: 0}
+--- !u!114 &2968898430702619326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6578125025817267554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cec3d93e63895b9429419a3478635c19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  handheldCameraPrefab: {fileID: 834981317997538477, guid: a58ef789fdb8ddd4990d073bebee5058, type: 3}
+  spawnPoint: {fileID: 0}
+  _cameraToDestroy: {fileID: 0}
+  cameraIsInstall: 0
+  playerCanTakeCamera: 0
+  cameraCanBeInstalled: 0
+  isPlaying: 0
+--- !u!114 &5965820035858382223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6578125025817267554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d480f5129c4f80e4cb8cc5fa2ef5f760, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _GumGumAnimator: {fileID: 0}
+  _BullGumAnimator: {fileID: 0}
+  _showClueAnimationTrigger: ShowClue
+  _TalkAnimationTrigger: Talk
+  _gumgumName: {fileID: 0}
+  _gumgumDialogues: {fileID: 0}
+  enigmaContainer: {fileID: 0}
+  _gumGum: {fileID: 0}
+  dialogueTrigger: {fileID: 0}
+  clueInstance: {fileID: 0}
+  cluePrefab: {fileID: 2218582822724200629, guid: eccdb062083264a4fa9f8d348f10a12d, type: 3}
+  _cluePosition: {fileID: 0}
+  spawnPointsArray:
+  - enigmaNumber: 1
+    spawnPoint: {fileID: 0}
+  - enigmaNumber: 2
+    spawnPoint: {fileID: 0}
+  - enigmaNumber: 3
+    spawnPoint: {fileID: 0}
+  - enigmaNumber: 4
+    spawnPoint: {fileID: 0}
+  _isInRange: 0
+  isInteracting: 0
+  gumgumCinemachineCamera: {fileID: 0}
+--- !u!114 &7715716786101729071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6578125025817267554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7a2b2836383a8c45ba5c4288b5fc8be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &801579245542985658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6578125025817267554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d00728ea1ce89fa458c8d2da43e18a0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerCinemachineCamera: {fileID: 0}
+  _gumgumCinemachineCamera: {fileID: 0}
+  _digicodeCinemachineCamera: {fileID: 0}
+  _doorCinemachineCamera: {fileID: 0}
+  _labyrinthCinemachineCamera: {fileID: 0}
+  _pilerCinemachineCamera: {fileID: 0}
+  _laserCinemachineCamera: {fileID: 0}
+  _clue_01CinemachineCamera: {fileID: 0}
+  _clue_02CinemachineCamera: {fileID: 0}
+  _clue_03CinemachineCamera: {fileID: 0}
+  _clue_04CinemachineCamera: {fileID: 0}
+--- !u!114 &6580716170555168759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6578125025817267554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6572b8c9cb87ffe44a269236b797db3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gumText: {fileID: 0}
+  gumCanvasGroup: {fileID: 0}
+  fadeInDuration: 0.3
+  fadeOutDuration: 0.5
+  displayDuration: 1.5

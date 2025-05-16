@@ -5,7 +5,7 @@ using System.Collections;
 
 public class GumUIManager : MonoBehaviour
 {
-    [Header("Références UI")]
+    [Header("References UI")]
     public TMP_Text gumText;
     public CanvasGroup gumCanvasGroup;
     
