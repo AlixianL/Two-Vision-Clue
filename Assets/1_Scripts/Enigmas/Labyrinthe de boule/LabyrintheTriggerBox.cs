@@ -19,6 +19,8 @@ public class LabyrintheTriggerBox : MonoBehaviour
             other.attachedRigidbody.useGravity = false;
             _validationLight.SetActive(true);
             Debug.Log("Labyrinthe Fini");
+            
+            SaveData.Instance.gameData.labyrintheEnigmaIsComplete = true;
         }
     }
 }

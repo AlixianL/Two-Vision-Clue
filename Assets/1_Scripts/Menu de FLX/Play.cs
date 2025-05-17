@@ -9,11 +9,7 @@ public class Play : MonoBehaviour,IActivatable
     [SerializeField] private Light _menuLight;
     [SerializeField] private Light _recuperationlight;
 
-
     [SerializeField] private HandheldCameraManager _handheldCameraManager;
-
-
-
 
     [SerializeField] private Transform _playerPosition;
     [SerializeField] private GameObject _cameraPanel;
@@ -21,8 +17,12 @@ public class Play : MonoBehaviour,IActivatable
     [SerializeField] private float _effectDuration;
     [SerializeField] private float _playerDistance;
 
-
     public void Start()
+    {
+        PreActiavte();
+    }
+    
+    void PreActiavte()
     {
         GameManager.Instance.ToggleMovementFreezePlayer();
         _cameraPanel.SetActive(false);
@@ -30,6 +30,8 @@ public class Play : MonoBehaviour,IActivatable
     }
     public void Activate()
     {
+        PreActiavte();
+        
         foreach (GameObject Panel in MainMenu)
         {
             SetLayerRecursively(Panel, LayerMask.NameToLayer("OnlyVisibleToTheCamera"));
@@ -90,7 +92,7 @@ public class Play : MonoBehaviour,IActivatable
 
 
         // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-        // -- logique des déplacement  ---------------------------------
+        // -- logique des dï¿½placement  ---------------------------------
         // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
         for (float t = 0; t < 1f; t += Time.deltaTime / _effectDuration)

@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     [Header("References"), Space(5)]
     public GumUIManager gumUIManager;
     public SaveData saveData;
+    public LoadAndSave loadAndSave;
     
     void Awake()
     {

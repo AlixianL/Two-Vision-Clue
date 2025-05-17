@@ -2,36 +2,34 @@ using UnityEngine;
 
 public class SaveData : MonoBehaviour
 {
+    public static SaveData Instance;
+    
     [Header("DATA TO SAVE")]
     public GameData gameData = new GameData();
-
-    // Update temporaire
-    /*void Update()
+    
+    void Awake()
     {
-        if (Input.GetKeyDown(KeyCode.Keypad1))
-        {
-            SaveDataToJsonFile();
-        }
-        if (Input.GetKeyDown(KeyCode.Keypad2))
-        {
-            LoadDataFromJsonFile();
-        }
-    }*/
+        if (Instance == null) Instance = this;
+        Debug.Log(Instance.ToString());
+    }
     
     /// <summary>
     /// Permet la sauvegarde des données ayant comme origine la classe GameData
     /// </summary>
-    public void SaveDataToJsonFile()
+    public void SaveDataToJsonFile(int number)
     {
         string gameDataString = JsonUtility.ToJson(gameData); // génère la data a partir de gameData
-        string filePath = Application.persistentDataPath + "/GameData.json"; // Chemin ou enregistrer le fichier json
+        string filePath = Application.persistentDataPath + "/GameData_Save_0"+ number + ".json"; // Chemin ou enregistrer le fichier json
         System.IO.File.WriteAllText(filePath, gameDataString); // ecriture du fichier json avec les datas saves
         Debug.Log("Save Complete");
     }
     
-    public void LoadDataFromJsonFile()
+    /// <summary>
+    /// Permet le chargement des données ayant comme origine la classe GameData
+    /// </summary>
+    public void LoadDataFromJsonFile(int number)
     {
-        string filePath = Application.persistentDataPath + "/GameData.json"; // Chemin ou enregistrer le fichier json
+        string filePath = Application.persistentDataPath + "/GameData_Save_0"+ number + ".json"; // Chemin ou enregistrer le fichier json
         string gameDataString = System.IO.File.ReadAllText(filePath);
         
         gameData = JsonUtility.FromJson<GameData>(gameDataString);
@@ -52,5 +50,4 @@ public class GameData
     public bool pillarEnigmaIsComplete = false;
     public bool simonEnigmaIsComplete = false;
     public bool finalEnigmaIsComplete = false;
-    
 }

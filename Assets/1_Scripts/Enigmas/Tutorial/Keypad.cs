@@ -116,6 +116,8 @@ public class Keypad : MonoBehaviour, IActivatable
             doors.Interact();
             
             GameManager.Instance.ToggleTotalFreezePlayer();
+            
+            SaveData.Instance.gameData.digicodeEnigmaIsComplete = true;
         }
         else
         {
