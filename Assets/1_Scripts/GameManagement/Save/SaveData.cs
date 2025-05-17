@@ -50,4 +50,15 @@ public class GameData
     public bool pillarEnigmaIsComplete = false;
     public bool simonEnigmaIsComplete = false;
     public bool finalEnigmaIsComplete = false;
+    
+    [Header("GAMES OBJECTS - VARIABLES"), Space(5)]
+    public GameObject gameManager; 
+    public GameObject gumgum;
+    public GameObject player;
+    public GameObject digicodeEnigma;
+    public GameObject labyrintheEnigma;
+    public GameObject mirrorEnigma;
+    public GameObject pillarEnigma;
+    public GameObject simonEnigma;
+    public GameObject finalEnigma;
 }

@@ -19,19 +19,12 @@ public class Play : MonoBehaviour,IActivatable
 
     public void Start()
     {
-        PreActiavte();
-    }
-    
-    void PreActiavte()
-    {
         GameManager.Instance.ToggleMovementFreezePlayer();
         _cameraPanel.SetActive(false);
         _handheldCameraManager.cameraCanBeInstalled = false;
     }
     public void Activate()
     {
-        PreActiavte();
-        
         foreach (GameObject Panel in MainMenu)
         {
             SetLayerRecursively(Panel, LayerMask.NameToLayer("OnlyVisibleToTheCamera"));

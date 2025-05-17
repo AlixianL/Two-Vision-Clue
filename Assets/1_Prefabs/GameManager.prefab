@@ -72,11 +72,11 @@ GameObject:
   m_Component:
   - component: {fileID: 8720240631924104946}
   - component: {fileID: 3426596621621602038}
+  - component: {fileID: 7392577432213346236}
   - component: {fileID: 2968898430702619326}
   - component: {fileID: 5965820035858382223}
   - component: {fileID: 7715716786101729071}
   - component: {fileID: 801579245542985658}
-  - component: {fileID: 6580716170555168759}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -120,6 +120,22 @@ MonoBehaviour:
   interactUI: {fileID: 0}
   clueUI: {fileID: 0}
   gumgumUI: {fileID: 0}
+  gumUIManager: {fileID: 0}
+  saveData: {fileID: 0}
+  loadAndSave: {fileID: 0}
+--- !u!114 &7392577432213346236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6578125025817267554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fc06c4f347b27c4e879fe94a6d25074, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneToLoad: Scene_Transition
 --- !u!114 &2968898430702619326
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -210,20 +226,3 @@ MonoBehaviour:
   _clue_02CinemachineCamera: {fileID: 0}
   _clue_03CinemachineCamera: {fileID: 0}
   _clue_04CinemachineCamera: {fileID: 0}
---- !u!114 &6580716170555168759
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6578125025817267554}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6572b8c9cb87ffe44a269236b797db3b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gumText: {fileID: 0}
-  gumCanvasGroup: {fileID: 0}
-  fadeInDuration: 0.3
-  fadeOutDuration: 0.5
-  displayDuration: 1.5

@@ -5,7 +5,7 @@ public class LoadGame : MonoBehaviour, IActivatable
 {
     [Header("References"), Space(5)]
     [SerializeField] private List<GameObject> MainMenu = new List<GameObject>();
-    [SerializeField] private GameObject loadGamePanel;
+    [SerializeField] private List<GameObject> loadGamePanel = new List<GameObject>();
     
     public void Activate()
     {
@@ -14,6 +14,9 @@ public class LoadGame : MonoBehaviour, IActivatable
             Panel.SetActive(false);
         }
         
-        loadGamePanel.SetActive(true);
+        foreach (GameObject Panel in loadGamePanel)
+        {
+            Panel.SetActive(true);
+        }
     }
 }
