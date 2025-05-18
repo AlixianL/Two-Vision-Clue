@@ -8908,7 +8908,7 @@ MonoBehaviour:
   - {fileID: 1451701064}
   - {fileID: 558354630}
   - {fileID: 1505230126}
-  _isPlaying: 0
+  _isPlaying: 1
 --- !u!1 &520221137 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: e6220b6503f52dc44b98cfa52c057187, type: 3}
@@ -22033,7 +22033,7 @@ MonoBehaviour:
   _validateColor: {r: 0.38938764, g: 0.8396226, b: 0.027723404, a: 0}
   _numberForEnd: 5
   _sequenceNumber: 0
-  _simonsDelay: 0.8
+  _simonsDelay: 1.1
   _feedbackDuration: 1
   _validationLight: {fileID: 1026312892}
 --- !u!4 &1130240001
@@ -25172,6 +25172,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8832529869389958951, guid: 375034b5630682e4d9fbfd64d8979910, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
