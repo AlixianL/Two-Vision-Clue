@@ -37,8 +37,8 @@ public class LaserBeam : MonoBehaviour, IActivatable
     {
         _validationLight.SetActive(false);
         _verifLight.material.color = _isOff;
-
     }
+    
     public void Activate()
     {
         if (!_lazerIsOn)
@@ -53,18 +53,17 @@ public class LaserBeam : MonoBehaviour, IActivatable
             _lineRenderer.positionCount = 0;
         }
     }
-    
 
     void Update()
     {
         if (_puzzleEnd) return;
-
-
         if (_lazerIsOn)
         {
             DrawLaser();
         }
     }
+
+    
 
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     // -- Fonction du comportement du rayon ------------------------

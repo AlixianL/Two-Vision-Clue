@@ -40,7 +40,6 @@ public class Keypad : MonoBehaviour, IActivatable, ISaveAndPullData
     {
         _indicatorLight.material.color = _defaultMaterialColor;
         feedBack.text = _defaultText;
-        PullDataFromSave();
         _raycastOrigine = _raycastOrigineGameObject.GetComponent<RaycastOrigine>();
     }
 
@@ -137,7 +136,11 @@ public class Keypad : MonoBehaviour, IActivatable, ISaveAndPullData
     {
         _isValidated = SaveData.Instance.gameData.enigmaIsComplete_digicode;
         feedBack.text = SaveData.Instance.gameData.codeText;
-        doors._isOpen = SaveData.Instance.gameData.doorsAreOpen;
+        if (SaveData.Instance.gameData.doorsAreOpen)
+        {
+            doors.Interact();
+            doors._isOpen = SaveData.Instance.gameData.doorsAreOpen;
+        }
     }
     
     public void Reset()

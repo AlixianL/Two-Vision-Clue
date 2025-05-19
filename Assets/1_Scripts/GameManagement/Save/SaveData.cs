@@ -50,10 +50,10 @@ public class SaveData : MonoBehaviour
 [System.Serializable] // Permet d'utilise une classe comme variable
 public class GameData
 {
-    [Header("INT - VARIABLES"), Space(5)]
+    [Header("=== INT - VARIABLES =============================="), Space(5)]
     public int chewinggumCount;
     
-    [Header("BOOL - VARIABLES"), Space(5)]
+    [Header("=== BOOL - VARIABLES ============================="), Space(5)]
     public bool enigmaIsComplete_digicode = false;
     public bool enigmaIsComplete_labyrinthe = false;
     public bool enigmaIsComplete_mirror = false;
@@ -61,24 +61,42 @@ public class GameData
     public bool enigmaIsComplete_simon = false;
     public bool enigmaIsComplete_final = false;
 
-    [Header("ENIGME - DIGICODE"), Space(5)]
+    [Header("=== ENIGME - DIGICODE ============================"), Space(5)]
     public bool digicodeValidateLightIsActive;
     public string codeText;
     public bool doorsAreOpen;
     
-    [Header("ENIGME - LABYRINTHE"), Space(5)]
+    [Header("=== ENIGME - LABYRINTHE =========================="), Space(5)]
     public bool labyrintheValidateLightIsActive;
+    public Vector3 labyrintheRotation;
+    public Vector3 ballPosition;
     
-    
-    [Header("ENIGME - MIRROIRS"), Space(5)]
+    [Header("=== ENIGME - MIRROIRS ============================"), Space(5)]
     public bool mirorsValidateLightIsActive;
+    [Space(5)]
+    public Vector3 rotationMirrorY_01;
+    public Vector3 rotationMirrorX_01;
+    [Space(5)]
+    public Vector3 rotationMirrorY_02;
+    public Vector3 rotationMirrorX_02;
+    [Space(5)]
+    public Vector3 rotationMirrorY_03;
+    public Vector3 rotationMirrorX_03;
+    [Space(5)]
+    public Vector3 rotationMirrorY_04;
+    public Vector3 rotationMirrorX_04;
     
-    
-    [Header("ENIGME - PILLIER"), Space(5)]
+    [Header("=== ENIGME - PILLIER ============================"), Space(5)]
     public bool pillarValidateLightIsActive;
+    [Space(5)]
+    public Vector3 rotationCubeY_01;
+    [Space(5)]
+    public Vector3 rotationCubeY_02;
+    [Space(5)]
+    public Vector3 rotationCubeY_03;
     
     
-    [Header("GUMGUM"), Space(5)]
+    [Header("=== GUMGUM ======================================"), Space(5)]
     public bool validateLightIsActive;
     
 }
