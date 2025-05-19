@@ -26,6 +26,11 @@ public class TurnPillar : MonoBehaviour, IActivatable
 
     [SerializeField] private float arrowMoveSpeed = 5f;//-----------------------------> vitesse de la fleche pour changer de position
 
+    //Sound-Design
+    public TriggerSoundMultiple triggerSoundMultiple;
+
+    
+
 
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     // -- initialisation de l'enigme -------------------------------
@@ -42,6 +47,7 @@ public class TurnPillar : MonoBehaviour, IActivatable
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     public void Activate()
     {
+        triggerSoundMultiple.PlaySound(0);
         _currentIndex = 0;
         if (!_interactWithEnigma)
         {
@@ -66,28 +72,34 @@ public class TurnPillar : MonoBehaviour, IActivatable
             if (PlayerBrain.Instance.player.GetButton("RightMovement"))
             {
                 StartCoroutine(RotateRockSmooth(90f, 0.5f));
+                
             }
             if (PlayerBrain.Instance.player.GetButton("LeftMovement"))
             {
                 StartCoroutine(RotateRockSmooth(-90f, 0.5f));
+                
             }
 
             if (PlayerBrain.Instance.player.GetButtonDown("ForwardMovement"))
             {
                 _currentIndex = (_currentIndex + 1 + turnRock.Count) % turnRock.Count;
                 _currentRock = turnRock[_currentIndex];
+                triggerSoundMultiple.PlaySound(1);
             }
             if (PlayerBrain.Instance.player.GetButtonDown("BackwardMovement"))
             {
                 _currentIndex = (_currentIndex - 1 + turnRock.Count) % turnRock.Count;
                 _currentRock = turnRock[_currentIndex];
+                triggerSoundMultiple.PlaySound(1);
+
             }
         }
         //-----> ICI la position de la fleche quand on interagit avec l'enigme
         if (_interactWithEnigma)
         {
             _pillarAnimator.SetBool("IsActive", true);
-            
+           
+
             targetArrowPosition = arrowposition[_currentIndex+1];
         }
         else
