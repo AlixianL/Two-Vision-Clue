@@ -136,6 +136,6 @@ public class LaserBeam : MonoBehaviour, IActivatable
             }
         }
         
-        SaveData.Instance.gameData.mirrorEnigmaIsComplete = true;
+        SaveData.Instance.gameData.enigmaIsComplete_mirror = true;
     }
 }

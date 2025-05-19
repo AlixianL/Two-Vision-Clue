@@ -7,7 +7,7 @@ using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Keypad : MonoBehaviour, IActivatable
+public class Keypad : MonoBehaviour, IActivatable, ISaveAndPullData
 {
     [Header("References"), Space(5)]
     public TMP_Text feedBack;
@@ -40,7 +40,7 @@ public class Keypad : MonoBehaviour, IActivatable
     {
         _indicatorLight.material.color = _defaultMaterialColor;
         feedBack.text = _defaultText;
-        
+        PullDataFromSave();
         _raycastOrigine = _raycastOrigineGameObject.GetComponent<RaycastOrigine>();
     }
 
@@ -88,7 +88,7 @@ public class Keypad : MonoBehaviour, IActivatable
 
     public void Validate()
     {
-        if (feedBack.text == _password.ToString())
+        if (feedBack.text == _password.ToString() || _isValidated)
         {
             _indicatorLight.material.color = _validateMaterialColor;
             
@@ -116,8 +116,8 @@ public class Keypad : MonoBehaviour, IActivatable
             doors.Interact();
             
             GameManager.Instance.ToggleTotalFreezePlayer();
-            
-            SaveData.Instance.gameData.digicodeEnigmaIsComplete = true;
+            PushDataToSave();
+
         }
         else
         {
@@ -125,7 +125,21 @@ public class Keypad : MonoBehaviour, IActivatable
             StartCoroutine(Delay(1f));
         }
     }
+    
+    public void PushDataToSave()
+    {
+        SaveData.Instance.gameData.enigmaIsComplete_digicode = true;
+        SaveData.Instance.gameData.codeText = feedBack.text;
+        SaveData.Instance.gameData.doorsAreOpen = true;
+    }
 
+    public void PullDataFromSave()
+    {
+        _isValidated = SaveData.Instance.gameData.enigmaIsComplete_digicode;
+        feedBack.text = SaveData.Instance.gameData.codeText;
+        doors._isOpen = SaveData.Instance.gameData.doorsAreOpen;
+    }
+    
     public void Reset()
     {
         feedBack.text = "_ _ _ _";
@@ -150,4 +164,6 @@ public class Keypad : MonoBehaviour, IActivatable
         _raycastOrigineGameObject.transform.position = new Vector3(PlayerBrain.Instance.cinemachineTargetGameObject.transform.position.x, 
             PlayerBrain.Instance.cinemachineTargetGameObject.transform.position.y, PlayerBrain.Instance.cinemachineTargetGameObject.transform.position.z);
     }
+    
+    
 }

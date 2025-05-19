@@ -1,3 +1,5 @@
+using System;
+using TMPro;
 using UnityEngine;
 
 public class SaveData : MonoBehaviour
@@ -12,7 +14,15 @@ public class SaveData : MonoBehaviour
         if (Instance == null) Instance = this;
         Debug.Log(Instance.ToString());
     }
-    
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Keypad1))
+        {
+            LoadDataFromJsonFile(1);
+        }
+    }
+
     /// <summary>
     /// Permet la sauvegarde des données ayant comme origine la classe GameData
     /// </summary>
@@ -21,7 +31,7 @@ public class SaveData : MonoBehaviour
         string gameDataString = JsonUtility.ToJson(gameData); // génère la data a partir de gameData
         string filePath = Application.persistentDataPath + "/GameData_Save_0"+ number + ".json"; // Chemin ou enregistrer le fichier json
         System.IO.File.WriteAllText(filePath, gameDataString); // ecriture du fichier json avec les datas saves
-        Debug.Log("Save Complete");
+        Debug.Log("Save Complete, Location : " + filePath);
     }
     
     /// <summary>
@@ -44,21 +54,31 @@ public class GameData
     public int chewinggumCount;
     
     [Header("BOOL - VARIABLES"), Space(5)]
-    public bool digicodeEnigmaIsComplete = false;
-    public bool labyrintheEnigmaIsComplete = false;
-    public bool mirrorEnigmaIsComplete = false;
-    public bool pillarEnigmaIsComplete = false;
-    public bool simonEnigmaIsComplete = false;
-    public bool finalEnigmaIsComplete = false;
+    public bool enigmaIsComplete_digicode = false;
+    public bool enigmaIsComplete_labyrinthe = false;
+    public bool enigmaIsComplete_mirror = false;
+    public bool enigmaIsComplete_pillar = false;
+    public bool enigmaIsComplete_simon = false;
+    public bool enigmaIsComplete_final = false;
+
+    [Header("ENIGME - DIGICODE"), Space(5)]
+    public bool digicodeValidateLightIsActive;
+    public string codeText;
+    public bool doorsAreOpen;
     
-    [Header("GAMES OBJECTS - VARIABLES"), Space(5)]
-    public GameObject gameManager; 
-    public GameObject gumgum;
-    public GameObject player;
-    public GameObject digicodeEnigma;
-    public GameObject labyrintheEnigma;
-    public GameObject mirrorEnigma;
-    public GameObject pillarEnigma;
-    public GameObject simonEnigma;
-    public GameObject finalEnigma;
+    [Header("ENIGME - LABYRINTHE"), Space(5)]
+    public bool labyrintheValidateLightIsActive;
+    
+    
+    [Header("ENIGME - MIRROIRS"), Space(5)]
+    public bool mirorsValidateLightIsActive;
+    
+    
+    [Header("ENIGME - PILLIER"), Space(5)]
+    public bool pillarValidateLightIsActive;
+    
+    
+    [Header("GUMGUM"), Space(5)]
+    public bool validateLightIsActive;
+    
 }

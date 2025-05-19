@@ -133,6 +133,6 @@ public class TurnPillar : MonoBehaviour, IActivatable
         _validationLight.SetActive(true);
         _enigmeisend = true;
         Debug.Log("Pillar fini");
-        SaveData.Instance.gameData.pillarEnigmaIsComplete = true;
+        SaveData.Instance.gameData.enigmaIsComplete_pillar = true;
     }
 }

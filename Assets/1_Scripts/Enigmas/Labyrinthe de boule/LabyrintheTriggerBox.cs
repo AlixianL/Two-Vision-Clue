@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class LabyrintheTriggerBox : MonoBehaviour
+public class LabyrintheTriggerBox : MonoBehaviour, ISaveAndPullData
 {
     [Header("References"), Space(5)]
     [SerializeField] private RotateWeel _rotateWeel;
@@ -9,6 +9,7 @@ public class LabyrintheTriggerBox : MonoBehaviour
     void Start()
     {
         _validationLight.SetActive(false);
+        PullDataFromSave();
     }
     void OnTriggerEnter(Collider other)
     {
@@ -19,8 +20,18 @@ public class LabyrintheTriggerBox : MonoBehaviour
             other.attachedRigidbody.useGravity = false;
             _validationLight.SetActive(true);
             Debug.Log("Labyrinthe Fini");
-            
-            SaveData.Instance.gameData.labyrintheEnigmaIsComplete = true;
+
+            PushDataToSave();
         }
+    }
+
+    public void PushDataToSave()
+    {
+        SaveData.Instance.gameData.enigmaIsComplete_labyrinthe = true;
+    }
+    
+    public void PullDataFromSave()
+    {
+        SaveData.Instance.gameData.enigmaIsComplete_labyrinthe = true;
     }
 }
