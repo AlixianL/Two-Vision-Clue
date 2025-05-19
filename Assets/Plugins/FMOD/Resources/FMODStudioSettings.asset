@@ -289,16 +289,16 @@ MonoBehaviour:
     HasValue: 0
   displaySortOrder: 0
   childIdentifiers:
-  - 46fbfdf3fc43db0458918377fd40293e
-  - de700ef3f37a49b58a57ae3addf01ad9
-  - fd7c55dab0fce234b8c25f6ffca523c1
   - 2fea114e74ecf3c4f920e1d5cc1c4c40
-  - c88d16e5272a4e241b0ef0ac2e53b73d
-  - e7a046c753c3c3d4aacc91f6597f310d
-  - b7716510a1f36934c87976f3a81dbf3d
-  - 0f8eb3f400726694eb47beb1a9f94ce8
   - 2c5177b11d81d824dbb064f9ac8527da
   - 52eb9df5db46521439908db3a29a1bbb
+  - c88d16e5272a4e241b0ef0ac2e53b73d
+  - de700ef3f37a49b58a57ae3addf01ad9
+  - 46fbfdf3fc43db0458918377fd40293e
+  - b7716510a1f36934c87976f3a81dbf3d
+  - e7a046c753c3c3d4aacc91f6597f310d
+  - fd7c55dab0fce234b8c25f6ffca523c1
+  - 0f8eb3f400726694eb47beb1a9f94ce8
   codecChannels:
     Value: []
     HasValue: 0
@@ -390,8 +390,8 @@ MonoBehaviour:
   switchSettingsMigration: 1
   HasSourceProject: 1
   HasPlatforms: 1
-  sourceProjectPath: 
-  sourceBankPath: 
+  sourceProjectPath: FmodProject/FmodTwoVisionClue/FmodTwoVisionClue.fspro
+  sourceBankPath: FmodProject/FmodTwoVisionClue/Build
   sourceBankPathUnformatted: 
   BankRefreshCooldown: 5
   ShowBankRefreshWindow: 1
@@ -412,8 +412,10 @@ MonoBehaviour:
   VirtualChannelSettings: []
   RealChannelSettings: []
   Plugins: []
-  MasterBanks: []
-  Banks: []
+  MasterBanks:
+  - Master
+  Banks:
+  - SFX
   BanksToLoad: []
   LiveUpdatePort: 9264
   EnableMemoryTracking: 0
@@ -429,18 +431,18 @@ MonoBehaviour:
   HideSetupWizard: 1
   LastEventReferenceScanVersion: 131846
   Platforms:
-  - {fileID: 6399499624986140818}
-  - {fileID: -5242795853532858468}
-  - {fileID: 732446001793248406}
-  - {fileID: 240691757382143005}
-  - {fileID: 6312785138843739248}
   - {fileID: -9051094038662762985}
-  - {fileID: -4152803773263210802}
-  - {fileID: 4578602455238149384}
-  - {fileID: 3748517679418990624}
-  - {fileID: 8390715666370234954}
   - {fileID: -8738169006401696686}
   - {fileID: -5833030208556731943}
+  - {fileID: -5242795853532858468}
+  - {fileID: -4152803773263210802}
+  - {fileID: 240691757382143005}
+  - {fileID: 732446001793248406}
+  - {fileID: 3748517679418990624}
+  - {fileID: 4578602455238149384}
+  - {fileID: 6312785138843739248}
+  - {fileID: 6399499624986140818}
+  - {fileID: 8390715666370234954}
   MigratedPlatforms: 09000000080000000b0000000a00000012000000060000000c0000000500000000000000150000000200000001000000
 --- !u!114 &240691757382143005
 MonoBehaviour:
