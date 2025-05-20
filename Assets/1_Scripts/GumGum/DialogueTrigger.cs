@@ -15,7 +15,7 @@ public class DialogueTrigger : MonoBehaviour
 
     public void TriggerDialogue()
     {
-        GumGumManager.Instance.gumGumPanel.SetActive(true);
+        GameManager.Instance.gumgumUI.SetActive(true);
             
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;

@@ -87,6 +87,10 @@ crashlytics-build.properties
 /[Aa]ssets/StreamingAssets/**/*.bank
 /[Aa]ssets/StreamingAssets/**/*.bank.meta
 
+# Ignore FMODStudioSettings.asset qui se modifie tout seul
+/Assets/Plugins/FMOD/Resources/FMODStudioSettings.asset
+/Assets/Plugins/FMOD/Resources/FMODStudioSettings.asset.meta
+
 # If the source bank files are kept outside of the StreamingAssets folder then these can be ignored.
 # Log files can be ignored.
 fmod_editor.log

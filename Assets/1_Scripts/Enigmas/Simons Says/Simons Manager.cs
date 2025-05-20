@@ -200,6 +200,7 @@ public class SimonsManager : MonoBehaviour
             _validationLight.SetActive(true);
         }
        Debug.Log("Enigme Simon Fini");
+        StartCoroutine(CurrentSequenceFinish());
         _enigmaIsEnd = true;
 
         foreach (SimonsElement SimonsElementObject in SimonsElement)
@@ -215,6 +216,7 @@ public class SimonsManager : MonoBehaviour
         }
 
         Debug.Log("l'enigme est finito");
+        SaveData.Instance.gameData.enigmaIsComplete_simon = true;
 
     }
 
