@@ -216,6 +216,7 @@ public class SimonsManager : MonoBehaviour
         }
 
         Debug.Log("l'enigme est finito");
+        SaveData.Instance.gameData.enigmaIsComplete_simon = true;
 
     }
 
