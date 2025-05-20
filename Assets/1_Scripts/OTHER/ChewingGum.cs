@@ -17,7 +17,7 @@ public class ChewingGum : MonoBehaviour, IActivatable
         
         // Trouve le UIManager si non assigné
         if (gumUIManager == null)
-            gumUIManager = FindObjectOfType<GumUIManager>();
+            gumUIManager = FindFirstObjectByType<GumUIManager>();
         
         // Met à jour l'UI
         gumUIManager?.ShowGumCount(PlayerBrain.Instance.chewingGumCount);
