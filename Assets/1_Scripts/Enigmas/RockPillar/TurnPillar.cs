@@ -27,6 +27,7 @@ public class TurnPillar : MonoBehaviour, IActivatable
     [SerializeField] private float arrowMoveSpeed = 5f;//-----------------------------> vitesse de la fleche pour changer de position
 
     //Sound-Design
+    //---------------------------------
     public TriggerSoundMultiple triggerSoundMultiple;
 
     
@@ -72,24 +73,34 @@ public class TurnPillar : MonoBehaviour, IActivatable
             if (PlayerBrain.Instance.player.GetButton("RightMovement"))
             {
                 StartCoroutine(RotateRockSmooth(90f, 0.5f));
-                
+                //Sound-Design
+                //---------------------------------
+                triggerSoundMultiple.PlaySound(2);
+
             }
             if (PlayerBrain.Instance.player.GetButton("LeftMovement"))
             {
                 StartCoroutine(RotateRockSmooth(-90f, 0.5f));
-                
+                //Sound-Design
+                //---------------------------------
+                triggerSoundMultiple.PlaySound(2);
+
             }
 
             if (PlayerBrain.Instance.player.GetButtonDown("ForwardMovement"))
             {
                 _currentIndex = (_currentIndex + 1 + turnRock.Count) % turnRock.Count;
                 _currentRock = turnRock[_currentIndex];
+                //Sound-Design
+                //---------------------------------
                 triggerSoundMultiple.PlaySound(1);
             }
             if (PlayerBrain.Instance.player.GetButtonDown("BackwardMovement"))
             {
                 _currentIndex = (_currentIndex - 1 + turnRock.Count) % turnRock.Count;
                 _currentRock = turnRock[_currentIndex];
+                //Sound-Design
+                //---------------------------------
                 triggerSoundMultiple.PlaySound(1);
 
             }

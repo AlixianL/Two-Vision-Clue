@@ -21,6 +21,10 @@ public class Play : MonoBehaviour,IActivatable
     [SerializeField] private float _effectDuration;
     [SerializeField] private float _playerDistance;
 
+    //Sound-Design
+    //---------------------------------
+    public TriggerSoundMultiple triggerSoundMultiple;
+
 
     public void Start()
     {
@@ -42,6 +46,10 @@ public class Play : MonoBehaviour,IActivatable
         }
 
         _recuperationPanel.SetActive(true);
+
+        //Sound-Design
+        //---------------------------------
+        triggerSoundMultiple.PlaySound(0);
 
         _cameraPanel.SetActive(true);
         StartCoroutine(PlayIntroEffect());

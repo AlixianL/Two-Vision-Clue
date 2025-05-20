@@ -28,6 +28,8 @@ public class LaserBeam : MonoBehaviour, IActivatable
 
     public float maxDistance = 100f;//----------------------------------------------> Distance max entre 2 point du line renderer
 
+    public TriggerSound triggerSound;
+
 
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     // -- Détection du joueur pour le bouton -----------------------
@@ -45,12 +47,14 @@ public class LaserBeam : MonoBehaviour, IActivatable
         {
             _verifLight.material.color = _isOn;
             _lazerIsOn = true;
+            triggerSound.PlaySound();
         }
         else if (_lazerIsOn)
         {
             _verifLight.material.color = _isOff;
             _lazerIsOn = false;
             _lineRenderer.positionCount = 0;
+
         }
     }
     
