@@ -22,7 +22,7 @@ public class TurnPillar : MonoBehaviour, IActivatable, ISaveAndPullData
     private int _currentIndex = 0;//--------------------------------------------------> index du caillou actuellement s�l�ctionn�
     private bool _isRotating = false;//-----------------------------------------------> boolen qui verifie si un cube tourne
     private bool _enigmeisend = false;//----------------------------------------------> boolen qui verifie si l'enigme est fini
-    public float rotationDuration = 0.5f;//-------------------------------------------> boolen qui determine le temps de rotation
+    public float rotationDuration = 0.8f;//-------------------------------------------> boolen qui determine le temps de rotation
 
 
     [SerializeField] private bool _interactWithEnigma;//------------------------------> boolen qui verifie si on est entrein d'interagir avec le pillier
@@ -85,8 +85,6 @@ public class TurnPillar : MonoBehaviour, IActivatable, ISaveAndPullData
                 _currentIndex = (_currentIndex - 1 + turnRock.Count) % turnRock.Count;
                 _currentRock = turnRock[_currentIndex];
             }
-
-            PushDataToSave();
         }
         //-----> ICI la position de la fleche quand on interagit avec l'enigme
         if (_interactWithEnigma)
@@ -129,6 +127,8 @@ public class TurnPillar : MonoBehaviour, IActivatable, ISaveAndPullData
 
         _currentRock.transform.rotation = endRotation;
         _isRotating = false;
+        
+        PushDataToSave();
     }
 
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -144,18 +144,43 @@ public class TurnPillar : MonoBehaviour, IActivatable, ISaveAndPullData
 
     public void PullDataFromSave()
     {
-        turnRock[0].transform.localEulerAngles = new Vector3(SaveData.Instance.gameData.rotationCubeY_01.x, SaveData.Instance.gameData.rotationCubeY_01.y, SaveData.Instance.gameData.rotationCubeY_01.z);
-        Debug.Log("bloc bas" + turnRock[0].transform.localEulerAngles);
-        turnRock[1].transform.localEulerAngles = new Vector3(SaveData.Instance.gameData.rotationCubeY_02.x, SaveData.Instance.gameData.rotationCubeY_02.y, SaveData.Instance.gameData.rotationCubeY_02.z);
-        Debug.Log("bloc millieu" + turnRock[1].transform.localEulerAngles);
-        turnRock[2].transform.localEulerAngles = new Vector3(SaveData.Instance.gameData.rotationCubeY_03.x, SaveData.Instance.gameData.rotationCubeY_03.y, SaveData.Instance.gameData.rotationCubeY_03.z);
-        Debug.Log("bloc haut" + turnRock[2].transform.localEulerAngles);
+        turnRock[0].transform.localEulerAngles = SaveData.Instance.gameData.rotationCubeYBot;
+        Debug.Log("bloc bas (euler) " + turnRock[0].transform.localEulerAngles);
+
+        turnRock[1].transform.localEulerAngles = SaveData.Instance.gameData.rotationCubeYMid;
+        Debug.Log("bloc milieu (euler) " + turnRock[1].transform.localEulerAngles);
+
+        turnRock[2].transform.localEulerAngles = SaveData.Instance.gameData.rotationCubeYTop;
+        Debug.Log("bloc haut (euler) " + turnRock[2].transform.localEulerAngles);
     }
+
 
     public void PushDataToSave()
     {
-        if (_currentIndex == 0) SaveData.Instance.gameData.rotationCubeY_01 = turnRock[0].transform.localEulerAngles;
-        if (_currentIndex == 1) SaveData.Instance.gameData.rotationCubeY_02 = turnRock[1].transform.localEulerAngles;
-        if (_currentIndex == 2) SaveData.Instance.gameData.rotationCubeY_03 = turnRock[2].transform.localEulerAngles;
+        switch (_currentIndex)
+        {
+            case 0:
+                SaveData.Instance.gameData.rotationCubeYBot = NormalizeEuler(turnRock[0].transform.localEulerAngles);
+                Debug.Log("bloc bas " + turnRock[0].transform.localEulerAngles);
+                break;
+            case 1:
+                SaveData.Instance.gameData.rotationCubeYMid = NormalizeEuler(turnRock[1].transform.localEulerAngles);
+                Debug.Log("bloc mid " + turnRock[1].transform.localEulerAngles);
+                break;
+            case 2:
+                SaveData.Instance.gameData.rotationCubeYTop = NormalizeEuler(turnRock[2].transform.localEulerAngles);
+                Debug.Log("bloc haut " + turnRock[2].transform.localEulerAngles);
+                break;
+        }
     }
+    
+    Vector3 NormalizeEuler(Vector3 euler)
+    {
+        return new Vector3(
+            Mathf.Repeat(euler.x, 360f),
+            Mathf.Repeat(euler.y, 360f),
+            Mathf.Repeat(euler.z, 360f)
+        );
+    }
+
 }

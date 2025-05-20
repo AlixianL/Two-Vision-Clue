@@ -8698,6 +8698,10 @@ MonoBehaviour:
   - {fileID: 1198859664}
   - {fileID: 1446135909}
   - {fileID: 1130240000}
+  - {fileID: 1523653098}
+  - {fileID: 1551022405}
+  - {fileID: 1700929057}
+  - {fileID: 1243397695}
 --- !u!114 &503311372
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24375,11 +24379,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d205a1e96e4005b40be02df9fd3d325c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cluePrefab: {fileID: 2218582822724200629, guid: eccdb062083264a4fa9f8d348f10a12d, type: 3}
+  _targetPosition: {fileID: 1916979381}
   clues: []
   clueCinemachineCamera: {fileID: 1019160866}
-  _targetPosition: {fileID: 1916979381}
   distanceFromCenter: 0.3
   playerIsInteracting: 0
+  isForEnigma1: 0
+  isForEnigma2: 0
+  isForEnigma3: 0
+  isForEnigma4: 1
 --- !u!65 &1243397696
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -25389,7 +25398,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2934353081500685340, guid: 375034b5630682e4d9fbfd64d8979910, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 18.685051
+      value: 18.84
       objectReference: {fileID: 0}
     - target: {fileID: 2934353081500685340, guid: 375034b5630682e4d9fbfd64d8979910, type: 3}
       propertyPath: m_LocalPosition.y
@@ -25397,11 +25406,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2934353081500685340, guid: 375034b5630682e4d9fbfd64d8979910, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -34.119354
+      value: -34.38
       objectReference: {fileID: 0}
     - target: {fileID: 2934353081500685340, guid: 375034b5630682e4d9fbfd64d8979910, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.5057206
+      value: -0.48745176
       objectReference: {fileID: 0}
     - target: {fileID: 2934353081500685340, guid: 375034b5630682e4d9fbfd64d8979910, type: 3}
       propertyPath: m_LocalRotation.x
@@ -25409,7 +25418,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2934353081500685340, guid: 375034b5630682e4d9fbfd64d8979910, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.86269736
+      value: 0.87314993
       objectReference: {fileID: 0}
     - target: {fileID: 2934353081500685340, guid: 375034b5630682e4d9fbfd64d8979910, type: 3}
       propertyPath: m_LocalRotation.z
@@ -25421,7 +25430,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2934353081500685340, guid: 375034b5630682e4d9fbfd64d8979910, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 60.758
+      value: 238.34601
       objectReference: {fileID: 0}
     - target: {fileID: 2934353081500685340, guid: 375034b5630682e4d9fbfd64d8979910, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -25434,6 +25443,10 @@ PrefabInstance:
     - target: {fileID: 7056323052581240930, guid: 375034b5630682e4d9fbfd64d8979910, type: 3}
       propertyPath: m_Name
       value: Enigme - Pillar
+      objectReference: {fileID: 0}
+    - target: {fileID: 8690961540252803560, guid: 375034b5630682e4d9fbfd64d8979910, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -31094,11 +31107,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d205a1e96e4005b40be02df9fd3d325c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cluePrefab: {fileID: 2218582822724200629, guid: eccdb062083264a4fa9f8d348f10a12d, type: 3}
+  _targetPosition: {fileID: 2144461319}
   clues: []
   clueCinemachineCamera: {fileID: 1373922526}
-  _targetPosition: {fileID: 2144461319}
   distanceFromCenter: 0.3
   playerIsInteracting: 0
+  isForEnigma1: 1
+  isForEnigma2: 0
+  isForEnigma3: 0
+  isForEnigma4: 0
 --- !u!23 &1523653099
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -31693,6 +31711,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1543377420}
   m_Mesh: {fileID: 2879339439283628994, guid: c89e03250fa73c740aeacc003070d79a, type: 3}
+--- !u!1 &1550772611 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3753335509912024589, guid: 02cfb1780f4c0104389c69bff630f8bd, type: 3}
+  m_PrefabInstance: {fileID: 8263779075024447603}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1551022401
 GameObject:
   m_ObjectHideFlags: 0
@@ -31776,11 +31799,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d205a1e96e4005b40be02df9fd3d325c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cluePrefab: {fileID: 2218582822724200629, guid: eccdb062083264a4fa9f8d348f10a12d, type: 3}
+  _targetPosition: {fileID: 737235726}
   clues: []
   clueCinemachineCamera: {fileID: 1947821118}
-  _targetPosition: {fileID: 737235726}
   distanceFromCenter: 0.3
   playerIsInteracting: 0
+  isForEnigma1: 0
+  isForEnigma2: 1
+  isForEnigma3: 0
+  isForEnigma4: 0
 --- !u!65 &1551022406
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -35889,11 +35917,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d205a1e96e4005b40be02df9fd3d325c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cluePrefab: {fileID: 2218582822724200629, guid: eccdb062083264a4fa9f8d348f10a12d, type: 3}
+  _targetPosition: {fileID: 2081287248}
   clues: []
   clueCinemachineCamera: {fileID: 191572521}
-  _targetPosition: {fileID: 2081287248}
   distanceFromCenter: 0.3
   playerIsInteracting: 0
+  isForEnigma1: 0
+  isForEnigma2: 0
+  isForEnigma3: 1
+  isForEnigma4: 0
 --- !u!65 &1700929058
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -36455,7 +36488,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 30f17f090f6ea2e4aa24fe1fa5c711f4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.14
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 30f17f090f6ea2e4aa24fe1fa5c711f4, type: 3}
       propertyPath: m_LocalPosition.z
@@ -42030,6 +42063,10 @@ MonoBehaviour:
   - {fileID: 1198859664}
   - {fileID: 1446135909}
   - {fileID: 1130240000}
+  - {fileID: 1523653098}
+  - {fileID: 1551022405}
+  - {fileID: 1700929057}
+  - {fileID: 1243397695}
 --- !u!114 &2000884708
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47230,7 +47267,7 @@ PrefabInstance:
     - target: {fileID: 3426596621621602038, guid: 19c52c09eb250ef4c84a3af35351ed81, type: 3}
       propertyPath: clueUI
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1550772611}
     - target: {fileID: 3426596621621602038, guid: 19c52c09eb250ef4c84a3af35351ed81, type: 3}
       propertyPath: gumgumUI
       value: 
@@ -47363,7 +47400,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7715716786101729071, guid: 19c52c09eb250ef4c84a3af35351ed81, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -47403,6 +47441,38 @@ PrefabInstance:
       propertyPath: m_Name
       value: Save Game Data
       objectReference: {fileID: 0}
+    - target: {fileID: 3408893089539763829, guid: fcb0e52377cf54a4ea6537e93f48cd09, type: 3}
+      propertyPath: gameData.position1
+      value: 
+      objectReference: {fileID: 2144461319}
+    - target: {fileID: 3408893089539763829, guid: fcb0e52377cf54a4ea6537e93f48cd09, type: 3}
+      propertyPath: gameData.position2
+      value: 
+      objectReference: {fileID: 737235726}
+    - target: {fileID: 3408893089539763829, guid: fcb0e52377cf54a4ea6537e93f48cd09, type: 3}
+      propertyPath: gameData.position3
+      value: 
+      objectReference: {fileID: 2081287248}
+    - target: {fileID: 3408893089539763829, guid: fcb0e52377cf54a4ea6537e93f48cd09, type: 3}
+      propertyPath: gameData.position4
+      value: 
+      objectReference: {fileID: 1916979381}
+    - target: {fileID: 3408893089539763829, guid: fcb0e52377cf54a4ea6537e93f48cd09, type: 3}
+      propertyPath: gameData.cluePosition1
+      value: 
+      objectReference: {fileID: 2144461319}
+    - target: {fileID: 3408893089539763829, guid: fcb0e52377cf54a4ea6537e93f48cd09, type: 3}
+      propertyPath: gameData.cluePosition2
+      value: 
+      objectReference: {fileID: 737235726}
+    - target: {fileID: 3408893089539763829, guid: fcb0e52377cf54a4ea6537e93f48cd09, type: 3}
+      propertyPath: gameData.cluePosition3
+      value: 
+      objectReference: {fileID: 2081287248}
+    - target: {fileID: 3408893089539763829, guid: fcb0e52377cf54a4ea6537e93f48cd09, type: 3}
+      propertyPath: gameData.cluePosition4
+      value: 
+      objectReference: {fileID: 1916979381}
     - target: {fileID: 3467346025106326713, guid: fcb0e52377cf54a4ea6537e93f48cd09, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

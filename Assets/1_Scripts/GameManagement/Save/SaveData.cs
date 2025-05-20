@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -89,14 +90,23 @@ public class GameData
     [Header("=== ENIGME - PILLIER ============================"), Space(5)]
     public bool pillarValidateLightIsActive;
     [Space(5)]
-    public Vector3 rotationCubeY_01;
+    public Vector3 rotationCubeYTop;
     [Space(5)]
-    public Vector3 rotationCubeY_02;
+    public Vector3 rotationCubeYMid;
     [Space(5)]
-    public Vector3 rotationCubeY_03;
-    
-    
+    public Vector3 rotationCubeYBot;
+
+
     [Header("=== GUMGUM ======================================"), Space(5)]
-    public bool validateLightIsActive;
-    
+    public Transform cluePosition1;
+    public List<ClueData> clueDatasAlreadyGivesForEnigma1 = new List<ClueData>();
+    [Space(5)]
+    public Transform cluePosition2;
+    public List<ClueData> clueDatasAlreadyGivesForEnigma2 = new List<ClueData>();
+    [Space(5)]
+    public Transform cluePosition3;
+    public List<ClueData> clueDatasAlreadyGivesForEnigma3 = new List<ClueData>();
+    [Space(5)]
+    public Transform cluePosition4;
+    public List<ClueData> clueDatasAlreadyGivesForEnigma4 = new List<ClueData>();
 }

@@ -163,21 +163,18 @@ public class GumGumManager : MonoBehaviour
 
         if (clues == null || clues.Length == 0)
         {
-            Debug.LogWarning($"Aucun indice trouvé pour {enigmaKey}");
             return;
         }
         
         // Si on a déjà montré tous les indices, ne rien faire
         if (clueIndex >= clues.Length)
         {
-            Debug.Log($"Tous les indices de {enigmaKey} ont déjà été montrés.");
             return;
         }
 
         // Récupère le bon spawn point
         if (!enigmaSpawnPoint.TryGetValue(enigmaNumber, out targetSpawn))
         {
-            Debug.LogWarning($"Pas de point de spawn défini pour l’énigme {enigmaNumber}");
             return;
         }
 
