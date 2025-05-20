@@ -36,12 +36,7 @@ public class MirrorRotation : MonoBehaviour, IActivatable, ISaveAndPullData
 
         GameManager.Instance.ToggleTotalFreezePlayer();
         PlayerBrain.Instance.playerRigidbody.linearVelocity = Vector3.zero;
-
-        if (_enigmaCinemachineCamera != null)
-        {
-            ChangePositionCinemachine.Instance.SwitchCam(_enigmaCinemachineCamera, _interactWithEnigma);
-        }
-        
+        ChangePositionCinemachine.Instance.SwitchCam(_enigmaCinemachineCamera, _interactWithEnigma);
         
         GameManager.Instance.playerUI.SetActive(!_interactWithEnigma);
         GameManager.Instance.mirrorUI.SetActive(_interactWithEnigma);

@@ -7,7 +7,7 @@ public class VerifForFinal : MonoBehaviour
 
     private List<GameObject> _objectsInZone = new List<GameObject>();
 
-    [SerializeField] private PlaqueManager _plaqueManager;
+    [SerializeField] private WheelRotation _wheelRotation;
 
 
     void Start()
@@ -36,7 +36,7 @@ public class VerifForFinal : MonoBehaviour
     {
         if (_objectsInZone.Count == _checkerList.Count)
         {
-            _plaqueManager._allIsFacing = true;
+            _wheelRotation.EndEnigme();
         }
     }
 }
