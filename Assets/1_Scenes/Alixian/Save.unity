@@ -4453,7 +4453,6 @@ MonoBehaviour:
       Data3: 373913254
       Data4: 1912298318
     Path: event:/Validation-3
-  _playerHandheldCamera: {fileID: 328159575}
 --- !u!114 &250830837
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5221,15 +5220,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4444488233674352570, guid: 1e09be4150bf4e04f8b03b044ec2a6ed, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.11
+      value: 12.13
       objectReference: {fileID: 0}
     - target: {fileID: 4444488233674352570, guid: 1e09be4150bf4e04f8b03b044ec2a6ed, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.27
+      value: 0.62
       objectReference: {fileID: 0}
     - target: {fileID: 4444488233674352570, guid: 1e09be4150bf4e04f8b03b044ec2a6ed, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 4.27
+      value: -17.01
       objectReference: {fileID: 0}
     - target: {fileID: 4444488233674352570, guid: 1e09be4150bf4e04f8b03b044ec2a6ed, type: 3}
       propertyPath: m_LocalRotation.w
@@ -5310,10 +5309,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7772678601428569155, guid: 1e09be4150bf4e04f8b03b044ec2a6ed, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1072522166}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e09be4150bf4e04f8b03b044ec2a6ed, type: 3}
 --- !u!1001 &330505819
 PrefabInstance:
@@ -7323,6 +7319,11 @@ Transform:
   - {fileID: 2063946220}
   m_Father: {fileID: 2035969777}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &456786114 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5059883810088137218, guid: 02cfb1780f4c0104389c69bff630f8bd, type: 3}
+  m_PrefabInstance: {fileID: 8263779075024447603}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &461734106
 GameObject:
   m_ObjectHideFlags: 0
@@ -7421,6 +7422,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcc69b9989f35f84c86f34e2f593199f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &470593324 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 704929729665200805, guid: 02cfb1780f4c0104389c69bff630f8bd, type: 3}
+  m_PrefabInstance: {fileID: 8263779075024447603}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &473862814
 GameObject:
   m_ObjectHideFlags: 0
@@ -8241,6 +8247,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c16df6b1fd301ea4dbe357d4333afd50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _GumGumAnimator: {fileID: 0}
+  _TalkAnimationTrigger: Talk
   gumgumName: GumGum
   gumgumPresentation:
   - "Moi... GumGum...\r"
@@ -8252,7 +8260,6 @@ MonoBehaviour:
   clueDataBase: {fileID: 11400000, guid: 5bc8308b1990d424c99f6d5b42e3bbe9, type: 2}
   LightOfRoom: []
   _isPlaying: 0
-  playSoundScript: {fileID: 8661176799729736890}
 --- !u!1 &524568245
 GameObject:
   m_ObjectHideFlags: 0
@@ -14275,6 +14282,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 789818526}
   m_Mesh: {fileID: 2879339439283628994, guid: c89e03250fa73c740aeacc003070d79a, type: 3}
+--- !u!1 &791665761 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2919630479497472204, guid: 02cfb1780f4c0104389c69bff630f8bd, type: 3}
+  m_PrefabInstance: {fileID: 8263779075024447603}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &792847601
 GameObject:
   m_ObjectHideFlags: 0
@@ -17615,9 +17627,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   handheldCameraPrefab: {fileID: 834981317997538477, guid: a58ef789fdb8ddd4990d073bebee5058, type: 3}
   spawnPoint: {fileID: 1372983670}
+  _cameraToDestroy: {fileID: 0}
   cameraIsInstall: 0
   playerCanTakeCamera: 0
   cameraCanBeInstalled: 0
+  isPlaying: 0
 --- !u!114 &986705125
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17630,10 +17644,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d480f5129c4f80e4cb8cc5fa2ef5f760, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _GumGumAnimator: {fileID: 0}
+  _BullGumAnimator: {fileID: 0}
+  _showClueAnimationTrigger: ShowClue
+  _TalkAnimationTrigger: Talk
   _gumgumName: {fileID: 845350432}
   _gumgumDialogues: {fileID: 714759809}
   gumGumPanel: {fileID: 332835262}
   enigmaContainer: {fileID: 839212190}
+  gumUIManager: {fileID: 0}
   _gumGum: {fileID: 519714483}
   dialogueTrigger: {fileID: 466153083}
   clueInstance: {fileID: 0}
@@ -17675,6 +17694,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1eb2351d9cc7c94484a4e90907c12ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerUI: {fileID: 1639175285}
+  digicodeUI: {fileID: 470593324}
+  pillarUI: {fileID: 791665761}
+  labyrintheUI: {fileID: 1297210523}
+  mirrorUI: {fileID: 1401978746}
+  interactUI: {fileID: 456786114}
 --- !u!114 &986705128
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19656,25 +19681,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ad8dd83e156c10544a25304a4830fa7c, type: 3}
   m_PrefabInstance: {fileID: 1066089545}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1072522161 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7772678601428569155, guid: 1e09be4150bf4e04f8b03b044ec2a6ed, type: 3}
-  m_PrefabInstance: {fileID: 330319034}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1072522166
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1072522161}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nonRigidbodyVelocity: 0
-  attenuationObject: {fileID: 0}
 --- !u!20 &1072522169 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 3474356997181438742, guid: 1e09be4150bf4e04f8b03b044ec2a6ed, type: 3}
@@ -19710,7 +19716,6 @@ MonoBehaviour:
       Data3: 416575372
       Data4: -985003712
     Path: event:/Validation-2
-  _playerHandheldCamera: {fileID: 328159575}
 --- !u!114 &1074642458
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22609,6 +22614,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1240558389}
   m_Mesh: {fileID: 2879339439283628994, guid: c89e03250fa73c740aeacc003070d79a, type: 3}
+--- !u!1 &1240787881 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8815598308514067076, guid: 1e09be4150bf4e04f8b03b044ec2a6ed, type: 3}
+  m_PrefabInstance: {fileID: 330319034}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1243732407
 GameObject:
   m_ObjectHideFlags: 0
@@ -23613,6 +23623,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1293550661}
   m_Mesh: {fileID: -3372603956317539439, guid: c89e03250fa73c740aeacc003070d79a, type: 3}
+--- !u!1 &1297210523 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5650356727669675848, guid: 02cfb1780f4c0104389c69bff630f8bd, type: 3}
+  m_PrefabInstance: {fileID: 8263779075024447603}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1299453809
 GameObject:
   m_ObjectHideFlags: 0
@@ -25919,6 +25934,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9dfa5b682dcd46bda6128250e975f58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1401978746 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4806572414053853229, guid: 02cfb1780f4c0104389c69bff630f8bd, type: 3}
+  m_PrefabInstance: {fileID: 8263779075024447603}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1402142591
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31136,7 +31156,6 @@ MonoBehaviour:
       Data3: 980670908
       Data4: 1076759563
     Path: event:/Validation-1
-  _playerHandheldCamera: {fileID: 328159575}
 --- !u!114 &1599153888
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31825,6 +31844,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1167be68dfc206545b8c51fa25cb4a4c, type: 3}
   m_PrefabInstance: {fileID: 1637503813}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1639175285 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7958842086916254862, guid: 02cfb1780f4c0104389c69bff630f8bd, type: 3}
+  m_PrefabInstance: {fileID: 8263779075024447603}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1649849098 stripped
 GameObject:
@@ -34465,7 +34489,6 @@ MonoBehaviour:
       Data3: 1422740650
       Data4: -1800019922
     Path: event:/Validation-4
-  _playerHandheldCamera: {fileID: 328159575}
 --- !u!114 &1829321110
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40713,7 +40736,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam1: {fileID: 1072522169}
   cam2: {fileID: 0}
-  tempListenerCam1: {fileID: 1072522166}
+  tempListenerCam1: {fileID: 0}
   tempListenerCam2: {fileID: 0}
   playerHandheldCamera: {fileID: 328159575}
 --- !u!114 &2090526007
@@ -40728,7 +40751,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4546d71608fa7b40873ffd436742b09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  listenerCamera: {fileID: 2090526006}
 --- !u!1 &2094211278
 GameObject:
   m_ObjectHideFlags: 0
@@ -41261,6 +41283,10 @@ PrefabInstance:
       propertyPath: _falseMaterialColor.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8152317090399402902, guid: 59c2f36a68b7ed5488e047d523d71e57, type: 3}
+      propertyPath: _raycastOrigineGameObject
+      value: 
+      objectReference: {fileID: 1240787881}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
