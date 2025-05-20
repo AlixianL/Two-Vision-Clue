@@ -68,7 +68,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _layerMaskToIgnore:
     serializedVersion: 2
-    m_Bits: 68360
+    m_Bits: 76552
   _objectsDetected: []
 --- !u!1 &3384682604960987922
 GameObject:
@@ -782,7 +782,6 @@ GameObject:
   - component: {fileID: 3474356997181438742}
   - component: {fileID: 4330604707763605062}
   - component: {fileID: 6033768311128567184}
-  - component: {fileID: 5349005771746719304}
   m_Layer: 3
   m_Name: CameraPlayer
   m_TagString: MainCamera
@@ -845,7 +844,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 31735
+    m_Bits: 27639
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -933,20 +932,6 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   CustomBlends: {fileID: 11400000, guid: dd31ef8507fef0744a386161da687a25, type: 2}
---- !u!114 &5349005771746719304
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7772678601428569155}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nonRigidbodyVelocity: 0
-  attenuationObject: {fileID: 0}
 --- !u!1 &8603021124355863082
 GameObject:
   m_ObjectHideFlags: 0
@@ -1285,7 +1270,7 @@ MonoBehaviour:
   _rayOrigin: {fileID: 3037893034862230377}
   _layerMaskToCheck:
     serializedVersion: 2
-    m_Bits: 14720
+    m_Bits: 47520
   hitObject: {fileID: 0}
   _rayRange: 3.25
   playerCanInteractWhithMouse: 1

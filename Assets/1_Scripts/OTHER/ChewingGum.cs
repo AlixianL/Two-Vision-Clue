@@ -21,8 +21,6 @@ public class ChewingGum : MonoBehaviour, IActivatable
         
         // Met à jour l'UI
         gumUIManager?.ShowGumCount(PlayerBrain.Instance.chewingGumCount);
-
-        SaveData.Instance.gameData.chewinggumCount++;
         
         // Détruit le chewing-gum
         Destroy(gameObject);

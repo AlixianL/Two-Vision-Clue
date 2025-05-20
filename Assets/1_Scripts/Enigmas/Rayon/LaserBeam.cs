@@ -3,18 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// Gï¿½re les rayons de lumiï¿½re, leur activation et leur rebond sur des miroirs.
-/// Ici on a la gestion du bouton on/off de cette ï¿½nigme la gestion des rebon sur les surface
-/// et la condition de victoire de l'ï¿½nigme.
+/// Gère les rayons de lumière, leur activation et leur rebond sur des miroirs.
+/// Ici on a la gestion du bouton on/off de cette énigme la gestion des rebon sur les surface
+/// et la condition de victoire de l'énigme.
 /// </summary>
 public class LaserBeam : MonoBehaviour, IActivatable
 {
     [Header("References"), Space(5)]
     [SerializeField] private LineRenderer _lineRenderer; //-------------------------> Visuel du rayon
-    [SerializeField] private GameObject _startPointObject;//------------------------> Point de dï¿½part du rayon
+    [SerializeField] private GameObject _startPointObject;//------------------------> Point de départ du rayon
     [SerializeField] private GameObject _player;//----------------------------------> Joueur
-    [SerializeField] private GameObject _validationLight;//-------------------------> Light Sur le pilier central pour validï¿½ l'ï¿½nigme
-    [SerializeField] private List<GameObject> _mirror = new List<GameObject>();//---> Liste des mirroir a dï¿½sactiver
+    [SerializeField] private GameObject _validationLight;//-------------------------> Light Sur le pilier central pour validé l'énigme
+    [SerializeField] private List<GameObject> _mirror = new List<GameObject>();//---> Liste des mirroir a désactiver
     [SerializeField] private LayerMask _raycastMask;//------------------------------> Layer ignorer par le rayon
     [SerializeField] private Color _isOn;//-----------------------------------------> Led on
     [SerializeField] private Color _isOff;//----------------------------------------> Led off
@@ -23,22 +23,22 @@ public class LaserBeam : MonoBehaviour, IActivatable
 
 
     private bool _lazerIsOn = false;//----------------------------------------------> Condition Si le lazer est actif
-    private bool _puzzleEnd = false;//----------------------------------------------> Condition de fin de l'ï¿½nigme
+    private bool _puzzleEnd = false;//----------------------------------------------> Condition de fin de l'énigme
 
 
     public float maxDistance = 100f;//----------------------------------------------> Distance max entre 2 point du line renderer
 
 
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    // -- Dï¿½tection du joueur pour le bouton -----------------------
+    // -- Détection du joueur pour le bouton -----------------------
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     void Start()
     {
         _validationLight.SetActive(false);
         _verifLight.material.color = _isOff;
+
     }
-    
     public void Activate()
     {
         if (!_lazerIsOn)
@@ -53,17 +53,18 @@ public class LaserBeam : MonoBehaviour, IActivatable
             _lineRenderer.positionCount = 0;
         }
     }
+    
 
     void Update()
     {
         if (_puzzleEnd) return;
+
+
         if (_lazerIsOn)
         {
             DrawLaser();
         }
     }
-
-    
 
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     // -- Fonction du comportement du rayon ------------------------
@@ -72,7 +73,7 @@ public class LaserBeam : MonoBehaviour, IActivatable
     /// <summary>
     /// Ici on fait apparaitre le rayon et avec le lineRenderer
     /// Ensuite on verifie si le rayon rentre en collision.
-    /// Soit il touche un "mirror" et il rebondi, soit un "puzzleEnd" et il met fin a l'ï¿½nigme
+    /// Soit il touche un "mirror" et il rebondi, soit un "puzzleEnd" et il met fin a l'énigme
     /// </summary>
     void DrawLaser()
     {
@@ -115,7 +116,7 @@ public class LaserBeam : MonoBehaviour, IActivatable
     }
 
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    // -- Fonction de fin d'ï¿½nigme ---------------------------------
+    // -- Fonction de fin d'énigme ---------------------------------
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     void EndLaserEnigme()
     {
@@ -134,7 +135,5 @@ public class LaserBeam : MonoBehaviour, IActivatable
                 Debug.LogWarning("Un objet de la liste _mirror n'a pas de script MirrorRotation !");
             }
         }
-        
-        SaveData.Instance.gameData.enigmaIsComplete_mirror = true;
     }
 }

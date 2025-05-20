@@ -7,7 +7,7 @@ using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Keypad : MonoBehaviour, IActivatable, ISaveAndPullData
+public class Keypad : MonoBehaviour, IActivatable
 {
     [Header("References"), Space(5)]
     public TMP_Text feedBack;
@@ -40,6 +40,7 @@ public class Keypad : MonoBehaviour, IActivatable, ISaveAndPullData
     {
         _indicatorLight.material.color = _defaultMaterialColor;
         feedBack.text = _defaultText;
+        
         _raycastOrigine = _raycastOrigineGameObject.GetComponent<RaycastOrigine>();
     }
 
@@ -87,7 +88,7 @@ public class Keypad : MonoBehaviour, IActivatable, ISaveAndPullData
 
     public void Validate()
     {
-        if (feedBack.text == _password.ToString() || _isValidated)
+        if (feedBack.text == _password.ToString())
         {
             _indicatorLight.material.color = _validateMaterialColor;
             
@@ -115,8 +116,6 @@ public class Keypad : MonoBehaviour, IActivatable, ISaveAndPullData
             doors.Interact();
             
             GameManager.Instance.ToggleTotalFreezePlayer();
-            PushDataToSave();
-
         }
         else
         {
@@ -124,25 +123,7 @@ public class Keypad : MonoBehaviour, IActivatable, ISaveAndPullData
             StartCoroutine(Delay(1f));
         }
     }
-    
-    public void PushDataToSave()
-    {
-        SaveData.Instance.gameData.enigmaIsComplete_digicode = true;
-        SaveData.Instance.gameData.codeText = feedBack.text;
-        SaveData.Instance.gameData.doorsAreOpen = true;
-    }
 
-    public void PullDataFromSave()
-    {
-        _isValidated = SaveData.Instance.gameData.enigmaIsComplete_digicode;
-        feedBack.text = SaveData.Instance.gameData.codeText;
-        if (SaveData.Instance.gameData.doorsAreOpen)
-        {
-            doors.Interact();
-            doors._isOpen = SaveData.Instance.gameData.doorsAreOpen;
-        }
-    }
-    
     public void Reset()
     {
         feedBack.text = "_ _ _ _";
@@ -167,6 +148,4 @@ public class Keypad : MonoBehaviour, IActivatable, ISaveAndPullData
         _raycastOrigineGameObject.transform.position = new Vector3(PlayerBrain.Instance.cinemachineTargetGameObject.transform.position.x, 
             PlayerBrain.Instance.cinemachineTargetGameObject.transform.position.y, PlayerBrain.Instance.cinemachineTargetGameObject.transform.position.z);
     }
-    
-    
 }
