@@ -19,14 +19,17 @@ public class TurnPillar : MonoBehaviour, IActivatable
 
     private GameObject _currentRock;//------------------------------------------------> caillou actuellement s�l�ctionn�
     private int _currentIndex = 0;//--------------------------------------------------> index du caillou actuellement s�l�ctionn�
-    private bool _isRotating = false;//-----------------------------------------------> boolen qui verifie si un cube tourne
-    private bool _enigmeisend = false;//----------------------------------------------> boolen qui verifie si l'enigme est fini
-    public float rotationDuration = 0.5f;//-------------------------------------------> boolen qui determine le temps de rotation
+    private bool _isRotating = false;//-----------------------------------------------> bool�en qui verifie si un cube tourne
+    private bool _enigmeisend = false;//----------------------------------------------> bool�en qui verifie si l'enigme est fini
 
-
-    [SerializeField] private bool _interactWithEnigma;//------------------------------> boolen qui verifie si on est entrein d'interagir avec le pillier
+    [SerializeField] private bool _interactWithEnigma;//------------------------------> bool�en qui verifie si on est entrein d'interagir avec le pillier
 
     [SerializeField] private float arrowMoveSpeed = 5f;//-----------------------------> vitesse de la fleche pour changer de position
+
+    //Sound-Design
+    public TriggerSoundMultiple triggerSoundMultiple;
+
+    
 
 
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -44,6 +47,7 @@ public class TurnPillar : MonoBehaviour, IActivatable
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     public void Activate()
     {
+        triggerSoundMultiple.PlaySound(0);
         _currentIndex = 0;
         if (!_interactWithEnigma)
         {
@@ -67,29 +71,35 @@ public class TurnPillar : MonoBehaviour, IActivatable
         {
             if (PlayerBrain.Instance.player.GetButton("RightMovement"))
             {
-                StartCoroutine(RotateRockSmooth(90f));
+                StartCoroutine(RotateRockSmooth(90f, 0.5f));
+                
             }
             if (PlayerBrain.Instance.player.GetButton("LeftMovement"))
             {
-                StartCoroutine(RotateRockSmooth(-90f));
+                StartCoroutine(RotateRockSmooth(-90f, 0.5f));
+                
             }
 
             if (PlayerBrain.Instance.player.GetButtonDown("ForwardMovement"))
             {
                 _currentIndex = (_currentIndex + 1 + turnRock.Count) % turnRock.Count;
                 _currentRock = turnRock[_currentIndex];
+                triggerSoundMultiple.PlaySound(1);
             }
             if (PlayerBrain.Instance.player.GetButtonDown("BackwardMovement"))
             {
                 _currentIndex = (_currentIndex - 1 + turnRock.Count) % turnRock.Count;
                 _currentRock = turnRock[_currentIndex];
+                triggerSoundMultiple.PlaySound(1);
+
             }
         }
         //-----> ICI la position de la fleche quand on interagit avec l'enigme
         if (_interactWithEnigma)
         {
             _pillarAnimator.SetBool("IsActive", true);
-            
+           
+
             targetArrowPosition = arrowposition[_currentIndex+1];
         }
         else
@@ -107,7 +117,7 @@ public class TurnPillar : MonoBehaviour, IActivatable
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     // -- logique de rotation de l'enigme --------------------------
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    IEnumerator RotateRockSmooth(float angle)
+    IEnumerator RotateRockSmooth(float angle, float duration)
     {
         _isRotating = true;
 
@@ -116,10 +126,9 @@ public class TurnPillar : MonoBehaviour, IActivatable
 
         float animationTime = 0f;
 
-        while (animationTime < rotationDuration)
+        while (animationTime < duration)
         {
-            float t = animationTime / rotationDuration;
-            _currentRock.transform.rotation = Quaternion.Slerp(startRotation, endRotation, t );
+            _currentRock.transform.rotation = Quaternion.Slerp(startRotation, endRotation, animationTime / duration);
             animationTime += Time.deltaTime;
             yield return null;
         }
