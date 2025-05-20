@@ -2919,17 +2919,6 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
---- !u!114 &146155502 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4285830077207069862, guid: 02cfb1780f4c0104389c69bff630f8bd, type: 3}
-  m_PrefabInstance: {fileID: 8263779075024447603}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &157539737
 GameObject:
   m_ObjectHideFlags: 0
@@ -19088,6 +19077,7 @@ GameObject:
   m_Component:
   - component: {fileID: 986705123}
   - component: {fileID: 986705127}
+  - component: {fileID: 986705129}
   - component: {fileID: 986705124}
   - component: {fileID: 986705125}
   - component: {fileID: 986705126}
@@ -19169,7 +19159,7 @@ MonoBehaviour:
     spawnPoint: {fileID: 1326626638}
   _isInRange: 0
   isInteracting: 0
-  gumgumCinemachineCamera: {fileID: 0}
+  gumgumCinemachineCamera: {fileID: 1326626639}
 --- !u!114 &986705126
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19201,7 +19191,7 @@ MonoBehaviour:
   mirrorUI: {fileID: 944192637}
   interactUI: {fileID: 313805966}
   clueUI: {fileID: 1500668826}
-  gumgumUI: {fileID: 8263779075024447604}
+  gumgumUI: {fileID: 1409286908}
   gumUIManager: {fileID: 8263779075024447605}
   saveData: {fileID: 244638592}
   loadAndSave: {fileID: 0}
@@ -19217,7 +19207,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d00728ea1ce89fa458c8d2da43e18a0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerCinemachineCamera: {fileID: 0}
+  _playerCinemachineCamera: {fileID: 1997585863}
   _gumgumCinemachineCamera: {fileID: 1326626639}
   _digicodeCinemachineCamera: {fileID: 1384761655}
   _doorCinemachineCamera: {fileID: 121194145}
@@ -19228,6 +19218,19 @@ MonoBehaviour:
   _clue_02CinemachineCamera: {fileID: 1326626644}
   _clue_03CinemachineCamera: {fileID: 1326626642}
   _clue_04CinemachineCamera: {fileID: 1326626640}
+--- !u!114 &986705129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 986705122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fc06c4f347b27c4e879fe94a6d25074, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneToLoad: Scene_Transition
 --- !u!1 &989188112
 GameObject:
   m_ObjectHideFlags: 0
@@ -26701,6 +26704,194 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6005591253682476831, guid: 8e9c56d7674b1f44ea2616cdcaf4486d, type: 3}
+      propertyPath: _isPlaying
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6005591253682476831, guid: 8e9c56d7674b1f44ea2616cdcaf4486d, type: 3}
+      propertyPath: LightOfRoom.Array.size
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 6005591253682476831, guid: 8e9c56d7674b1f44ea2616cdcaf4486d, type: 3}
+      propertyPath: 'LightOfRoom.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1729168026}
+    - target: {fileID: 6005591253682476831, guid: 8e9c56d7674b1f44ea2616cdcaf4486d, type: 3}
+      propertyPath: 'LightOfRoom.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1065525592}
+    - target: {fileID: 6005591253682476831, guid: 8e9c56d7674b1f44ea2616cdcaf4486d, type: 3}
+      propertyPath: 'LightOfRoom.Array.data[2]'
+      value: 
+      objectReference: {fileID: 1724112415}
+    - target: {fileID: 6005591253682476831, guid: 8e9c56d7674b1f44ea2616cdcaf4486d, type: 3}
+      propertyPath: 'LightOfRoom.Array.data[3]'
+      value: 
+      objectReference: {fileID: 615478549}
+    - target: {fileID: 6005591253682476831, guid: 8e9c56d7674b1f44ea2616cdcaf4486d, type: 3}
+      propertyPath: 'LightOfRoom.Array.data[4]'
+      value: 
+      objectReference: {fileID: 242070358}
+    - target: {fileID: 6005591253682476831, guid: 8e9c56d7674b1f44ea2616cdcaf4486d, type: 3}
+      propertyPath: 'LightOfRoom.Array.data[5]'
+      value: 
+      objectReference: {fileID: 1086532474}
+    - target: {fileID: 6005591253682476831, guid: 8e9c56d7674b1f44ea2616cdcaf4486d, type: 3}
+      propertyPath: 'LightOfRoom.Array.data[6]'
+      value: 
+      objectReference: {fileID: 1281069484}
+    - target: {fileID: 6005591253682476831, guid: 8e9c56d7674b1f44ea2616cdcaf4486d, type: 3}
+      propertyPath: 'LightOfRoom.Array.data[7]'
+      value: 
+      objectReference: {fileID: 1733617789}
+    - target: {fileID: 6005591253682476831, guid: 8e9c56d7674b1f44ea2616cdcaf4486d, type: 3}
+      propertyPath: 'LightOfRoom.Array.data[8]'
+      value: 
+      objectReference: {fileID: 1264341312}
+    - target: {fileID: 6005591253682476831, guid: 8e9c56d7674b1f44ea2616cdcaf4486d, type: 3}
+      propertyPath: 'LightOfRoom.Array.data[9]'
+      value: 
+      objectReference: {fileID: 739641482}
+    - target: {fileID: 6005591253682476831, guid: 8e9c56d7674b1f44ea2616cdcaf4486d, type: 3}
+      propertyPath: 'LightOfRoom.Array.data[10]'
+      value: 
+      objectReference: {fileID: 853683169}
+    - target: {fileID: 6005591253682476831, guid: 8e9c56d7674b1f44ea2616cdcaf4486d, type: 3}
+      propertyPath: 'LightOfRoom.Array.data[11]'
+      value: 
+      objectReference: {fileID: 213537224}
+    - target: {fileID: 6005591253682476831, guid: 8e9c56d7674b1f44ea2616cdcaf4486d, type: 3}
+      propertyPath: 'LightOfRoom.Array.data[12]'
+      value: 
+      objectReference: {fileID: 1142976573}
+    - target: {fileID: 6005591253682476831, guid: 8e9c56d7674b1f44ea2616cdcaf4486d, type: 3}
+      propertyPath: 'LightOfRoom.Array.data[13]'
+      value: 
+      objectReference: {fileID: 1525272044}
+    - target: {fileID: 6005591253682476831, guid: 8e9c56d7674b1f44ea2616cdcaf4486d, type: 3}
+      propertyPath: 'LightOfRoom.Array.data[14]'
+      value: 
+      objectReference: {fileID: 1674308500}
+    - target: {fileID: 6005591253682476831, guid: 8e9c56d7674b1f44ea2616cdcaf4486d, type: 3}
+      propertyPath: 'LightOfRoom.Array.data[15]'
+      value: 
+      objectReference: {fileID: 2138517866}
+    - target: {fileID: 6005591253682476831, guid: 8e9c56d7674b1f44ea2616cdcaf4486d, type: 3}
+      propertyPath: 'LightOfRoom.Array.data[16]'
+      value: 
+      objectReference: {fileID: 1525801243}
+    - target: {fileID: 6005591253682476831, guid: 8e9c56d7674b1f44ea2616cdcaf4486d, type: 3}
+      propertyPath: 'LightOfRoom.Array.data[17]'
+      value: 
+      objectReference: {fileID: 1682902528}
+    - target: {fileID: 6005591253682476831, guid: 8e9c56d7674b1f44ea2616cdcaf4486d, type: 3}
+      propertyPath: 'LightOfRoom.Array.data[18]'
+      value: 
+      objectReference: {fileID: 781051150}
+    - target: {fileID: 6005591253682476831, guid: 8e9c56d7674b1f44ea2616cdcaf4486d, type: 3}
+      propertyPath: 'LightOfRoom.Array.data[19]'
+      value: 
+      objectReference: {fileID: 1750269689}
+    - target: {fileID: 6005591253682476831, guid: 8e9c56d7674b1f44ea2616cdcaf4486d, type: 3}
+      propertyPath: 'LightOfRoom.Array.data[20]'
+      value: 
+      objectReference: {fileID: 212152540}
+    - target: {fileID: 6005591253682476831, guid: 8e9c56d7674b1f44ea2616cdcaf4486d, type: 3}
+      propertyPath: 'LightOfRoom.Array.data[21]'
+      value: 
+      objectReference: {fileID: 454425295}
+    - target: {fileID: 6005591253682476831, guid: 8e9c56d7674b1f44ea2616cdcaf4486d, type: 3}
+      propertyPath: 'LightOfRoom.Array.data[22]'
+      value: 
+      objectReference: {fileID: 1843947526}
+    - target: {fileID: 6005591253682476831, guid: 8e9c56d7674b1f44ea2616cdcaf4486d, type: 3}
+      propertyPath: 'LightOfRoom.Array.data[23]'
+      value: 
+      objectReference: {fileID: 2085836861}
+    - target: {fileID: 6005591253682476831, guid: 8e9c56d7674b1f44ea2616cdcaf4486d, type: 3}
+      propertyPath: 'LightOfRoom.Array.data[24]'
+      value: 
+      objectReference: {fileID: 1943856869}
+    - target: {fileID: 6005591253682476831, guid: 8e9c56d7674b1f44ea2616cdcaf4486d, type: 3}
+      propertyPath: 'LightOfRoom.Array.data[25]'
+      value: 
+      objectReference: {fileID: 1285879798}
+    - target: {fileID: 6005591253682476831, guid: 8e9c56d7674b1f44ea2616cdcaf4486d, type: 3}
+      propertyPath: 'LightOfRoom.Array.data[26]'
+      value: 
+      objectReference: {fileID: 134427961}
+    - target: {fileID: 6005591253682476831, guid: 8e9c56d7674b1f44ea2616cdcaf4486d, type: 3}
+      propertyPath: 'LightOfRoom.Array.data[27]'
+      value: 
+      objectReference: {fileID: 914107272}
+    - target: {fileID: 6005591253682476831, guid: 8e9c56d7674b1f44ea2616cdcaf4486d, type: 3}
+      propertyPath: 'LightOfRoom.Array.data[28]'
+      value: 
+      objectReference: {fileID: 1824274855}
+    - target: {fileID: 6005591253682476831, guid: 8e9c56d7674b1f44ea2616cdcaf4486d, type: 3}
+      propertyPath: 'LightOfRoom.Array.data[29]'
+      value: 
+      objectReference: {fileID: 935364834}
+    - target: {fileID: 6005591253682476831, guid: 8e9c56d7674b1f44ea2616cdcaf4486d, type: 3}
+      propertyPath: 'LightOfRoom.Array.data[30]'
+      value: 
+      objectReference: {fileID: 2094978105}
+    - target: {fileID: 6005591253682476831, guid: 8e9c56d7674b1f44ea2616cdcaf4486d, type: 3}
+      propertyPath: 'LightOfRoom.Array.data[31]'
+      value: 
+      objectReference: {fileID: 1302019078}
+    - target: {fileID: 6005591253682476831, guid: 8e9c56d7674b1f44ea2616cdcaf4486d, type: 3}
+      propertyPath: 'LightOfRoom.Array.data[32]'
+      value: 
+      objectReference: {fileID: 1214412975}
+    - target: {fileID: 6005591253682476831, guid: 8e9c56d7674b1f44ea2616cdcaf4486d, type: 3}
+      propertyPath: 'LightOfRoom.Array.data[33]'
+      value: 
+      objectReference: {fileID: 2117923546}
+    - target: {fileID: 6005591253682476831, guid: 8e9c56d7674b1f44ea2616cdcaf4486d, type: 3}
+      propertyPath: 'LightOfRoom.Array.data[34]'
+      value: 
+      objectReference: {fileID: 2033179507}
+    - target: {fileID: 6005591253682476831, guid: 8e9c56d7674b1f44ea2616cdcaf4486d, type: 3}
+      propertyPath: 'LightOfRoom.Array.data[35]'
+      value: 
+      objectReference: {fileID: 1563527746}
+    - target: {fileID: 6005591253682476831, guid: 8e9c56d7674b1f44ea2616cdcaf4486d, type: 3}
+      propertyPath: 'LightOfRoom.Array.data[36]'
+      value: 
+      objectReference: {fileID: 715352636}
+    - target: {fileID: 6005591253682476831, guid: 8e9c56d7674b1f44ea2616cdcaf4486d, type: 3}
+      propertyPath: 'LightOfRoom.Array.data[37]'
+      value: 
+      objectReference: {fileID: 1933975637}
+    - target: {fileID: 6005591253682476831, guid: 8e9c56d7674b1f44ea2616cdcaf4486d, type: 3}
+      propertyPath: 'LightOfRoom.Array.data[38]'
+      value: 
+      objectReference: {fileID: 800151533}
+    - target: {fileID: 6005591253682476831, guid: 8e9c56d7674b1f44ea2616cdcaf4486d, type: 3}
+      propertyPath: 'LightOfRoom.Array.data[39]'
+      value: 
+      objectReference: {fileID: 1815550361}
+    - target: {fileID: 6005591253682476831, guid: 8e9c56d7674b1f44ea2616cdcaf4486d, type: 3}
+      propertyPath: 'LightOfRoom.Array.data[40]'
+      value: 
+      objectReference: {fileID: 1352384190}
+    - target: {fileID: 6005591253682476831, guid: 8e9c56d7674b1f44ea2616cdcaf4486d, type: 3}
+      propertyPath: 'LightOfRoom.Array.data[41]'
+      value: 
+      objectReference: {fileID: 1991289773}
+    - target: {fileID: 6005591253682476831, guid: 8e9c56d7674b1f44ea2616cdcaf4486d, type: 3}
+      propertyPath: 'LightOfRoom.Array.data[42]'
+      value: 
+      objectReference: {fileID: 1451701064}
+    - target: {fileID: 6005591253682476831, guid: 8e9c56d7674b1f44ea2616cdcaf4486d, type: 3}
+      propertyPath: 'LightOfRoom.Array.data[43]'
+      value: 
+      objectReference: {fileID: 558354630}
+    - target: {fileID: 6005591253682476831, guid: 8e9c56d7674b1f44ea2616cdcaf4486d, type: 3}
+      propertyPath: 'LightOfRoom.Array.data[44]'
+      value: 
+      objectReference: {fileID: 1505230126}
     - target: {fileID: 7072517593648746288, guid: 8e9c56d7674b1f44ea2616cdcaf4486d, type: 3}
       propertyPath: m_Name
       value: Gumgum
@@ -28413,6 +28604,11 @@ BoxCollider:
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3052030568007858741, guid: 5f40de77113bccb40ba5b2c4c23f9aa6, type: 3}
   m_PrefabInstance: {fileID: 1897204356}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1409286908 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8532516588303002576, guid: 02cfb1780f4c0104389c69bff630f8bd, type: 3}
+  m_PrefabInstance: {fileID: 8263779075024447603}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1413534149
 GameObject:
@@ -40219,11 +40415,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.91960806, y: 2.0919447, z: 1.8487114}
   m_Center: {x: 0.00000423193, y: 1.021019, z: -0.000014364719}
---- !u!225 &1886890498 stripped
-CanvasGroup:
-  m_CorrespondingSourceObject: {fileID: 5266631787812453645, guid: 02cfb1780f4c0104389c69bff630f8bd, type: 3}
-  m_PrefabInstance: {fileID: 8263779075024447603}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1891403514
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -42354,6 +42545,17 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1995736654}
   m_Mesh: {fileID: 2879339439283628994, guid: c89e03250fa73c740aeacc003070d79a, type: 3}
+--- !u!114 &1997585863 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2627042256486855348, guid: 1e09be4150bf4e04f8b03b044ec2a6ed, type: 3}
+  m_PrefabInstance: {fileID: 1972382989}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9dfa5b682dcd46bda6128250e975f58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1999563737 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: faa70e4e5760f3743af918af8e324c87, type: 3}
@@ -47267,8 +47469,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6572b8c9cb87ffe44a269236b797db3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gumText: {fileID: 146155502}
-  gumCanvasGroup: {fileID: 1886890498}
+  gumText: {fileID: 0}
+  gumCanvasGroup: {fileID: 0}
   fadeInDuration: 0.3
   fadeOutDuration: 0.5
   displayDuration: 1.5
