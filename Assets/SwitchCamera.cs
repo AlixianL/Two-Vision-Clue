@@ -8,34 +8,48 @@ public class CameraSwitcher : MonoBehaviour, IActivatable
     [SerializeField] private List<CinemachineCamera> _cameraList;
     [SerializeField] private CinemachineCamera _playerCamera;
     private int _currentIndex = 0;
+    private int _defaultPlayerPriority;
 
     [Header("UI Settings")]
     [SerializeField] private GameObject _cameraSwitchUI;
 
     [Header("Interaction")]
-    [SerializeField] private bool _interactWithEnigma;
+    [SerializeField] private bool _interactWithEnigma = false;
+
+    private void Start()
+    {
+        // Sauvegarde la priorité par défaut de la caméra joueur
+        _defaultPlayerPriority = _playerCamera.Priority;
+    }
 
     public void Activate()
     {
         GameManager.Instance.ToggleTotalFreezePlayer();
         PlayerBrain.Instance.playerRigidbody.linearVelocity = Vector3.zero;
-        if(!_interactWithEnigma)
+
+        // Toggle interaction
+        _interactWithEnigma = !_interactWithEnigma;
+
+        if (_interactWithEnigma)
         {
-            _interactWithEnigma = true;
+            // Mode énigme - baisse la priorité de la caméra joueur
+            _playerCamera.Priority = 0;
+            _currentIndex = 0;
+            SwitchToCamera(_cameraList[_currentIndex]);
         }
-        else _interactWithEnigma = false;
-        ChangePositionCinemachine.Instance.SwitchCam(_cameraList[_currentIndex], _interactWithEnigma);
-      
+        else
+        {
+            // Retour au joueur - restaure la priorité de la caméra joueur
+            SwitchToPlayerCamera();
+        }
+
         GameManager.Instance.playerUI.SetActive(!_interactWithEnigma);
-        GameManager.Instance._cameraSwitchUI.SetActive(_interactWithEnigma);
         _cameraSwitchUI.SetActive(_interactWithEnigma);
     }
 
     void Update()
     {
         if (!_interactWithEnigma) return;
-
-
 
         if (Input.GetKeyDown(KeyCode.D))
         {
@@ -56,21 +70,28 @@ public class CameraSwitcher : MonoBehaviour, IActivatable
 
     private void SwitchLeft()
     {
-        _currentIndex--;
-        if (_currentIndex < 0)
-            _currentIndex = _cameraList.Count - 1;
-
+        _currentIndex = (_currentIndex - 1 + _cameraList.Count) % _cameraList.Count;
         SwitchToCamera(_cameraList[_currentIndex]);
     }
 
     private void SwitchToCamera(CinemachineCamera targetCam)
     {
+        // Réinitialise toutes les priorités
         foreach (var cam in _cameraList)
         {
-            cam.gameObject.SetActive(false);
+            cam.Priority = (cam == targetCam) ? 100 : 0;
         }
+    }
 
-        _playerCamera.gameObject.SetActive(false);
-        targetCam.gameObject.SetActive(true);
+    private void SwitchToPlayerCamera()
+    {
+        // Remet toutes les caméras à priorité 0
+        foreach (var cam in _cameraList)
+        {
+            cam.Priority = 0;
+        }
+        
+        // Restaure la priorité de la caméra joueur
+        _playerCamera.Priority = _defaultPlayerPriority;
     }
 }
