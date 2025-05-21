@@ -2512,7 +2512,7 @@ MonoBehaviour:
   - {fileID: 914506727}
   - {fileID: 1461562771}
   _playerCamera: {fileID: 1070088567}
-  _cameraSwitchUI: {fileID: 2031662400}
+  _cameraSwitchUI: {fileID: 604288110}
   _interactWithEnigma: 0
 --- !u!65 &121921120
 BoxCollider:
@@ -2818,33 +2818,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &153159895 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 1978b70203c41bb4ab161439ab96f7b1, type: 3}
-  m_PrefabInstance: {fileID: 744037323}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &153159896
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 153159895}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ca5421a1ad5a726459d60f7ccef7c73b, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &157539737
 GameObject:
   m_ObjectHideFlags: 0
@@ -15397,66 +15370,6 @@ Transform:
   - {fileID: 1566540759}
   m_Father: {fileID: 202113893}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &744037323
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: 1978b70203c41bb4ab161439ab96f7b1, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 29.779236
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 1978b70203c41bb4ab161439ab96f7b1, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -1.564
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 1978b70203c41bb4ab161439ab96f7b1, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -38.627815
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 1978b70203c41bb4ab161439ab96f7b1, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 1978b70203c41bb4ab161439ab96f7b1, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 1978b70203c41bb4ab161439ab96f7b1, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 1978b70203c41bb4ab161439ab96f7b1, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 1978b70203c41bb4ab161439ab96f7b1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 1978b70203c41bb4ab161439ab96f7b1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 1978b70203c41bb4ab161439ab96f7b1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: 1978b70203c41bb4ab161439ab96f7b1, type: 3}
-      propertyPath: m_Name
-      value: anime_cam 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1978b70203c41bb4ab161439ab96f7b1, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 153159896}
-  m_SourcePrefab: {fileID: 100100000, guid: 1978b70203c41bb4ab161439ab96f7b1, type: 3}
 --- !u!1 &756148709
 GameObject:
   m_ObjectHideFlags: 0
@@ -20216,6 +20129,7 @@ MonoBehaviour:
   labyrintheUI: {fileID: 1052140050}
   mirrorUI: {fileID: 944192637}
   interactUI: {fileID: 313805966}
+  _cameraSwitchUI: {fileID: 0}
 --- !u!114 &986705128
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45281,11 +45195,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 700481df9e5ccc8478fba5f284bca5d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &2031662400 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8603021124355863082, guid: 1e09be4150bf4e04f8b03b044ec2a6ed, type: 3}
-  m_PrefabInstance: {fileID: 330319034}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2033179505
 GameObject:
   m_ObjectHideFlags: 0
@@ -49566,4 +49475,3 @@ SceneRoots:
   - {fileID: 6032556495800943339}
   - {fileID: 2055606766}
   - {fileID: 992893655}
-  - {fileID: 744037323}

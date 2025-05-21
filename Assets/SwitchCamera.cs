@@ -27,7 +27,7 @@ public class CameraSwitcher : MonoBehaviour, IActivatable
         ChangePositionCinemachine.Instance.SwitchCam(_cameraList[_currentIndex], _interactWithEnigma);
       
         GameManager.Instance.playerUI.SetActive(!_interactWithEnigma);
-        GameManager.Instance.pillarUI.SetActive(_interactWithEnigma);
+        GameManager.Instance._cameraSwitchUI.SetActive(_interactWithEnigma);
         _cameraSwitchUI.SetActive(_interactWithEnigma);
     }
 

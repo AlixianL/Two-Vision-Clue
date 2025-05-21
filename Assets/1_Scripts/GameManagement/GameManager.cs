@@ -10,8 +10,9 @@ public class GameManager : MonoBehaviour
     public GameObject labyrintheUI;
     public GameObject mirrorUI;
     public GameObject interactUI;
-    
-    
+    public GameObject _cameraSwitchUI;
+
+
     void Awake()
     {
         if (Instance == null)
