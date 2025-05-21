@@ -4692,6 +4692,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8815598308514067076, guid: 1e09be4150bf4e04f8b03b044ec2a6ed, type: 3}
   m_PrefabInstance: {fileID: 1972382989}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &235666418 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8832621597450099050, guid: 1e09be4150bf4e04f8b03b044ec2a6ed, type: 3}
+  m_PrefabInstance: {fileID: 1972382989}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 235666417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474c1c6ad8d66214caf5a497cc78ff4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &236331895
 GameObject:
   m_ObjectHideFlags: 0
@@ -6681,6 +6692,11 @@ Transform:
   - {fileID: 612833489}
   m_Father: {fileID: 202113893}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &359039592 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8603021124355863082, guid: 1e09be4150bf4e04f8b03b044ec2a6ed, type: 3}
+  m_PrefabInstance: {fileID: 1972382989}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &360607580
 GameObject:
   m_ObjectHideFlags: 0
@@ -42484,6 +42500,14 @@ PrefabInstance:
       propertyPath: cameraBack
       value: 
       objectReference: {fileID: 612805295}
+    - target: {fileID: 5568179522162661937, guid: 1e09be4150bf4e04f8b03b044ec2a6ed, type: 3}
+      propertyPath: raycastOrigine
+      value: 
+      objectReference: {fileID: 235666418}
+    - target: {fileID: 8832621597450099050, guid: 1e09be4150bf4e04f8b03b044ec2a6ed, type: 3}
+      propertyPath: trackedTarget
+      value: 
+      objectReference: {fileID: 359039592}
     - target: {fileID: 9013753269867907282, guid: 1e09be4150bf4e04f8b03b044ec2a6ed, type: 3}
       propertyPath: m_Name
       value: PF_Player
