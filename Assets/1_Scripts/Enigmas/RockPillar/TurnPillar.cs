@@ -13,7 +13,6 @@ public class TurnPillar : MonoBehaviour, IActivatable, ISaveAndPullData
 
 
     [SerializeField] private CinemachineCamera _enigmaCinemachineCamera;//------------> reference a la cinemachine camera pour voir le pilier
-    [SerializeField] private GameObject _validationLight;//---------------------------> reference a la light de validation sur le pilier centrale
     [SerializeField] private Transform _arrow;//--------------------------------------> reference a la position de la fl�che
     private Transform targetArrowPosition;//------------------------------------------> prochaine position de la fleche
 
@@ -30,6 +29,14 @@ public class TurnPillar : MonoBehaviour, IActivatable, ISaveAndPullData
     [SerializeField] private float arrowMoveSpeed = 5f;//-----------------------------> vitesse de la fleche pour changer de position
 
 
+    [Header("End Feedback")]
+    [SerializeField] private GameObject _validationLight;//---------------------------> reference a la light de validation sur le pilier centrale
+    [SerializeField] private UnlockFInal _unlock;
+    [SerializeField] private GameObject _number;
+
+
+
+
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     // -- initialisation de l'enigme -------------------------------
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -38,6 +45,8 @@ public class TurnPillar : MonoBehaviour, IActivatable, ISaveAndPullData
     {
         _validationLight.SetActive(false);
         _currentRock = turnRock[_currentIndex];
+        _number.SetActive(false);
+
     }
 
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -138,7 +147,10 @@ public class TurnPillar : MonoBehaviour, IActivatable, ISaveAndPullData
     {
         _validationLight.SetActive(true);
         _enigmeisend = true;
-        Debug.Log("Pillar fini");
+        _unlock._pillarIsEnd = true;
+        _number.SetActive(true);
+
+
         SaveData.Instance.gameData.enigmaIsComplete_pillar = true;
     }
 

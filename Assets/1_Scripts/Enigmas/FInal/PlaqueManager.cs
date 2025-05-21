@@ -34,6 +34,9 @@ public class PlaqueManager : MonoBehaviour
     [SerializeField] private bool _enigmaisEnd = false;
     [SerializeField] public bool _allIsFacing = false;
 
+    [SerializeField] private Transform _gumGum;
+
+
 
 
 
@@ -218,13 +221,38 @@ public class PlaqueManager : MonoBehaviour
     }
 
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    // -- Coroutine de rotation  -----------------------------------
+    // -- Fin de l'énigme  -----------------------------------------
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     public void Ending()
     {
         _enigmaisEnd = true;
+        StartCoroutine(GumGumUp(3f));
         Debug.Log("c'est fintio");
     }
 
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    // -- Coroutine de GumGum  -------------------------------------
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    IEnumerator GumGumUp(float height)
+    {
+        float duration = 1f;
+        float elapsed = 0f;
+
+        Vector3 initialPosition = _gumGum.transform.position;
+        Vector3 targetPosition = initialPosition + Vector3.up * height;
+
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            float t = Mathf.Clamp01(elapsed / duration);
+            _gumGum.transform.position = Vector3.Lerp(initialPosition, targetPosition, t);
+            yield return null;
+        }
+
+        _gumGum.transform.position = targetPosition;
+    }
+
+    [ContextMenu("fin de l'énigme final")]
+    public void End() => Ending();
 }

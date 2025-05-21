@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class UnlockFInal : MonoBehaviour
@@ -7,6 +8,8 @@ public class UnlockFInal : MonoBehaviour
     [SerializeField] public bool _goatIsEnd = false;
     [SerializeField] public bool _pillarIsEnd = false;
     [SerializeField] public bool _allIsEnd = false;
+    [SerializeField] public bool _isOpen = false;
+
 
     [SerializeField] private GameObject _locker;
 
@@ -28,15 +31,36 @@ public class UnlockFInal : MonoBehaviour
             _allIsEnd = true;
         }
 
-        if (_allIsEnd)
+        if (_allIsEnd && !_isOpen)
         {
             OpenButton();
+            _isOpen = true;
         }
         
     }
 
     void OpenButton()
     {
-        _locker.transform.position = Vector3.zero;
+        StartCoroutine(UnlockButton(90f));
+        
+    }
+
+    IEnumerator UnlockButton(float angle)
+    {
+        float duration = 1f;
+        float elapsed = 0f;
+
+        Quaternion initialRotation = _locker.transform.rotation;
+        Quaternion targetRotation = initialRotation * Quaternion.Euler(angle, 0f, 0f);
+
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            float t = Mathf.Clamp01(elapsed / duration);
+            _locker.transform.rotation = Quaternion.Slerp(initialRotation, targetRotation, t);
+            yield return null;
+        }
+
+        _locker.transform.rotation = targetRotation;
     }
 }
