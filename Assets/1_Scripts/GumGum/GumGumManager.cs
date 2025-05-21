@@ -93,7 +93,7 @@ public class GumGumManager : MonoBehaviour
                     GameManager.Instance.playerUI.SetActive(false);
                     GameManager.Instance.gumgumUI.SetActive(false);
                     
-                    if (GameManager.Instance.gumUIManager == null) GameManager.Instance.gumUIManager = FindObjectOfType<GumUIManager>(); GameManager.Instance.gumUIManager?.ShowGumCount(PlayerBrain.Instance.chewingGumCount);
+                    if (GameManager.Instance.gumUIManager == null) GameManager.Instance.gumUIManager = FindFirstObjectByType<GumUIManager>(); GameManager.Instance.gumUIManager?.ShowGumCount(PlayerBrain.Instance.chewingGumCount);
                     
                     StartCoroutine(ShowClueWithAnimation(enigmaNumber));
                 }

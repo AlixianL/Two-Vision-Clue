@@ -28,7 +28,6 @@ public class PlaqueManager : MonoBehaviour
     [SerializeField] private List<PlaqueInfo> plaques = new List<PlaqueInfo>();
     [SerializeField] private float _swapDuration = 1f;
     [SerializeField] private float _turnDuration = 0.7f;
-    [SerializeField] private float _waitTime = 0.5f;
     [SerializeField] private float _decalDistance = 0.5f;
 
     [SerializeField] private bool _enigmaisEnd = false;
