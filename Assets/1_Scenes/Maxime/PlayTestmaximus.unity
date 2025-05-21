@@ -38170,6 +38170,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 230251810}
   m_LocalEulerAnglesHint: {x: 0, y: -0.604, z: 0}
+--- !u!1 &1791745745 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 193433192910263293, guid: 02cfb1780f4c0104389c69bff630f8bd, type: 3}
+  m_PrefabInstance: {fileID: 8263779075024447603}
+  m_PrefabAsset: {fileID: 0}
+--- !u!225 &1791745747
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1791745745}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1800171566
 GameObject:
   m_ObjectHideFlags: 0
@@ -46154,6 +46171,10 @@ PrefabInstance:
       value: 6254
       objectReference: {fileID: 0}
     - target: {fileID: 8152317090399402902, guid: 59c2f36a68b7ed5488e047d523d71e57, type: 3}
+      propertyPath: _GuideTuto
+      value: 
+      objectReference: {fileID: 1791745747}
+    - target: {fileID: 8152317090399402902, guid: 59c2f36a68b7ed5488e047d523d71e57, type: 3}
       propertyPath: _falseMaterialColor.b
       value: 0
       objectReference: {fileID: 0}
@@ -47916,6 +47937,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7958842086916254862, guid: 02cfb1780f4c0104389c69bff630f8bd, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1500668827}
+    - targetCorrespondingSourceObject: {fileID: 193433192910263293, guid: 02cfb1780f4c0104389c69bff630f8bd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1791745747}
   m_SourcePrefab: {fileID: 100100000, guid: 02cfb1780f4c0104389c69bff630f8bd, type: 3}
 --- !u!23 &8272860981574772453
 MeshRenderer:
