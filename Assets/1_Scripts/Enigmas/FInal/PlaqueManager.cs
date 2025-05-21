@@ -19,6 +19,7 @@ public class PlaqueManager : MonoBehaviour
         public Transform plaqueTransform;
         public PositionID goodposition;
 
+        [HideInInspector] public Vector3 originalForward;
     }
 
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -40,6 +41,9 @@ public class PlaqueManager : MonoBehaviour
 
     void Start()
     {
+        foreach (var plaque in plaques)
+            plaque.originalForward = plaque.plaqueTransform.forward;
+
         _allIsFacing = false;
         _enigmaisEnd = false;
 
@@ -116,8 +120,11 @@ public class PlaqueManager : MonoBehaviour
         Vector3 startA = _plaque1.position;
         Vector3 startB = _plaque2.position;
 
-        Vector3 preMoveA = startA - _plaque1.forward * _decalDistance;
-        Vector3 preMoveB = startB + _plaque2.forward * _decalDistance;
+        Vector3 forwardA = plaques.Find(p => p.plaqueTransform == _plaque1).originalForward;
+        Vector3 forwardB = plaques.Find(p => p.plaqueTransform == _plaque2).originalForward;
+
+        Vector3 preMoveA = startA - forwardA * _decalDistance;
+        Vector3 preMoveB = startB + forwardB * _decalDistance;
 
         float elapsed = 0f;
 
@@ -135,8 +142,8 @@ public class PlaqueManager : MonoBehaviour
 
         //Phase 2
 
-        Vector3 crossA = startB - _plaque1.forward * _decalDistance;
-        Vector3 crossB = startA + _plaque2.forward * _decalDistance;
+        Vector3 crossA = startB - forwardA * _decalDistance;
+        Vector3 crossB = startA + forwardB * _decalDistance;
 
         elapsed = 0f;
         while (elapsed < _swapDuration * 0.4f)
