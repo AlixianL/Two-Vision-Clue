@@ -96,6 +96,8 @@ public class GameData
     [Space(5)]
     public Vector3 rotationCubeYBot;
 
+    [Header("=== ENIGME - Simon =============================="), Space(5)]
+    public bool simonEnigmaIsEnd;
 
     [Header("=== GUMGUM ======================================"), Space(5)]
     public Transform cluePosition1;

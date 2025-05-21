@@ -47,6 +47,16 @@ public class SimonsManager : MonoBehaviour
 
     }
 
+    public void PullDataFromSave()
+    {
+        _enigmaIsEnd = SaveData.Instance.gameData.simonEnigmaIsEnd;
+    }
+
+    public void PushDataToSave()
+    {
+        SaveData.Instance.gameData.simonEnigmaIsEnd = _enigmaIsEnd;
+    }
+
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     // -- Fonction pour faire on/off a l'enigme --------------------
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -193,7 +203,7 @@ public class SimonsManager : MonoBehaviour
             lightObj.color = _originalColor;
         }
     }
-    
+
 
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     // -- Condition de fin du mini jeux  ---------------------------
@@ -209,12 +219,11 @@ public class SimonsManager : MonoBehaviour
         _unlock._goatIsEnd = true;
         _number.SetActive(true);
 
-
         foreach (SimonsElement SimonsElementObject in SimonsElement)
         {
             if (SimonsElementObject != null)
             {
-                SimonsElementObject.FreezSimons(); 
+                SimonsElementObject.FreezSimons();
             }
             else
             {
@@ -222,8 +231,7 @@ public class SimonsManager : MonoBehaviour
             }
         }
 
-        SaveData.Instance.gameData.enigmaIsComplete_simon = true;
-
+        PushDataToSave();
     }
 
 }
