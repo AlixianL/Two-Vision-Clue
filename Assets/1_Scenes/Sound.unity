@@ -8867,6 +8867,7 @@ GameObject:
   - component: {fileID: 658568418}
   - component: {fileID: 658568417}
   - component: {fileID: 658568416}
+  - component: {fileID: 658568419}
   m_Layer: 0
   m_Name: GumGumLight
   m_TagString: Untagged
@@ -8977,6 +8978,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 210972114}
   m_LocalEulerAnglesHint: {x: 48.85, y: 0, z: 0}
+--- !u!114 &658568419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 658568415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24bcef4794b2795468dc4b93294b310a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SoundActivate:
+    Guid:
+      Data1: -388796840
+      Data2: 1111294246
+      Data3: -1898773060
+      Data4: 1572153388
+    Path: event:/AnimationSFX/Projecteur Gumgum
 --- !u!1001 &663436974
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12328,6 +12348,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 989188113}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &856719140 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1140526173732795887, guid: 8e9c56d7674b1f44ea2616cdcaf4486d, type: 3}
+  m_PrefabInstance: {fileID: 1326626637}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &868638817
 GameObject:
   m_ObjectHideFlags: 0
@@ -14333,6 +14358,69 @@ Transform:
   m_Children: []
   m_Father: {fileID: 225734312}
   m_LocalEulerAnglesHint: {x: 120, y: 0, z: 90}
+--- !u!1 &1026858964
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1026858965}
+  - component: {fileID: 1026858966}
+  m_Layer: 0
+  m_Name: Ventilation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1026858965
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1026858964}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2086497812}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1026858966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1026858964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1404524079
+      Data2: 1076402418
+      Data3: -1972446275
+      Data4: -299973989
+    Path: event:/Ambiant/Amb-Ventilation
+  Event: 
+  EventPlayTrigger: 1
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 1
+  OverrideMinDistance: 19.97
+  OverrideMaxDistance: 20
 --- !u!1001 &1027239443
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15912,6 +16000,7 @@ GameObject:
   - component: {fileID: 1086532475}
   - component: {fileID: 1086532474}
   - component: {fileID: 1086532473}
+  - component: {fileID: 1086532476}
   m_Layer: 0
   m_Name: Ambient S Light 006
   m_TagString: Untagged
@@ -16022,6 +16111,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 402124117}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!114 &1086532476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1086532472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24bcef4794b2795468dc4b93294b310a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SoundActivate:
+    Guid:
+      Data1: -992990046
+      Data2: 1128364715
+      Data3: -2079570013
+      Data4: -38119416
+    Path: event:/AnimationSFX/Projecteur
 --- !u!1 &1087009531
 GameObject:
   m_ObjectHideFlags: 0
@@ -17633,6 +17741,7 @@ GameObject:
   - component: {fileID: 1212307052}
   - component: {fileID: 1212307051}
   - component: {fileID: 1212307050}
+  - component: {fileID: 1212307053}
   m_Layer: 0
   m_Name: StairLight
   m_TagString: Untagged
@@ -17743,6 +17852,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1627531110}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!114 &1212307053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1212307049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24bcef4794b2795468dc4b93294b310a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SoundActivate:
+    Guid:
+      Data1: -992990046
+      Data2: 1128364715
+      Data3: -2079570013
+      Data4: -38119416
+    Path: event:/AnimationSFX/Projecteur
 --- !u!1 &1214412973
 GameObject:
   m_ObjectHideFlags: 0
@@ -20173,6 +20301,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6005591253682476831, guid: 8e9c56d7674b1f44ea2616cdcaf4486d, type: 3}
+      propertyPath: triggerSound
+      value: 
+      objectReference: {fileID: 1353602457}
+    - target: {fileID: 6005591253682476831, guid: 8e9c56d7674b1f44ea2616cdcaf4486d, type: 3}
       propertyPath: LightOfRoom.Array.size
       value: 43
       objectReference: {fileID: 0}
@@ -20379,6 +20511,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8060159007078896372, guid: 8e9c56d7674b1f44ea2616cdcaf4486d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2147246504}
+    - targetCorrespondingSourceObject: {fileID: 1140526173732795887, guid: 8e9c56d7674b1f44ea2616cdcaf4486d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1353602456}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8e9c56d7674b1f44ea2616cdcaf4486d, type: 3}
 --- !u!4 &1326626638 stripped
@@ -21348,6 +21483,57 @@ Transform:
   m_Children: []
   m_Father: {fileID: 210972114}
   m_LocalEulerAnglesHint: {x: 129.59601, y: -25.47699, z: 0}
+--- !u!1 &1353602455
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1353602456}
+  - component: {fileID: 1353602457}
+  m_Layer: 7
+  m_Name: Sound
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1353602456
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1353602455}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 5.61, z: 7.6}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 856719140}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1353602457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1353602455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24bcef4794b2795468dc4b93294b310a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SoundActivate:
+    Guid:
+      Data1: -992990046
+      Data2: 1128364715
+      Data3: -2079570013
+      Data4: -38119416
+    Path: event:/AnimationSFX/Projecteur
 --- !u!1 &1361652669
 GameObject:
   m_ObjectHideFlags: 0
@@ -21359,6 +21545,7 @@ GameObject:
   - component: {fileID: 1361652672}
   - component: {fileID: 1361652671}
   - component: {fileID: 1361652670}
+  - component: {fileID: 1361652673}
   m_Layer: 0
   m_Name: Corridor I
   m_TagString: Untagged
@@ -21469,6 +21656,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1627531110}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!114 &1361652673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1361652669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24bcef4794b2795468dc4b93294b310a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SoundActivate:
+    Guid:
+      Data1: -992990046
+      Data2: 1128364715
+      Data3: -2079570013
+      Data4: -38119416
+    Path: event:/AnimationSFX/Projecteur
 --- !u!1 &1378792920
 GameObject:
   m_ObjectHideFlags: 0
@@ -23809,6 +24015,7 @@ GameObject:
   - component: {fileID: 1509503545}
   - component: {fileID: 1509503546}
   - component: {fileID: 1509503547}
+  - component: {fileID: 1509503548}
   m_Layer: 16
   m_Name: GameObject
   m_TagString: Untagged
@@ -23871,7 +24078,27 @@ MonoBehaviour:
   - {fileID: 1212307051}
   - {fileID: 1724112415}
   - {fileID: 1086532474}
-  _tempsEntreLight: 0.3
+  _tempsEntreLight: 0.7
+  triggerSound: {fileID: 1509503548}
+--- !u!114 &1509503548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1509503544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24bcef4794b2795468dc4b93294b310a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SoundActivate:
+    Guid:
+      Data1: -992990046
+      Data2: 1128364715
+      Data3: -2079570013
+      Data4: -38119416
+    Path: event:/AnimationSFX/Projecteur
 --- !u!1 &1509974962 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6427325303902872475, guid: 5f40de77113bccb40ba5b2c4c23f9aa6, type: 3}
@@ -26225,6 +26452,7 @@ GameObject:
   - component: {fileID: 1569162305}
   - component: {fileID: 1569162304}
   - component: {fileID: 1569162303}
+  - component: {fileID: 1569162306}
   m_Layer: 0
   m_Name: Corridor II
   m_TagString: Untagged
@@ -26335,6 +26563,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1627531110}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!114 &1569162306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1569162302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24bcef4794b2795468dc4b93294b310a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SoundActivate:
+    Guid:
+      Data1: -992990046
+      Data2: 1128364715
+      Data3: -2079570013
+      Data4: -38119416
+    Path: event:/AnimationSFX/Projecteur
 --- !u!1001 &1577191874
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27924,6 +28171,7 @@ GameObject:
   - component: {fileID: 1724112416}
   - component: {fileID: 1724112415}
   - component: {fileID: 1724112414}
+  - component: {fileID: 1724112417}
   m_Layer: 0
   m_Name: Ambient S Light 003
   m_TagString: Untagged
@@ -28034,6 +28282,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 402124117}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!114 &1724112417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1724112413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24bcef4794b2795468dc4b93294b310a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SoundActivate:
+    Guid:
+      Data1: -992990046
+      Data2: 1128364715
+      Data3: -2079570013
+      Data4: -38119416
+    Path: event:/AnimationSFX/Projecteur
 --- !u!1 &1726391008 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 641065183368078909, guid: d1cfc293e45beb9458e4742a6afef662, type: 3}
@@ -33176,6 +33443,38 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
+--- !u!1 &2086497811
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2086497812}
+  m_Layer: 0
+  m_Name: XIAN
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2086497812
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2086497811}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 26.884897, y: 1.1579119, z: -37.424957}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1026858965}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2090248820
 GameObject:
   m_ObjectHideFlags: 0
@@ -35743,3 +36042,4 @@ SceneRoots:
   - {fileID: 1745130997}
   - {fileID: 1750532645}
   - {fileID: 1568629905}
+  - {fileID: 2086497812}
