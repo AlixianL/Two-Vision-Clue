@@ -34,6 +34,8 @@ public class TurnPillar : MonoBehaviour, IActivatable, ISaveAndPullData
     [SerializeField] private UnlockFInal _unlock;
     [SerializeField] private GameObject _number;
 
+    public TriggerSoundMultiple triggerSoundMultiple;
+
 
 
 
@@ -58,6 +60,7 @@ public class TurnPillar : MonoBehaviour, IActivatable, ISaveAndPullData
         if (!_interactWithEnigma)
         {
             _interactWithEnigma = true;
+            triggerSoundMultiple.PlaySound(0);
         }
         else _interactWithEnigma = false;
 
@@ -78,21 +81,25 @@ public class TurnPillar : MonoBehaviour, IActivatable, ISaveAndPullData
             if (PlayerBrain.Instance.player.GetButton("RightMovement"))
             {
                 StartCoroutine(RotateRockSmooth(90f));
+                triggerSoundMultiple.PlaySound(2);
             }
             if (PlayerBrain.Instance.player.GetButton("LeftMovement"))
             {
                 StartCoroutine(RotateRockSmooth(-90f));
+                triggerSoundMultiple.PlaySound(2);
             }
 
             if (PlayerBrain.Instance.player.GetButtonDown("ForwardMovement"))
             {
                 _currentIndex = (_currentIndex + 1 + turnRock.Count) % turnRock.Count;
                 _currentRock = turnRock[_currentIndex];
+                triggerSoundMultiple.PlaySound(1);
             }
             if (PlayerBrain.Instance.player.GetButtonDown("BackwardMovement"))
             {
                 _currentIndex = (_currentIndex - 1 + turnRock.Count) % turnRock.Count;
                 _currentRock = turnRock[_currentIndex];
+                triggerSoundMultiple.PlaySound(1);
             }
         }
         //-----> ICI la position de la fleche quand on interagit avec l'enigme
