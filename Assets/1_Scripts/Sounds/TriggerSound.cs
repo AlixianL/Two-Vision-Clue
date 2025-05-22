@@ -12,9 +12,5 @@ public class TriggerSound : MonoBehaviour
         Debug.Log("oui");
     }
 
-    public void StopSound()
-    {
-        AudioManager.instance.Stop
-        Debug.Log("oui");
-    }
+   
 }
