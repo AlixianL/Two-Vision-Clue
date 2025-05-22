@@ -74,6 +74,7 @@ public class PlaqueManager : MonoBehaviour
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     public void Swap(PositionID pos1, PositionID pos2)
     {
+        Debug.Log("SWAP");
         if (!isSwapping && !_enigmaisEnd )
         {
             Transform a = GetPlaqueByPosition(pos1);
@@ -91,6 +92,8 @@ public class PlaqueManager : MonoBehaviour
 
     public void Turnup()
     {
+        Debug.Log("TOURNEEEEE");
+
         if (!isSwapping && !_enigmaisEnd)
         {
             Transform r = GetPlaqueByPosition(PositionID.Gauche);
