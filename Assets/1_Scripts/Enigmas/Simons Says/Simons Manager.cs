@@ -4,7 +4,7 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 
-public class SimonsManager : MonoBehaviour
+public class SimonsManager : MonoBehaviour, ISaveAndPullData
 {
     [Header("References")]
     [SerializeField] private SimonsElement[] SimonsElement;//-----------------------> Liste de toute les chevre qui constitue l'enigme
@@ -40,6 +40,16 @@ public class SimonsManager : MonoBehaviour
         SetIndex();
         _sequenceNumber = 0;
         _enigmaIsOn = false;
+    }
+
+    public void PullDataFromSave()
+    {
+        _enigmaIsEnd = SaveData.Instance.gameData.simonEnigmaIsEnd;
+    }
+
+    public void PushDataToSave()
+    {
+        SaveData.Instance.gameData.simonEnigmaIsEnd = _enigmaIsEnd;
     }
 
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -216,8 +226,7 @@ public class SimonsManager : MonoBehaviour
         }
 
         Debug.Log("l'enigme est finito");
-        SaveData.Instance.gameData.enigmaIsComplete_simon = true;
-
+        PushDataToSave();
     }
 
 }

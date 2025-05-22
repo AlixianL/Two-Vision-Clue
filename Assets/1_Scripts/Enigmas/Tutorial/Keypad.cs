@@ -1,11 +1,8 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using NUnit.Framework.Constraints;
 using TMPro;
 using Unity.Cinemachine;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 public class Keypad : MonoBehaviour, IActivatable, ISaveAndPullData
 {
@@ -47,6 +44,8 @@ public class Keypad : MonoBehaviour, IActivatable, ISaveAndPullData
     public void Activate()
     {
         _isInteractingWhisEnigma = !_isInteractingWhisEnigma;
+
+        PlayerBrain.Instance.raycastOrigine.canTrackTarget = !PlayerBrain.Instance.raycastOrigine.canTrackTarget;
         
         ChangePositionCinemachine.Instance.SwitchCam(_digicodeCinemachineCamera, _isInteractingWhisEnigma);
         GameManager.Instance.ToggleTotalFreezePlayer();
@@ -115,6 +114,7 @@ public class Keypad : MonoBehaviour, IActivatable, ISaveAndPullData
             doors.Interact();
             
             GameManager.Instance.ToggleTotalFreezePlayer();
+            PlayerBrain.Instance.raycastOrigine.canTrackTarget = !PlayerBrain.Instance.raycastOrigine.canTrackTarget;
             PushDataToSave();
 
         }

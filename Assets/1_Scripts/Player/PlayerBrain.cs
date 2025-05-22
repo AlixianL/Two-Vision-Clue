@@ -18,6 +18,7 @@ public class PlayerBrain : MonoBehaviour
     public CameraRotation cameraRotation;
     public PlayerHandheldCamera playerHandheldCamera;
     public PlayerInteractionSystem playerInteractionSystem;
+    public RaycastOrigine raycastOrigine;
     
     [Header("Variables"), Space(5)]
     public int chewingGumCount;
