@@ -14,7 +14,7 @@ public class TriggerSound : MonoBehaviour
 
     public void StopSound()
     {
-        AudioManager.instance.PlayOneShot(SoundActivate, this.transform.position);
+        AudioManager.instance.Stop
         Debug.Log("oui");
     }
 }

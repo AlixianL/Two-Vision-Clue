@@ -55,6 +55,7 @@ public class LaserBeam : MonoBehaviour, IActivatable
             _lazerIsOn = false;
             _lineRenderer.positionCount = 0;
 
+
         }
     }
     
