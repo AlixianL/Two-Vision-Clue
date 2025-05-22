@@ -8,7 +8,7 @@ public class CluePosition : MonoBehaviour, IActivatable, ISaveAndPullData
 {
     [Header("References"), Space(5)]
     [SerializeField] private GameObject cluePrefab;
-    [SerializeField] private Transform _targetPosition;
+    public Transform targetPosition;
     private Outline tempOutline => GetComponent<Outline>();
     [Space(5)]
     public List<GameObject> clues = new List<GameObject>();
@@ -64,7 +64,7 @@ public class CluePosition : MonoBehaviour, IActivatable, ISaveAndPullData
                 Mathf.Sin(rad) * distanceFromCenter
             );
 
-            clues[i].transform.position = _targetPosition.position + offset;
+            clues[i].transform.position = targetPosition.position + offset;
         }
     }
     
@@ -91,7 +91,6 @@ public class CluePosition : MonoBehaviour, IActivatable, ISaveAndPullData
             {
                 Debug.Log("Instanciation d'un indice : " + clue.name);
                 GameObject temp = Instantiate(cluePrefab, SaveData.Instance.gameData.cluePosition1);
-                temp.transform.localEulerAngles = new Vector3(0f, 180f, 0f);
                 Clue tempScript = temp.GetComponent<Clue>();
                 tempScript._clueData = clue;
                 tempScript.LoadInitialize(clue);
@@ -110,7 +109,6 @@ public class CluePosition : MonoBehaviour, IActivatable, ISaveAndPullData
             {
                 Debug.Log("Instanciation d'un indice : " + clue.name);
                 GameObject temp = Instantiate(cluePrefab, SaveData.Instance.gameData.cluePosition2);
-                temp.transform.localEulerAngles = new Vector3(0f, 180f, 0f);
                 Clue tempScript = temp.GetComponent<Clue>();
                 tempScript._clueData = clue;
                 tempScript.LoadInitialize(clue);
@@ -129,7 +127,6 @@ public class CluePosition : MonoBehaviour, IActivatable, ISaveAndPullData
             {
                 Debug.Log("Instanciation d'un indice : " + clue.name);
                 GameObject temp = Instantiate(cluePrefab, SaveData.Instance.gameData.cluePosition3);
-                temp.transform.localEulerAngles = new Vector3(0f, 180f, 0f);
                 Clue tempScript = temp.GetComponent<Clue>();
                 tempScript._clueData = clue;
                 tempScript.LoadInitialize(clue);
@@ -148,7 +145,6 @@ public class CluePosition : MonoBehaviour, IActivatable, ISaveAndPullData
             {
                 Debug.Log("Instanciation d'un indice : " + clue.name);
                 GameObject temp = Instantiate(cluePrefab, SaveData.Instance.gameData.cluePosition4);
-                temp.transform.localEulerAngles = new Vector3(0f, 180f, 0f);
                 Clue tempScript = temp.GetComponent<Clue>();
                 tempScript._clueData = clue;
                 tempScript.LoadInitialize(clue);

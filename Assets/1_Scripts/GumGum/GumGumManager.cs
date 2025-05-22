@@ -103,11 +103,13 @@ public class GumGumManager : MonoBehaviour, ISaveAndPullData
                 if (int.TryParse(name.Replace("Enigma_", ""), out int enigmaNumber))
                 {
                     PlayerBrain.Instance.chewingGumCount--;
+
+                    canPlayAnimation = true;
                     
                     GameManager.Instance.playerUI.SetActive(false);
                     GameManager.Instance.gumgumUI.SetActive(false);
                     
-                    GiveClueForEnigma(enigmaNumber);
+                    StartCoroutine(ShowClueWithAnimation(enigmaNumber));
                 }
             }
         }
@@ -164,7 +166,7 @@ public class GumGumManager : MonoBehaviour, ISaveAndPullData
     /// <param name="enigmaNumber">Numéro de l'énigme (1 à N)</param>
     private void GiveClueForEnigma(int enigmaNumber)
     {
-        // Met à jour le point de spawn en fonction de l'énigme
+        // Vérifie si un point de spawn est défini pour cette énigme
         if (!enigmaSpawnPoint.TryGetValue(enigmaNumber, out targetSpawn))
         {
             Debug.LogWarning($"Aucun point de spawn trouvé pour l'énigme {enigmaNumber}");
@@ -192,86 +194,112 @@ public class GumGumManager : MonoBehaviour, ISaveAndPullData
         // Instanciation de l'indice
         if (clueIndex < clues.Length)
         {
-            IntanciateClue(); // <-- Ce qui va créer clueInstance
+            IntanciateClue(); // Crée clueInstance et _cluePosition
         }
-        
-        // Animation d'affichage uniquement si l'indice est instancié
-        canPlayAnimation = true;
-        StartCoroutine(ShowClueWithAnimation(enigmaNumber));
 
-        Clue clueComponent = clueInstance.GetComponent<Clue>();
         
+        if (_cluePosition == null)
+        {
+            Debug.LogError("CluePosition introuvable sur l'indice instancié.");
+            return;
+        }
+
+        // Active l'animation
+        canPlayAnimation = true;
+
+        // Initialise l'indice avec ses données
+        Clue clueComponent = clueInstance.GetComponent<Clue>();
         if (clueComponent != null)
         {
             clueComponent.Initialize(clues[clueIndex]);
         }
 
+        // Incrémente l'index de l'indice actuel pour cette énigme
         IncrementClueIndex(enigmaKey);
 
+        // Met à jour l'UI et termine le dialogue
         GameManager.Instance.gumUIManager?.ShowGumCount(PlayerBrain.Instance.chewingGumCount);
         enigmaContainer.SetActive(false);
         EndDialogue();
     }
 
-
     // Coroutine pour afficher un indice avec une animation
     private IEnumerator ShowClueWithAnimation(int enigmaNumber)
     {
+        GiveClueForEnigma(enigmaNumber);
+        
+        Debug.Log("Debut coroutine");
         if (canPlayAnimation)
         {
             if (_BullGumAnimator != null)
             {
+                Debug.Log("Debut animation");
                 GameManager.Instance.ToggleTotalFreezePlayer();
                 PlayerBrain.Instance.playerRigidbody.linearVelocity = Vector3.zero;
-                
+
+                ChangePositionCinemachine.Instance._gumgumCinemachineCamera.Priority = 2;
                 _BullGumAnimator.SetTrigger(_showClueAnimationTrigger);
                 _GumGumAnimator.SetTrigger(_showClueAnimationTrigger);
  
                 yield return new WaitForSeconds(5f);
-                
-                
             }
             else
             {
                 yield return new WaitForSeconds(0.3f);
             }
-            
-            canPlayAnimation = false;
-
-            if (!canPlayAnimation)
-            {
-                ChangePositionCinemachine.Instance.SwitchIntoClueCinemachineCamera(gumgumCinemachineCamera, _cluePosition.clueCinemachineCamera);
-                ChangePositionCinemachine.Instance._gumgumCinemachineCamera.Priority = 0;
-                
-                PlayerBrain.Instance.playerGameObject.transform.position = new Vector3(targetSpawn.position.x, PlayerBrain.Instance.playerGameObject.transform.position.y, targetSpawn.position.z + 1.5f);
-                PlayerBrain.Instance.playerGameObject.transform.rotation = Quaternion.Euler(0, targetSpawn.rotation.eulerAngles.y, 0);
-                PlayerBrain.Instance.cinemachineTargetGameObject.transform.LookAt(targetSpawn.position);
-            }
         }
+        ChangePositionCinemachine.Instance.SwitchIntoClueCinemachineCamera(gumgumCinemachineCamera, _cluePosition.clueCinemachineCamera);
+        ChangePositionCinemachine.Instance._gumgumCinemachineCamera.Priority = 0;
     }
+    
     /// <summary>
     /// Instancie un indice à une position aléatoire.
     /// </summary>
     private void IntanciateClue()
-    { 
-        clueInstance = Instantiate(cluePrefab,targetSpawn.position + new Vector3(Random.Range(-0.15f, 0.15f), 0, Random.Range(-0.15f, 0.15f)), targetSpawn.rotation);
+    {
+        // Instanciation de l'indice
+        clueInstance = Instantiate(cluePrefab,targetSpawn.position, targetSpawn.rotation);
         clueInstance.transform.SetParent(targetSpawn);
+        
+        // Récupération du composant CluePosition
         _cluePosition = targetSpawn.GetComponent<CluePosition>();
         
-        _cluePosition.clues.Add(clueInstance);
-        _cluePosition.UpdatePosition();
+        PlayerBrain.Instance.playerGameObject.transform.position = new Vector3(targetSpawn.position.x, PlayerBrain.Instance.playerGameObject.transform.position.y, targetSpawn.position.z + 1.5f);
+        PlayerBrain.Instance.playerGameObject.transform.rotation = Quaternion.Euler(0, targetSpawn.rotation.eulerAngles.y, 0);
+        PlayerBrain.Instance.cinemachineTargetGameObject.transform.LookAt(targetSpawn.position);
         
         if (Cursor.lockState == CursorLockMode.Locked) Cursor.lockState = CursorLockMode.None;
         else Cursor.lockState = CursorLockMode.Locked;
-        
+                 
         if (Cursor.visible == false) Cursor.visible = true;
         else Cursor.visible = false;
         
-        
-        CluePosition tempVar = targetSpawn.GetComponent<CluePosition>();
-        tempVar.playerIsInteracting = true;
         GameManager.Instance.clueUI.SetActive(true);
+        
+        _cluePosition.UpdatePosition();
     }
+    
+    /*private void IntanciateClue()
+    {
+        Vector3 spawnPosition = targetSpawn.position + new Vector3(0, 0.5f, 0);
+        Quaternion spawnRotation = targetSpawn.rotation;
+
+        clueInstance = Instantiate(cluePrefab, spawnPosition, spawnRotation);
+        clueInstance.transform.SetParent(targetSpawn);
+
+        _cluePosition = clueInstance.GetComponent<CluePosition>();
+        if (_cluePosition == null)
+        {
+            _cluePosition = clueInstance.GetComponentInChildren<CluePosition>();
+        }
+
+        if (_cluePosition == null)
+        {
+            Debug.LogError("CluePosition est introuvable dans le prefab instancié.");
+        }
+    }*/
+
+
 
     /// <summary>
     /// Incrémente l’index de l’indice à afficher pour une énigme donnée.
