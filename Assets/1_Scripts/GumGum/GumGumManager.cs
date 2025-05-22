@@ -227,8 +227,19 @@ public class GumGumManager : MonoBehaviour, ISaveAndPullData
                 _BullGumAnimator.SetTrigger(_showClueAnimationTrigger);
                 _GumGumAnimator.SetTrigger(_showClueAnimationTrigger);
  
-                yield return new WaitForSeconds(15f);
+                yield return new WaitForSeconds(5f);
                 
+                
+            }
+            else
+            {
+                yield return new WaitForSeconds(0.3f);
+            }
+            
+            canPlayAnimation = false;
+
+            if (!canPlayAnimation)
+            {
                 ChangePositionCinemachine.Instance.SwitchIntoClueCinemachineCamera(gumgumCinemachineCamera, _cluePosition.clueCinemachineCamera);
                 ChangePositionCinemachine.Instance._gumgumCinemachineCamera.Priority = 0;
                 
@@ -236,11 +247,6 @@ public class GumGumManager : MonoBehaviour, ISaveAndPullData
                 PlayerBrain.Instance.playerGameObject.transform.rotation = Quaternion.Euler(0, targetSpawn.rotation.eulerAngles.y, 0);
                 PlayerBrain.Instance.cinemachineTargetGameObject.transform.LookAt(targetSpawn.position);
             }
-            else
-            {
-                yield return new WaitForSeconds(0.3f);
-            }
-            canPlayAnimation = false;
         }
     }
     /// <summary>
