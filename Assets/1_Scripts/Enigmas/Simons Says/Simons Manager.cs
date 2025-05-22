@@ -31,6 +31,9 @@ public class SimonsManager : MonoBehaviour
 
     [Header("End Feedback")]
     [SerializeField] private GameObject _validationLight; //------------------------> light de validation sur le pilier centrale
+    [SerializeField] private UnlockFInal _unlock;
+    [SerializeField] private GameObject _number;
+
 
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     // -- Initialisation du jeux  ----------------------------------
@@ -40,6 +43,18 @@ public class SimonsManager : MonoBehaviour
         SetIndex();
         _sequenceNumber = 0;
         _enigmaIsOn = false;
+        _number.SetActive(false);
+
+    }
+
+    public void PullDataFromSave()
+    {
+        _enigmaIsEnd = SaveData.Instance.gameData.simonEnigmaIsEnd;
+    }
+
+    public void PushDataToSave()
+    {
+        SaveData.Instance.gameData.simonEnigmaIsEnd = _enigmaIsEnd;
     }
 
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -188,7 +203,7 @@ public class SimonsManager : MonoBehaviour
             lightObj.color = _originalColor;
         }
     }
-    
+
 
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     // -- Condition de fin du mini jeux  ---------------------------
@@ -199,15 +214,16 @@ public class SimonsManager : MonoBehaviour
         {
             _validationLight.SetActive(true);
         }
-       Debug.Log("Enigme Simon Fini");
         StartCoroutine(CurrentSequenceFinish());
         _enigmaIsEnd = true;
+        _unlock._goatIsEnd = true;
+        _number.SetActive(true);
 
         foreach (SimonsElement SimonsElementObject in SimonsElement)
         {
             if (SimonsElementObject != null)
             {
-                SimonsElementObject.FreezSimons(); 
+                SimonsElementObject.FreezSimons();
             }
             else
             {
@@ -215,8 +231,7 @@ public class SimonsManager : MonoBehaviour
             }
         }
 
-        Debug.Log("l'enigme est finito");
-
+        PushDataToSave();
     }
 
 }
