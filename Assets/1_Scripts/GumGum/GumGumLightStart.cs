@@ -10,6 +10,8 @@ public class GumGumLightStart : MonoBehaviour
 
     private bool lightsActivated = false;
 
+    public TriggerSound triggerSound;
+
     private void Start()
     {
         foreach (Light light in gumGumLights)
@@ -35,8 +37,14 @@ public class GumGumLightStart : MonoBehaviour
     {
         foreach (Light light in gumGumLights)
         {
+            //triggerSound.PlaySound(); 
             if (light != null)
+            {
                 light.enabled = true;
+                light.gameObject.GetComponent<TriggerSound>().PlaySound();
+            }
+
+            
 
             yield return new WaitForSeconds(_tempsEntreLight);
         }

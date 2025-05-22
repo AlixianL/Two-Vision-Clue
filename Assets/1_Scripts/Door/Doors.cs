@@ -8,6 +8,10 @@ public class Doors : MonoBehaviour, IInteractable
 
     public bool _isOpen = false;
 
+    //Sound-Design
+    //---------------------------------
+    public TriggerSound triggerSound;
+
     public void Interact()
     {
         _isOpen = !_isOpen;
@@ -15,6 +19,10 @@ public class Doors : MonoBehaviour, IInteractable
         foreach (var animator in _animators)
         {
             animator.SetTrigger("transition");
+
+            //Sound-Design
+            //---------------------------------
+            triggerSound.PlaySound();
         }
     }
 

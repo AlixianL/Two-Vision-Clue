@@ -7098,6 +7098,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c16df6b1fd301ea4dbe357d4333afd50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _GumGumAnimator: {fileID: 0}
+  _TalkAnimationTrigger: Talk
   gumgumName: GumGum
   gumgumPresentation:
   - "Moi... GumGum...\r"
@@ -7107,6 +7109,8 @@ MonoBehaviour:
   gumgumInterogation:
   - "Dis \xE0 GumGum... quelle \xE9niiiigme... emb\xEAte p'tit humain ?"
   clueDataBase: {fileID: 11400000, guid: 5bc8308b1990d424c99f6d5b42e3bbe9, type: 2}
+  LightOfRoom: []
+  _isPlaying: 0
 --- !u!1 &524568245
 GameObject:
   m_ObjectHideFlags: 0
@@ -9033,63 +9037,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 625526095}
   m_Mesh: {fileID: 2879339439283628994, guid: c89e03250fa73c740aeacc003070d79a, type: 3}
---- !u!1001 &636029046
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: e70e9bde21a51ec45a9a22b47d14338a, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -2.235
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: e70e9bde21a51ec45a9a22b47d14338a, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -3.4088411
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: e70e9bde21a51ec45a9a22b47d14338a, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -14.525
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: e70e9bde21a51ec45a9a22b47d14338a, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: e70e9bde21a51ec45a9a22b47d14338a, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: e70e9bde21a51ec45a9a22b47d14338a, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: e70e9bde21a51ec45a9a22b47d14338a, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: e70e9bde21a51ec45a9a22b47d14338a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -90
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: e70e9bde21a51ec45a9a22b47d14338a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: e70e9bde21a51ec45a9a22b47d14338a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: e70e9bde21a51ec45a9a22b47d14338a, type: 3}
-      propertyPath: m_Name
-      value: SM_Boat_001
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: e70e9bde21a51ec45a9a22b47d14338a, type: 3}
 --- !u!1001 &637551979
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11424,10 +11371,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d205a1e96e4005b40be02df9fd3d325c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cluePrefab: {fileID: 0}
+  _targetPosition: {fileID: 0}
   clues: []
   clueCinemachineCamera: {fileID: 1947821118}
   distanceFromCenter: 0.3
-  _playerIsInteracting: 0
+  playerIsInteracting: 0
+  isForEnigma1: 0
+  isForEnigma2: 0
+  isForEnigma3: 0
+  isForEnigma4: 0
 --- !u!114 &737235728
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16117,9 +16070,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   handheldCameraPrefab: {fileID: 834981317997538477, guid: a58ef789fdb8ddd4990d073bebee5058, type: 3}
   spawnPoint: {fileID: 3632824837855015743}
+  _cameraToDestroy: {fileID: 0}
   cameraIsInstall: 0
   playerCanTakeCamera: 0
   cameraCanBeInstalled: 0
+  isPlaying: 0
 --- !u!114 &986705125
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16132,10 +16087,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d480f5129c4f80e4cb8cc5fa2ef5f760, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gumgumName: {fileID: 9217027308964373540}
-  _gumgumDialogues: {fileID: 6746245023518329505}
-  gumGumPanel: {fileID: 5479305271687390422}
-  enigmaContainer: {fileID: 1359375288986250057}
+  _GumGumAnimator: {fileID: 0}
+  _BullGumAnimator: {fileID: 0}
+  _showClueAnimationTrigger: ShowClue
+  _TalkAnimationTrigger: Talk
+  _gumgumName: {fileID: 0}
+  _gumgumDialogues: {fileID: 0}
+  enigmaContainer: {fileID: 0}
   _gumGum: {fileID: 519714483}
   dialogueTrigger: {fileID: 466153083}
   clueInstance: {fileID: 0}
@@ -16177,6 +16135,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1eb2351d9cc7c94484a4e90907c12ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerUI: {fileID: 0}
+  digicodeUI: {fileID: 0}
+  pillarUI: {fileID: 0}
+  labyrintheUI: {fileID: 0}
+  mirrorUI: {fileID: 0}
+  interactUI: {fileID: 0}
+  clueUI: {fileID: 0}
+  gumgumUI: {fileID: 0}
+  gumUIManager: {fileID: 0}
+  saveData: {fileID: 0}
+  loadAndSave: {fileID: 0}
 --- !u!114 &986705128
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16192,6 +16161,7 @@ MonoBehaviour:
   _playerCinemachineCamera: {fileID: 2627042255194312269}
   _gumgumCinemachineCamera: {fileID: 1991842115}
   _digicodeCinemachineCamera: {fileID: 0}
+  _doorCinemachineCamera: {fileID: 0}
   _labyrinthCinemachineCamera: {fileID: 736131071}
   _pilerCinemachineCamera: {fileID: 0}
   _laserCinemachineCamera: {fileID: 0}
@@ -18828,6 +18798,7 @@ MonoBehaviour:
   - {fileID: 783403205}
   uiInteract: {fileID: 0}
   _isOpen: 0
+  triggerSound: {fileID: 0}
 --- !u!1 &1142976571
 GameObject:
   m_ObjectHideFlags: 0
@@ -27502,9 +27473,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 435297272d0ccaa43934f8b172deddcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _labyrinth: {fileID: 1983146916}
-  _ball: {fileID: 0}
+  labyrinth: {fileID: 0}
   _enigmaCinemachineCamera: {fileID: 736131071}
+  _labyrintheLight: {fileID: 0}
+  _playerTransform: {fileID: 0}
   _rotationSpeed: 100
   _interactWhisEnigma: 0
   enigmaIsValidate: 0
@@ -32577,10 +32549,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d205a1e96e4005b40be02df9fd3d325c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cluePrefab: {fileID: 0}
+  _targetPosition: {fileID: 0}
   clues: []
   clueCinemachineCamera: {fileID: 1019160866}
   distanceFromCenter: 0.3
-  _playerIsInteracting: 0
+  playerIsInteracting: 0
+  isForEnigma1: 0
+  isForEnigma2: 0
+  isForEnigma3: 0
+  isForEnigma4: 0
 --- !u!114 &1916979383
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36890,10 +36868,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d205a1e96e4005b40be02df9fd3d325c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cluePrefab: {fileID: 0}
+  _targetPosition: {fileID: 0}
   clues: []
   clueCinemachineCamera: {fileID: 191572521}
   distanceFromCenter: 0.3
-  _playerIsInteracting: 0
+  playerIsInteracting: 0
+  isForEnigma1: 0
+  isForEnigma2: 0
+  isForEnigma3: 0
+  isForEnigma4: 0
 --- !u!114 &2081287250
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38805,10 +38789,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d205a1e96e4005b40be02df9fd3d325c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cluePrefab: {fileID: 0}
+  _targetPosition: {fileID: 0}
   clues: []
   clueCinemachineCamera: {fileID: 1373922526}
   distanceFromCenter: 0.3
-  _playerIsInteracting: 0
+  playerIsInteracting: 0
+  isForEnigma1: 0
+  isForEnigma2: 0
+  isForEnigma3: 0
+  isForEnigma4: 0
 --- !u!65 &2144461321
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -38910,11 +38900,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1359375288986250057 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6783722625221995424, guid: 02cfb1780f4c0104389c69bff630f8bd, type: 3}
-  m_PrefabInstance: {fileID: 8263779075024447603}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2627042255194312269 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2627042256486855348, guid: 1e09be4150bf4e04f8b03b044ec2a6ed, type: 3}
@@ -38953,22 +38938,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &5479305271687390422 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8637714777560538702, guid: 02cfb1780f4c0104389c69bff630f8bd, type: 3}
-  m_PrefabInstance: {fileID: 8263779075024447603}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &6746245023518329505 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1925170391856067459, guid: 02cfb1780f4c0104389c69bff630f8bd, type: 3}
-  m_PrefabInstance: {fileID: 8263779075024447603}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &7876817294051783197
 Transform:
   m_ObjectHideFlags: 0
@@ -39186,17 +39155,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   outline: {fileID: 8661176799729736888}
   message: 
---- !u!114 &9217027308964373540 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2161455940490451410, guid: 02cfb1780f4c0104389c69bff630f8bd, type: 3}
-  m_PrefabInstance: {fileID: 8263779075024447603}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -39219,7 +39177,6 @@ SceneRoots:
   - {fileID: 1444313844}
   - {fileID: 481441271}
   - {fileID: 1345550798}
-  - {fileID: 636029046}
   - {fileID: 1055866934}
   - {fileID: 524568246}
   - {fileID: 867396586}
