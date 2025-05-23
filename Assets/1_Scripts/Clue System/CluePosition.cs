@@ -28,21 +28,22 @@ public class CluePosition : MonoBehaviour, IActivatable, ISaveAndPullData
     void Start()
     {
         tempOutline.enabled = false;
-        //StartCoroutine(CheckIfCluesIsEmpty());
     }
-    /*
-    IEnumerator CheckIfCluesIsEmpty()
+    
+    /*void Update()
     {
-        while (clues.Count == 0)
+        if (clues.Count != 0)
         {
-            yield return new WaitForEndOfFrame();
-            if (clues.Count != 0)
-            {
-                tempOutline.enabled = true;
-            }
+            Interactable temp = gameObject.GetComponent<Interactable>();
+            temp.EnableOutline();
         }
-    }
-    */
+        else
+        {
+            Interactable temp = gameObject.GetComponent<Interactable>();
+            temp.DisableOutline();
+        }
+    }*/
+    
     /// <summary>
     /// Appelle cette méthode pour répartir les indices autour du centre
     /// </summary>
@@ -74,6 +75,13 @@ public class CluePosition : MonoBehaviour, IActivatable, ISaveAndPullData
         ChangePositionCinemachine.Instance.SwitchCam(clueCinemachineCamera, playerIsInteracting);
         GameManager.Instance.ToggleTotalFreezePlayer();
         GameManager.Instance.clueUI.SetActive(!GameManager.Instance.clueUI.activeSelf);
+        GameManager.Instance.playerUI.SetActive(!GameManager.Instance.playerUI.activeSelf);
+    }
+
+    public void ActivateByGumGum()
+    {
+        GameManager.Instance.clueUI.SetActive(true);
+        GameManager.Instance.playerUI.SetActive(false);
     }
     
     public void PushDataToSave()

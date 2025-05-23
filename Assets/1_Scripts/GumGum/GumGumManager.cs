@@ -106,9 +106,6 @@ public class GumGumManager : MonoBehaviour, ISaveAndPullData
 
                     canPlayAnimation = true;
                     
-                    GameManager.Instance.playerUI.SetActive(false);
-                    GameManager.Instance.gumgumUI.SetActive(false);
-                    
                     StartCoroutine(ShowClueWithAnimation(enigmaNumber));
                 }
             }
@@ -231,6 +228,10 @@ public class GumGumManager : MonoBehaviour, ISaveAndPullData
         Debug.Log("Debut coroutine");
         if (canPlayAnimation)
         {
+            GameManager.Instance.playerUI.SetActive(false);
+            GameManager.Instance.clueUI.SetActive(false);
+            GameManager.Instance.gumgumUI.SetActive(false);
+            
             if (_BullGumAnimator != null)
             {
                 Debug.Log("Debut animation");
@@ -250,6 +251,7 @@ public class GumGumManager : MonoBehaviour, ISaveAndPullData
         }
         ChangePositionCinemachine.Instance.SwitchIntoClueCinemachineCamera(gumgumCinemachineCamera, _cluePosition.clueCinemachineCamera);
         ChangePositionCinemachine.Instance._gumgumCinemachineCamera.Priority = 0;
+        _cluePosition.ActivateByGumGum();
     }
     
     /// <summary>
@@ -257,12 +259,14 @@ public class GumGumManager : MonoBehaviour, ISaveAndPullData
     /// </summary>
     private void IntanciateClue()
     {
+        // Récupération du composant CluePosition
+        _cluePosition = targetSpawn.GetComponent<CluePosition>();
+        
         // Instanciation de l'indice
         clueInstance = Instantiate(cluePrefab,targetSpawn.position, targetSpawn.rotation);
         clueInstance.transform.SetParent(targetSpawn);
         
-        // Récupération du composant CluePosition
-        _cluePosition = targetSpawn.GetComponent<CluePosition>();
+        _cluePosition.clues.Add(clueInstance);
         
         PlayerBrain.Instance.playerGameObject.transform.position = new Vector3(targetSpawn.position.x, PlayerBrain.Instance.playerGameObject.transform.position.y, targetSpawn.position.z + 1.5f);
         PlayerBrain.Instance.playerGameObject.transform.rotation = Quaternion.Euler(0, targetSpawn.rotation.eulerAngles.y, 0);
@@ -277,30 +281,9 @@ public class GumGumManager : MonoBehaviour, ISaveAndPullData
         GameManager.Instance.clueUI.SetActive(true);
         
         _cluePosition.UpdatePosition();
+        _cluePosition.playerIsInteracting = true;
     }
     
-    /*private void IntanciateClue()
-    {
-        Vector3 spawnPosition = targetSpawn.position + new Vector3(0, 0.5f, 0);
-        Quaternion spawnRotation = targetSpawn.rotation;
-
-        clueInstance = Instantiate(cluePrefab, spawnPosition, spawnRotation);
-        clueInstance.transform.SetParent(targetSpawn);
-
-        _cluePosition = clueInstance.GetComponent<CluePosition>();
-        if (_cluePosition == null)
-        {
-            _cluePosition = clueInstance.GetComponentInChildren<CluePosition>();
-        }
-
-        if (_cluePosition == null)
-        {
-            Debug.LogError("CluePosition est introuvable dans le prefab instancié.");
-        }
-    }*/
-
-
-
     /// <summary>
     /// Incrémente l’index de l’indice à afficher pour une énigme donnée.
     /// </summary>
