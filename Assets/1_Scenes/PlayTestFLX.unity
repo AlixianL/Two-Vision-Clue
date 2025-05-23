@@ -8953,6 +8953,36 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 454f25093265dd142a0af083534d51b9, type: 3}
   m_PrefabInstance: {fileID: 565634790}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &568607581 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3349047400442705233, guid: 1e09be4150bf4e04f8b03b044ec2a6ed, type: 3}
+  m_PrefabInstance: {fileID: 1972382989}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &568607589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 568607581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9818f5328c8463345ba603930948cd26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SoundList:
+  - Guid:
+      Data1: 2041025177
+      Data2: 1120944109
+      Data3: -799360860
+      Data4: -1545582880
+    Path: event:/SFX/Menu/MenuSFX Passage
+  - Guid:
+      Data1: 439999239
+      Data2: 1227883781
+      Data3: 596048261
+      Data4: 1060596106
+    Path: event:/SFX/Menu/MenuSFX
 --- !u!1 &568954168 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f4cb964469174a14980f756c82d2cd30, type: 3}
@@ -33748,6 +33778,18 @@ PrefabInstance:
       propertyPath: _layerMaskToCheck.m_Bits
       value: 47488
       objectReference: {fileID: 0}
+    - target: {fileID: 8413895949605184331, guid: 1e09be4150bf4e04f8b03b044ec2a6ed, type: 3}
+      propertyPath: triggerSoundMultiple
+      value: 
+      objectReference: {fileID: 568607589}
+    - target: {fileID: 8432099888022349478, guid: 1e09be4150bf4e04f8b03b044ec2a6ed, type: 3}
+      propertyPath: _cameraPanel
+      value: 
+      objectReference: {fileID: 1863826744}
+    - target: {fileID: 8432099888022349478, guid: 1e09be4150bf4e04f8b03b044ec2a6ed, type: 3}
+      propertyPath: _handheldCameraManager
+      value: 
+      objectReference: {fileID: 986705124}
     - target: {fileID: 8568988485900865952, guid: 1e09be4150bf4e04f8b03b044ec2a6ed, type: 3}
       propertyPath: triggerSoundMultiple
       value: 
@@ -33767,6 +33809,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 9013753269867907282, guid: 1e09be4150bf4e04f8b03b044ec2a6ed, type: 3}
       insertIndex: -1
       addedObject: {fileID: 811714324}
+    - targetCorrespondingSourceObject: {fileID: 3349047400442705233, guid: 1e09be4150bf4e04f8b03b044ec2a6ed, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 568607589}
   m_SourcePrefab: {fileID: 100100000, guid: 1e09be4150bf4e04f8b03b044ec2a6ed, type: 3}
 --- !u!1 &1975796561
 GameObject:
