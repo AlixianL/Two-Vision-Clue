@@ -45,7 +45,7 @@ public class PlaqueManager : MonoBehaviour
     void Start()
     {
         foreach (var plaque in plaques)
-            plaque.originalForward = plaque.plaqueTransform.forward;
+            plaque.originalForward = plaque.plaqueTransform.right;
 
         _allIsFacing = false;
         _enigmaisEnd = false;
