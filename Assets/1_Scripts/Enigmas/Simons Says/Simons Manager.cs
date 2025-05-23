@@ -108,7 +108,6 @@ public class SimonsManager : MonoBehaviour
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     IEnumerator SequenceToPLay()
     {
-        Debug.LogError("je lance la sequence" + _sequenceNumber);
         _placeTocheckSequence = 0;
         yield return new WaitForSeconds(_simonsDelay);
 
@@ -127,7 +126,6 @@ public class SimonsManager : MonoBehaviour
     {
         if (!_enigmaIsEnd && _enigmaIsOn)
         {
-            Debug.LogError("le bouton a march�");
 
             if (simonsElementIndex == SimonsOrder[_placeTocheckSequence])
             {
@@ -156,7 +154,7 @@ public class SimonsManager : MonoBehaviour
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     private IEnumerator ValidateSequence()
     {
-        Debug.LogError("la sequence est bonne");
+
 
         yield return StartCoroutine(CurrentSequenceFinish());
         CreateNextSequence();
@@ -182,7 +180,7 @@ public class SimonsManager : MonoBehaviour
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     private IEnumerator WrongButton()
     {
-        Debug.LogError("Erreur");
+
 
         yield return StartCoroutine(WrongFeedbackLight());
         StartCoroutine("SequenceToPLay");
