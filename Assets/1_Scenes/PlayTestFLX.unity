@@ -7575,6 +7575,7 @@ MonoBehaviour:
   _lineRenderer: {fileID: 2109642149}
   _startPointObject: {fileID: 7477638}
   _player: {fileID: 0}
+  _validationLight: {fileID: 555361773}
   _mirror:
   - {fileID: 1092950649}
   - {fileID: 462341124}
@@ -7587,10 +7588,6 @@ MonoBehaviour:
   _isOff: {r: 1, g: 0, b: 0, a: 0}
   _verifLight: {fileID: 495028793}
   maxDistance: 100
-  triggerSound: {fileID: 520221143}
-  _validationLight: {fileID: 555361773}
-  _unlock: {fileID: 799999851}
-  _number: {fileID: 1493837092}
 --- !u!65 &520221142
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12154,13 +12151,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d08e110561f20b41abe9c4f8aaf0cd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rayonIsEnd: 0
-  _labiryntheIsEnd: 0
-  _goatIsEnd: 0
-  _pillarIsEnd: 0
-  _allIsEnd: 0
-  _isOpen: 0
-  _locker: {fileID: 799999849}
 --- !u!65 &799999852
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -18139,8 +18129,6 @@ MonoBehaviour:
   _simonsDelay: 1.1
   _feedbackDuration: 1
   _validationLight: {fileID: 1026312892}
-  _unlock: {fileID: 799999851}
-  _number: {fileID: 303077164}
 --- !u!4 &1130240001
 Transform:
   m_ObjectHideFlags: 0
@@ -18208,7 +18196,6 @@ MonoBehaviour:
   - {fileID: 783403205}
   uiInteract: {fileID: 0}
   _isOpen: 0
-  triggerSound: {fileID: 1136499481}
 --- !u!114 &1136499481
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21862,7 +21849,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1140526173732795887, guid: 8e9c56d7674b1f44ea2616cdcaf4486d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.096
+      value: -0.005
       objectReference: {fileID: 0}
     - target: {fileID: 3640078245366341960, guid: 8e9c56d7674b1f44ea2616cdcaf4486d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -22102,26 +22089,34 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8060159007078896372, guid: 8e9c56d7674b1f44ea2616cdcaf4486d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.36
+      value: 0.074
       objectReference: {fileID: 0}
     - target: {fileID: 9159561919972261555, guid: 8e9c56d7674b1f44ea2616cdcaf4486d, type: 3}
       propertyPath: m_Size.x
       value: 2.69882
       objectReference: {fileID: 0}
     - target: {fileID: 9159561919972261555, guid: 8e9c56d7674b1f44ea2616cdcaf4486d, type: 3}
+      propertyPath: m_Size.y
+      value: 4.162431
+      objectReference: {fileID: 0}
+    - target: {fileID: 9159561919972261555, guid: 8e9c56d7674b1f44ea2616cdcaf4486d, type: 3}
       propertyPath: m_Center.x
       value: -0.0038938522
+      objectReference: {fileID: 0}
+    - target: {fileID: 9159561919972261555, guid: 8e9c56d7674b1f44ea2616cdcaf4486d, type: 3}
+      propertyPath: m_Center.y
+      value: 2.0599394
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1314934971430166285, guid: 8e9c56d7674b1f44ea2616cdcaf4486d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 1140526173732795887, guid: 8e9c56d7674b1f44ea2616cdcaf4486d, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 101211710}
     - targetCorrespondingSourceObject: {fileID: 8060159007078896372, guid: 8e9c56d7674b1f44ea2616cdcaf4486d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2147246504}
+    - targetCorrespondingSourceObject: {fileID: 1140526173732795887, guid: 8e9c56d7674b1f44ea2616cdcaf4486d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 101211710}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8e9c56d7674b1f44ea2616cdcaf4486d, type: 3}
 --- !u!4 &1326626638 stripped
@@ -24379,7 +24374,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5e31aacebafab840901b45ca12b9e45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneForEnd: EndScreen
 --- !u!65 &1468027523
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -25693,7 +25687,6 @@ MonoBehaviour:
   - {fileID: 1724112415}
   - {fileID: 1086532474}
   _tempsEntreLight: 0.7
-  triggerSound: {fileID: 1509503548}
 --- !u!114 &1509503548
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29728,25 +29721,20 @@ MonoBehaviour:
   - positionID: 1
     plaqueTransform: {fileID: 1153471019}
     goodposition: 0
-    originalForward: {x: 0, y: 0, z: 0}
   - positionID: 3
     plaqueTransform: {fileID: 1153471018}
     goodposition: 2
-    originalForward: {x: 0, y: 0, z: 0}
   - positionID: 0
     plaqueTransform: {fileID: 1153471017}
     goodposition: 3
-    originalForward: {x: 0, y: 0, z: 0}
   - positionID: 2
     plaqueTransform: {fileID: 1153471016}
     goodposition: 1
-    originalForward: {x: 0, y: 0, z: 0}
   _swapDuration: 1
   _turnDuration: 0.7
   _decalDistance: 0.2
   _enigmaisEnd: 0
   _allIsFacing: 0
-  _gumGum: {fileID: 1326626651}
 --- !u!1 &1750269686
 GameObject:
   m_ObjectHideFlags: 0
@@ -30457,10 +30445,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rotateWeel: {fileID: 568954170}
-  _ball: {fileID: 797129068}
   _validationLight: {fileID: 772399624}
-  _unlock: {fileID: 799999851}
-  _number: {fileID: 1443576511}
+  _ball: {fileID: 797129068}
 --- !u!1 &1782190258
 GameObject:
   m_ObjectHideFlags: 0
@@ -35619,7 +35605,7 @@ Transform:
   m_GameObject: {fileID: 2147246503}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0.942, z: -0.041}
+  m_LocalPosition: {x: 0, y: 0.942, z: -0.058}
   m_LocalScale: {x: 0.3548901, y: 0.25754, z: 0.20362833}
   m_ConstrainProportionsScale: 0
   m_Children: []
