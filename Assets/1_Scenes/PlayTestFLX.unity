@@ -13230,42 +13230,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!1 &811714312 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9013753269867907282, guid: 1e09be4150bf4e04f8b03b044ec2a6ed, type: 3}
+--- !u!114 &811714326 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5713363360836941632, guid: 1e09be4150bf4e04f8b03b044ec2a6ed, type: 3}
   m_PrefabInstance: {fileID: 1972382989}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &811714324
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 811714312}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9818f5328c8463345ba603930948cd26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SoundList:
-  - Guid:
-      Data1: 2041025177
-      Data2: 1120944109
-      Data3: -799360860
-      Data4: -1545582880
-    Path: event:/SFX/Menu/MenuSFX Passage
-  - Guid:
-      Data1: -1912018296
-      Data2: 1146958444
-      Data3: 2121009852
-      Data4: 1954107603
-    Path: event:/SFX/Pose
-  - Guid:
-      Data1: -2085702938
-      Data2: 1341657621
-      Data3: -933552502
-      Data4: 804993232
-    Path: event:/SFX/Grab
 --- !u!1 &819888541
 GameObject:
   m_ObjectHideFlags: 0
@@ -35488,10 +35463,14 @@ PrefabInstance:
       propertyPath: raycastOrigine
       value: 
       objectReference: {fileID: 235666418}
+    - target: {fileID: 5568179522162661937, guid: 1e09be4150bf4e04f8b03b044ec2a6ed, type: 3}
+      propertyPath: playerHandheldCamera
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7151245461555468841, guid: 1e09be4150bf4e04f8b03b044ec2a6ed, type: 3}
       propertyPath: triggerSoundMultiple
       value: 
-      objectReference: {fileID: 811714324}
+      objectReference: {fileID: 811714326}
     - target: {fileID: 7151245461555468841, guid: 1e09be4150bf4e04f8b03b044ec2a6ed, type: 3}
       propertyPath: _layerMaskToCheck.m_Bits
       value: 47488
@@ -35511,7 +35490,7 @@ PrefabInstance:
     - target: {fileID: 8568988485900865952, guid: 1e09be4150bf4e04f8b03b044ec2a6ed, type: 3}
       propertyPath: triggerSoundMultiple
       value: 
-      objectReference: {fileID: 811714324}
+      objectReference: {fileID: 811714326}
     - target: {fileID: 8832621597450099050, guid: 1e09be4150bf4e04f8b03b044ec2a6ed, type: 3}
       propertyPath: trackedTarget
       value: 
@@ -35524,9 +35503,6 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 9013753269867907282, guid: 1e09be4150bf4e04f8b03b044ec2a6ed, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 811714324}
     - targetCorrespondingSourceObject: {fileID: 3349047400442705233, guid: 1e09be4150bf4e04f8b03b044ec2a6ed, type: 3}
       insertIndex: -1
       addedObject: {fileID: 568607589}
