@@ -11875,6 +11875,11 @@ Transform:
   - {fileID: 575251492}
   m_Father: {fileID: 202113893}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &766944378 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 3711114848675815990, guid: 1e09be4150bf4e04f8b03b044ec2a6ed, type: 3}
+  m_PrefabInstance: {fileID: 1972382989}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &768545810
 GameObject:
   m_ObjectHideFlags: 0
@@ -12585,7 +12590,7 @@ MonoBehaviour:
   _pillarIsEnd: 0
   _allIsEnd: 0
   _isOpen: 0
-  _locker: {fileID: 0}
+  _locker: {fileID: 799999849}
 --- !u!65 &799999852
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15582,6 +15587,7 @@ GameObject:
   - component: {fileID: 986705127}
   - component: {fileID: 986705129}
   - component: {fileID: 986705124}
+  - component: {fileID: 986705130}
   - component: {fileID: 986705125}
   - component: {fileID: 986705126}
   - component: {fileID: 986705128}
@@ -15620,6 +15626,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cec3d93e63895b9429419a3478635c19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _handhledCameraShake: {fileID: 986705130}
   handheldCameraPrefab: {fileID: 834981317997538477, guid: a58ef789fdb8ddd4990d073bebee5058, type: 3}
   spawnPoint: {fileID: 455359663}
   _cameraToDestroy: {fileID: 1405317249}
@@ -15734,6 +15741,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: Scene_Transition
+--- !u!114 &986705130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 986705122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5994f75171fa9564f8506269939394e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetAnimator: {fileID: 766944378}
 --- !u!1 &989188112
 GameObject:
   m_ObjectHideFlags: 0

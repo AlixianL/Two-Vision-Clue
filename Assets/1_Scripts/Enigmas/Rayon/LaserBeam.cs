@@ -133,6 +133,8 @@ public class LaserBeam : MonoBehaviour, IActivatable
         _puzzleEnd = true;
         _validationLight.SetActive(true);
         _number.SetActive(true);
+        _unlock._rayonIsEnd = true;
+
 
 
         foreach (GameObject mirrorObject in _mirror)
