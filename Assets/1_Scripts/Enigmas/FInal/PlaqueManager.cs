@@ -19,6 +19,7 @@ public class PlaqueManager : MonoBehaviour
         public Transform plaqueTransform;
         public PositionID goodposition;
 
+        [HideInInspector] public Vector3 originalForward;
     }
 
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -33,6 +34,9 @@ public class PlaqueManager : MonoBehaviour
     [SerializeField] private bool _enigmaisEnd = false;
     [SerializeField] public bool _allIsFacing = false;
 
+    [SerializeField] private Transform _gumGum;
+
+
 
 
 
@@ -40,6 +44,9 @@ public class PlaqueManager : MonoBehaviour
 
     void Start()
     {
+        foreach (var plaque in plaques)
+            plaque.originalForward = plaque.plaqueTransform.forward;
+
         _allIsFacing = false;
         _enigmaisEnd = false;
 
@@ -67,6 +74,7 @@ public class PlaqueManager : MonoBehaviour
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     public void Swap(PositionID pos1, PositionID pos2)
     {
+        Debug.Log("SWAP");
         if (!isSwapping && !_enigmaisEnd )
         {
             Transform a = GetPlaqueByPosition(pos1);
@@ -84,6 +92,8 @@ public class PlaqueManager : MonoBehaviour
 
     public void Turnup()
     {
+        Debug.Log("TOURNEEEEE");
+
         if (!isSwapping && !_enigmaisEnd)
         {
             Transform r = GetPlaqueByPosition(PositionID.Gauche);
@@ -116,8 +126,11 @@ public class PlaqueManager : MonoBehaviour
         Vector3 startA = _plaque1.position;
         Vector3 startB = _plaque2.position;
 
-        Vector3 preMoveA = startA - _plaque1.forward * _decalDistance;
-        Vector3 preMoveB = startB + _plaque2.forward * _decalDistance;
+        Vector3 forwardA = plaques.Find(p => p.plaqueTransform == _plaque1).originalForward;
+        Vector3 forwardB = plaques.Find(p => p.plaqueTransform == _plaque2).originalForward;
+
+        Vector3 preMoveA = startA - forwardA * _decalDistance;
+        Vector3 preMoveB = startB + forwardB * _decalDistance;
 
         float elapsed = 0f;
 
@@ -135,8 +148,8 @@ public class PlaqueManager : MonoBehaviour
 
         //Phase 2
 
-        Vector3 crossA = startB - _plaque1.forward * _decalDistance;
-        Vector3 crossB = startA + _plaque2.forward * _decalDistance;
+        Vector3 crossA = startB - forwardA * _decalDistance;
+        Vector3 crossB = startA + forwardB * _decalDistance;
 
         elapsed = 0f;
         while (elapsed < _swapDuration * 0.4f)
@@ -211,13 +224,38 @@ public class PlaqueManager : MonoBehaviour
     }
 
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    // -- Coroutine de rotation  -----------------------------------
+    // -- Fin de l'énigme  -----------------------------------------
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     public void Ending()
     {
         _enigmaisEnd = true;
+        StartCoroutine(GumGumUp(3f));
         Debug.Log("c'est fintio");
     }
 
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    // -- Coroutine de GumGum  -------------------------------------
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    IEnumerator GumGumUp(float height)
+    {
+        float duration = 1f;
+        float elapsed = 0f;
+
+        Vector3 initialPosition = _gumGum.transform.position;
+        Vector3 targetPosition = initialPosition + Vector3.up * height;
+
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            float t = Mathf.Clamp01(elapsed / duration);
+            _gumGum.transform.position = Vector3.Lerp(initialPosition, targetPosition, t);
+            yield return null;
+        }
+
+        _gumGum.transform.position = targetPosition;
+    }
+
+    [ContextMenu("fin de l'énigme final")]
+    public void End() => Ending();
 }

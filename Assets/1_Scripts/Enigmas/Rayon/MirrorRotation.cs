@@ -24,6 +24,10 @@ public class MirrorRotation : MonoBehaviour, IActivatable, ISaveAndPullData
 
     [SerializeField] private CinemachineCamera _enigmaCinemachineCamera;
 
+    //Sound-Design
+    //---------------------------------
+    public TriggerSound triggerSound;
+
 
     public void Activate()
     {
@@ -36,12 +40,12 @@ public class MirrorRotation : MonoBehaviour, IActivatable, ISaveAndPullData
 
         GameManager.Instance.ToggleTotalFreezePlayer();
         PlayerBrain.Instance.playerRigidbody.linearVelocity = Vector3.zero;
-
+        
         if (_enigmaCinemachineCamera != null)
         {
             ChangePositionCinemachine.Instance.SwitchCam(_enigmaCinemachineCamera, _interactWithEnigma);
         }
-        
+
         GameManager.Instance.playerUI.SetActive(!_interactWithEnigma);
         GameManager.Instance.mirrorUI.SetActive(_interactWithEnigma);
     }
@@ -53,10 +57,18 @@ public class MirrorRotation : MonoBehaviour, IActivatable, ISaveAndPullData
             if (PlayerBrain.Instance.player.GetButton("RightMovement"))
             {
                 pivotHorizontal.Rotate(-Vector3.up * rotationSpeed * Time.deltaTime);
+
+                //Sound-Design
+                //---------------------------------
+                triggerSound.PlaySound();
             }
             if (PlayerBrain.Instance.player.GetButton("LeftMovement"))
             {
                 pivotHorizontal.Rotate(Vector3.up * rotationSpeed * Time.deltaTime);
+
+                //Sound-Design
+                //---------------------------------
+                triggerSound.PlaySound();
             }
 
             if (PlayerBrain.Instance.player.GetButton("ForwardMovement"))

@@ -9,13 +9,22 @@ public class Play : MonoBehaviour,IActivatable
     [SerializeField] private Light _menuLight;
     [SerializeField] private Light _recuperationlight;
 
+
     [SerializeField] private HandheldCameraManager _handheldCameraManager;
+
+
+
 
     [SerializeField] private Transform _playerPosition;
     [SerializeField] private GameObject _cameraPanel;
 
     [SerializeField] private float _effectDuration;
     [SerializeField] private float _playerDistance;
+
+    //Sound-Design
+    //---------------------------------
+    public TriggerSoundMultiple triggerSoundMultiple;
+
 
     public void Start()
     {
@@ -37,6 +46,10 @@ public class Play : MonoBehaviour,IActivatable
         }
 
         _recuperationPanel.SetActive(true);
+
+        //Sound-Design
+        //---------------------------------
+        triggerSoundMultiple.PlaySound(0);
 
         _cameraPanel.SetActive(true);
         StartCoroutine(PlayIntroEffect());
@@ -85,7 +98,7 @@ public class Play : MonoBehaviour,IActivatable
 
 
         // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-        // -- logique des dï¿½placement  ---------------------------------
+        // -- logique des déplacement  ---------------------------------
         // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
         for (float t = 0; t < 1f; t += Time.deltaTime / _effectDuration)

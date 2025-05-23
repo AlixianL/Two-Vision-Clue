@@ -13,7 +13,6 @@ public class TurnPillar : MonoBehaviour, IActivatable, ISaveAndPullData
 
 
     [SerializeField] private CinemachineCamera _enigmaCinemachineCamera;//------------> reference a la cinemachine camera pour voir le pilier
-    [SerializeField] private GameObject _validationLight;//---------------------------> reference a la light de validation sur le pilier centrale
     [SerializeField] private Transform _arrow;//--------------------------------------> reference a la position de la fl�che
     private Transform targetArrowPosition;//------------------------------------------> prochaine position de la fleche
 
@@ -30,6 +29,16 @@ public class TurnPillar : MonoBehaviour, IActivatable, ISaveAndPullData
     [SerializeField] private float arrowMoveSpeed = 5f;//-----------------------------> vitesse de la fleche pour changer de position
 
 
+    [Header("End Feedback")]
+    [SerializeField] private GameObject _validationLight;//---------------------------> reference a la light de validation sur le pilier centrale
+    [SerializeField] private UnlockFInal _unlock;
+    [SerializeField] private GameObject _number;
+
+    public TriggerSoundMultiple triggerSoundMultiple;
+
+
+
+
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     // -- initialisation de l'enigme -------------------------------
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -38,6 +47,8 @@ public class TurnPillar : MonoBehaviour, IActivatable, ISaveAndPullData
     {
         _validationLight.SetActive(false);
         _currentRock = turnRock[_currentIndex];
+        _number.SetActive(false);
+
     }
 
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -49,6 +60,7 @@ public class TurnPillar : MonoBehaviour, IActivatable, ISaveAndPullData
         if (!_interactWithEnigma)
         {
             _interactWithEnigma = true;
+            triggerSoundMultiple.PlaySound(0);
         }
         else _interactWithEnigma = false;
 
@@ -69,21 +81,25 @@ public class TurnPillar : MonoBehaviour, IActivatable, ISaveAndPullData
             if (PlayerBrain.Instance.player.GetButton("RightMovement"))
             {
                 StartCoroutine(RotateRockSmooth(90f));
+                triggerSoundMultiple.PlaySound(2);
             }
             if (PlayerBrain.Instance.player.GetButton("LeftMovement"))
             {
                 StartCoroutine(RotateRockSmooth(-90f));
+                triggerSoundMultiple.PlaySound(2);
             }
 
             if (PlayerBrain.Instance.player.GetButtonDown("ForwardMovement"))
             {
                 _currentIndex = (_currentIndex + 1 + turnRock.Count) % turnRock.Count;
                 _currentRock = turnRock[_currentIndex];
+                triggerSoundMultiple.PlaySound(1);
             }
             if (PlayerBrain.Instance.player.GetButtonDown("BackwardMovement"))
             {
                 _currentIndex = (_currentIndex - 1 + turnRock.Count) % turnRock.Count;
                 _currentRock = turnRock[_currentIndex];
+                triggerSoundMultiple.PlaySound(1);
             }
         }
         //-----> ICI la position de la fleche quand on interagit avec l'enigme
@@ -138,7 +154,10 @@ public class TurnPillar : MonoBehaviour, IActivatable, ISaveAndPullData
     {
         _validationLight.SetActive(true);
         _enigmeisend = true;
-        Debug.Log("Pillar fini");
+        _unlock._pillarIsEnd = true;
+        _number.SetActive(true);
+
+
         SaveData.Instance.gameData.enigmaIsComplete_pillar = true;
     }
 

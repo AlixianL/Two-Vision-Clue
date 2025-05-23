@@ -4,7 +4,7 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 
-public class SimonsManager : MonoBehaviour, ISaveAndPullData
+public class SimonsManager : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private SimonsElement[] SimonsElement;//-----------------------> Liste de toute les chevre qui constitue l'enigme
@@ -31,6 +31,9 @@ public class SimonsManager : MonoBehaviour, ISaveAndPullData
 
     [Header("End Feedback")]
     [SerializeField] private GameObject _validationLight; //------------------------> light de validation sur le pilier centrale
+    [SerializeField] private UnlockFInal _unlock;
+    [SerializeField] private GameObject _number;
+
 
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     // -- Initialisation du jeux  ----------------------------------
@@ -40,6 +43,8 @@ public class SimonsManager : MonoBehaviour, ISaveAndPullData
         SetIndex();
         _sequenceNumber = 0;
         _enigmaIsOn = false;
+        _number.SetActive(false);
+
     }
 
     public void PullDataFromSave()
@@ -198,7 +203,7 @@ public class SimonsManager : MonoBehaviour, ISaveAndPullData
             lightObj.color = _originalColor;
         }
     }
-    
+
 
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     // -- Condition de fin du mini jeux  ---------------------------
@@ -209,15 +214,16 @@ public class SimonsManager : MonoBehaviour, ISaveAndPullData
         {
             _validationLight.SetActive(true);
         }
-       Debug.Log("Enigme Simon Fini");
         StartCoroutine(CurrentSequenceFinish());
         _enigmaIsEnd = true;
+        _unlock._goatIsEnd = true;
+        _number.SetActive(true);
 
         foreach (SimonsElement SimonsElementObject in SimonsElement)
         {
             if (SimonsElementObject != null)
             {
-                SimonsElementObject.FreezSimons(); 
+                SimonsElementObject.FreezSimons();
             }
             else
             {
@@ -225,7 +231,6 @@ public class SimonsManager : MonoBehaviour, ISaveAndPullData
             }
         }
 
-        Debug.Log("l'enigme est finito");
         PushDataToSave();
     }
 
