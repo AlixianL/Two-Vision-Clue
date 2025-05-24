@@ -5,7 +5,7 @@ using UnityEngine;
 public class RotateWeel : MonoBehaviour, IActivatable
 {
     [Header("References"), Space(5)]
-    public GameObject labyrinth;
+    [SerializeField] private GameObject _labyrinth;
     [SerializeField] private CinemachineCamera _enigmaCinemachineCamera;
     [SerializeField] private GameObject _labyrintheLight;//-------------------------> Light pour voir le labyrinthe
     [SerializeField] private Transform _playerTransform;
@@ -66,13 +66,13 @@ public class RotateWeel : MonoBehaviour, IActivatable
                 // Rotation droite
                 if (PlayerBrain.Instance.player.GetButton("RightMovement"))
                 {
-                    labyrinth.transform.Rotate(-_rotationSpeed * Time.deltaTime, 0f, 0f);
+                    _labyrinth.transform.Rotate(-_rotationSpeed * Time.deltaTime, 0f, 0f);
                 }
 
                 // Rotation gauche
                 else if (PlayerBrain.Instance.player.GetButton("LeftMovement"))
                 {
-                    labyrinth.transform.Rotate(_rotationSpeed * Time.deltaTime, 0f, 0f);
+                    _labyrinth.transform.Rotate(_rotationSpeed * Time.deltaTime, 0f, 0f);
                 }
             }
         }

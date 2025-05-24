@@ -15,14 +15,8 @@ public class PlayerInteractionSystem : MonoBehaviour
     [Header("Varaibles"), Space(5)]
     [SerializeField] private float _rayRange;                 // Portée du rayon
     public bool playerCanInteractWhithMouse = true;
-
-    //Sound-Design
-    //---------------------------------
-    public TriggerSoundMultiple triggerSoundMultiple;
-
-    private bool _soundIsPlaying = false;
-
-
+    
+    
     private void Update()
     {
         HandleRaycast();
@@ -47,19 +41,9 @@ public class PlayerInteractionSystem : MonoBehaviour
             if (newInteractable != null && newInteractable.enabled)
             {
                 SetNewCurrentInteractable(newInteractable);
-
-                if (hitObject.layer == LayerMask.NameToLayer("Menu") && !_soundIsPlaying)
-                { 
-                    Debug.Log("Sa touche");
-                    //Sound-Design
-                    //---------------------------------
-                    triggerSoundMultiple.PlaySound(0);
-                    _soundIsPlaying = true;
-                }
             }
             else
             {
-                _soundIsPlaying = false;
                 DisableCurrentInteractable();
             }
 

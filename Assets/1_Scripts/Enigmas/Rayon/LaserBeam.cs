@@ -30,12 +30,6 @@ public class LaserBeam : MonoBehaviour, IActivatable
 
     public float maxDistance = 100f;//----------------------------------------------> Distance max entre 2 point du line renderer
 
-    public TriggerSound triggerSound;
-
-    [Header("End Feedback")]
-    [SerializeField] private GameObject _validationLight;//-------------------------> Light Sur le pilier central pour valid� l'�nigme
-    [SerializeField] private UnlockFInal _unlock;
-    [SerializeField] private GameObject _number;
 
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     // -- D�tection du joueur pour le bouton -----------------------
@@ -45,8 +39,6 @@ public class LaserBeam : MonoBehaviour, IActivatable
     {
         _validationLight.SetActive(false);
         _verifLight.material.color = _isOff;
-        _number.SetActive(false);
-
 
     }
     public void Activate()
@@ -55,25 +47,16 @@ public class LaserBeam : MonoBehaviour, IActivatable
         {
             _verifLight.material.color = _isOn;
             _lazerIsOn = true;
-<<<<<<< HEAD
             if (_animator != null)
                 _animator.SetBool("IsActivate",true);
-=======
-            triggerSound.PlaySound();
->>>>>>> Master-Felix
         }
         else if (_lazerIsOn)
         {
             _verifLight.material.color = _isOff;
             _lazerIsOn = false;
             _lineRenderer.positionCount = 0;
-<<<<<<< HEAD
             if (_animator != null)
             _animator.SetBool("IsActivate",false);
-=======
-
-
->>>>>>> Master-Felix
         }
     }
     
@@ -145,10 +128,6 @@ public class LaserBeam : MonoBehaviour, IActivatable
     {
         _puzzleEnd = true;
         _validationLight.SetActive(true);
-        _number.SetActive(true);
-        _unlock._rayonIsEnd = true;
-
-
 
         foreach (GameObject mirrorObject in _mirror)
         {

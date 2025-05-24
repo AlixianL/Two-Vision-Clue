@@ -11,20 +11,21 @@ public class PlayerBrain : MonoBehaviour
     public GameObject cinemachineTargetGameObject;
 
     [Header("UI References"), Space(5)]
-    public GameObject cameraBack;
+    [SerializeField] public GameObject cameraBack;
     
     [Header("Player Scripts"), Space(5)]
     public PlayerMovement playerMovement;
     public CameraRotation cameraRotation;
     public PlayerHandheldCamera playerHandheldCamera;
     public PlayerInteractionSystem playerInteractionSystem;
-    public RaycastOrigine raycastOrigine;
     
     [Header("Variables"), Space(5)]
     public int chewingGumCount;
     [Space(5)]
     public float height;
     public float radius;
+    [Space(5)]
+   
     [Space(5)]
     public bool isGrounded;
     public bool asAlreadyTalkWhisGumGum = false;

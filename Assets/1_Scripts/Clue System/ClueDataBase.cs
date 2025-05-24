@@ -14,6 +14,8 @@ public class ClueDataBase : ScriptableObject
     [SerializeField] private List<ClueData> cluesEnigma2;
     [SerializeField] private List<ClueData> cluesEnigma3;
     [SerializeField] private List<ClueData> cluesEnigma4;
+    [SerializeField] private List<ClueData> cluesEnigma5;
+    [SerializeField] private List<ClueData> cluesEnigma6;
 
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     // -- RÉCUPÉRATION D'INDICES POUR UNE ÉNIGME -------------------
@@ -32,6 +34,8 @@ public class ClueDataBase : ScriptableObject
             "Enigma_02" => cluesEnigma2,
             "Enigma_03" => cluesEnigma3,
             "Enigma_04" => cluesEnigma4,
+            "Enigma_05" => cluesEnigma5,
+            "Enigma_06" => cluesEnigma6,
             _ => null
         };
 

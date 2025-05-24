@@ -3,14 +3,13 @@ using UnityEngine;
 
 public class Pause : MonoBehaviour
 {
-    [SerializeField] private List<GameObject> _pauseMenu = new List<GameObject>();
-    [SerializeField] private List<GameObject> _otherElements = new List<GameObject>();
+    [SerializeField] private List<GameObject> PauseMenu = new List<GameObject>();
     public Transform neutralParent;
     private bool isPaused = false;
 
     void Start()
     {
-        foreach (GameObject Panel in _pauseMenu)
+        foreach (GameObject Panel in PauseMenu)
         {
             Panel.SetActive(false);
         }
@@ -31,31 +30,24 @@ public class Pause : MonoBehaviour
         isPaused = !isPaused;
         if (isPaused)
         {
-            foreach (GameObject panel in _pauseMenu)
+            foreach (GameObject panel in PauseMenu)
             {
                 panel.SetActive(true);
-                panel.transform.SetParent(neutralParent);
-            }
-
-            foreach (GameObject panel in _otherElements)
-            {
                 panel.transform.SetParent(neutralParent);
             }
             Time.timeScale = 0f;
         }
         else
         {
-            foreach (var panel in _pauseMenu)
+            foreach (var panel in PauseMenu)
             {
                 panel.SetActive(false);
                 panel.transform.SetParent(transform);
             }
-
-            foreach (GameObject panel in _otherElements)
-            {
-                panel.transform.SetParent(transform);
-            }
             Time.timeScale = 1f;
         }
+        
+        
+
     }
 }
