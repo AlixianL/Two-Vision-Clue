@@ -44,6 +44,8 @@ public class HandheldCameraManager : MonoBehaviour
                 handheldCamera.transform.position = spawnPoint.transform.position;
                 cameraIsInstall = true;
                 PlayerBrain.Instance.cameraBack.SetActive(true);
+                
+                playerCanTakeCamera = cameraIsInstall;
             }
             
             if (!cameraCanBeInstalled && !cameraIsInstall) _handhledCameraShake.TriggerAnimation();
@@ -64,7 +66,7 @@ public class HandheldCameraManager : MonoBehaviour
             {
                 Destroy(handheldCamera);
                 cameraIsInstall = false;
-                //playerCanTakeCamera = false;
+                playerCanTakeCamera = false;
                 cameraCanBeInstalled = true;
                 PlayerBrain.Instance.cameraBack.SetActive(false);
             }

@@ -1,33 +1,24 @@
 using UnityEngine;
 
 public class PlayerHandheldCamera : MonoBehaviour
-{           
-    private int installCameraCount = 0;
-
-    //Sound-Design
-    //---------------------------------
+{
+    // Sound-Design
     public TriggerSoundMultiple triggerSoundMultiple;
 
     void Update()
     {
-        // Poser la cam
         if (PlayerBrain.Instance.player.GetButtonDown("InstallCamera"))
         {
-            HandheldCameraManager.Instance.InstallCamera();
-             installCameraCount++;
-            //Sound-Design
-            //---------------------------------
-            triggerSoundMultiple.PlaySound(2);
-
-        }
-        
-        // Reprendre la cam
-        if (PlayerBrain.Instance.player.GetButtonDown("DestroyCamera"))
-        {
-            HandheldCameraManager.Instance.UninstallCamera();
-            //Sound-Design
-            //---------------------------------
-            triggerSoundMultiple.PlaySound(1);
+            if (HandheldCameraManager.Instance.cameraIsInstall)
+            {
+                HandheldCameraManager.Instance.UninstallCamera();
+                triggerSoundMultiple.PlaySound(1); // Son pour reprise
+            }
+            else
+            {
+                HandheldCameraManager.Instance.InstallCamera();
+                triggerSoundMultiple.PlaySound(2); // Son pour pose
+            }
         }
     }
 }
