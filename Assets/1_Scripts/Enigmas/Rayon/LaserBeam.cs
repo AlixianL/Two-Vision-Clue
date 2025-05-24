@@ -13,7 +13,6 @@ public class LaserBeam : MonoBehaviour, IActivatable
     [SerializeField] private LineRenderer _lineRenderer; //-------------------------> Visuel du rayon
     [SerializeField] private GameObject _startPointObject;//------------------------> Point de départ du rayon
     [SerializeField] private GameObject _player;//----------------------------------> Joueur
-    [SerializeField] private GameObject _validationLight;//-------------------------> Light Sur le pilier central pour validé l'énigme
     [SerializeField] private List<GameObject> _mirror = new List<GameObject>();//---> Liste des mirroir a désactiver
     [SerializeField] private LayerMask _raycastMask;//------------------------------> Layer ignorer par le rayon
     [SerializeField] private Color _isOn;//-----------------------------------------> Led on
@@ -30,6 +29,10 @@ public class LaserBeam : MonoBehaviour, IActivatable
 
     public TriggerSound triggerSound;
 
+    [Header("End Feedback")]
+    [SerializeField] private GameObject _validationLight;//-------------------------> Light Sur le pilier central pour validé l'énigme
+    [SerializeField] private UnlockFInal _unlock;
+    [SerializeField] private GameObject _number;
 
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     // -- Détection du joueur pour le bouton -----------------------
@@ -39,6 +42,8 @@ public class LaserBeam : MonoBehaviour, IActivatable
     {
         _validationLight.SetActive(false);
         _verifLight.material.color = _isOff;
+        _number.SetActive(false);
+
 
     }
     public void Activate()
@@ -127,6 +132,10 @@ public class LaserBeam : MonoBehaviour, IActivatable
     {
         _puzzleEnd = true;
         _validationLight.SetActive(true);
+        _number.SetActive(true);
+        _unlock._rayonIsEnd = true;
+
+
 
         foreach (GameObject mirrorObject in _mirror)
         {

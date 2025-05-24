@@ -6,12 +6,12 @@ public class HandheldCameraManager : MonoBehaviour
     public static HandheldCameraManager Instance;
     
     [Header("Camera References"), Space(5)]
+    [SerializeField] private HandhledCameraShake _handhledCameraShake;
     private GameObject handheldCamera;
     public GameObject handheldCameraPrefab;
     public GameObject spawnPoint;
-
-    [SerializeField] public GameObject _cameraToDestroy;
-
+    public GameObject _cameraToDestroy;
+    
 
     [Header("Variables"), Space(5)]
     public bool cameraIsInstall;
@@ -31,7 +31,7 @@ public class HandheldCameraManager : MonoBehaviour
     {
         if (isPlaying)
         {
-            if (cameraCanBeInstalled)
+            if (cameraCanBeInstalled && !cameraIsInstall)
             {
                 if (_cameraToDestroy != null)
                 {
@@ -45,6 +45,8 @@ public class HandheldCameraManager : MonoBehaviour
                 cameraIsInstall = true;
                 PlayerBrain.Instance.cameraBack.SetActive(true);
             }
+            
+            if (!cameraCanBeInstalled && !cameraIsInstall) _handhledCameraShake.TriggerAnimation();
         }
         
     }
