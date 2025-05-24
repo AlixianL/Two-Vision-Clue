@@ -12,6 +12,8 @@ public class Interactable : MonoBehaviour
     // Message associé à l'interaction (peut être utilisé pour l'affichage UI par exemple)
     public string message;
 
+    
+
     // Initialisation au démarrage
     private void Start()
     {
@@ -25,6 +27,9 @@ public class Interactable : MonoBehaviour
     public void EnableOutline()
     {
         if (outline != null) outline.enabled = true;
+       
+
+
     }
 
     public void DisableOutline()
