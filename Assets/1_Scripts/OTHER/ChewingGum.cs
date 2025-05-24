@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ChewingGum : MonoBehaviour, IActivatable
+public class ChewingGum : MonoBehaviour, IActivatable, ISaveAndPullData
 {
     [Header("Références")]
     public GumUIManager gumUIManager;
@@ -21,10 +21,18 @@ public class ChewingGum : MonoBehaviour, IActivatable
         
         // Met à jour l'UI
         gumUIManager?.ShowGumCount(PlayerBrain.Instance.chewingGumCount);
-
-        SaveData.Instance.gameData.chewinggumCount++;
+        
+        PushDataToSave();
         
         // Détruit le chewing-gum
         Destroy(gameObject);
     }
+    
+    public void PushDataToSave()
+    {
+        SaveData.Instance.gameData.chewinggumCount++;
+        SaveData.Instance.gameData.chewinggumsAlreadyTooked.Add(gameObject.name);
+    }
+
+    public void PullDataFromSave() {} // Ne sert pas dans ce script
 }

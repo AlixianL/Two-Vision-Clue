@@ -53,6 +53,7 @@ public class GameData
 {
     [Header("=== INT - VARIABLES =============================="), Space(5)]
     public int chewinggumCount;
+    public List<string> chewinggumsAlreadyTooked = new List<string>();
     
     [Header("=== BOOL - VARIABLES ============================="), Space(5)]
     public bool enigmaIsComplete_digicode = false;
