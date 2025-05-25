@@ -67,7 +67,7 @@ public class GumGum : MonoBehaviour, IActivatable
             foreach (Light light in LightOfRoom)
             {
                 light.enabled = true;
-                triggerSound.PlaySound();
+                triggerSound.LancerSon();
 
             }
         }

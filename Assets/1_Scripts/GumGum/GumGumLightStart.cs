@@ -41,7 +41,7 @@ public class GumGumLightStart : MonoBehaviour
             if (light != null)
             {
                 light.enabled = true;
-                light.gameObject.GetComponent<TriggerSound>().PlaySound();
+                light.gameObject.GetComponent<TriggerSound>().JouerOneShot();
             }
 
             

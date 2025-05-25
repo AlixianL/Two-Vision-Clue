@@ -60,7 +60,7 @@ public class MirrorRotation : MonoBehaviour, IActivatable, ISaveAndPullData
 
                 //Sound-Design
                 //---------------------------------
-                triggerSound.PlaySound();
+                triggerSound.JouerOneShot();
             }
             if (PlayerBrain.Instance.player.GetButton("LeftMovement"))
             {
@@ -68,7 +68,7 @@ public class MirrorRotation : MonoBehaviour, IActivatable, ISaveAndPullData
 
                 //Sound-Design
                 //---------------------------------
-                triggerSound.PlaySound();
+                triggerSound.JouerOneShot();
             }
 
             if (PlayerBrain.Instance.player.GetButton("ForwardMovement"))

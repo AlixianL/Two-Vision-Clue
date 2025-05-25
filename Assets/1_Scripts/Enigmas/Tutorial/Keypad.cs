@@ -28,11 +28,7 @@ public class Keypad : MonoBehaviour, IActivatable, ISaveAndPullData
     public bool _isClear = true;
     private bool _isValidated = false;
     //[SerializeField] private CanvasGroup _GuideTuto;
-
-
-    /// <summary>
-    /// 
-    /// </summary>
+    public TriggerSound triggerSound;
 
 
     void Start()
@@ -99,6 +95,7 @@ public class Keypad : MonoBehaviour, IActivatable, ISaveAndPullData
             }
             
             _isValidated = true;
+            triggerSound.JouerOneShot();
             //_GuideTuto.alpha = 0;
             if (Cursor.lockState == CursorLockMode.Locked) Cursor.lockState = CursorLockMode.None;
             else Cursor.lockState = CursorLockMode.Locked;

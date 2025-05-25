@@ -25,15 +25,22 @@ public class Play : MonoBehaviour,IActivatable
     //---------------------------------
     public TriggerSoundMultiple triggerSoundMultiple;
 
+    public TriggerSound triggerSound;
+
 
     public void Start()
     {
+        triggerSound.LancerSon();
+
         GameManager.Instance.ToggleMovementFreezePlayer();
         _cameraPanel.SetActive(false);
         _handheldCameraManager.cameraCanBeInstalled = false;
     }
     public void Activate()
     {
+        triggerSound.ArreterSon();
+        triggerSoundMultiple.PlaySound(1);
+
         foreach (GameObject Panel in MainMenu)
         {
             SetLayerRecursively(Panel, LayerMask.NameToLayer("OnlyVisibleToTheCamera"));

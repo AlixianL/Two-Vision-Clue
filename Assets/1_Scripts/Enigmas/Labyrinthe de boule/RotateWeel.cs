@@ -18,6 +18,8 @@ public class RotateWeel : MonoBehaviour, IActivatable
     [SerializeField] private bool _interactWhisEnigma;
     public bool enigmaIsValidate;
 
+    public TriggerSound triggerSound;
+
     void Start()
     {
         _lightComponent = _labyrintheLight.GetComponent<Light>();
@@ -53,12 +55,14 @@ public class RotateWeel : MonoBehaviour, IActivatable
             if (PlayerBrain.Instance.player.GetButton("RightMovement"))
             {
                 transform.Rotate(-_rotationSpeed * Time.deltaTime, 0f, 0f);
+                triggerSound.JouerOneShot();
             }
 
             // Rotation gauche
             else if (PlayerBrain.Instance.player.GetButton("LeftMovement"))
             {
                 transform.Rotate(_rotationSpeed * Time.deltaTime, 0f, 0f);
+                triggerSound.JouerOneShot();
             }
 
             if (!enigmaIsValidate)
@@ -67,6 +71,7 @@ public class RotateWeel : MonoBehaviour, IActivatable
                 if (PlayerBrain.Instance.player.GetButton("RightMovement"))
                 {
                     labyrinth.transform.Rotate(-_rotationSpeed * Time.deltaTime, 0f, 0f);
+
                 }
 
                 // Rotation gauche

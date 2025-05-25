@@ -29,6 +29,8 @@ public class LaserBeam : MonoBehaviour, IActivatable
 
     public TriggerSound triggerSound;
 
+    public TriggerSoundMultiple triggerSoundMultiple;
+
     [Header("End Feedback")]
     [SerializeField] private GameObject _validationLight;//-------------------------> Light Sur le pilier central pour validé l'énigme
     [SerializeField] private UnlockFInal _unlock;
@@ -52,13 +54,20 @@ public class LaserBeam : MonoBehaviour, IActivatable
         {
             _verifLight.material.color = _isOn;
             _lazerIsOn = true;
-            triggerSound.PlaySound();
+            triggerSound.LancerSon();
         }
         else if (_lazerIsOn)
         {
             _verifLight.material.color = _isOff;
             _lazerIsOn = false;
             _lineRenderer.positionCount = 0;
+            triggerSound.ArreterSon();
+
+
+
+
+
+
 
 
         }
@@ -134,6 +143,7 @@ public class LaserBeam : MonoBehaviour, IActivatable
         _validationLight.SetActive(true);
         _number.SetActive(true);
         _unlock._rayonIsEnd = true;
+        triggerSoundMultiple.PlaySound(0);
 
 
 
