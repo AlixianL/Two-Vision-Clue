@@ -238,7 +238,7 @@ public class PlaqueManager : MonoBehaviour
         {
             _GumGumAnimator.SetBool("IsEnding", true);
         }
-        StartCoroutine(FxSand(3f));
+        StartCoroutine(FxSand(5f));
         Debug.Log("c'est fintio");
     }
 
