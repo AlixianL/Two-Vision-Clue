@@ -26,6 +26,8 @@ public class PlaqueManager : MonoBehaviour
     // -- Variable  ------------------------------------------------
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+    [SerializeField] private Animator _GumGumAnimator;
+
     [SerializeField] private List<PlaqueInfo> plaques = new List<PlaqueInfo>();
     [SerializeField] private float _swapDuration = 1f;
     [SerializeField] private float _turnDuration = 0.7f;
@@ -230,6 +232,10 @@ public class PlaqueManager : MonoBehaviour
     public void Ending()
     {
         _enigmaisEnd = true;
+        if (_GumGumAnimator != null)
+        {
+            _GumGumAnimator.SetBool("IsEnding", true);
+        }
         StartCoroutine(GumGumUp(3f));
         Debug.Log("c'est fintio");
     }
