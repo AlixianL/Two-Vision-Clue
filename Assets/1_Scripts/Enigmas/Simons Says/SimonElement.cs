@@ -20,9 +20,9 @@ public class SimonsElement : MonoBehaviour, IActivatable
     [SerializeField] private bool _enigmaIsEnd = false;//-------> booléen pour "freeze" l'enigme
 
 
-    [Header("--------------------------------------")]
+    
 
-    public FMODUnity.EventReference SoundActivate;
+    
 
     public void Start()
     {
@@ -47,7 +47,7 @@ public class SimonsElement : MonoBehaviour, IActivatable
     public void FeedbackSimons()
     {
         StartCoroutine(FlashRoutine());
-        //AudioManager.instance.PlayOneShot(SoundActivate, this.transform.position);
+        
 
     }
 

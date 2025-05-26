@@ -59,14 +59,12 @@ public class ListenerCamera : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Tab))
         {
-            /// <summary>
-            /// 
-            /// activeCam == cam1	    Condition : est-ce que cam1 est la caméra active ?
-            /// ? cam2	                Si la condition est vraie → utilise cam2
-            /// : cam1	                Sinon → utilise cam1
-            /// SetActiveCamera(...)	Appelle la méthode SetActiveCamera avec le résultat de la condition
-            ///
-            /// </summary>
+           
+            /// activeCam == cam1	   // Condition : est-ce que cam1 est la caméra active ?
+            /// ? cam2	               // Si la condition est vraie → utilise cam2
+            /// : cam1	                //Sinon → utilise cam1
+            /// SetActiveCamera(...)	//Appelle la méthode SetActiveCamera avec le résultat de la condition
+          
             SetActiveCamera(activeCam == cam1 ? cam2 : cam1);
         }
     }
