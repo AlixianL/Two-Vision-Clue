@@ -12,14 +12,20 @@ public class CameraSwitcher : MonoBehaviour, IActivatable
 
     [Header("UI Settings")]
     [SerializeField] private GameObject _cameraSwitchUI;
+    [SerializeField] private List<CanvasGroup> _uiGroups; // Nouvel ajout
 
     [Header("Interaction")]
     [SerializeField] private bool _interactWithEnigma = false;
 
     private void Start()
     {
-        // Sauvegarde la priorité par défaut de la caméra joueur
         _defaultPlayerPriority = _playerCamera.Priority;
+
+        // S'assurer que tous les CanvasGroup sont cachés au début
+        foreach (CanvasGroup group in _uiGroups)
+        {
+            SetCanvasGroupVisible(group, false);
+        }
     }
 
     public void Activate()
@@ -27,19 +33,16 @@ public class CameraSwitcher : MonoBehaviour, IActivatable
         GameManager.Instance.ToggleTotalFreezePlayer();
         PlayerBrain.Instance.playerRigidbody.linearVelocity = Vector3.zero;
 
-        // Toggle interaction
         _interactWithEnigma = !_interactWithEnigma;
 
         if (_interactWithEnigma)
         {
-            // Mode énigme - baisse la priorité de la caméra joueur
             _playerCamera.Priority = 0;
             _currentIndex = 0;
             SwitchToCamera(_cameraList[_currentIndex]);
         }
         else
         {
-            // Retour au joueur - restaure la priorité de la caméra joueur
             SwitchToPlayerCamera();
         }
 
@@ -76,22 +79,37 @@ public class CameraSwitcher : MonoBehaviour, IActivatable
 
     private void SwitchToCamera(CinemachineCamera targetCam)
     {
-        // Réinitialise toutes les priorités
-        foreach (var cam in _cameraList)
+        for (int i = 0; i < _cameraList.Count; i++)
         {
-            cam.Priority = (cam == targetCam) ? 100 : 0;
+            _cameraList[i].Priority = (_cameraList[i] == targetCam) ? 100 : 0;
+
+            if (i < _uiGroups.Count)
+            {
+                SetCanvasGroupVisible(_uiGroups[i], _cameraList[i] == targetCam);
+            }
         }
     }
 
     private void SwitchToPlayerCamera()
     {
-        // Remet toutes les caméras à priorité 0
         foreach (var cam in _cameraList)
         {
             cam.Priority = 0;
         }
-        
-        // Restaure la priorité de la caméra joueur
+
         _playerCamera.Priority = _defaultPlayerPriority;
+
+        // Cacher tous les UI liés aux caméras
+        foreach (CanvasGroup group in _uiGroups)
+        {
+            SetCanvasGroupVisible(group, false);
+        }
+    }
+
+    private void SetCanvasGroupVisible(CanvasGroup group, bool visible)
+    {
+        group.alpha = visible ? 1 : 0;
+        group.interactable = visible;
+        group.blocksRaycasts = visible;
     }
 }
