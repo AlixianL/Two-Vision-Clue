@@ -1,14 +1,23 @@
 using UnityEngine;
 using FMODUnity;
 
-public class TriggerSound : MonoBehaviour
+public class TriggerSound: MonoBehaviour
 {
+    [SerializeField] private EventReference sonBoucle;
+    private string cleSon = "boucleZone";
 
-    public FMODUnity.EventReference SoundActivate;
-
-    public void PlaySound()
+    public void LancerSon()
     {
-        AudioManager.instance.PlayOneShot(SoundActivate, this.transform.position);
-        Debug.Log("oui");
+        AudioManager.instance.PlaySound(sonBoucle, cleSon, transform.position);
+    }
+
+    public void ArreterSon()
+    {
+        AudioManager.instance.StopSound(cleSon);
+    }
+
+    public void JouerOneShot()
+    {
+        AudioManager.instance.PlayOneShot(sonBoucle, transform.position);
     }
 }

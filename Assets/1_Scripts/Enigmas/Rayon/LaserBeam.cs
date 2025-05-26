@@ -13,14 +13,14 @@ public class LaserBeam : MonoBehaviour, IActivatable
     [SerializeField] private LineRenderer _lineRenderer; //-------------------------> Visuel du rayon
     [SerializeField] private GameObject _startPointObject;//------------------------> Point de d�part du rayon
     [SerializeField] private GameObject _player;//----------------------------------> Joueur
-    [SerializeField] private GameObject _validationLight;//-------------------------> Light Sur le pilier central pour valid� l'�nigme
     [SerializeField] private List<GameObject> _mirror = new List<GameObject>();//---> Liste des mirroir a d�sactiver
     [SerializeField] private LayerMask _raycastMask;//------------------------------> Layer ignorer par le rayon
     [SerializeField] private Color _isOn;//-----------------------------------------> Led on
     [SerializeField] private Color _isOff;//----------------------------------------> Led off
     [SerializeField] private MeshRenderer _verifLight ;//---------------------------> Led affichage
 
-
+    [Header("Animation")]
+    [SerializeField] private Animator _SunAnimator;
 
     private bool _lazerIsOn = false;//----------------------------------------------> Condition Si le lazer est actif
     private bool _puzzleEnd = false;//----------------------------------------------> Condition de fin de l'�nigme
@@ -28,6 +28,14 @@ public class LaserBeam : MonoBehaviour, IActivatable
 
     public float maxDistance = 100f;//----------------------------------------------> Distance max entre 2 point du line renderer
 
+    public TriggerSound triggerSound;
+
+    public TriggerSoundMultiple triggerSoundMultiple;
+
+    [Header("End Feedback")]
+    [SerializeField] private GameObject _validationLight;//-------------------------> Light Sur le pilier central pour valid� l'�nigme
+    [SerializeField] private UnlockFInal _unlock;
+    [SerializeField] private GameObject _number;
 
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     // -- D�tection du joueur pour le bouton -----------------------
@@ -37,33 +45,51 @@ public class LaserBeam : MonoBehaviour, IActivatable
     {
         _validationLight.SetActive(false);
         _verifLight.material.color = _isOff;
+        _number.SetActive(false);
+        if (_SunAnimator != null)
+            _SunAnimator.SetBool("IsActive", false);
+
     }
-    
     public void Activate()
     {
         if (!_lazerIsOn)
         {
             _verifLight.material.color = _isOn;
             _lazerIsOn = true;
+            triggerSound.LancerSon();
+            if (_SunAnimator != null)
+                _SunAnimator.SetBool("IsActive", true);
         }
         else if (_lazerIsOn)
         {
             _verifLight.material.color = _isOff;
             _lazerIsOn = false;
             _lineRenderer.positionCount = 0;
+            triggerSound.ArreterSon();
+            if (_SunAnimator != null)
+            _SunAnimator.SetBool("IsActive", false);
+
+
+
+
+
+
+
+
         }
     }
+    
 
     void Update()
     {
         if (_puzzleEnd) return;
+
+
         if (_lazerIsOn)
         {
             DrawLaser();
         }
     }
-
-    
 
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     // -- Fonction du comportement du rayon ------------------------
@@ -121,6 +147,11 @@ public class LaserBeam : MonoBehaviour, IActivatable
     {
         _puzzleEnd = true;
         _validationLight.SetActive(true);
+        _number.SetActive(true);
+        _unlock._rayonIsEnd = true;
+        triggerSoundMultiple.PlaySound(0);
+
+
 
         foreach (GameObject mirrorObject in _mirror)
         {
@@ -134,7 +165,5 @@ public class LaserBeam : MonoBehaviour, IActivatable
                 Debug.LogWarning("Un objet de la liste _mirror n'a pas de script MirrorRotation !");
             }
         }
-        
-        SaveData.Instance.gameData.enigmaIsComplete_mirror = true;
     }
 }

@@ -4,12 +4,19 @@ public class LabyrintheTriggerBox : MonoBehaviour, ISaveAndPullData
 {
     [Header("References"), Space(5)]
     [SerializeField] private RotateWeel _rotateWeel;
-    [SerializeField] private GameObject _validationLight;//-------------------------> Light Sur le pilier central pour valid� l'�nigme
     [SerializeField] private GameObject _ball;
+
+
+    [Header("End Feedback")]
+    [SerializeField] private GameObject _validationLight;//-------------------------> Light Sur le pilier central pour valide l'enigme
+    [SerializeField] private UnlockFInal _unlock;
+    [SerializeField] private GameObject _number;
 
     void Start()
     {
         _validationLight.SetActive(false);
+        _number.SetActive(false);
+
     }
     void OnTriggerEnter(Collider other)
     {
@@ -19,7 +26,8 @@ public class LabyrintheTriggerBox : MonoBehaviour, ISaveAndPullData
             other.attachedRigidbody.freezeRotation = true;
             other.attachedRigidbody.useGravity = false;
             _validationLight.SetActive(true);
-            Debug.Log("Labyrinthe Fini");
+            _number.SetActive(true);
+            _unlock._labiryntheIsEnd = true;
 
             PushDataToSave();
         }

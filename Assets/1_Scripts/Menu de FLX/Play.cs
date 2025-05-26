@@ -9,7 +9,11 @@ public class Play : MonoBehaviour,IActivatable
     [SerializeField] private Light _menuLight;
     [SerializeField] private Light _recuperationlight;
 
+
     [SerializeField] private HandheldCameraManager _handheldCameraManager;
+
+
+
 
     [SerializeField] private Transform _playerPosition;
     [SerializeField] private GameObject _cameraPanel;
@@ -17,14 +21,26 @@ public class Play : MonoBehaviour,IActivatable
     [SerializeField] private float _effectDuration;
     [SerializeField] private float _playerDistance;
 
+    //Sound-Design
+    //---------------------------------
+    public TriggerSoundMultiple triggerSoundMultiple;
+
+    public TriggerSound triggerSound;
+
+
     public void Start()
     {
+        triggerSound.LancerSon();
+
         GameManager.Instance.ToggleMovementFreezePlayer();
         _cameraPanel.SetActive(false);
         _handheldCameraManager.cameraCanBeInstalled = false;
     }
     public void Activate()
     {
+        triggerSound.ArreterSon();
+        triggerSoundMultiple.PlaySound(1);
+
         foreach (GameObject Panel in MainMenu)
         {
             SetLayerRecursively(Panel, LayerMask.NameToLayer("OnlyVisibleToTheCamera"));
@@ -37,6 +53,10 @@ public class Play : MonoBehaviour,IActivatable
         }
 
         _recuperationPanel.SetActive(true);
+
+        //Sound-Design
+        //---------------------------------
+        triggerSoundMultiple.PlaySound(0);
 
         _cameraPanel.SetActive(true);
         StartCoroutine(PlayIntroEffect());
@@ -85,7 +105,7 @@ public class Play : MonoBehaviour,IActivatable
 
 
         // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-        // -- logique des dï¿½placement  ---------------------------------
+        // -- logique des déplacement  ---------------------------------
         // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
         for (float t = 0; t < 1f; t += Time.deltaTime / _effectDuration)

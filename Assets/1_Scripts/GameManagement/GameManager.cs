@@ -4,7 +4,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-    
+
     [Header("UI Elements"), Space(5)]
     public GameObject playerUI;
     public GameObject digicodeUI;
@@ -14,12 +14,12 @@ public class GameManager : MonoBehaviour
     public GameObject interactUI;
     public GameObject clueUI;
     public GameObject gumgumUI;
-    
+
     [Header("References"), Space(5)]
     public GumUIManager gumUIManager;
     public SaveData saveData;
     public LoadAndSave loadAndSave;
-    
+
     void Awake()
     {
         if (Instance == null)
