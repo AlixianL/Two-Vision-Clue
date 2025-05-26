@@ -793,7 +793,7 @@ namespace Rewired.UI.ControlMapper
 #endif
 
             if(_rewiredInputManager == null) {
-                _rewiredInputManager = Object.FindObjectOfType<Rewired.InputManager>();
+                _rewiredInputManager = Object.FindFirstObjectByType<Rewired.InputManager>();
                 if(_rewiredInputManager == null) {
                     Debug.LogError("Rewired Control Mapper: A Rewired Input Manager was not assigned in the inspector or found in the current scene! Control Mapper will not function.");
                     return;

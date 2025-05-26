@@ -18,25 +18,32 @@ public class Keypad : MonoBehaviour, IActivatable
     [SerializeField] private MeshRenderer _indicatorLight;
     [SerializeField] private CinemachineCamera _digicodeCinemachineCamera;
     [SerializeField] private CinemachineCamera _doorCinemachineCamera;
-    [SerializeField] private Transform _playerTransform;
-
+    [SerializeField] private GameObject _raycastOrigineGameObject;
+    private RaycastOrigine _raycastOrigine;
     public Doors doors;
     
     [Header("Variables"), Space(5)]
-    [SerializeField] private int _password;
+    public int _password;
     [Space(5)]
     public string _defaultText;
     [Space(5)]
     public bool _isInteractingWhisEnigma = false;
     public bool _isClear = true;
     private bool _isValidated = false;
+    [SerializeField] private CanvasGroup _GuideTuto;
 
-    
+
+    /// <summary>
+    /// 
+    /// </summary>
+
 
     void Start()
     {
         _indicatorLight.material.color = _defaultMaterialColor;
         feedBack.text = _defaultText;
+        
+        _raycastOrigine = _raycastOrigineGameObject.GetComponent<RaycastOrigine>();
     }
 
     
@@ -46,20 +53,25 @@ public class Keypad : MonoBehaviour, IActivatable
         
         ChangePositionCinemachine.Instance.SwitchCam(_digicodeCinemachineCamera, _isInteractingWhisEnigma);
         GameManager.Instance.ToggleTotalFreezePlayer();
-
-        //Vector3 direction = new Vector3(gameObject.transform.position.x, PlayerBrain.Instance.playerGameObject.transform.position.y, gameObject.transform.position.z + 2f);
-        //PlayerBrain.Instance.playerGameObject.transform.position = new Vector3(_playerTransform.position.x, PlayerBrain.Instance.cinemachineTargetGameObject.transform.position.y, _playerTransform.position.z);
-        //PlayerBrain.Instance.playerGameObject.transform.rotation = Quaternion.Euler(0, _digicodeCinemachineCamera.transform.eulerAngles.y, 0);
-        //PlayerBrain.Instance.cinemachineTargetGameObject.transform.LookAt(direction);
+        PlayerBrain.Instance.playerRigidbody.linearVelocity = Vector3.zero;
         
+        GameManager.Instance.playerUI.SetActive(!_isInteractingWhisEnigma);
+        GameManager.Instance.digicodeUI.SetActive(_isInteractingWhisEnigma);
+        
+        _raycastOrigine.canTrackTarget = !_isInteractingWhisEnigma;
+        
+        if (_isInteractingWhisEnigma) PlaceRaycastOrigineForDigicode();
+        else PlaceRaycastOrigineToPlayerCamera();
+        
+        PlayerBrain.Instance.playerInteractionSystem.playerCanInteractWhithMouse = !_isInteractingWhisEnigma;
         
         if (!_isValidated && _isClear) Reset();
         
         BoxCollider collider = GetComponent<BoxCollider>();
         Vector3 colliderSize = new(collider.size.x, 1, 1);
 
-        if (colliderSize.x == 1.5f) colliderSize.x = 1;
-        else if (colliderSize.x == 1) colliderSize.x = 1.5f;
+        if (colliderSize.x == 1.5f) colliderSize.x = 0.25f;
+        else if (colliderSize.x == 0.25f) colliderSize.x = 1.5f;
 
         collider.size = colliderSize; 
         
@@ -69,7 +81,7 @@ public class Keypad : MonoBehaviour, IActivatable
         if (Cursor.visible == false) Cursor.visible = true;
         else Cursor.visible = false;
     }
-    
+
     public void Clear()
     {
         feedBack.text = "";
@@ -89,14 +101,18 @@ public class Keypad : MonoBehaviour, IActivatable
             }
             
             _isValidated = true;
-            
+            Debug.Log("Tuto fini");
+            _GuideTuto.alpha = 0;
             if (Cursor.lockState == CursorLockMode.Locked) Cursor.lockState = CursorLockMode.None;
             else Cursor.lockState = CursorLockMode.Locked;
         
             if (Cursor.visible == false) Cursor.visible = true;
             else Cursor.visible = false;
+            
             _isInteractingWhisEnigma = !_isInteractingWhisEnigma;
 
+            GameManager.Instance.playerUI.SetActive(!_isInteractingWhisEnigma);
+            GameManager.Instance.digicodeUI.SetActive(false);
             
             ChangePositionCinemachine.Instance.SwitchIntoDoorCinemachineCamera(ChangePositionCinemachine.Instance._digicodeCinemachineCamera, ChangePositionCinemachine.Instance._doorCinemachineCamera);
             
@@ -122,5 +138,17 @@ public class Keypad : MonoBehaviour, IActivatable
         yield return new WaitForSeconds(time);
         Reset();
         _indicatorLight.material.color = _defaultMaterialColor;
+    }
+
+    void PlaceRaycastOrigineForDigicode()
+    {
+        _raycastOrigineGameObject.transform.position = new Vector3(PlayerBrain.Instance.cinemachineTargetGameObject.transform.position.x, 
+            PlayerBrain.Instance.cinemachineTargetGameObject.transform.position.y - 0.08f, PlayerBrain.Instance.cinemachineTargetGameObject.transform.position.z);
+    }
+    
+    void PlaceRaycastOrigineToPlayerCamera()
+    {
+        _raycastOrigineGameObject.transform.position = new Vector3(PlayerBrain.Instance.cinemachineTargetGameObject.transform.position.x, 
+            PlayerBrain.Instance.cinemachineTargetGameObject.transform.position.y, PlayerBrain.Instance.cinemachineTargetGameObject.transform.position.z);
     }
 }
