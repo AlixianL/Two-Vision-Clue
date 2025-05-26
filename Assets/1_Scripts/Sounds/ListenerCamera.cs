@@ -13,7 +13,7 @@ public class ListenerCamera : MonoBehaviour
     private Camera activeCam;
 
     public StudioListener tempListenerCam1;
-    public StudioListener tempListenerCam2;
+    public StudioListener tempListenerCam2; 
 
     public PlayerHandheldCamera playerHandheldCamera;
 
@@ -45,8 +45,8 @@ public class ListenerCamera : MonoBehaviour
         if (activeCam == cam2)
         {
 
-            cam1Bus.setMute(false);
-            cam2Bus.setMute(true);
+            cam1Bus.setMute(true);
+            cam2Bus.setMute(false);
             UnityEngine.Debug.Log("récupéré1");
 
         }

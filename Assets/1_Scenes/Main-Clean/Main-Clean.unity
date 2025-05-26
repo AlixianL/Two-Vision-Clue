@@ -5158,6 +5158,7 @@ MonoBehaviour:
   _pressColor: {r: 0.99607843, g: 0.60784316, b: 1, a: 0}
   resetDelay: 0.8
   _enigmaIsEnd: 0
+  triggerSound: {fileID: 250830842}
 --- !u!114 &250830837
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5261,6 +5262,25 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &250830842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 250830835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24bcef4794b2795468dc4b93294b310a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sonBoucle:
+    Guid:
+      Data1: 821403966
+      Data2: 1147635278
+      Data3: 190895528
+      Data4: 16115951
+    Path: event:/SimonSays/2
 --- !u!1001 &257656956
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5597,13 +5617,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 277317924}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0.46463472, y: -0.0000013708724, z: -0.88550246, w: 0.0000026126122}
+  m_LocalPosition: {x: 9.39, y: -0.276, z: 13.691}
+  m_LocalScale: {x: 0.80558, y: 0.75425, z: 0.025883598}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 11921754}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -55.373, z: -180}
 --- !u!65 &277317926
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12248,6 +12268,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7ffed8a51a20af5479383b5f02e987d9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1074642457}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7ffed8a51a20af5479383b5f02e987d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1074642463}
   m_SourcePrefab: {fileID: 100100000, guid: 7ffed8a51a20af5479383b5f02e987d9, type: 3}
 --- !u!1 &731287456
 GameObject:
@@ -19273,6 +19296,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4546d71608fa7b40873ffd436742b09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  listenerCamera: {fileID: 841444159}
 --- !u!114 &845350432 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 486993281078599018, guid: 02cfb1780f4c0104389c69bff630f8bd, type: 3}
@@ -20203,6 +20227,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7ffed8a51a20af5479383b5f02e987d9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1829321109}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7ffed8a51a20af5479383b5f02e987d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1829321114}
   m_SourcePrefab: {fileID: 100100000, guid: 7ffed8a51a20af5479383b5f02e987d9, type: 3}
 --- !u!1001 &887342261
 PrefabInstance:
@@ -23972,6 +23999,7 @@ MonoBehaviour:
   _pressColor: {r: 0.99607843, g: 0.60784316, b: 1, a: 0}
   resetDelay: 0.8
   _enigmaIsEnd: 0
+  triggerSound: {fileID: 1074642463}
 --- !u!114 &1074642458
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24075,6 +24103,25 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1074642463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1074642456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24bcef4794b2795468dc4b93294b310a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sonBoucle:
+    Guid:
+      Data1: -511881981
+      Data2: 1105359084
+      Data3: 2084508300
+      Data4: 92475546
+    Path: event:/SimonSays/3
 --- !u!1001 &1083950100
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25903,6 +25950,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7ffed8a51a20af5479383b5f02e987d9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1599153887}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7ffed8a51a20af5479383b5f02e987d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1599153893}
   m_SourcePrefab: {fileID: 100100000, guid: 7ffed8a51a20af5479383b5f02e987d9, type: 3}
 --- !u!1 &1172757951
 GameObject:
@@ -35819,6 +35869,7 @@ MonoBehaviour:
   _pressColor: {r: 0.99607843, g: 0.60784316, b: 1, a: 0}
   resetDelay: 0.8
   _enigmaIsEnd: 0
+  triggerSound: {fileID: 1599153893}
 --- !u!114 &1599153888
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35922,6 +35973,25 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1599153893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1599153886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24bcef4794b2795468dc4b93294b310a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sonBoucle:
+    Guid:
+      Data1: 1577956929
+      Data2: 1243018377
+      Data3: 1272940161
+      Data4: -2081444846
+    Path: event:/SimonSays/4
 --- !u!1 &1602587048 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8288334825823795990, guid: 1282e10ec56365146a0da634221c2a75, type: 3}
@@ -38253,6 +38323,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1747430278}
   - component: {fileID: 1747430279}
+  - component: {fileID: 1747430280}
   m_Layer: 0
   m_Name: FinalManager
   m_TagString: Untagged
@@ -38287,6 +38358,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10e6717f1f9f0184bb8ace863085c0e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  triggerSound: {fileID: 1747430280}
   _GumGumAnimator: {fileID: 1326626650}
   SandFX: {fileID: 760872611}
   plaques:
@@ -38312,6 +38384,25 @@ MonoBehaviour:
   _enigmaisEnd: 0
   _allIsFacing: 0
   _gumGum: {fileID: 1326626651}
+--- !u!114 &1747430280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1747430277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24bcef4794b2795468dc4b93294b310a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sonBoucle:
+    Guid:
+      Data1: -556083949
+      Data2: 1088270134
+      Data3: -517254214
+      Data4: -1623127740
+    Path: event:/AnimationSFX/Final
 --- !u!1 &1750269686
 GameObject:
   m_ObjectHideFlags: 0
@@ -40145,6 +40236,7 @@ MonoBehaviour:
   _pressColor: {r: 0.99607843, g: 0.60784316, b: 1, a: 0}
   resetDelay: 0.8
   _enigmaIsEnd: 0
+  triggerSound: {fileID: 1829321114}
 --- !u!114 &1829321110
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40243,6 +40335,25 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1829321114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1829321107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24bcef4794b2795468dc4b93294b310a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sonBoucle:
+    Guid:
+      Data1: -1467503829
+      Data2: 1214272376
+      Data3: 1377679016
+      Data4: 139052988
+    Path: event:/SimonSays/1
 --- !u!1001 &1835553923
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -41031,6 +41142,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7ffed8a51a20af5479383b5f02e987d9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 250830836}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7ffed8a51a20af5479383b5f02e987d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 250830842}
   m_SourcePrefab: {fileID: 100100000, guid: 7ffed8a51a20af5479383b5f02e987d9, type: 3}
 --- !u!1 &1895833948
 GameObject:
@@ -42714,7 +42828,7 @@ PrefabInstance:
     - target: {fileID: 5568179522162661937, guid: 1e09be4150bf4e04f8b03b044ec2a6ed, type: 3}
       propertyPath: playerHandheldCamera
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 811714330}
     - target: {fileID: 7151245461555468841, guid: 1e09be4150bf4e04f8b03b044ec2a6ed, type: 3}
       propertyPath: triggerSoundMultiple
       value: 

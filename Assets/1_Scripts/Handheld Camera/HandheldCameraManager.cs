@@ -4,14 +4,14 @@ using UnityEngine;
 public class HandheldCameraManager : MonoBehaviour
 {
     public static HandheldCameraManager Instance;
-    
+
     [Header("Camera References"), Space(5)]
     [SerializeField] private HandhledCameraShake _handhledCameraShake;
     private GameObject handheldCamera;
     public GameObject handheldCameraPrefab;
     public GameObject spawnPoint;
     public GameObject _cameraToDestroy;
-    
+
 
     [Header("Variables"), Space(5)]
     public bool cameraIsInstall;
@@ -26,7 +26,7 @@ public class HandheldCameraManager : MonoBehaviour
         if (Instance == null) Instance = this;
         else Destroy(this);
     }
-    
+
     public void InstallCamera()
     {
         if (isPlaying)
@@ -44,13 +44,15 @@ public class HandheldCameraManager : MonoBehaviour
                 handheldCamera.transform.position = spawnPoint.transform.position;
                 cameraIsInstall = true;
                 PlayerBrain.Instance.cameraBack.SetActive(true);
+
+                playerCanTakeCamera = cameraIsInstall;
             }
-            
+
             if (!cameraCanBeInstalled && !cameraIsInstall) _handhledCameraShake.TriggerAnimation();
         }
-        
+
     }
-    
+
     public void UninstallCamera()
     {
         if (isPlaying)
@@ -64,11 +66,11 @@ public class HandheldCameraManager : MonoBehaviour
             {
                 Destroy(handheldCamera);
                 cameraIsInstall = false;
-                //playerCanTakeCamera = false;
+                playerCanTakeCamera = false;
                 cameraCanBeInstalled = true;
                 PlayerBrain.Instance.cameraBack.SetActive(false);
             }
         }
-        
+
     }
 }
