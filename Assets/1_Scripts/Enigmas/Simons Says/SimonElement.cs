@@ -19,10 +19,10 @@ public class SimonsElement : MonoBehaviour, IActivatable
     [SerializeField] private float resetDelay = .25f;//---------> delay de la lumière en mode "interaction"
     [SerializeField] private bool _enigmaIsEnd = false;//-------> booléen pour "freeze" l'enigme
 
+    public TriggerSound triggerSound;
+    
 
-    [Header("--------------------------------------")]
-
-    public FMODUnity.EventReference SoundActivate;
+    
 
     public void Start()
     {
@@ -37,6 +37,7 @@ public class SimonsElement : MonoBehaviour, IActivatable
         {
             FeedbackSimons();
             _simonsManager._simonsElementActivate(ButtonIndex);
+            triggerSound.JouerOneShot();
         }
     }
 
@@ -47,7 +48,7 @@ public class SimonsElement : MonoBehaviour, IActivatable
     public void FeedbackSimons()
     {
         StartCoroutine(FlashRoutine());
-        //AudioManager.instance.PlayOneShot(SoundActivate, this.transform.position);
+        
 
     }
 
@@ -56,6 +57,7 @@ public class SimonsElement : MonoBehaviour, IActivatable
         _simonsLight.color = _pressColor;
         yield return new WaitForSeconds(resetDelay);
         _simonsLight.color = _defaultColor;
+        triggerSound.JouerOneShot();
 
     }
 

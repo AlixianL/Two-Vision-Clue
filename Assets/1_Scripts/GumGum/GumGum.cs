@@ -25,7 +25,11 @@ public class GumGum : MonoBehaviour, IActivatable
     [SerializeField] private List<Light> LightOfRoom = new List<Light>();
     [SerializeField] private bool _isPlaying;
 
+<<<<<<< HEAD
     public TriggerSound triggerSound;
+=======
+  
+>>>>>>> origin/Master-Xian
 
 
     void Start()
@@ -67,7 +71,11 @@ public class GumGum : MonoBehaviour, IActivatable
             foreach (Light light in LightOfRoom)
             {
                 light.enabled = true;
+<<<<<<< HEAD
                 triggerSound.LancerSon();
+=======
+               
+>>>>>>> origin/Master-Xian
 
             }
         }

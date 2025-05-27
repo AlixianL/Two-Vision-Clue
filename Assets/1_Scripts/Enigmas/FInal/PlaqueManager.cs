@@ -9,7 +9,7 @@ public class PlaqueManager : MonoBehaviour
     // -- Initialisation de la liste a modifier  -------------------
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-
+    public TriggerSound triggerSound;
     public enum PositionID { Haut, Bas, Gauche, Droite }
 
     [System.Serializable]
@@ -237,6 +237,10 @@ public class PlaqueManager : MonoBehaviour
         if (_GumGumAnimator != null)
         {
             _GumGumAnimator.SetBool("IsEnding", true);
+<<<<<<< HEAD
+=======
+            triggerSound.JouerOneShot();
+>>>>>>> origin/Master-Xian
         }
         StartCoroutine(FxSand(5f));
         Debug.Log("c'est fintio");
