@@ -23,7 +23,7 @@ public class ListenerCamera : MonoBehaviour
         cam2Bus = RuntimeManager.GetBus("bus:/Cam2");
 
         // Caméra active au lancement (ex: cam1)
-        SetActiveCamera(cam1);
+        SetActiveCamera(cam2);
     }
 
     public void SetActiveCamera(Camera newCam)
@@ -54,20 +54,7 @@ public class ListenerCamera : MonoBehaviour
         
     }
 
-    // Exemple : switcher via une touche
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Tab))
-        {
-           
-            /// activeCam == cam1	   // Condition : est-ce que cam1 est la caméra active ?
-            /// ? cam2	               // Si la condition est vraie → utilise cam2
-            /// : cam1	                //Sinon → utilise cam1
-            /// SetActiveCamera(...)	//Appelle la méthode SetActiveCamera avec le résultat de la condition
-          
-            SetActiveCamera(activeCam == cam1 ? cam2 : cam1);
-        }
-    }
+   
 
     public void SwitchCamera()
     {
