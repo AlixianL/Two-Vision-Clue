@@ -18,7 +18,10 @@ public class RotateWeel : MonoBehaviour, IActivatable
     [SerializeField] private bool _interactWhisEnigma;
     public bool enigmaIsValidate;
 
-    public TriggerSound triggerSound;
+    public TriggerSoundMultiple triggerSoundMultiple;
+
+   
+
 
     void Start()
     {
@@ -43,6 +46,8 @@ public class RotateWeel : MonoBehaviour, IActivatable
         if (_lightComponent.enabled == false)
         {
             _lightComponent.enabled = true;
+            
+            
         }
         else _lightComponent.enabled = false;
     }
@@ -55,14 +60,14 @@ public class RotateWeel : MonoBehaviour, IActivatable
             if (PlayerBrain.Instance.player.GetButton("RightMovement"))
             {
                 transform.Rotate(-_rotationSpeed * Time.deltaTime, 0f, 0f);
-                triggerSound.JouerOneShot();
+                triggerSoundMultiple.PlaySound(0);
             }
 
             // Rotation gauche
             else if (PlayerBrain.Instance.player.GetButton("LeftMovement"))
             {
                 transform.Rotate(_rotationSpeed * Time.deltaTime, 0f, 0f);
-                triggerSound.JouerOneShot();
+                triggerSoundMultiple.PlaySound(0);
             }
 
             if (!enigmaIsValidate)

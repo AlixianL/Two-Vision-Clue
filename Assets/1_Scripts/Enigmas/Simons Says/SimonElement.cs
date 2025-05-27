@@ -20,9 +20,11 @@ public class SimonsElement : MonoBehaviour, IActivatable
     [SerializeField] private bool _enigmaIsEnd = false;//-------> booléen pour "freeze" l'enigme
 
     public TriggerSound triggerSound;
-    
 
-    
+    public TriggerSound triggerSounLight;
+
+
+
 
     public void Start()
     {
@@ -68,5 +70,6 @@ public class SimonsElement : MonoBehaviour, IActivatable
     public void FreezSimons()
     {
         _enigmaIsEnd = true;
+        triggerSounLight.JouerOneShot();
     }
 }
