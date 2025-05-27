@@ -36,6 +36,7 @@ public class LaserBeam : MonoBehaviour, IActivatable
     [SerializeField] private GameObject _validationLight;//-------------------------> Light Sur le pilier central pour valid� l'�nigme
     [SerializeField] private UnlockFInal _unlock;
     [SerializeField] private GameObject _number;
+    [SerializeField] private List<GameObject> _boatLight;
 
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     // -- D�tection du joueur pour le bouton -----------------------
@@ -145,8 +146,13 @@ public class LaserBeam : MonoBehaviour, IActivatable
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     void EndLaserEnigme()
     {
+
         _puzzleEnd = true;
         _validationLight.SetActive(true);
+        foreach (GameObject boatLight in _boatLight)
+        {
+            boatLight.SetActive(true);
+        }
         _number.SetActive(true);
         _unlock._rayonIsEnd = true;
         triggerSoundMultiple.PlaySound(0);

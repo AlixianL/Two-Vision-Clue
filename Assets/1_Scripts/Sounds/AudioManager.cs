@@ -1,4 +1,4 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using FMODUnity;
 using FMOD.Studio;
 using System.Collections.Generic;
@@ -7,13 +7,15 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance { get; private set; }
 
+    public ListenerCamera listenerCamera;
+
     private Dictionary<string, EventInstance> activeSounds = new Dictionary<string, EventInstance>();
 
     private void Awake()
     {
         if (instance != null)
         {
-            Debug.LogError("Plus de 1 AudioManager dans la scène");
+            Debug.LogError("Plus de 1 AudioManager dans la scï¿½ne");
             return;
         }
         instance = this;

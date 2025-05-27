@@ -12,9 +12,11 @@ public class Button : MonoBehaviour, IActivatable
     [SerializeField] private int _pos1;
     [SerializeField] private int _pos2;
 
+    public TriggerSound triggerSound;
+
     public void Activate()
     {
-
+        triggerSound.JouerOneShot();
         if (_forSwapping)
         {
             PositionID id1 = (PositionID)_pos1;

@@ -5,6 +5,14 @@ using UnityEngine;
 
 public class DialogueTrigger : MonoBehaviour
 {
+
+    public TriggerSoundMultiple triggerSoundMultiple;
+    public bool gumgumdialogue = true;
+
+    private void Start()
+    {
+        gumgumdialogue = true;
+    }
     private void Update()
     {
         if (GumGumManager.Instance._isInRange && PlayerBrain.Instance.player.GetButtonDown("Interact"))
@@ -15,6 +23,12 @@ public class DialogueTrigger : MonoBehaviour
 
     public void TriggerDialogue()
     {
+        if (gumgumdialogue == true)
+        { 
+            triggerSoundMultiple.PlaySound(0);
+            gumgumdialogue=false;
+        }
+
         GameManager.Instance.gumgumUI.SetActive(true);
             
         Cursor.visible = true;

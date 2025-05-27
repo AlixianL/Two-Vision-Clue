@@ -88,7 +88,7 @@ public class DetectionGround : MonoBehaviour
                 {
                     EventReference clip = GetClipFromTextureSound(textureSound);
                     RuntimeManager.PlayOneShot(clip);
-                    Debug.Log("C'est good");
+                    
                     yield return null;
                 }
             }
@@ -106,7 +106,7 @@ public class DetectionGround : MonoBehaviour
                 EventReference clip = GetClipFromTextureSound(textureSound);
 
                 RuntimeManager.PlayOneShot(clip);
-                Debug.Log("Ca marche");
+               
                 yield return null;
             }
         }

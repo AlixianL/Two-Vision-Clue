@@ -2,8 +2,10 @@ using UnityEngine;
 
 public class ChewingGum : MonoBehaviour, IActivatable
 {
+    public TriggerSound triggerSound;
     [Header("Références")]
     public GumUIManager gumUIManager;
+    
     
     public void Activate()
     {
@@ -12,6 +14,8 @@ public class ChewingGum : MonoBehaviour, IActivatable
 
     public void TakeChewingGum()
     {
+
+        triggerSound.JouerOneShot();
         // Incrémente le compteur
         PlayerBrain.Instance.chewingGumCount++;
         
