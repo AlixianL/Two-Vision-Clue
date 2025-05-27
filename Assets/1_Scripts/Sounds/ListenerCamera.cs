@@ -35,7 +35,6 @@ public class ListenerCamera : MonoBehaviour
            
             cam1Bus.setMute(false);
             cam2Bus.setMute(true);
-            UnityEngine.Debug.Log("Poser1");
 
 
         }
@@ -47,7 +46,6 @@ public class ListenerCamera : MonoBehaviour
 
             cam1Bus.setMute(true);
             cam2Bus.setMute(false);
-            UnityEngine.Debug.Log("récupéré1");
 
         }
 

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 6f0eeb33292d5d546a1ddeeb03585b36
+guid: be746d6f2e276584b99312397bfc0fbc
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,8 +7,23 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: M_Menu_001
-    second: {fileID: 2100000, guid: 7b383838191104e47bd758440dff77c4, type: 2}
+      name: M_Gem_001
+    second: {fileID: 2100000, guid: 3673355b3eb9f1045ac3c592d4d9b77c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Losange_001
+    second: {fileID: 2100000, guid: b0d1b445d8cfe3c45994b6a18df77a6b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Plate_001
+    second: {fileID: 2100000, guid: de91c9b65dd0f424c823292bcfbdd767, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Symbole_001
+    second: {fileID: 2100000, guid: 07ac1958119e1f74ca8f6d15ecc88849, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -45,9 +60,9 @@ ModelImporter:
     sortHierarchyByName: 1
     importPhysicalCameras: 1
     importVisibility: 1
-    importBlendShapes: 0
-    importCameras: 0
-    importLights: 0
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
     nodeNameCollisionStrategy: 1
     fileIdsGeneration: 2
     swapUVChannels: 0
@@ -81,7 +96,7 @@ ModelImporter:
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
   referencedClips: []
-  importAnimation: 0
+  importAnimation: 1
   humanDescription:
     serializedVersion: 3
     human: []
@@ -100,7 +115,7 @@ ModelImporter:
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   avatarSetup: 0
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
