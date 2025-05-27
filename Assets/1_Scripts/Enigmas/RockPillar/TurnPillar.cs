@@ -152,7 +152,8 @@ public class TurnPillar : MonoBehaviour, IActivatable, ISaveAndPullData
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     public void EndEnigme()
     {
-        _validationLight.SetActive(true);
+        triggerSoundMultiple.PlaySound(4);
+    _validationLight.SetActive(true);
         _enigmeisend = true;
         _unlock._pillarIsEnd = true;
         _number.SetActive(true);

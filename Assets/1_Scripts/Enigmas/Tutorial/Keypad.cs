@@ -27,12 +27,8 @@ public class Keypad : MonoBehaviour, IActivatable, ISaveAndPullData
     public bool _isInteractingWhisEnigma = false;
     public bool _isClear = true;
     private bool _isValidated = false;
-    //[SerializeField] private CanvasGroup _GuideTuto;
-
-
-    /// <summary>
-    /// 
-    /// </summary>
+    [SerializeField] private CanvasGroup _GuideTuto;
+    public TriggerSound triggerSound;
 
 
     void Start()
@@ -99,8 +95,11 @@ public class Keypad : MonoBehaviour, IActivatable, ISaveAndPullData
             }
             
             _isValidated = true;
-            Debug.Log("Tuto fini");
-            //_GuideTuto.alpha = 0;
+            triggerSound.JouerOneShot();
+            if (_GuideTuto != null)
+            {
+            _GuideTuto.alpha = 0f;
+            }
             if (Cursor.lockState == CursorLockMode.Locked) Cursor.lockState = CursorLockMode.None;
             else Cursor.lockState = CursorLockMode.Locked;
         

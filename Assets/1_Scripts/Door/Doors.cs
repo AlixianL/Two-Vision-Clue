@@ -22,7 +22,7 @@ public class Doors : MonoBehaviour, IInteractable
 
             //Sound-Design
             //---------------------------------
-            triggerSound.PlaySound();
+            triggerSound.JouerOneShot();
         }
     }
 

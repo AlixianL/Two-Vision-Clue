@@ -3,39 +3,42 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// Gère les rayons de lumière, leur activation et leur rebond sur des miroirs.
-/// Ici on a la gestion du bouton on/off de cette énigme la gestion des rebon sur les surface
-/// et la condition de victoire de l'énigme.
+/// Gï¿½re les rayons de lumiï¿½re, leur activation et leur rebond sur des miroirs.
+/// Ici on a la gestion du bouton on/off de cette ï¿½nigme la gestion des rebon sur les surface
+/// et la condition de victoire de l'ï¿½nigme.
 /// </summary>
 public class LaserBeam : MonoBehaviour, IActivatable
 {
     [Header("References"), Space(5)]
     [SerializeField] private LineRenderer _lineRenderer; //-------------------------> Visuel du rayon
-    [SerializeField] private GameObject _startPointObject;//------------------------> Point de départ du rayon
+    [SerializeField] private GameObject _startPointObject;//------------------------> Point de dï¿½part du rayon
     [SerializeField] private GameObject _player;//----------------------------------> Joueur
-    [SerializeField] private List<GameObject> _mirror = new List<GameObject>();//---> Liste des mirroir a désactiver
+    [SerializeField] private List<GameObject> _mirror = new List<GameObject>();//---> Liste des mirroir a dï¿½sactiver
     [SerializeField] private LayerMask _raycastMask;//------------------------------> Layer ignorer par le rayon
     [SerializeField] private Color _isOn;//-----------------------------------------> Led on
     [SerializeField] private Color _isOff;//----------------------------------------> Led off
     [SerializeField] private MeshRenderer _verifLight ;//---------------------------> Led affichage
 
-
+    [Header("Animation")]
+    [SerializeField] private Animator _SunAnimator;
 
     private bool _lazerIsOn = false;//----------------------------------------------> Condition Si le lazer est actif
-    private bool _puzzleEnd = false;//----------------------------------------------> Condition de fin de l'énigme
+    private bool _puzzleEnd = false;//----------------------------------------------> Condition de fin de l'ï¿½nigme
 
 
     public float maxDistance = 100f;//----------------------------------------------> Distance max entre 2 point du line renderer
 
     public TriggerSound triggerSound;
 
+    public TriggerSoundMultiple triggerSoundMultiple;
+
     [Header("End Feedback")]
-    [SerializeField] private GameObject _validationLight;//-------------------------> Light Sur le pilier central pour validé l'énigme
+    [SerializeField] private GameObject _validationLight;//-------------------------> Light Sur le pilier central pour validï¿½ l'ï¿½nigme
     [SerializeField] private UnlockFInal _unlock;
     [SerializeField] private GameObject _number;
 
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    // -- Détection du joueur pour le bouton -----------------------
+    // -- Dï¿½tection du joueur pour le bouton -----------------------
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     void Start()
@@ -43,7 +46,8 @@ public class LaserBeam : MonoBehaviour, IActivatable
         _validationLight.SetActive(false);
         _verifLight.material.color = _isOff;
         _number.SetActive(false);
-
+        if (_SunAnimator != null)
+            _SunAnimator.SetBool("IsActive", false);
 
     }
     public void Activate()
@@ -52,13 +56,24 @@ public class LaserBeam : MonoBehaviour, IActivatable
         {
             _verifLight.material.color = _isOn;
             _lazerIsOn = true;
-            triggerSound.PlaySound();
+            triggerSound.LancerSon();
+            if (_SunAnimator != null)
+                _SunAnimator.SetBool("IsActive", true);
         }
         else if (_lazerIsOn)
         {
             _verifLight.material.color = _isOff;
             _lazerIsOn = false;
             _lineRenderer.positionCount = 0;
+            triggerSound.ArreterSon();
+            if (_SunAnimator != null)
+            _SunAnimator.SetBool("IsActive", false);
+
+
+
+
+
+
 
 
         }
@@ -83,7 +98,7 @@ public class LaserBeam : MonoBehaviour, IActivatable
     /// <summary>
     /// Ici on fait apparaitre le rayon et avec le lineRenderer
     /// Ensuite on verifie si le rayon rentre en collision.
-    /// Soit il touche un "mirror" et il rebondi, soit un "puzzleEnd" et il met fin a l'énigme
+    /// Soit il touche un "mirror" et il rebondi, soit un "puzzleEnd" et il met fin a l'ï¿½nigme
     /// </summary>
     void DrawLaser()
     {
@@ -126,13 +141,16 @@ public class LaserBeam : MonoBehaviour, IActivatable
     }
 
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    // -- Fonction de fin d'énigme ---------------------------------
+    // -- Fonction de fin d'ï¿½nigme ---------------------------------
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     void EndLaserEnigme()
     {
         _puzzleEnd = true;
         _validationLight.SetActive(true);
         _number.SetActive(true);
+        _unlock._rayonIsEnd = true;
+        triggerSoundMultiple.PlaySound(0);
+
 
 
         foreach (GameObject mirrorObject in _mirror)

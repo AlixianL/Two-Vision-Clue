@@ -170,7 +170,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cluePrefab: {fileID: 2218582822724200629, guid: eccdb062083264a4fa9f8d348f10a12d, type: 3}
-  _targetPosition: {fileID: 7613851122783679902}
+  targetPosition: {fileID: 7613851122783679902}
   clues: []
   clueCinemachineCamera: {fileID: 2064562262066936724}
   distanceFromCenter: 0.3
@@ -336,7 +336,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cluePrefab: {fileID: 2218582822724200629, guid: eccdb062083264a4fa9f8d348f10a12d, type: 3}
-  _targetPosition: {fileID: 90728466788542297}
+  targetPosition: {fileID: 90728466788542297}
   clues: []
   clueCinemachineCamera: {fileID: 3213519085053615801}
   distanceFromCenter: 0.3
@@ -577,7 +577,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cluePrefab: {fileID: 2218582822724200629, guid: eccdb062083264a4fa9f8d348f10a12d, type: 3}
-  _targetPosition: {fileID: 1710194087440686379}
+  targetPosition: {fileID: 1710194087440686379}
   clues: []
   clueCinemachineCamera: {fileID: 2737360980489274626}
   distanceFromCenter: 0.3
@@ -1166,7 +1166,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3640078245366341960}
   - component: {fileID: 453613007500941974}
-  - component: {fileID: 1314934971430166285}
   m_Layer: 0
   m_Name: Gumgum
   m_TagString: Untagged
@@ -1182,7 +1181,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7072517593648746288}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 27.92905, y: -3.36, z: -56.57}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1192,7 +1191,7 @@ Transform:
   - {fileID: 5965006779772838484}
   - {fileID: 1140259018773969307}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &453613007500941974
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1205,27 +1204,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcc69b9989f35f84c86f34e2f593199f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!65 &1314934971430166285
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7072517593648746288}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 4.1985674, y: 4.1723795, z: 3.2372713}
-  m_Center: {x: 0, y: 2.084332, z: 1.1186357}
 --- !u!1 &7099870926609778583
 GameObject:
   m_ObjectHideFlags: 0
@@ -1404,7 +1382,10 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   _isPlaying: 0
+  triggerSound: {fileID: 0}
 --- !u!114 &616892742329815722
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1584,7 +1565,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cluePrefab: {fileID: 2218582822724200629, guid: eccdb062083264a4fa9f8d348f10a12d, type: 3}
-  _targetPosition: {fileID: 4828094600853930175}
+  targetPosition: {fileID: 4828094600853930175}
   clues: []
   clueCinemachineCamera: {fileID: 8599171277909035354}
   distanceFromCenter: 0.3
@@ -1639,11 +1620,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5428487111dd1d849b337424cedd97b2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.375
+      value: 0.546
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5428487111dd1d849b337424cedd97b2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.495
+      value: 1.34
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5428487111dd1d849b337424cedd97b2, type: 3}
       propertyPath: m_LocalRotation.w

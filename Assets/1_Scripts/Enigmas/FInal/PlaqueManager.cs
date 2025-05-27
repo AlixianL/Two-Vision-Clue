@@ -26,6 +26,9 @@ public class PlaqueManager : MonoBehaviour
     // -- Variable  ------------------------------------------------
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+    [SerializeField] private Animator _GumGumAnimator;
+    [SerializeField] private GameObject SandFX;
+
     [SerializeField] private List<PlaqueInfo> plaques = new List<PlaqueInfo>();
     [SerializeField] private float _swapDuration = 1f;
     [SerializeField] private float _turnDuration = 0.7f;
@@ -35,6 +38,7 @@ public class PlaqueManager : MonoBehaviour
     [SerializeField] public bool _allIsFacing = false;
 
     [SerializeField] private Transform _gumGum;
+    
 
 
 
@@ -45,7 +49,7 @@ public class PlaqueManager : MonoBehaviour
     void Start()
     {
         foreach (var plaque in plaques)
-            plaque.originalForward = plaque.plaqueTransform.forward;
+            plaque.originalForward = plaque.plaqueTransform.right;
 
         _allIsFacing = false;
         _enigmaisEnd = false;
@@ -70,7 +74,7 @@ public class PlaqueManager : MonoBehaviour
         return true;
     }
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    // -- Fonction appelé par les bouton  --------------------------
+    // -- Fonction appelï¿½ par les bouton  --------------------------
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     public void Swap(PositionID pos1, PositionID pos2)
     {
@@ -82,7 +86,7 @@ public class PlaqueManager : MonoBehaviour
 
             if (a == null || b == null)
             {
-                Debug.LogWarning("Position non trouvée.");
+                Debug.LogWarning("Position non trouvï¿½e.");
                 return;
             }
 
@@ -106,7 +110,7 @@ public class PlaqueManager : MonoBehaviour
 
 
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    // -- Fonction pour trouvé la plaque avec ID  ------------------
+    // -- Fonction pour trouvï¿½ la plaque avec ID  ------------------
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     private Transform GetPlaqueByPosition(PositionID id)
     {
@@ -224,38 +228,30 @@ public class PlaqueManager : MonoBehaviour
     }
 
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    // -- Fin de l'énigme  -----------------------------------------
+    // -- Fin de l'ï¿½nigme  -----------------------------------------
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     public void Ending()
     {
         _enigmaisEnd = true;
-        StartCoroutine(GumGumUp(3f));
+        if (_GumGumAnimator != null)
+        {
+            _GumGumAnimator.SetBool("IsEnding", true);
+        }
+        StartCoroutine(FxSand(5f));
         Debug.Log("c'est fintio");
     }
 
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    // -- Coroutine de GumGum  -------------------------------------
+    // -- Coroutine de FX Sable  -------------------------------------
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    IEnumerator GumGumUp(float height)
+     IEnumerator FxSand(float duration)
     {
-        float duration = 1f;
-        float elapsed = 0f;
-
-        Vector3 initialPosition = _gumGum.transform.position;
-        Vector3 targetPosition = initialPosition + Vector3.up * height;
-
-        while (elapsed < duration)
-        {
-            elapsed += Time.deltaTime;
-            float t = Mathf.Clamp01(elapsed / duration);
-            _gumGum.transform.position = Vector3.Lerp(initialPosition, targetPosition, t);
-            yield return null;
-        }
-
-        _gumGum.transform.position = targetPosition;
+        SandFX.SetActive(true);
+        yield return new WaitForSeconds(duration); 
+        SandFX.SetActive(false);
     }
 
-    [ContextMenu("fin de l'énigme final")]
+    [ContextMenu("fin de l'ï¿½nigme final")]
     public void End() => Ending();
 }

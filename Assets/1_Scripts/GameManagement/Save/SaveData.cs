@@ -101,14 +101,18 @@ public class GameData
 
     [Header("=== GUMGUM ======================================"), Space(5)]
     public Transform cluePosition1;
+    public int clueIndexCountEnigma1;
     public List<ClueData> clueDatasAlreadyGivesForEnigma1 = new List<ClueData>();
     [Space(5)]
     public Transform cluePosition2;
+    public int clueIndexCountEnigma2;
     public List<ClueData> clueDatasAlreadyGivesForEnigma2 = new List<ClueData>();
     [Space(5)]
     public Transform cluePosition3;
+    public int clueIndexCountEnigma3;
     public List<ClueData> clueDatasAlreadyGivesForEnigma3 = new List<ClueData>();
     [Space(5)]
     public Transform cluePosition4;
+    public int clueIndexCountEnigma4;
     public List<ClueData> clueDatasAlreadyGivesForEnigma4 = new List<ClueData>();
 }
