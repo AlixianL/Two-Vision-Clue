@@ -358,6 +358,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 300222372}
+  - {fileID: 1395422232}
+  - {fileID: 1839548013}
   - {fileID: 2014861600}
   - {fileID: 1817060023}
   - {fileID: 47263263}
@@ -4289,6 +4291,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e6220b6503f52dc44b98cfa52c057187, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1228136685}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e6220b6503f52dc44b98cfa52c057187, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1228136689}
   m_SourcePrefab: {fileID: 100100000, guid: e6220b6503f52dc44b98cfa52c057187, type: 3}
 --- !u!1 &209896449 stripped
 GameObject:
@@ -5882,6 +5887,7 @@ MonoBehaviour:
   resetDelay: 0.8
   _enigmaIsEnd: 0
   triggerSound: {fileID: 250830842}
+  triggerSounLight: {fileID: 1026312896}
 --- !u!114 &250830837
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9544,7 +9550,9 @@ MonoBehaviour:
   _SunAnimator: {fileID: 0}
   maxDistance: 100
   triggerSound: {fileID: 520221143}
-  triggerSoundMultiple: {fileID: 520221144}
+  triggerSoundLight: {fileID: 555361777}
+  triggerSoundMultiple: {fileID: 903062223}
+  triggerSoundButton: {fileID: 520221144}
   _validationLight: {fileID: 555361773}
   _unlock: {fileID: 758902507}
   _number: {fileID: 1493837092}
@@ -9601,16 +9609,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 520221137}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9818f5328c8463345ba603930948cd26, type: 3}
+  m_Script: {fileID: 11500000, guid: 24bcef4794b2795468dc4b93294b310a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SoundList:
-  - Guid:
-      Data1: -542912909
-      Data2: 1190060886
-      Data3: -1077610314
-      Data4: 967764978
-    Path: event:/EndEnigme
+  sonBoucle:
+    Guid:
+      Data1: -38079594
+      Data2: 1249242634
+      Data3: 1009128118
+      Data4: -2018276045
+    Path: event:/Button
 --- !u!1001 &520348079
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10250,6 +10258,7 @@ GameObject:
   - component: {fileID: 555361776}
   - component: {fileID: 555361775}
   - component: {fileID: 555361774}
+  - component: {fileID: 555361777}
   m_Layer: 0
   m_Name: MonolytheLight Side I
   m_TagString: Untagged
@@ -10360,6 +10369,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 225734312}
   m_LocalEulerAnglesHint: {x: 60, y: 0, z: 0}
+--- !u!114 &555361777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 555361773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24bcef4794b2795468dc4b93294b310a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sonBoucle:
+    Guid:
+      Data1: -1609857702
+      Data2: 1128368352
+      Data3: -670627154
+      Data4: 546576814
+    Path: "event:/SFX/ProjecteurLumi\xE8re-X"
 --- !u!1 &558354629
 GameObject:
   m_ObjectHideFlags: 0
@@ -19086,6 +19114,7 @@ GameObject:
   - component: {fileID: 772399627}
   - component: {fileID: 772399626}
   - component: {fileID: 772399625}
+  - component: {fileID: 772399628}
   m_Layer: 0
   m_Name: MonolytheLight Side III
   m_TagString: Untagged
@@ -19196,6 +19225,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 225734312}
   m_LocalEulerAnglesHint: {x: 60, y: 90, z: 90}
+--- !u!114 &772399628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 772399624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24bcef4794b2795468dc4b93294b310a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sonBoucle:
+    Guid:
+      Data1: -1609857702
+      Data2: 1128368352
+      Data3: -670627154
+      Data4: 546576814
+    Path: "event:/SFX/ProjecteurLumi\xE8re-X"
 --- !u!1 &773632575
 GameObject:
   m_ObjectHideFlags: 0
@@ -24041,6 +24089,7 @@ GameObject:
   - component: {fileID: 1026312895}
   - component: {fileID: 1026312894}
   - component: {fileID: 1026312893}
+  - component: {fileID: 1026312896}
   m_Layer: 0
   m_Name: MonolytheLight Side IV
   m_TagString: Untagged
@@ -24151,6 +24200,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 225734312}
   m_LocalEulerAnglesHint: {x: 120, y: 0, z: 90}
+--- !u!114 &1026312896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1026312892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24bcef4794b2795468dc4b93294b310a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sonBoucle:
+    Guid:
+      Data1: -1609857702
+      Data2: 1128368352
+      Data3: -670627154
+      Data4: 546576814
+    Path: "event:/SFX/ProjecteurLumi\xE8re-X"
 --- !u!1001 &1027239443
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25615,6 +25683,7 @@ MonoBehaviour:
   resetDelay: 0.8
   _enigmaIsEnd: 0
   triggerSound: {fileID: 1074642463}
+  triggerSounLight: {fileID: 1026312896}
 --- !u!114 &1074642458
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28977,6 +29046,7 @@ MonoBehaviour:
   _isOn: {r: 0.12345361, g: 0.8018868, b: 0, a: 0}
   _isOff: {r: 1, g: 0, b: 0, a: 0}
   _verifLight: {fileID: 1745468420}
+  triggerSoundButton: {fileID: 1228136689}
 --- !u!114 &1228136686
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29030,6 +29100,25 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.37091255, y: 1.1057036, z: 0.36709213}
   m_Center: {x: -0.01893711, y: 0.52844155, z: -0.0033473969}
+--- !u!114 &1228136689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1228136683}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24bcef4794b2795468dc4b93294b310a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sonBoucle:
+    Guid:
+      Data1: -38079594
+      Data2: 1249242634
+      Data3: 1009128118
+      Data4: -2018276045
+    Path: event:/Button
 --- !u!1001 &1229511543
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31886,6 +31975,7 @@ GameObject:
   - component: {fileID: 1336211893}
   - component: {fileID: 1336211892}
   - component: {fileID: 1336211891}
+  - component: {fileID: 1336211894}
   m_Layer: 0
   m_Name: MonolytheLight Side II
   m_TagString: Untagged
@@ -31996,6 +32086,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 225734312}
   m_LocalEulerAnglesHint: {x: 60, y: -90, z: -90}
+--- !u!114 &1336211894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1336211890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24bcef4794b2795468dc4b93294b310a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sonBoucle:
+    Guid:
+      Data1: -1609857702
+      Data2: 1128368352
+      Data3: -670627154
+      Data4: 546576814
+    Path: "event:/SFX/ProjecteurLumi\xE8re-X"
 --- !u!1001 &1340379686
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32634,6 +32743,57 @@ Transform:
   m_Children: []
   m_Father: {fileID: 210972114}
   m_LocalEulerAnglesHint: {x: 123.793, y: -25.47699, z: 0}
+--- !u!1 &1357263738
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1357263740}
+  - component: {fileID: 1357263739}
+  m_Layer: 0
+  m_Name: Sound
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1357263739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1357263738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24bcef4794b2795468dc4b93294b310a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sonBoucle:
+    Guid:
+      Data1: -556083949
+      Data2: 1088270134
+      Data3: -517254214
+      Data4: -1623127740
+    Path: event:/AnimationSFX/Final
+--- !u!4 &1357263740
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1357263738}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.403, y: -1.114, z: 15.007}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1747430278}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1361652669
 GameObject:
   m_ObjectHideFlags: 0
@@ -32822,6 +32982,91 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f5fe002fd2ad5847bbb1a1a93d7957f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1395422231
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1395422232}
+  - component: {fileID: 1395422233}
+  - component: {fileID: 1395422234}
+  m_Layer: 0
+  m_Name: Ambiant
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1395422232
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1395422231}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.72, y: -0.24, z: 0.179}
+  m_LocalScale: {x: 5.970139, y: 4.0142, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 11921754}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1395422233
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1395422231}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1395422234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1395422231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1052845018
+      Data2: 1303037052
+      Data3: -1531033208
+      Data4: -855785594
+    Path: event:/Ambiant/Amb-2
+  Event: 
+  EventPlayTrigger: 3
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 1
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1001 &1402142591
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -35836,6 +36081,7 @@ MonoBehaviour:
   _unlock: {fileID: 758902507}
   _number: {fileID: 244849228}
   triggerSoundMultiple: {fileID: 1516950498}
+  triggerSoundLight: {fileID: 1336211894}
 --- !u!114 &1516950500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37827,6 +38073,7 @@ MonoBehaviour:
   resetDelay: 0.8
   _enigmaIsEnd: 0
   triggerSound: {fileID: 1599153893}
+  triggerSounLight: {fileID: 1026312896}
 --- !u!114 &1599153888
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40380,7 +40627,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1747430278}
   - component: {fileID: 1747430279}
-  - component: {fileID: 1747430280}
   m_Layer: 0
   m_Name: FinalManager
   m_TagString: Untagged
@@ -40400,7 +40646,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1357263740}
   m_Father: {fileID: 1120702402}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1747430279
@@ -40415,7 +40662,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10e6717f1f9f0184bb8ace863085c0e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggerSound: {fileID: 1747430280}
+  triggerSound: {fileID: 1357263739}
   _GumGumAnimator: {fileID: 1326626650}
   SandFX: {fileID: 760872611}
   plaques:
@@ -40441,25 +40688,6 @@ MonoBehaviour:
   _enigmaisEnd: 0
   _allIsFacing: 0
   _gumGum: {fileID: 1326626651}
---- !u!114 &1747430280
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1747430277}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 24bcef4794b2795468dc4b93294b310a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sonBoucle:
-    Guid:
-      Data1: -556083949
-      Data2: 1088270134
-      Data3: -517254214
-      Data4: -1623127740
-    Path: event:/AnimationSFX/Final
 --- !u!1 &1750269686
 GameObject:
   m_ObjectHideFlags: 0
@@ -41174,6 +41402,8 @@ MonoBehaviour:
   _validationLight: {fileID: 772399624}
   _unlock: {fileID: 758902507}
   _number: {fileID: 1443576511}
+  triggerSoundMultiple: {fileID: 1835553938}
+  triggerSoundLight: {fileID: 772399628}
 --- !u!1 &1782190258
 GameObject:
   m_ObjectHideFlags: 0
@@ -42065,6 +42295,7 @@ MonoBehaviour:
   resetDelay: 0.8
   _enigmaIsEnd: 0
   triggerSound: {fileID: 1829321114}
+  triggerSounLight: {fileID: 1026312896}
 --- !u!114 &1829321110
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42268,7 +42499,7 @@ PrefabInstance:
       addedObject: {fileID: 1835553932}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2e3f6cf0939d3224791751aab95f0fc5, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1835553935}
+      addedObject: {fileID: 1835553938}
   m_SourcePrefab: {fileID: 100100000, guid: 2e3f6cf0939d3224791751aab95f0fc5, type: 3}
 --- !u!1 &1835553924 stripped
 GameObject:
@@ -42299,7 +42530,7 @@ MonoBehaviour:
   _rotationSpeed: 100
   _interactWhisEnigma: 0
   enigmaIsValidate: 0
-  triggerSound: {fileID: 1835553935}
+  triggerSoundMultiple: {fileID: 1835553938}
 --- !u!114 &1835553928
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42353,7 +42584,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.2911735, y: 2.1747048, z: 2.1413317}
   m_Center: {x: 0.000000014901161, y: 0, z: 0}
---- !u!114 &1835553935
+--- !u!114 &1835553938
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -42362,16 +42593,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 1835553924}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 24bcef4794b2795468dc4b93294b310a, type: 3}
+  m_Script: {fileID: 11500000, guid: 9818f5328c8463345ba603930948cd26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sonBoucle:
-    Guid:
+  SoundList:
+  - Guid:
       Data1: 1668746715
       Data2: 1333279890
       Data3: 222285708
       Data4: -1049938263
     Path: event:/MirrorMove
+  - Guid:
+      Data1: -542912909
+      Data2: 1190060886
+      Data3: -1077610314
+      Data4: 967764978
+    Path: event:/EndEnigme
 --- !u!1 &1835790634
 GameObject:
   m_ObjectHideFlags: 0
@@ -42455,6 +42692,91 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5695f63f769bbd4c9776188a42ed03e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1839548012
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1839548013}
+  - component: {fileID: 1839548014}
+  - component: {fileID: 1839548015}
+  m_Layer: 0
+  m_Name: Ambiant (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1839548013
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1839548012}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 14.422, y: -4.155, z: 4.459}
+  m_LocalScale: {x: 10.846981, y: 1.2477338, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 11921754}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1839548014
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1839548012}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1839548015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1839548012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 631664276
+      Data2: 1090302772
+      Data3: 360247985
+      Data4: 828021867
+    Path: event:/Ambiant/Amb-3
+  Event: 
+  EventPlayTrigger: 3
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 1
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &1843947523
 GameObject:
   m_ObjectHideFlags: 0

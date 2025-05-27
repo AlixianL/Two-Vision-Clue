@@ -12,6 +12,11 @@ public class LabyrintheTriggerBox : MonoBehaviour, ISaveAndPullData
     [SerializeField] private UnlockFInal _unlock;
     [SerializeField] private GameObject _number;
 
+    public TriggerSoundMultiple triggerSoundMultiple;
+
+    public TriggerSound triggerSoundLight;
+
+
     void Start()
     {
         _validationLight.SetActive(false);
@@ -30,6 +35,9 @@ public class LabyrintheTriggerBox : MonoBehaviour, ISaveAndPullData
             _unlock._labiryntheIsEnd = true;
 
             PushDataToSave();
+
+            triggerSoundMultiple.PlaySound(1);
+            triggerSoundLight.JouerOneShot();
         }
     }
 

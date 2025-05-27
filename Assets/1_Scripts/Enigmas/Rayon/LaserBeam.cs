@@ -30,7 +30,13 @@ public class LaserBeam : MonoBehaviour, IActivatable
 
     public TriggerSound triggerSound;
 
+    public TriggerSound triggerSoundLight;
+
     public TriggerSoundMultiple triggerSoundMultiple;
+
+    public TriggerSound triggerSoundButton;
+
+
 
     [Header("End Feedback")]
     [SerializeField] private GameObject _validationLight;//-------------------------> Light Sur le pilier central pour valid� l'�nigme
@@ -55,6 +61,7 @@ public class LaserBeam : MonoBehaviour, IActivatable
     {
         if (!_lazerIsOn)
         {
+            triggerSoundButton.JouerOneShot();
             _verifLight.material.color = _isOn;
             _lazerIsOn = true;
             triggerSound.LancerSon();
@@ -156,6 +163,7 @@ public class LaserBeam : MonoBehaviour, IActivatable
         _number.SetActive(true);
         _unlock._rayonIsEnd = true;
         triggerSoundMultiple.PlaySound(0);
+        triggerSoundLight.JouerOneShot();
 
 
 
