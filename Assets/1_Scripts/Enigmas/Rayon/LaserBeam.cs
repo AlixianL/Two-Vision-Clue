@@ -151,7 +151,7 @@ public class LaserBeam : MonoBehaviour, IActivatable
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     // -- Fonction de fin d'�nigme ---------------------------------
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    void EndLaserEnigme()
+    public void EndLaserEnigme()
     {
 
         _puzzleEnd = true;

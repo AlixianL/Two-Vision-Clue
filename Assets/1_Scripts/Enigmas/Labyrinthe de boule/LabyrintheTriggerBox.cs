@@ -27,18 +27,23 @@ public class LabyrintheTriggerBox : MonoBehaviour, ISaveAndPullData
     {
         if (other.name == "SM_Boule_001")
         {
-            _rotateWeel.enigmaIsValidate = true;
             other.attachedRigidbody.freezeRotation = true;
             other.attachedRigidbody.useGravity = false;
-            _validationLight.SetActive(true);
-            _number.SetActive(true);
-            _unlock._labiryntheIsEnd = true;
-
-            PushDataToSave();
-
-            triggerSoundMultiple.PlaySound(1);
-            triggerSoundLight.JouerOneShot();
+            EndEnigma();
         }
+    }
+
+    public void EndEnigma()
+    {
+        _rotateWeel.enigmaIsValidate = true;
+        _validationLight.SetActive(true);
+        _number.SetActive(true);
+        _unlock._labiryntheIsEnd = true;
+
+        PushDataToSave();
+
+        triggerSoundMultiple.PlaySound(1);
+        triggerSoundLight.JouerOneShot();
     }
 
     public void PushDataToSave()

@@ -206,7 +206,7 @@ public class SimonsManager : MonoBehaviour
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     // -- Condition de fin du mini jeux  ---------------------------
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    void EndEnigme()
+    public void EndEnigme()
     {
         if (_validationLight != null)
         {
