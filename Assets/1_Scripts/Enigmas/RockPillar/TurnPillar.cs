@@ -36,6 +36,8 @@ public class TurnPillar : MonoBehaviour, IActivatable, ISaveAndPullData
 
     public TriggerSoundMultiple triggerSoundMultiple;
 
+    public TriggerSound triggerSoundLight;
+
 
 
 
@@ -152,14 +154,18 @@ public class TurnPillar : MonoBehaviour, IActivatable, ISaveAndPullData
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     public void EndEnigme()
     {
-        triggerSoundMultiple.PlaySound(4);
+        
     _validationLight.SetActive(true);
         _enigmeisend = true;
         _unlock._pillarIsEnd = true;
         _number.SetActive(true);
+        
 
 
         SaveData.Instance.gameData.enigmaIsComplete_pillar = true;
+
+        triggerSoundLight.JouerOneShot();
+        triggerSoundMultiple.PlaySound(4);
     }
 
     public void PullDataFromSave()

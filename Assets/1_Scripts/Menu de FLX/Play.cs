@@ -30,10 +30,11 @@ public class Play : MonoBehaviour,IActivatable
 
     public void Start()
     {
+        _cameraPanel.SetActive(false);
+
         triggerSound.LancerSon();
 
         GameManager.Instance.ToggleMovementFreezePlayer();
-        _cameraPanel.SetActive(false);
         _handheldCameraManager.cameraCanBeInstalled = false;
     }
     public void Activate()

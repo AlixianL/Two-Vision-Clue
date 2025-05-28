@@ -8,6 +8,7 @@ public class ButtonOnOff : MonoBehaviour, IActivatable
     [SerializeField] private Color _isOff;//----------------------------------------> Led off
     [SerializeField] private MeshRenderer _verifLight;//----------------------------> Led affichage
 
+    public TriggerSound triggerSoundButton;
 
     private bool _goatIsOn = false;//----------------------------------------------> Condition Si le lazer est actif
     void Start()
@@ -20,6 +21,7 @@ public class ButtonOnOff : MonoBehaviour, IActivatable
         
         if (!_goatIsOn)
         {
+            triggerSoundButton.JouerOneShot();
             _verifLight.material.color = _isOn;
             _goatIsOn = true;
         }
