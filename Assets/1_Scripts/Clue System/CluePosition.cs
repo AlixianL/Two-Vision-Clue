@@ -61,13 +61,13 @@ public class CluePosition : MonoBehaviour, IActivatable, ISaveAndPullData
         ChangePositionCinemachine.Instance.SwitchCam(clueCinemachineCamera, playerIsInteracting);
         GameManager.Instance.ToggleTotalFreezePlayer();
         GameManager.Instance.clueUI.SetActive(!GameManager.Instance.clueUI.activeSelf);
-        GameManager.Instance.playerUI.SetActive(!GameManager.Instance.playerUI.activeSelf);
+        GameManager.Instance.playerMainRoom.SetActive(!GameManager.Instance.clueUI.activeSelf);
     }
 
     public void ActivateByGumGum()
     {
         GameManager.Instance.clueUI.SetActive(true);
-        GameManager.Instance.playerUI.SetActive(false);
+        GameManager.Instance.playerMainRoom.SetActive(false);
     }
     
     public void PushDataToSave()

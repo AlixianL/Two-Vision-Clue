@@ -46,9 +46,12 @@ public class HandheldCameraManager : MonoBehaviour
                 PlayerBrain.Instance.cameraBack.SetActive(true);
 
                 playerCanTakeCamera = cameraIsInstall;
+
+                AudioManager.instance.listenerCamera.SwitchCamera();
             }
 
             if (!cameraCanBeInstalled && !cameraIsInstall) _handhledCameraShake.TriggerAnimation();
+
         }
 
     }
@@ -69,6 +72,10 @@ public class HandheldCameraManager : MonoBehaviour
                 playerCanTakeCamera = false;
                 cameraCanBeInstalled = true;
                 PlayerBrain.Instance.cameraBack.SetActive(false);
+
+                AudioManager.instance.listenerCamera.SwitchCamera();
+                AudioManager.instance.listenerCamera.cam2 = null;
+                AudioManager.instance.listenerCamera.tempListenerCam2 = null;
             }
         }
 

@@ -108,6 +108,8 @@ public class GumGumManager : MonoBehaviour, ISaveAndPullData
                     canPlayAnimation = true;
                     
                     StartCoroutine(ShowClueWithAnimation(enigmaNumber));
+
+                    
                 }
             }
         }
@@ -224,11 +226,11 @@ public class GumGumManager : MonoBehaviour, ISaveAndPullData
     // Coroutine pour afficher un indice avec une animation
     private IEnumerator ShowClueWithAnimation(int enigmaNumber)
     {
+        GiveClueForEnigma(enigmaNumber);
 
         if (!breakCoroutine)
         {
-            GiveClueForEnigma(enigmaNumber);
-        
+          
             if (canPlayAnimation)
             {
                 GameManager.Instance.playerUI.SetActive(false);
@@ -255,10 +257,10 @@ public class GumGumManager : MonoBehaviour, ISaveAndPullData
             ChangePositionCinemachine.Instance._gumgumCinemachineCamera.Priority = 0;
             _cluePosition.ActivateByGumGum();
         }
-
+        GameManager.Instance.playerMainRoom.SetActive(true);
         breakCoroutine = true;
     }
-    
+
     /// <summary>
     /// Instancie un indice à une position aléatoire.
     /// </summary>
@@ -266,29 +268,29 @@ public class GumGumManager : MonoBehaviour, ISaveAndPullData
     {
         // Récupération du composant CluePosition
         _cluePosition = targetSpawn.GetComponent<CluePosition>();
-        
+
         // Instanciation de l'indice
-        clueInstance = Instantiate(cluePrefab,targetSpawn.position, targetSpawn.rotation);
+        clueInstance = Instantiate(cluePrefab, targetSpawn.position, targetSpawn.rotation);
         clueInstance.transform.SetParent(targetSpawn);
-        
+
         _cluePosition.clues.Add(clueInstance);
-        
+
         PlayerBrain.Instance.playerGameObject.transform.position = new Vector3(targetSpawn.position.x, PlayerBrain.Instance.playerGameObject.transform.position.y, targetSpawn.position.z + 1.5f);
         PlayerBrain.Instance.playerGameObject.transform.rotation = Quaternion.Euler(0, targetSpawn.rotation.eulerAngles.y, 0);
         PlayerBrain.Instance.cinemachineTargetGameObject.transform.LookAt(targetSpawn.position);
-        
+
         if (Cursor.lockState == CursorLockMode.Locked) Cursor.lockState = CursorLockMode.None;
         else Cursor.lockState = CursorLockMode.Locked;
-                 
+
         if (Cursor.visible == false) Cursor.visible = true;
         else Cursor.visible = false;
-        
+
         GameManager.Instance.clueUI.SetActive(true);
-        
+
         _cluePosition.UpdatePosition();
         _cluePosition.playerIsInteracting = true;
     }
-    
+
     /// <summary>
     /// Incrémente l’index de l’indice à afficher pour une énigme donnée.
     /// </summary>
