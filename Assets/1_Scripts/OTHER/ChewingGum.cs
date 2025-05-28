@@ -1,0 +1,34 @@
+using UnityEngine;
+
+public class ChewingGum : MonoBehaviour, IActivatable
+{
+    public TriggerSound triggerSound;
+    [Header("Références")]
+    public GumUIManager gumUIManager;
+    
+    
+    public void Activate()
+    {
+        TakeChewingGum();
+    }
+
+    public void TakeChewingGum()
+    {
+
+        triggerSound.JouerOneShot();
+        // Incrémente le compteur
+        PlayerBrain.Instance.chewingGumCount++;
+        
+        // Trouve le UIManager si non assigné
+        if (gumUIManager == null)
+            gumUIManager = FindFirstObjectByType<GumUIManager>();
+        
+        // Met à jour l'UI
+        gumUIManager?.ShowGumCount(PlayerBrain.Instance.chewingGumCount);
+
+        SaveData.Instance.gameData.chewinggumCount++;
+        
+        // Détruit le chewing-gum
+        Destroy(gameObject);
+    }
+}
