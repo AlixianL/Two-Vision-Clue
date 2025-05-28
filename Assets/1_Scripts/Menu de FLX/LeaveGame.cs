@@ -1,0 +1,9 @@
+using UnityEngine;
+
+public class LeaveGame : MonoBehaviour, IActivatable
+{
+    public void Activate()
+    {
+        Application.Quit();
+    }
+}

@@ -4,9 +4,13 @@ public class Doors : MonoBehaviour, IInteractable
 {
     [Header("Interaction Settings"), Space(5)]
     [SerializeField] private Animator[] _animators;
-    [SerializeField] private GameObject uiInteract;
+    [SerializeField] private GameObject _uiInteract;
 
     public bool _isOpen = false;
+
+    //Sound-Design
+    //---------------------------------
+    public TriggerSound triggerSound;
 
     public void Interact()
     {
@@ -15,11 +19,15 @@ public class Doors : MonoBehaviour, IInteractable
         foreach (var animator in _animators)
         {
             animator.SetTrigger("transition");
+
+            //Sound-Design
+            //---------------------------------
+            triggerSound.JouerOneShot();
         }
     }
 
     public void ShowUI(bool show)
     {
-        uiInteract.SetActive(show);
+        _uiInteract.SetActive(show);
     }
 }

@@ -14,7 +14,6 @@ public class PlayTimeLine : MonoBehaviour
 
         if (collision.gameObject.tag == "Player")
         {
-            Debug.Log("rentré");
             play();
         }
 

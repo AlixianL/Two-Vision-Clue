@@ -8,7 +8,16 @@ public class headbob : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.Z) || Input.GetKey(KeyCode.Q) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
+        // Mises à jour des directions basées sur les boutons
+        bool _forwardMovement = PlayerBrain.Instance.player.GetButton("ForwardMovement");
+        bool _backwardMovement = PlayerBrain.Instance.player.GetButton("BackwardMovement");
+        bool _leftMovement = PlayerBrain.Instance.player.GetButton("LeftMovement");
+        bool _rightMovement = PlayerBrain.Instance.player.GetButton("RightMovement");
+
+        // Déterminer si le joueur bouge
+        bool isMoving = _forwardMovement || _backwardMovement || _leftMovement || _rightMovement;
+        
+        if (isMoving)
         {
             camAnim.SetTrigger("Walk");
         }

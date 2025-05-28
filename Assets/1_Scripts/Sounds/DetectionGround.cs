@@ -28,8 +28,6 @@ public class DetectionGround : MonoBehaviour
         while (true)
         {
             Vector3 origin = transform.position;
-            //Debug.Log(origin);
-            //Debug.Log(PlayerBrain.Instance.playerRigidbody.linearVelocity);
             if (PlayerBrain.Instance.isGrounded && PlayerBrain.Instance.playerRigidbody.linearVelocity != Vector3.zero &&
                 Physics.Raycast (origin, 
                     Vector3.down,
@@ -40,7 +38,6 @@ public class DetectionGround : MonoBehaviour
             {
                 if (hit.collider.TryGetComponent<Terrain>(out Terrain terrain))
                 {
-                    //Debug.Log("ca marche");
                     yield return StartCoroutine(PlayFootstepSoundFromTerrain(terrain, hit.point));
                     
                 }
@@ -56,7 +53,7 @@ public class DetectionGround : MonoBehaviour
 
 
     //Jouer un type de son par rapport au Terrain
-    //Il détecte quel type de matériaux est en dessous du joueurs et renvoie une information
+    //Il dï¿½tecte quel type de matï¿½riaux est en dessous du joueurs et renvoie une information
     private IEnumerator PlayFootstepSoundFromTerrain(Terrain Terrain, Vector3 HitPoint)
     {
         Vector3 terrainPosition = HitPoint - Terrain.transform.position;
@@ -88,7 +85,7 @@ public class DetectionGround : MonoBehaviour
                 {
                     EventReference clip = GetClipFromTextureSound(textureSound);
                     RuntimeManager.PlayOneShot(clip);
-                    Debug.Log("C'est good");
+                    
                     yield return null;
                 }
             }
@@ -106,13 +103,13 @@ public class DetectionGround : MonoBehaviour
                 EventReference clip = GetClipFromTextureSound(textureSound);
 
                 RuntimeManager.PlayOneShot(clip);
-                Debug.Log("Ca marche");
+               
                 yield return null;
             }
         }
     }
 
-    //Récupère l'information envoyer dans le script et revoie l'information du son de la texture associer.
+    //Rï¿½cupï¿½re l'information envoyer dans le script et revoie l'information du son de la texture associer.
     private EventReference GetClipFromTextureSound(TextureSound TextureSound)
     {
 

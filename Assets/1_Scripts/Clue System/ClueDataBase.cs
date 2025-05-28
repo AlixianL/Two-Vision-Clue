@@ -10,12 +10,10 @@ public class ClueDataBase : ScriptableObject
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     // Chaque liste contient les ClueData associés à une énigme spécifique
-    [SerializeField] private List<ClueData> cluesEnigma1;
-    [SerializeField] private List<ClueData> cluesEnigma2;
-    [SerializeField] private List<ClueData> cluesEnigma3;
-    [SerializeField] private List<ClueData> cluesEnigma4;
-    [SerializeField] private List<ClueData> cluesEnigma5;
-    [SerializeField] private List<ClueData> cluesEnigma6;
+    [SerializeField] private List<ClueData> _cluesEnigma1;
+    [SerializeField] private List<ClueData> _cluesEnigma2;
+    [SerializeField] private List<ClueData> _cluesEnigma3;
+    [SerializeField] private List<ClueData> _cluesEnigma4;
 
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     // -- RÉCUPÉRATION D'INDICES POUR UNE ÉNIGME -------------------
@@ -30,19 +28,16 @@ public class ClueDataBase : ScriptableObject
         // Sélectionne dynamiquement la bonne liste d’indices selon le nom de l’énigme
         List<ClueData> clues = enigmaName switch
         {
-            "Enigma_01" => cluesEnigma1,
-            "Enigma_02" => cluesEnigma2,
-            "Enigma_03" => cluesEnigma3,
-            "Enigma_04" => cluesEnigma4,
-            "Enigma_05" => cluesEnigma5,
-            "Enigma_06" => cluesEnigma6,
+            "Enigma_01" => _cluesEnigma1,
+            "Enigma_02" => _cluesEnigma2,
+            "Enigma_03" => _cluesEnigma3,
+            "Enigma_04" => _cluesEnigma4,
             _ => null
         };
 
         // Si aucune liste n’est trouvée ou vide, log une alerte et retourne une liste vide
         if (clues == null || clues.Count == 0)
         {
-            Debug.LogWarning($"Aucun indice trouvé pour {enigmaName} dans la ClueDatabase.");
             return new ClueData[0];
         }
 
