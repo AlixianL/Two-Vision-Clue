@@ -185,7 +185,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7429367353723081403
 Transform:
   m_ObjectHideFlags: 0
@@ -514,7 +514,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4157392203403636689
 Transform:
   m_ObjectHideFlags: 0
@@ -626,7 +626,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5689908832889321780
 Transform:
   m_ObjectHideFlags: 0
@@ -769,6 +769,7 @@ MonoBehaviour:
   OptionMenu:
   - {fileID: 3119028235517339266}
   - {fileID: 905683664377561241}
+  triggerSoundMultiple: {fileID: 0}
 --- !u!1 &5176986566825638893
 GameObject:
   m_ObjectHideFlags: 0
@@ -818,12 +819,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90360c4b3e5b58848aab3308ea6500e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PauseMenu:
-  - {fileID: 6787292625418415446}
-  - {fileID: 4080660217610095170}
-  - {fileID: 1743845188536859734}
-  - {fileID: 3119028235517339266}
-  - {fileID: 7711832304125300016}
+  _pauseMenu: []
+  _otherElements: []
   neutralParent: {fileID: 0}
 --- !u!1 &5841514581127045907
 GameObject:
@@ -1022,7 +1019,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5184472381641536593
 Transform:
   m_ObjectHideFlags: 0
@@ -1157,6 +1154,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6128e56b81bc774396ae51bf72d3cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _unpause: {fileID: 0}
+  _handheldCameraManager: {fileID: 0}
+  _cameraPanel: {fileID: 0}
 --- !u!1 &7057819449184495736
 GameObject:
   m_ObjectHideFlags: 0
@@ -1354,7 +1354,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8534541861524076348
 Transform:
   m_ObjectHideFlags: 0

@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 
     [Header("UI Elements"), Space(5)]
     public GameObject playerUI;
+    public GameObject playerMainRoom;
     public GameObject digicodeUI;
     public GameObject pillarUI;
     public GameObject labyrintheUI;

@@ -46,7 +46,7 @@ public class MirrorRotation : MonoBehaviour, IActivatable, ISaveAndPullData
             ChangePositionCinemachine.Instance.SwitchCam(_enigmaCinemachineCamera, _interactWithEnigma);
         }
 
-        GameManager.Instance.playerUI.SetActive(!_interactWithEnigma);
+        GameManager.Instance.playerMainRoom.SetActive(!_interactWithEnigma);
         GameManager.Instance.mirrorUI.SetActive(_interactWithEnigma);
     }
 

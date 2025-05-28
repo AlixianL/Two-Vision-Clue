@@ -7,9 +7,13 @@ public class Pause : MonoBehaviour
     [SerializeField] private List<GameObject> _otherElements = new List<GameObject>();
     public Transform neutralParent;
     private bool isPaused = false;
+    private bool _fullUi = false;
+
+
 
     void Start()
     {
+        _fullUi = true;
         foreach (GameObject Panel in _pauseMenu)
         {
             Panel.SetActive(false);
@@ -18,9 +22,20 @@ public class Pause : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.V))
         {
-            
+            _fullUi = !_fullUi;
+            SwitchUi(_fullUi);
+        }
+
+        if (Input.GetKeyUp(KeyCode.V))
+        {
+            _fullUi = !_fullUi;
+            SwitchUi(_fullUi);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
             TogglePauseMenu();
         }
     }
@@ -57,5 +72,13 @@ public class Pause : MonoBehaviour
             }
             Time.timeScale = 1f;
         }
+    }
+
+    public void SwitchUi(bool UiMainIsOn)
+    {
+        
+        GameManager.Instance.playerUI.SetActive(UiMainIsOn);
+        GameManager.Instance.playerMainRoom.SetActive(!UiMainIsOn);
+        _fullUi = UiMainIsOn;
     }
 }

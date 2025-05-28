@@ -69,7 +69,8 @@ public class TurnPillar : MonoBehaviour, IActivatable, ISaveAndPullData
         GameManager.Instance.ToggleTotalFreezePlayer();
         PlayerBrain.Instance.playerRigidbody.linearVelocity = Vector3.zero;
         ChangePositionCinemachine.Instance.SwitchCam(_enigmaCinemachineCamera, _interactWithEnigma);
-        GameManager.Instance.playerUI.SetActive(!_interactWithEnigma);
+
+        GameManager.Instance.playerMainRoom.SetActive(!_interactWithEnigma);
         GameManager.Instance.pillarUI.SetActive(_interactWithEnigma);
     }
 

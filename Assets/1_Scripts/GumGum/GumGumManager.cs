@@ -370,7 +370,7 @@ public class GumGumManager : MonoBehaviour, ISaveAndPullData
         
         isInteracting = false;
         ChangePositionCinemachine.Instance.SwitchCam(gumgumCinemachineCamera, isInteracting);
-        GameManager.Instance.playerUI.gameObject.SetActive(true);
+        
         PlayerBrain.Instance.playerInteractionSystem.playerCanInteractWhithMouse = true;
     }
 }
