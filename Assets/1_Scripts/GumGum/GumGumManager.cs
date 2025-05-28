@@ -257,7 +257,7 @@ public class GumGumManager : MonoBehaviour, ISaveAndPullData
             ChangePositionCinemachine.Instance._gumgumCinemachineCamera.Priority = 0;
             _cluePosition.ActivateByGumGum();
         }
-        GameManager.Instance.playerMainRoom.SetActive(true);
+        
         breakCoroutine = true;
     }
 
