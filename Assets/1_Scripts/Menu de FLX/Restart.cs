@@ -15,6 +15,5 @@ public class Restart : MonoBehaviour,IActivatable
         
         StartCoroutine(SceneLoader.Instance.LoadScene(SceneLoader.Instance.sceneToLoad));
         _unpause.TogglePauseMenu();
-        Debug.Log("je recharge la sc�ne");
     }
 }

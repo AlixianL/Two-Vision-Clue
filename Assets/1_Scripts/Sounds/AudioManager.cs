@@ -15,7 +15,6 @@ public class AudioManager : MonoBehaviour
     {
         if (instance != null)
         {
-            Debug.LogError("Plus de 1 AudioManager dans la sc�ne");
             return;
         }
         instance = this;

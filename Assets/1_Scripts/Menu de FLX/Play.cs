@@ -69,8 +69,6 @@ public class Play : MonoBehaviour,IActivatable
         _recuperationlight.enabled = true;
 
         _handheldCameraManager.isPlaying = true;
-
-        Debug.Log(_handheldCameraManager.isPlaying);
     }
 
     private void SetLayerRecursively(GameObject obj, int newLayer)
@@ -106,7 +104,7 @@ public class Play : MonoBehaviour,IActivatable
 
 
         // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-        // -- logique des déplacement  ---------------------------------
+        // -- logique des dï¿½placement  ---------------------------------
         // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
         for (float t = 0; t < 1f; t += Time.deltaTime / _effectDuration)

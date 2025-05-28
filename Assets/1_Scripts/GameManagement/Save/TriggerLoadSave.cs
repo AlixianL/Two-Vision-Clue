@@ -18,7 +18,6 @@ public class TriggerLoadSave : MonoBehaviour, IActivatable
                 if (activatable != null)
                 {
                     activatable.PullDataFromSave();
-                    Debug.Log("Pull Complete");
                 }
             }
         }

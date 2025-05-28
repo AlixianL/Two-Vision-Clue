@@ -39,6 +39,7 @@ public class GumGumManager : MonoBehaviour, ISaveAndPullData
     private int _clueIndexEnigma3;//-------------------------> Index pour instancier les indices au fur et a mesure
     private int _clueIndexEnigma4;//-------------------------> Index pour instancier les indices au fur et a mesure
     private bool canPlayAnimation = false;
+    private bool breakCoroutine;
     
     private Dictionary<int, Transform> enigmaSpawnPoint;//------> Dictionnaire liant une énigme a un point de spawn 
     [SerializeField] private EnigmaSpawn[] spawnPointsArray;//---> Array regroupant les Dictionnaire enigmaSpawnPoint
@@ -166,7 +167,6 @@ public class GumGumManager : MonoBehaviour, ISaveAndPullData
         // Vérifie si un point de spawn est défini pour cette énigme
         if (!enigmaSpawnPoint.TryGetValue(enigmaNumber, out targetSpawn))
         {
-            Debug.LogWarning($"Aucun point de spawn trouvé pour l'énigme {enigmaNumber}");
             return;
         }
 
@@ -176,28 +176,29 @@ public class GumGumManager : MonoBehaviour, ISaveAndPullData
 
         if (clues == null || clues.Length == 0)
         {
-            Debug.Log($"Aucun indice trouvé pour {enigmaKey}");
+            breakCoroutine = true;
             return;
         }
 
         if (clueIndex >= clues.Length)
         {
-            Debug.Log($"Tous les indices ont déjà été montrés pour {enigmaKey}");
             PlayerBrain.Instance.chewingGumCount++;
             EndDialogue();
+            breakCoroutine = true;
             return;
         }
 
         // Instanciation de l'indice
         if (clueIndex < clues.Length)
         {
+            breakCoroutine = false;
             IntanciateClue(); // Crée clueInstance et _cluePosition
         }
 
         
         if (_cluePosition == null)
         {
-            Debug.LogError("CluePosition introuvable sur l'indice instancié.");
+            breakCoroutine = true;
             return;
         }
 
@@ -223,35 +224,39 @@ public class GumGumManager : MonoBehaviour, ISaveAndPullData
     // Coroutine pour afficher un indice avec une animation
     private IEnumerator ShowClueWithAnimation(int enigmaNumber)
     {
-        GiveClueForEnigma(enigmaNumber);
-        
-        Debug.Log("Debut coroutine");
-        if (canPlayAnimation)
-        {
-            GameManager.Instance.playerUI.SetActive(false);
-            GameManager.Instance.clueUI.SetActive(false);
-            GameManager.Instance.gumgumUI.SetActive(false);
-            
-            if (_BullGumAnimator != null)
-            {
-                Debug.Log("Debut animation");
-                GameManager.Instance.ToggleTotalFreezePlayer();
-                PlayerBrain.Instance.playerRigidbody.linearVelocity = Vector3.zero;
 
-                ChangePositionCinemachine.Instance._gumgumCinemachineCamera.Priority = 2;
-                _BullGumAnimator.SetTrigger(_showClueAnimationTrigger);
-                _GumGumAnimator.SetTrigger(_showClueAnimationTrigger);
- 
-                yield return new WaitForSeconds(5f);
-            }
-            else
+        if (!breakCoroutine)
+        {
+            GiveClueForEnigma(enigmaNumber);
+        
+            if (canPlayAnimation)
             {
-                yield return new WaitForSeconds(0.3f);
+                GameManager.Instance.playerUI.SetActive(false);
+                GameManager.Instance.clueUI.SetActive(false);
+                GameManager.Instance.gumgumUI.SetActive(false);
+            
+                if (_BullGumAnimator != null)
+                {
+                    GameManager.Instance.ToggleTotalFreezePlayer();
+                    PlayerBrain.Instance.playerRigidbody.linearVelocity = Vector3.zero;
+
+                    ChangePositionCinemachine.Instance._gumgumCinemachineCamera.Priority = 2;
+                    _BullGumAnimator.SetTrigger(_showClueAnimationTrigger);
+                    _GumGumAnimator.SetTrigger(_showClueAnimationTrigger);
+ 
+                    yield return new WaitForSeconds(5f);
+                }
+                else
+                {
+                    yield return new WaitForSeconds(0.3f);
+                }
             }
+            ChangePositionCinemachine.Instance.SwitchIntoClueCinemachineCamera(gumgumCinemachineCamera, _cluePosition.clueCinemachineCamera);
+            ChangePositionCinemachine.Instance._gumgumCinemachineCamera.Priority = 0;
+            _cluePosition.ActivateByGumGum();
         }
-        ChangePositionCinemachine.Instance.SwitchIntoClueCinemachineCamera(gumgumCinemachineCamera, _cluePosition.clueCinemachineCamera);
-        ChangePositionCinemachine.Instance._gumgumCinemachineCamera.Priority = 0;
-        _cluePosition.ActivateByGumGum();
+
+        breakCoroutine = true;
     }
     
     /// <summary>

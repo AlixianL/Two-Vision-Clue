@@ -172,13 +172,10 @@ public class TurnPillar : MonoBehaviour, IActivatable, ISaveAndPullData
     public void PullDataFromSave()
     {
         turnRock[0].transform.localEulerAngles = SaveData.Instance.gameData.rotationCubeYBot;
-        Debug.Log("bloc bas (euler) " + turnRock[0].transform.localEulerAngles);
 
         turnRock[1].transform.localEulerAngles = SaveData.Instance.gameData.rotationCubeYMid;
-        Debug.Log("bloc milieu (euler) " + turnRock[1].transform.localEulerAngles);
 
         turnRock[2].transform.localEulerAngles = SaveData.Instance.gameData.rotationCubeYTop;
-        Debug.Log("bloc haut (euler) " + turnRock[2].transform.localEulerAngles);
     }
 
 
@@ -188,15 +185,12 @@ public class TurnPillar : MonoBehaviour, IActivatable, ISaveAndPullData
         {
             case 0:
                 SaveData.Instance.gameData.rotationCubeYBot = NormalizeEuler(turnRock[0].transform.localEulerAngles);
-                Debug.Log("bloc bas " + turnRock[0].transform.localEulerAngles);
                 break;
             case 1:
                 SaveData.Instance.gameData.rotationCubeYMid = NormalizeEuler(turnRock[1].transform.localEulerAngles);
-                Debug.Log("bloc mid " + turnRock[1].transform.localEulerAngles);
                 break;
             case 2:
                 SaveData.Instance.gameData.rotationCubeYTop = NormalizeEuler(turnRock[2].transform.localEulerAngles);
-                Debug.Log("bloc haut " + turnRock[2].transform.localEulerAngles);
                 break;
         }
     }

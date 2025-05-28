@@ -91,7 +91,6 @@ public class MirrorRotation : MonoBehaviour, IActivatable, ISaveAndPullData
     public void FreezMirror()
     {
         _enigmaisend = true;
-        Debug.Log("Enigme Miroir fini");
     }
     
     public void SetMirrorRotation(int mirrorID, string axis, Vector3 rotation)

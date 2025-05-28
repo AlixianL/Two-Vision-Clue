@@ -39,11 +39,6 @@ public class PlaqueManager : MonoBehaviour
 
     [SerializeField] private Transform _gumGum;
     
-
-
-
-
-
     private bool isSwapping = false;
 
     void Start()
@@ -78,7 +73,6 @@ public class PlaqueManager : MonoBehaviour
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     public void Swap(PositionID pos1, PositionID pos2)
     {
-        Debug.Log("SWAP");
         if (!isSwapping && !_enigmaisEnd )
         {
             Transform a = GetPlaqueByPosition(pos1);
@@ -86,7 +80,6 @@ public class PlaqueManager : MonoBehaviour
 
             if (a == null || b == null)
             {
-                Debug.LogWarning("Position non trouv�e.");
                 return;
             }
 
@@ -96,8 +89,6 @@ public class PlaqueManager : MonoBehaviour
 
     public void Turnup()
     {
-        Debug.Log("TOURNEEEEE");
-
         if (!isSwapping && !_enigmaisEnd)
         {
             Transform r = GetPlaqueByPosition(PositionID.Gauche);
@@ -106,8 +97,6 @@ public class PlaqueManager : MonoBehaviour
         }
 
     }
-
-
 
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     // -- Fonction pour trouv� la plaque avec ID  ------------------
@@ -240,7 +229,6 @@ public class PlaqueManager : MonoBehaviour
             triggerSound.JouerOneShot();
         }
         StartCoroutine(FxSand(5f));
-        Debug.Log("c'est fintio");
     }
 
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

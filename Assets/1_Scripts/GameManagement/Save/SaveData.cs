@@ -13,7 +13,6 @@ public class SaveData : MonoBehaviour
     void Awake()
     {
         if (Instance == null) Instance = this;
-        Debug.Log(Instance.ToString());
     }
 
     private void Update()
@@ -32,7 +31,6 @@ public class SaveData : MonoBehaviour
         string gameDataString = JsonUtility.ToJson(gameData); // génère la data a partir de gameData
         string filePath = Application.persistentDataPath + "/GameData_Save_0"+ number + ".json"; // Chemin ou enregistrer le fichier json
         System.IO.File.WriteAllText(filePath, gameDataString); // ecriture du fichier json avec les datas saves
-        Debug.Log("Save Complete, Location : " + filePath);
     }
     
     /// <summary>
@@ -44,7 +42,6 @@ public class SaveData : MonoBehaviour
         string gameDataString = System.IO.File.ReadAllText(filePath);
         
         gameData = JsonUtility.FromJson<GameData>(gameDataString);
-        Debug.Log("Load Complete");
     }
 }
 

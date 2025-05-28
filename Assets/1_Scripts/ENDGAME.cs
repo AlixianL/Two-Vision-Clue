@@ -9,7 +9,6 @@ public class ENDGAME : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("oui");
             SceneManager.LoadScene(sceneForEnd);
         }
     }

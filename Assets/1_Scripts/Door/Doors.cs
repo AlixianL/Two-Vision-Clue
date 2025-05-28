@@ -4,7 +4,7 @@ public class Doors : MonoBehaviour, IInteractable
 {
     [Header("Interaction Settings"), Space(5)]
     [SerializeField] private Animator[] _animators;
-    [SerializeField] private GameObject uiInteract;
+    [SerializeField] private GameObject _uiInteract;
 
     public bool _isOpen = false;
 
@@ -28,6 +28,6 @@ public class Doors : MonoBehaviour, IInteractable
 
     public void ShowUI(bool show)
     {
-        uiInteract.SetActive(show);
+        _uiInteract.SetActive(show);
     }
 }

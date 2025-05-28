@@ -21,7 +21,6 @@ public class ActivateTrackPlayer : MonoBehaviour
 
     void FadeInTracker()
     {
-        Debug.Log(this.name);
         if (_informationsFadeCoroutine != null) StopCoroutine(_informationsFadeCoroutine);
         _informationsFadeCoroutine = StartCoroutine(FadeCanvasGroup(_targetCanva, 1f, fadeDuration));
     }
@@ -36,7 +35,6 @@ public class ActivateTrackPlayer : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.LogWarning("Player entered");
             _playerInRange = true;
             FadeInTracker();
         }
@@ -46,7 +44,6 @@ public class ActivateTrackPlayer : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.LogWarning("Player exited");
             _playerInRange = false;
             FadeOutTracker();
         }

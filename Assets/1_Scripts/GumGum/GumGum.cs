@@ -47,7 +47,6 @@ public class GumGum : MonoBehaviour, IActivatable
     {
         if (clueDataBase == null)
         {
-            Debug.LogWarning("ClueDatabase n’est pas assignée dans le composant GumGum.");
             return new ClueData[0];
         }
 

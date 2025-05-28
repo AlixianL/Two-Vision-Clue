@@ -223,10 +223,6 @@ public class SimonsManager : MonoBehaviour
             {
                 SimonsElementObject.FreezSimons();
             }
-            else
-            {
-                Debug.LogWarning("Un objet de la liste _mirror n'a pas de script SimonsElement !");
-            }
         }
 
         PushDataToSave();

@@ -49,8 +49,7 @@ public class PlayerInteractionSystem : MonoBehaviour
                 SetNewCurrentInteractable(newInteractable);
 
                 if (hitObject.layer == LayerMask.NameToLayer("Menu") && !_soundIsPlaying)
-                { 
-                    Debug.Log("Sa touche");
+                {
                     //Sound-Design
                     //---------------------------------
                     triggerSoundMultiple.PlaySound(0);
